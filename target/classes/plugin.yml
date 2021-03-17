@@ -1,0 +1,24 @@
+name: CommandGUI
+version: 2.0-SNAPSHOT
+main: de.jatitv.commandgui.Main
+api-version: 1.16
+authors: [ JaTiTV ]
+
+commands:
+  commandgui:
+    description: Open the CGUI
+  cgui:
+    description: Open the CGUI
+
+permissions:
+  commandgui.command:
+    default: op
+
+  commandgui.command.info:
+    default: op
+
+  commandgui.comm .reload:
+    default: op
+
+  commandgui.admin:
+    default: op
