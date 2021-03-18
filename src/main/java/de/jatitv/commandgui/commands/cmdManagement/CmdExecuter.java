@@ -76,6 +76,10 @@ public class CmdExecuter implements CommandExecutor {
                         }
                         break;
 
+                    case "test":
+                        sender.sendMessage(DefultValue.Test);
+                        break;
+
                     case "help":
                     default:
                         DefultValue.Help(sender);
@@ -108,7 +112,6 @@ public class CmdExecuter implements CommandExecutor {
                     case "reload":
                         try {
                             Reload.reloadConfirmConsole();
-
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

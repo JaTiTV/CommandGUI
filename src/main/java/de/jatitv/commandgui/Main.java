@@ -61,15 +61,14 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         Logger logger = this.getLogger();
-
         plugin = this;
-
-
         a = this;
 
-
-        Load.LoadSend(getDescription().getVersion());
-
+        try {
+            Load.LoadSend(getDescription().getVersion());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         getCommand("commandgui").setExecutor(new CmdExecuter());
         getCommand("cgui").setExecutor(new CmdExecuter());
@@ -78,7 +77,7 @@ public final class Main extends JavaPlugin {
 
 
         if (Main.Bstats) {
-            int pluginId = 10342; // <-- Replace with the id of your plugin!
+            int pluginId = 0000; // <-- Replace with the id of your plugin!
             Metrics metrics = new Metrics(this, pluginId);
             metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(DefultValue.UpdateCheckOnJoin)));
         } else {

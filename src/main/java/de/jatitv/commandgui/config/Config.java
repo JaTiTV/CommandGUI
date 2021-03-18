@@ -9,10 +9,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Config {
 
-    public static void configCreate() throws InterruptedException {
+    public static void configCreate(){
 
         File configYML = new File(Main.thisp().getDataFolder().getPath(), "Config.yml");
         YamlConfiguration yamlConfiguration_config = YamlConfiguration.loadConfiguration(configYML);
@@ -31,5 +32,24 @@ public class Config {
 
         yamlConfiguration_config.set("Do_not_remove_or_change.Discord", Main.Discord);
 
+        if (yamlConfiguration_config.contains("Plugin.UpdateCheckOnJoin")) {
+            DefultValue.UpdateCheckOnJoin = yamlConfiguration_config.getBoolean("Plugin.UpdateCheckOnJoin");
+        } else {
+            yamlConfiguration_config.set("Plugin.UpdateCheckOnJoin", true);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6UpdateCheckOnJoin §4was added to §9Config.yml§4!");
+        }
+
+        if (yamlConfiguration_config.contains("Plugin.Debug.Enable")) {
+            DefultValue.Debug = yamlConfiguration_config.getBoolean("Plugin.Debug.Enable");
+        } else {
+            yamlConfiguration_config.set("Plugin.Debug.Enable", false);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Debug Enable §4was added to §9Config.yml§4!");
+        }
+
+        try {
+            yamlConfiguration_config.save(configYML);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
