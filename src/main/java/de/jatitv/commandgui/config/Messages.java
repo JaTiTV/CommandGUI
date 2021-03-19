@@ -3,8 +3,8 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.DefultValue;
-import de.jatitv.commandgui.Main;
+import de.jatitv.commandgui.defultValue.DefultValue;
+import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -45,16 +45,38 @@ public class Messages {
         if (yamlConfiguration_msg.contains("Plugin.NoPermission")) {
             DefultValue.NoPermission = replace(yamlConfiguration_msg.getString("Plugin.NoPermission"));
         } else {
-            yamlConfiguration_msg.set("Plugin.NoPermission", "[prefix] &cYou do not have permission for &2Wonder&6Bag&9Shop!");
+            yamlConfiguration_msg.set("Plugin.NoPermission", "[prefix] &cYou do not have permission for &6Command&9GUI!");
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6NoPermission §4was added to §9Messages.yml§4!");
         }
 
-        if (yamlConfiguration_msg.contains("TEST")) {
-            DefultValue.Test = replace(yamlConfiguration_msg.getString("TEST"));
+        if (yamlConfiguration_msg.contains("Plugin.VaultNotSetUp")) {
+            DefultValue.VaultNotSetUp = replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
         } else {
-            yamlConfiguration_msg.set("TEST", "[prefix] &6Command&9GUI");
-            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6NoPermission §4was added to §9Messages.yml§4!");
+            yamlConfiguration_msg.set("Plugin.VaultNotSetUp", "[prefix] &4Vault / Economy not set up!");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6VaultNotSetUp §4was added to §9Messages.yml§4!");
         }
+
+        if (yamlConfiguration_msg.contains("Plugin.SoundNotFound")) {
+            DefultValue.SoundNotFound = replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
+        } else {
+            yamlConfiguration_msg.set("Plugin.SoundNotFound", "[prefix] &4The sound &6[sound] &4could not be found! Please check your settings.");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6SoundNotFound §4was added to §9Messages.yml§4!");
+        }
+
+        if (yamlConfiguration_msg.contains("Shop.No_money")) {
+            DefultValue.No_money = replace(yamlConfiguration_msg.getString("Shop.No_money"));
+        } else {
+            yamlConfiguration_msg.set("Shop.No_money", "[prefix] &cYou do not have enough money!");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6No_money §4was added to §9Messages.yml§4!");
+        }
+
+        if (yamlConfiguration_msg.contains("Shop.Buy_msg")) {
+            DefultValue.Buy_msg = replace(yamlConfiguration_msg.getString("Shop.Buy_msg"));
+        } else {
+            yamlConfiguration_msg.set("Shop.Buy_msg", "[prefix] §2You bought [itemname] for §6[price]&2.");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6Buy_msg §4was added to §9Messages.yml§4!");
+        }
+
 
         try {
             yamlConfiguration_msg.save(messagesYML);
@@ -62,10 +84,6 @@ public class Messages {
             e.printStackTrace();
         }
 
-    }
-
-    public static void messagesDisable() {
-        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Messages.yml successfully deactivated.");
     }
 
     private static String replace(String Text) {

@@ -3,15 +3,23 @@
 
 package de.jatitv.commandgui.commands.cmdManagement;
 
-import de.jatitv.commandgui.commands.CGUI;
-import de.jatitv.commandgui.DefultValue;
-import de.jatitv.commandgui.Main;
+import de.jatitv.commandgui.commands.GUI_First;
+import de.jatitv.commandgui.commands.Give;
+import de.jatitv.commandgui.defultValue.DefultValue;
+import de.jatitv.commandgui.defultValue.DefultValue_GUI_First;
+import de.jatitv.commandgui.system.Main;
 import de.jatitv.commandgui.commands.Reload;
+import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
 
 public class CmdExecuter implements CommandExecutor {
 
@@ -21,7 +29,7 @@ public class CmdExecuter implements CommandExecutor {
             Player player = (Player) sender;
             if (args.length == 0) {
                 if (player.hasPermission("commandgui.command") || player.hasPermission("commandgui.admin") || player.isOp()) {
-                        CGUI.openCGUI(player);
+                    GUI_First.openCGUI(player);
                 } else {
                     player.sendMessage(DefultValue.NoPermission.replace("[cmd]", "/commandgui").replace("[perm]", "commandgui.command"));
                 }
@@ -76,9 +84,23 @@ public class CmdExecuter implements CommandExecutor {
                         }
                         break;
 
-                    case "test":
-                        sender.sendMessage(DefultValue.Test);
+                    case "give":
+                        if (args.length == 3) {
+                            if (Bukkit.getPlayer(args[1]) != null) {
+                                if (Bukkit.getPluginManager().getPlugin("NBTAPI") != null) {
+                                    Give.giveCommand(sender, args[1], args[2]);
+                                } else {
+                                    sender.sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4NBTAPI could not be connected / found! " +
+                                            "§9Please download it here: §6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefultValue.PrefixHC);
+                                }
+                            } else {
+                                sender.sendMessage(DefultValue.PlayerNotFound.replace("[player]", args[1]));
+                            }
+                        } else {
+                            DefultValue.Help(sender);
+                        }
                         break;
+
 
                     case "help":
                     default:

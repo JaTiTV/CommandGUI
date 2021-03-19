@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.commands;
 
-import de.jatitv.commandgui.DefultValue;
+import de.jatitv.commandgui.defultValue.DefultValue;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

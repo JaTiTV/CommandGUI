@@ -1,9 +1,14 @@
 name: CommandGUI
 version: ${project.version}
-main: de.jatitv.commandgui.Main
+main: de.jatitv.commandgui.system.Main
 api-version: 1.16
 authors: [ JaTiTV ]
-
+softdepend:
+    - Vault
+    - NBTAPI
+    - Economy
+    - EssentialsX
+    - CMI
 commands:
   commandgui:
     description: Open the CGUI
@@ -15,9 +20,6 @@ permissions:
     default: op
 
   commandgui.command.info:
-    default: op
-
-  commandgui.comm .reload:
     default: op
 
   commandgui.admin:
