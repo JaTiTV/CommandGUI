@@ -16,6 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class GUI_1 implements Listener {
 
@@ -78,10 +79,16 @@ public class GUI_1 implements Listener {
                             if (DefultValue_GUI_1.L1_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_1.buy(player, DefultValue_GUI_1.L1_S1_Price)) {
                                     if (DefultValue_GUI_1.L1_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_1.L1_S1_Command);
                                     }
                                     if (DefultValue_GUI_1.L1_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_1.L1_S1_Message) {
                                             if (Main.PaPi) {
@@ -98,10 +105,16 @@ public class GUI_1 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_1.L1_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_1.L1_S1_Command);
                                 }
                                 if (DefultValue_GUI_1.L1_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_1.L1_S1_Message) {
                                         if (Main.PaPi) {

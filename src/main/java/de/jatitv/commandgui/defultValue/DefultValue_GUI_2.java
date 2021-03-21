@@ -20,12 +20,12 @@ public class DefultValue_GUI_2 {
 
     public static Boolean GUI_Enable = false;
 
-    public static String GiveUseItemOnFirstJoin_Permission= "commandgui.GiveUseItemOnFirstJoin.gui2";
+    public static String GiveUseItemOnFirstJoin_Permission= "commandgui.giveuseitemonfirstjoin.gui2";
     public static String UseItem_Item = "PAPER";
     public static String UseItem_Name= "§7Open the: [guiname]";
     public static List UseItem_Lore;
 
-    public static String Command = "1";
+    public static String Command = "GUI2";
     public static Boolean Command_Permission_Enable = true;
 
     public static String GUIName= "§9GUI §52";

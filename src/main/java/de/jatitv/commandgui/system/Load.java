@@ -45,6 +45,7 @@ public class Load {
             Thread.sleep(5000);
         }
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Plugin load...");
+        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         if (Main.UpdateMSG) {
             String ver = (String) yamlConfiguration_config.get("Do_not_remove_or_change.Version");
             if (configYML.isFile()) {

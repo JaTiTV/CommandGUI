@@ -15,7 +15,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Locale;
 
 public class CmdExecuter implements CommandExecutor {
 
@@ -88,14 +87,48 @@ public class CmdExecuter implements CommandExecutor {
                         }
                         break;
 
+                    case "open":
+                        if (args.length == 2) {
+                            if (args[1].equals(DefultValue_GUI_1.Command)) {
+                                if (!DefultValue_GUI_1.Command_Permission_Enable || player.hasPermission("commandgui.command.gui1") || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                    if (DefultValue_GUI_1.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                        GUI_1.openCGUI(player);
+                                    } else {
+                                        player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_1.GUIName));
+                                    }
+                                } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_1.Command)
+                                        .replace("[perm]", "commandgui.command.gui1"));
+                            } else if (args[1].equals(DefultValue_GUI_2.Command)) {
+                                if (!DefultValue_GUI_2.Command_Permission_Enable || player.hasPermission("commandgui.command.gui2") || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                    if (DefultValue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                        GUI_2.openCGUI(player);
+                                    } else {
+                                        player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_2.GUIName));
+                                    }
+                                } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_2.Command)
+                                        .replace("[perm]", "commandgui.command.gui2"));
+                            } else if (args[1].equals(DefultValue_GUI_3.Command)) {
+                                if (!DefultValue_GUI_3.Command_Permission_Enable || player.hasPermission("commandgui.command.gui3") || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                    if (DefultValue_GUI_3.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                        GUI_3.openCGUI(player);
+                                    } else {
+                                        player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_3.GUIName));
+                                    }
+                                } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_3.Command)
+                                        .replace("[perm]", "commandgui.command.gui3"));
+                            } else {
+                                Help.Help(sender);
+                            }
+                        } else {
+                            Help.Help(sender);
+                        }
+                        break;
+
                     case "give":
                         if (args.length == 3) {
                             if (Bukkit.getPlayer(args[1]) != null) {
-                                if (Bukkit.getPluginManager().getPlugin("NBTAPI") != null) {
+                                if (player.hasPermission("commandgui.command.give") || player.hasPermission("commandgui.admin") || player.isOp()) {
                                     Give.giveCommand(sender, args[1], args[2]);
-                                } else {
-                                    sender.sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4NBTAPI could not be connected / found! " +
-                                            "§9Please download it here: §6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefultValue.PrefixHC);
                                 }
                             } else {
                                 sender.sendMessage(DefultValue.PlayerNotFound.replace("[player]", args[1]));
@@ -107,34 +140,7 @@ public class CmdExecuter implements CommandExecutor {
 
                     case "help":
                     default:
-                        if (args[0].equals(DefultValue_GUI_1.Command.toLowerCase())) {
-                            if (player.hasPermission("commandgui.command.gui1") || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                if (DefultValue_GUI_1.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                    GUI_1.openCGUI(player);
-                                } else {
-                                    player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_1.GUIName));
-                                }
-                            } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_1.Command)
-                                    .replace("[perm]", "commandgui.command.gui1"));
-                        } else if (args[0].equals(DefultValue_GUI_2.Command.toLowerCase())) {
-                            if (player.hasPermission("commandgui.command.gui2") || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                if (DefultValue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                    GUI_1.openCGUI(player);
-                                } else {
-                                    player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_2.GUIName));
-                                }
-                            } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_2.Command)
-                                    .replace("[perm]", "commandgui.command.gui2"));
-                        } else if (args[0].equals(DefultValue_GUI_3.Command.toLowerCase())) {
-                            if (player.hasPermission("commandgui.command.gui3") || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                if (DefultValue_GUI_3.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
-                                    GUI_1.openCGUI(player);
-                                } else {
-                                    player.sendMessage(DefultValue.GUIisDisable.replace("[gui]", DefultValue_GUI_3.GUIName));
-                                }
-                            } else player.sendMessage(DefultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultValue_GUI_3.Command)
-                                    .replace("[perm]", "commandgui.command.gui3"));
-                        } else Help.Help(sender);
+                        Help.Help(sender);
                         break;
                 }
             }
@@ -172,12 +178,7 @@ public class CmdExecuter implements CommandExecutor {
                     case "give":
                         if (args.length == 3) {
                             if (Bukkit.getPlayer(args[1]) != null) {
-                                if (Bukkit.getPluginManager().getPlugin("NBTAPI") != null) {
-                                    Give.giveCommand(sender, args[1], args[2]);
-                                } else {
-                                    sender.sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4NBTAPI could not be connected / found! " +
-                                            "§9Please download it here: §6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefultValue.PrefixHC);
-                                }
+                                Give.giveCommand(sender, args[1], args[2]);
                             } else {
                                 sender.sendMessage(DefultValue.PlayerNotFound.replace("[player]", args[1]));
                             }
@@ -186,6 +187,8 @@ public class CmdExecuter implements CommandExecutor {
                         }
                         break;
                 }
+            } else {
+                sender.sendMessage("§8[§6Command§9GUI§8] §cThis command is only for players!");
             }
         }
         return false;

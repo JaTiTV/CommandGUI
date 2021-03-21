@@ -34,7 +34,6 @@ public class GUI_3 implements Listener {
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     p.getInventory().addItem(item);
-
                 }
             }
         }

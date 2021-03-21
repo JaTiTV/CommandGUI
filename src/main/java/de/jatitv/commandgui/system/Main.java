@@ -11,8 +11,11 @@
 
 package de.jatitv.commandgui.system;
 
+import de.jatitv.commandgui.commands.GUI_1_Command;
+import de.jatitv.commandgui.commands.cmdManagement.TabComplete;
 import de.jatitv.commandgui.defultValue.DefultValue;
 import de.jatitv.commandgui.commands.cmdManagement.CmdExecuter;
+import de.jatitv.commandgui.defultValue.DefultValue_GUI_1;
 import de.jatitv.commandgui.listener.GUI_1;
 import de.jatitv.commandgui.listener.GUI_2;
 import de.jatitv.commandgui.listener.GUI_3;
@@ -56,7 +59,7 @@ public final class Main extends JavaPlugin {
     public static Economy eco = null;
     public static String update_version = null;
     public static Boolean PaPi= false;
-    public static boolean minecraftver;
+    public static boolean minecraft1_8;
 
     public static Main getPlugin() {
         return plugin;
@@ -72,7 +75,7 @@ public final class Main extends JavaPlugin {
         Logger logger = this.getLogger();
         plugin = this;
         a = this;
-        minecraftver = Bukkit.getServer().getClass().getPackage().getName().contains("1_8");
+        minecraft1_8 = Bukkit.getServer().getClass().getPackage().getName().contains("1_8");
 
 
 
@@ -89,10 +92,15 @@ public final class Main extends JavaPlugin {
 
         getCommand("commandgui").setExecutor(new CmdExecuter());
         getCommand("cgui").setExecutor(new CmdExecuter());
+        //getCommand(DefultValue_GUI_1.Command).setExecutor(new GUI_1_Command());
 
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_1(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_2(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_3(), this);
+        if (!minecraft1_8){
+            getCommand("commandgui").setTabCompleter(new TabComplete());
+            getCommand("cgui").setTabCompleter(new TabComplete());
+        }
 
         if (Main.Bstats) {
             int pluginId = 0000; // <-- Replace with the id of your plugin!

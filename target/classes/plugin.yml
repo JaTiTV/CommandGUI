@@ -24,6 +24,8 @@ permissions:
   # Admin Permissions
   commandgui.command.info:
     default: op
+  commandgui.command.give:
+    default: op
   commandgui.admin:
     default: op
 

@@ -12,15 +12,12 @@
 package de.jatitv.commandgui.defultValue;
 
 import org.bukkit.Sound;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class DefultValue {
 
     // Config
 
     public static boolean Debug = false;
-    public static int DebugStage = 1;
     public static Boolean UpdateCheckOnJoin = true;
 
     public static String Currency = "$";
@@ -42,10 +39,12 @@ public class DefultValue {
 
     public static String Buy_msg = "§8[§6C§9GUI§8] §2You bought [itemname] for §6[price]§2.";
     public static String No_money = "§8[§6C§9GUI§8] §cYou do not have enough money!";
+    public static String NoInventorySpace = "§8[§6C§9GUI§8] §cNo free inventory space!";
 
     public static String give = "§8[§6C§9GUI§8] §2You gave §6[player] §2a [item]§2!";
     public static String giveReceived = "§8[§6C§9GUI§8] §2You have received a [item] §2from §6[sender]§2!";
     public static String PlayerNotFound = "§8[§6C§9GUI§8] §cThe player §6[player] §cwas not found or is not online!";
+    public static String PlayerNoInventorySpace = "§8[§6C§9GUI§8] §6[player] §chas no free inventory space available!";
     public static String GUIisDisable = "§8[§6C§9GUI§8] §cThe GUI [gui] §cis currently disabled!";
 
     public static String VaultNotSetUp = "§8[§6C§9GUI§8] §4Vault / Economy not set up!";
@@ -63,6 +62,10 @@ public class DefultValue {
     public static Boolean Sound_NoMoney_Enable = true;
     public static Sound Sound_NoMoney;
     public static String Sound_NoMoney_input;
+
+    public static Boolean Sound_NoInventorySpace_Enable = true;
+    public static Sound Sound_NoInventorySpace;
+    public static String Sound_NoInventorySpace_input;
 
 
 

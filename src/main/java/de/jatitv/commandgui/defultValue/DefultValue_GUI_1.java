@@ -25,7 +25,7 @@ public class DefultValue_GUI_1 {
     public static String UseItem_Name = "§7Open the: [guiname]";
     public static List UseItem_Lore;
 
-    public static String Command = "1";
+    public static String Command = "GUI1";
     public static Boolean Command_Permission_Enable = true;
 
     public static String GUIName = "§9GUI §51";

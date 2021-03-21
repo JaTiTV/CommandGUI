@@ -125,6 +125,13 @@ public class Messages {
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6No_money §4was added to §9Messages.yml§4!");
         }
 
+        if (yamlConfiguration_msg.contains("Cost.NoInventorySpace")) {
+            DefultValue.NoInventorySpace = replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
+        } else {
+            yamlConfiguration_msg.set("Cost.NoInventorySpace", "[prefix] &cNo free inventory space!");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6NoInventorySpace §4was added to §9Messages.yml§4!");
+        }
+
         if (yamlConfiguration_msg.contains("Cost.Buy_msg")) {
             DefultValue.Buy_msg = replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
         } else {
@@ -158,6 +165,13 @@ public class Messages {
         } else {
             yamlConfiguration_msg.set("Give.PlayerNotFond", "[prefix] &cThe player &6[player] &cwas not found or is not online!");
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6Give PlayerNotFond §4was added to §9Messages.yml§4!");
+        }
+
+        if (yamlConfiguration_msg.contains("Give.PlayerNoInventorySpace")) {
+            DefultValue.PlayerNoInventorySpace = replace(yamlConfiguration_msg.getString("Give.PlayerNoInventorySpace"));
+        } else {
+            yamlConfiguration_msg.set("Give.PlayerNoInventorySpace", "[prefix] &6[player] &chas no free inventory space available!");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Message §6Give PlayerNoInventorySpace §4was added to §9Messages.yml§4!");
         }
 
         try {
