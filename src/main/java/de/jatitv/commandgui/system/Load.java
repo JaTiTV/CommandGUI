@@ -3,10 +3,8 @@
 
 package de.jatitv.commandgui.system;
 
-import de.jatitv.commandgui.config.GUI_First;
+import de.jatitv.commandgui.config.*;
 import de.jatitv.commandgui.defultValue.DefultValue;
-import de.jatitv.commandgui.config.Config;
-import de.jatitv.commandgui.config.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -99,7 +97,11 @@ public class Load {
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         Messages.messagesCreate();
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
-        GUI_First.configCreate();
+        GUI_1.configCreate();
+        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
+        GUI_2.configCreate();
+        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
+        GUI_3.configCreate();
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
 
         Vault.loadVault();

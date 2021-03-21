@@ -31,7 +31,7 @@ public class Config {
 
         yamlConfiguration_config.set("Do_not_remove_or_change.Spigot", Main.Spigot);
 
-        yamlConfiguration_config.set("Do_not_remove_or_change.Discord", Main.Discord);
+        yamlConfiguration_config.set("Do_not_remove_or_change.Discord", Main.DiscordMSG);
 
         if (yamlConfiguration_config.contains("Plugin.UpdateCheckOnJoin")) {
             DefultValue.UpdateCheckOnJoin = yamlConfiguration_config.getBoolean("Plugin.UpdateCheckOnJoin");
@@ -51,7 +51,14 @@ public class Config {
             DefultValue.Currency = yamlConfiguration_config.getString("Cost.Currency");
         } else {
             yamlConfiguration_config.set("Cost.Currency", "$");
-            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Currency §4was added to §9Config.yml§4!");
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Cost Currency §4was added to §9Config.yml§4!");
+        }
+
+        if (yamlConfiguration_config.contains("GUI.DefaultGUI")) {
+            DefultValue.DefaultGUI = yamlConfiguration_config.getInt("GUI.DefaultGUI");
+        } else {
+            yamlConfiguration_config.set("GUI.DefaultGUI", 1);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6GUI DefaultGUI §4was added to §9Config.yml§4!");
         }
 
 
@@ -59,6 +66,20 @@ public class Config {
         /**
          *Sound
          */
+
+        String soundEPL;
+        if(Main.minecraftver){
+            soundEPL = "LEVEL_UP";
+        }else{
+            soundEPL = "ENTITY_PLAYER_LEVELUP";
+        }
+
+        String soundBNBH;
+        if(Main.minecraftver){
+            soundBNBH = "NOTE_PIANO";
+        }else{
+            soundBNBH = "BLOCK_NOTE_BLOCK_HARP";
+        }
 
         if (yamlConfiguration_config.contains("Sound.Enable")) {
             DefultValue.Sound_Enable = yamlConfiguration_config.getBoolean("Sound.Enable");
@@ -76,7 +97,8 @@ public class Config {
         if (yamlConfiguration_config.contains("Sound.Click.Sound")) {
             DefultValue.Sound_Click_input = (yamlConfiguration_config.getString("Sound.Click.Sound").toUpperCase().replace(".", "_"));
         } else {
-            yamlConfiguration_config.set("Sound.Click.Sound", "ENTITY_PLAYER_LEVELUP");
+            yamlConfiguration_config.set("Sound.Click.Sound", soundEPL);
+            DefultValue.Sound_Click_input = soundEPL;
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound Click §4was added to §9Config.yml§4!");
         }
 
@@ -90,7 +112,8 @@ public class Config {
         if (yamlConfiguration_config.contains("Sound.NoMoney.Sound")) {
             DefultValue.Sound_NoMoney_input = (yamlConfiguration_config.getString("Sound.NoMoney.Sound").toUpperCase().replace(".", "_"));
         } else {
-            yamlConfiguration_config.set("Sound.NoMoney.Sound", "BLOCK_NOTE_BLOCK_HARP");
+            yamlConfiguration_config.set("Sound.NoMoney.Sound", soundBNBH);
+            DefultValue.Sound_NoMoney_input = soundBNBH;
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound NoMoney §4was added to §9Config.yml§4!");
         }
 
@@ -100,6 +123,7 @@ public class Config {
             e.printStackTrace();
         }
 
+
         try {
             Sound sound_Buy = Sound.valueOf(DefultValue.Sound_Click_input);
             if (sound_Buy != null) {
@@ -108,7 +132,7 @@ public class Config {
         } catch (Exception e) {
             Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefultValue.SoundNotFound.replace("[prefix]", DefultValue.Prefix)
                     .replace("[sound]", "§8Click: §6" + DefultValue.Sound_Click_input) + "§4\n§4\n§4\n");
-            DefultValue.Sound_Click = Sound.ENTITY_PLAYER_LEVELUP;
+            DefultValue.Sound_Click = Sound.valueOf(soundEPL);
         }
         try {
             Sound sound_NoMoney = Sound.valueOf(DefultValue.Sound_NoMoney_input);
@@ -118,7 +142,7 @@ public class Config {
         } catch (Exception e) {
             Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefultValue.SoundNotFound.replace("[prefix]", DefultValue.Prefix)
                     .replace("[sound]", "§8NoMoney: §6" + DefultValue.Sound_NoMoney_input) + "§4\n§4\n§4\n");
-            DefultValue.Sound_NoMoney = Sound.BLOCK_NOTE_BLOCK_BASS;
+            DefultValue.Sound_NoMoney = Sound.valueOf(soundBNBH);
         }
     }
 }

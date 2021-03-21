@@ -13,7 +13,9 @@ package de.jatitv.commandgui.system;
 
 import de.jatitv.commandgui.defultValue.DefultValue;
 import de.jatitv.commandgui.commands.cmdManagement.CmdExecuter;
-import de.jatitv.commandgui.listener.GUI_First;
+import de.jatitv.commandgui.listener.GUI_1;
+import de.jatitv.commandgui.listener.GUI_2;
+import de.jatitv.commandgui.listener.GUI_3;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -41,9 +43,10 @@ public final class Main extends JavaPlugin {
             "§4\n" + DefultValue.PrefixHC + "§2Sincerely JaTiTV";
 
     public static String Autor = "JaTiTV";
-    public static String Spigot = "https://www.spigotmc.org/resources/wonderbagshop.89234/";
-    public static String Discord = "You want to discuss and decide about current bugs, planned updates, new features?\n" +
-            "Then come to our Discord. https://discord.gg/vRyXFFterJ";
+    public static String Spigot = "...";
+    public static String DiscordLink = "https://discord.gg/vRyXFFterJ";
+    public static String DiscordMSG = "You want to discuss and decide about current bugs, planned updates, new features?\n" +
+            "Then come to our Discord. " + DiscordLink;
     public static String DiscordLoad = "https://discord.gg/vRyXFFterJ";
 
     // ---------------------------------------------
@@ -52,6 +55,8 @@ public final class Main extends JavaPlugin {
     public static Plugin a;
     public static Economy eco = null;
     public static String update_version = null;
+    public static Boolean PaPi= false;
+    public static boolean minecraftver;
 
     public static Main getPlugin() {
         return plugin;
@@ -67,6 +72,14 @@ public final class Main extends JavaPlugin {
         Logger logger = this.getLogger();
         plugin = this;
         a = this;
+        minecraftver = Bukkit.getServer().getClass().getPackage().getName().contains("1_8");
+
+
+
+            if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+                PaPi = true;
+            }
+
 
         try {
             Load.LoadSend(getDescription().getVersion());
@@ -77,8 +90,9 @@ public final class Main extends JavaPlugin {
         getCommand("commandgui").setExecutor(new CmdExecuter());
         getCommand("cgui").setExecutor(new CmdExecuter());
 
-        Bukkit.getServer().getPluginManager().registerEvents(new GUI_First(), this);
-
+        Bukkit.getServer().getPluginManager().registerEvents(new GUI_1(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new GUI_2(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new GUI_3(), this);
 
         if (Main.Bstats) {
             int pluginId = 0000; // <-- Replace with the id of your plugin!

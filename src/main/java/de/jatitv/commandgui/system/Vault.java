@@ -18,13 +18,13 @@ public class Vault {
                 if(Main.eco != null){
                     Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§2Vault / Economy successfully connected!");
                 }else{
-                    Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4Economy could not be connected / found!\n" + DefultValue.PrefixHC);
+                    Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Economy could not be connected / found!");
                 }
             }else{
-                Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4Economy could not be connected / found!\n" + DefultValue.PrefixHC);
+                Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Economy could not be connected / found!");
             }
         }else{
-            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4\n" + DefultValue.PrefixHC + "§4Vault / Economy could not be connected / found!\n" + DefultValue.PrefixHC);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Vault / Economy could not be connected / found!");
         }
     }
     public static void vaultDisable(){
