@@ -46,7 +46,7 @@ public final class Main extends JavaPlugin {
             "§4\n" + DefultValue.PrefixHC + "§2Sincerely JaTiTV";
 
     public static String Autor = "JaTiTV";
-    public static String Spigot = "...";
+    public static String Spigot = "Coming soon";
     public static String DiscordLink = "https://discord.gg/vRyXFFterJ";
     public static String DiscordMSG = "You want to discuss and decide about current bugs, planned updates, new features?\n" +
             "Then come to our Discord. " + DiscordLink;

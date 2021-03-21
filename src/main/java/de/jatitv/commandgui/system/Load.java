@@ -95,18 +95,27 @@ public class Load {
         }
 
         Config.configCreate();
+        Thread.sleep(500);
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         Messages.messagesCreate();
+        Thread.sleep(500);
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         GUI_1.configCreate();
+        Thread.sleep(500);
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         GUI_2.configCreate();
+        Thread.sleep(500);
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         GUI_3.configCreate();
+        Thread.sleep(500);
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
-
         Vault.loadVault();
-
+        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
+        if (Main.PaPi){
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§2PlaceholderAPI successfully connected!");
+        }else{
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4PlaceholderAPI could not be connected / found!");
+        }
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§8-------------------------------");
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§2Plugin loaded successfully.");
         Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§2-----------------------------------------------------------------------------------");

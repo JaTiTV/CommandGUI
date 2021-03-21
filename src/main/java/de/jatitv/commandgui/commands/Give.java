@@ -41,6 +41,10 @@ public class Give {
                         .replace("[item]", DefultValue_GUI_1.UseItem_Name).replace("[guiname]", DefultValue_GUI_1.GUIName));
                 target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
                         .replace("[wonderbag]", DefultValue_GUI_1.UseItem_Name).replace("[guiname]", DefultValue_GUI_1.GUIName));
+                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
+                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
+                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                }
             } else if (wb.equals(DefultValue_GUI_2.Command)) {
                 ItemStack item = new ItemStack(Material.valueOf(DefultValue_GUI_2.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
@@ -54,6 +58,10 @@ public class Give {
                         .replace("[item]", DefultValue_GUI_2.UseItem_Name).replace("[guiname]", DefultValue_GUI_2.GUIName));
                 target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
                         .replace("[wonderbag]", DefultValue_GUI_2.UseItem_Name).replace("[guiname]", DefultValue_GUI_2.GUIName));
+                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
+                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
+                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                }
             } else if (wb.equals(DefultValue_GUI_3.Command)) {
                 ItemStack item = new ItemStack(Material.valueOf(DefultValue_GUI_3.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
@@ -67,6 +75,10 @@ public class Give {
                         .replace("[item]", DefultValue_GUI_3.UseItem_Name).replace("[guiname]", DefultValue_GUI_3.GUIName));
                 target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
                         .replace("[wonderbag]", DefultValue_GUI_3.UseItem_Name).replace("[guiname]", DefultValue_GUI_3.GUIName));
+                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
+                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
+                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                }
             }
         } else {
             if (target == sender) {
@@ -76,8 +88,7 @@ public class Give {
             }
             if (sender instanceof Player) {
                 if (DefultValue.Sound_NoInventorySpace_Enable && DefultValue.Sound_Enable) {
-                    Player player = (Player) sender;
-                    player.playSound(player.getLocation(), DefultValue.Sound_NoInventorySpace, 3, 1);
+                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_NoInventorySpace, 3, 1);
                 }
             }
 

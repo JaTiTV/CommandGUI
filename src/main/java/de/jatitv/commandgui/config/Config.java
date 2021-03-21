@@ -140,6 +140,38 @@ public class Config {
             Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound NoInventorySpace §4was added to §9Config.yml§4!");
         }
 
+
+
+        if (yamlConfiguration_config.contains("Sound.Give.Enable")) {
+            DefultValue.Sound_Give_Enable = yamlConfiguration_config.getBoolean("Sound.Give.Enable");
+        } else {
+            yamlConfiguration_config.set("Sound.Give.Enable", true);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound Give Enable §4was added to §9Config.yml§4!");
+        }
+        if (yamlConfiguration_config.contains("Sound.Give.Sound")) {
+            DefultValue.Sound_Give_input = (yamlConfiguration_config.getString("Sound.Give.Sound").toUpperCase().replace(".", "_"));
+        } else {
+            yamlConfiguration_config.set("Sound.Give.Sound", soundEPL);
+            DefultValue.Sound_Give_input = soundEPL;
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound Give §4was added to §9Config.yml§4!");
+        }
+
+
+
+        if (yamlConfiguration_config.contains("Sound.PlayerNotFound.Enable")) {
+            DefultValue.Sound_PlayerNotFound_Enable = yamlConfiguration_config.getBoolean("Sound.PlayerNotFound.Enable");
+        } else {
+            yamlConfiguration_config.set("Sound.PlayerNotFound.Enable", true);
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound PlayerNotFound Enable §4was added to §9Config.yml§4!");
+        }
+        if (yamlConfiguration_config.contains("Sound.PlayerNotFound.Sound")) {
+            DefultValue.Sound_PlayerNotFound_input = (yamlConfiguration_config.getString("Sound.PlayerNotFound.Sound").toUpperCase().replace(".", "_"));
+        } else {
+            yamlConfiguration_config.set("Sound.PlayerNotFound.Sound", soundBNBH);
+            DefultValue.Sound_PlayerNotFound_input = soundBNBH;
+            Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§4Setting §6Sound Send §4was added to §9Config.yml§4!");
+        }
+
         try {
             yamlConfiguration_config.save(configYML);
         } catch (IOException e) {
@@ -157,6 +189,7 @@ public class Config {
                     .replace("[sound]", "§8Click: §6" + DefultValue.Sound_Click_input) + "§4\n§4\n§4\n");
             DefultValue.Sound_Click = Sound.valueOf(soundEPL);
         }
+
         try {
             Sound sound_NoMoney = Sound.valueOf(DefultValue.Sound_NoMoney_input);
             if (sound_NoMoney != null) {
@@ -167,6 +200,18 @@ public class Config {
                     .replace("[sound]", "§8NoMoney: §6" + DefultValue.Sound_NoMoney_input) + "§4\n§4\n§4\n");
             DefultValue.Sound_NoMoney = Sound.valueOf(soundBNBH);
         }
+
+        try {
+            Sound sound_Give = Sound.valueOf(DefultValue.Sound_Give_input);
+            if (sound_Give != null) {
+                DefultValue.Sound_Give = sound_Give;
+            }
+        } catch (Exception e) {
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefultValue.SoundNotFound.replace("[prefix]", DefultValue.Prefix)
+                    .replace("[sound]", "§8Give: §6" + DefultValue.Sound_Give_input) + "§4\n§4\n§4\n");
+            DefultValue.Sound_Give = Sound.valueOf(soundEPL);
+        }
+
         try {
             Sound sound_NoInventorySpace = Sound.valueOf(DefultValue.Sound_NoInventorySpace_input);
             if (sound_NoInventorySpace != null) {
@@ -177,5 +222,17 @@ public class Config {
                     .replace("[sound]", "§8sound_NoInventorySpace: §6" + DefultValue.Sound_NoInventorySpace_input) + "§4\n§4\n§4\n");
             DefultValue.Sound_NoInventorySpace = Sound.valueOf(soundBNBG);
         }
+
+        try {
+            Sound sound_PlayerNotFound = Sound.valueOf(DefultValue.Sound_PlayerNotFound_input);
+            if (sound_PlayerNotFound != null) {
+                DefultValue.Sound_PlayerNotFound = sound_PlayerNotFound;
+            }
+        } catch (Exception e) {
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefultValue.SoundNotFound.replace("[prefix]", DefultValue.Prefix)
+                    .replace("[sound]", "§8PlayerNotFound: §6" + DefultValue.Sound_PlayerNotFound_input) + "§4\n§4\n§4\n");
+            DefultValue.Sound_PlayerNotFound = Sound.valueOf(soundBNBH);
+        }
+        Bukkit.getConsoleSender().sendMessage(DefultValue.PrefixHC + "§2Config.yml loaded successfully.");
     }
 }

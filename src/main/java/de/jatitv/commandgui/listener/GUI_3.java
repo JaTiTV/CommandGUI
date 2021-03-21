@@ -77,10 +77,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S1_Price)) {
                                     if (DefultValue_GUI_3.L1_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S1_Message) {
                                             if (Main.PaPi) {
@@ -97,10 +103,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S1_Message) {
                                         if (Main.PaPi) {
@@ -123,10 +135,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S2_Price)) {
                                     if (DefultValue_GUI_3.L1_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S2_Message) {
                                             if (Main.PaPi) {
@@ -143,10 +161,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S2_Message) {
                                         if (Main.PaPi) {
@@ -169,10 +193,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S3_Price)) {
                                     if (DefultValue_GUI_3.L1_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S3_Message) {
                                             if (Main.PaPi) {
@@ -189,10 +219,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S3_Message) {
                                         if (Main.PaPi) {
@@ -215,10 +251,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S4_Price)) {
                                     if (DefultValue_GUI_3.L1_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S4_Message) {
                                             if (Main.PaPi) {
@@ -235,10 +277,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S4_Message) {
                                         if (Main.PaPi) {
@@ -261,10 +309,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S5_Price)) {
                                     if (DefultValue_GUI_3.L1_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S5_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S5_Message) {
                                             if (Main.PaPi) {
@@ -281,10 +335,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S5_Message) {
                                         if (Main.PaPi) {
@@ -307,10 +367,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S6_Price)) {
                                     if (DefultValue_GUI_3.L1_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S6_Message) {
                                             if (Main.PaPi) {
@@ -327,10 +393,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S6_Message) {
                                         if (Main.PaPi) {
@@ -353,10 +425,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S7_Price)) {
                                     if (DefultValue_GUI_3.L1_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S7_Message) {
                                             if (Main.PaPi) {
@@ -373,10 +451,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S7_Message) {
                                         if (Main.PaPi) {
@@ -399,10 +483,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S8_Price)) {
                                     if (DefultValue_GUI_3.L1_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S8_Message) {
                                             if (Main.PaPi) {
@@ -419,10 +509,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S8_Message) {
                                         if (Main.PaPi) {
@@ -445,10 +541,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L1_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L1_S9_Price)) {
                                     if (DefultValue_GUI_3.L1_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L1_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L1_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L1_S9_Message) {
                                             if (Main.PaPi) {
@@ -465,10 +567,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L1_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L1_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L1_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L1_S9_Message) {
                                         if (Main.PaPi) {
@@ -492,10 +600,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S1_Price)) {
                                     if (DefultValue_GUI_3.L2_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S1_Message) {
                                             if (Main.PaPi) {
@@ -512,10 +626,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S1_Message) {
                                         if (Main.PaPi) {
@@ -538,10 +658,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S2_Price)) {
                                     if (DefultValue_GUI_3.L2_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S2_Message) {
                                             if (Main.PaPi) {
@@ -558,10 +684,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S2_Message) {
                                         if (Main.PaPi) {
@@ -584,10 +716,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S3_Price)) {
                                     if (DefultValue_GUI_3.L2_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S3_Message) {
                                             if (Main.PaPi) {
@@ -604,10 +742,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S3_Message) {
                                         if (Main.PaPi) {
@@ -630,10 +774,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S4_Price)) {
                                     if (DefultValue_GUI_3.L2_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S4_Message) {
                                             if (Main.PaPi) {
@@ -650,10 +800,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S4_Message) {
                                         if (Main.PaPi) {
@@ -676,12 +832,18 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S5_Price)) {
                                     if (DefultValue_GUI_3.L2_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S5_Message_Enable) {
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S5_Message) {
+                                            if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                                player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                            }
                                             if (Main.PaPi) {
                                                 player.sendMessage(PlaceholderAPI.setPlaceholders(player, s.replace("[prefix]", DefultValue.Prefix)));
                                             } else player.sendMessage(s.replace("[prefix]", DefultValue.Prefix));
@@ -696,10 +858,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S5_Message) {
                                         if (Main.PaPi) {
@@ -722,10 +890,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S6_Price)) {
                                     if (DefultValue_GUI_3.L2_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S6_Message) {
                                             if (Main.PaPi) {
@@ -742,10 +916,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S6_Message) {
                                         if (Main.PaPi) {
@@ -768,10 +948,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S7_Price)) {
                                     if (DefultValue_GUI_3.L2_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S7_Message) {
                                             if (Main.PaPi) {
@@ -788,10 +974,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S7_Message) {
                                         if (Main.PaPi) {
@@ -814,10 +1006,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S8_Price)) {
                                     if (DefultValue_GUI_3.L2_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S8_Message) {
                                             if (Main.PaPi) {
@@ -834,10 +1032,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S8_Message) {
                                         if (Main.PaPi) {
@@ -860,10 +1064,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L2_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L2_S9_Price)) {
                                     if (DefultValue_GUI_3.L2_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L2_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L2_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L2_S9_Message) {
                                             if (Main.PaPi) {
@@ -880,10 +1090,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L2_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L2_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L2_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L2_S9_Message) {
                                         if (Main.PaPi) {
@@ -907,10 +1123,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S1_Price)) {
                                     if (DefultValue_GUI_3.L3_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S1_Message) {
                                             if (Main.PaPi) {
@@ -927,10 +1149,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S1_Message) {
                                         if (Main.PaPi) {
@@ -953,10 +1181,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S2_Price)) {
                                     if (DefultValue_GUI_3.L3_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S2_Message) {
                                             if (Main.PaPi) {
@@ -973,10 +1207,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S2_Message) {
                                         if (Main.PaPi) {
@@ -999,10 +1239,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S3_Price)) {
                                     if (DefultValue_GUI_3.L3_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S3_Message) {
                                             if (Main.PaPi) {
@@ -1019,10 +1265,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S3_Message) {
                                         if (Main.PaPi) {
@@ -1045,10 +1297,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S4_Price)) {
                                     if (DefultValue_GUI_3.L3_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S4_Message) {
                                             if (Main.PaPi) {
@@ -1065,10 +1323,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S4_Message) {
                                         if (Main.PaPi) {
@@ -1091,10 +1355,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S5_Price)) {
                                     if (DefultValue_GUI_3.L3_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S5_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S5_Message) {
                                             if (Main.PaPi) {
@@ -1111,10 +1381,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S5_Message) {
                                         if (Main.PaPi) {
@@ -1137,10 +1413,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S6_Price)) {
                                     if (DefultValue_GUI_3.L3_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S6_Message) {
                                             if (Main.PaPi) {
@@ -1157,10 +1439,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S6_Message) {
                                         if (Main.PaPi) {
@@ -1183,10 +1471,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S7_Price)) {
                                     if (DefultValue_GUI_3.L3_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S7_Message) {
                                             if (Main.PaPi) {
@@ -1203,10 +1497,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S7_Message) {
                                         if (Main.PaPi) {
@@ -1229,10 +1529,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S8_Price)) {
                                     if (DefultValue_GUI_3.L3_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S8_Message) {
                                             if (Main.PaPi) {
@@ -1249,10 +1555,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S8_Message) {
                                         if (Main.PaPi) {
@@ -1275,10 +1587,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L3_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L3_S9_Price)) {
                                     if (DefultValue_GUI_3.L3_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L3_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L3_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L3_S9_Message) {
                                             if (Main.PaPi) {
@@ -1295,10 +1613,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L3_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L3_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L3_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L3_S9_Message) {
                                         if (Main.PaPi) {
@@ -1322,10 +1646,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S1_Price)) {
                                     if (DefultValue_GUI_3.L4_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S1_Message) {
                                             if (Main.PaPi) {
@@ -1342,10 +1672,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S1_Message) {
                                         if (Main.PaPi) {
@@ -1368,10 +1704,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S2_Price)) {
                                     if (DefultValue_GUI_3.L4_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S2_Message) {
                                             if (Main.PaPi) {
@@ -1388,10 +1730,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S2_Message) {
                                         if (Main.PaPi) {
@@ -1414,10 +1762,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S3_Price)) {
                                     if (DefultValue_GUI_3.L4_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S3_Message) {
                                             if (Main.PaPi) {
@@ -1434,10 +1788,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S3_Message) {
                                         if (Main.PaPi) {
@@ -1460,10 +1820,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S4_Price)) {
                                     if (DefultValue_GUI_3.L4_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S4_Message) {
                                             if (Main.PaPi) {
@@ -1480,10 +1846,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S4_Message) {
                                         if (Main.PaPi) {
@@ -1506,10 +1878,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S5_Price)) {
                                     if (DefultValue_GUI_3.L4_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S5_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S5_Message) {
                                             if (Main.PaPi) {
@@ -1526,10 +1904,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S5_Message) {
                                         if (Main.PaPi) {
@@ -1552,10 +1936,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S6_Price)) {
                                     if (DefultValue_GUI_3.L4_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S6_Message) {
                                             if (Main.PaPi) {
@@ -1572,10 +1962,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S6_Message) {
                                         if (Main.PaPi) {
@@ -1598,10 +1994,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S7_Price)) {
                                     if (DefultValue_GUI_3.L4_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S7_Message) {
                                             if (Main.PaPi) {
@@ -1618,10 +2020,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S7_Message) {
                                         if (Main.PaPi) {
@@ -1644,10 +2052,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S8_Price)) {
                                     if (DefultValue_GUI_3.L4_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S8_Message) {
                                             if (Main.PaPi) {
@@ -1664,10 +2078,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S8_Message) {
                                         if (Main.PaPi) {
@@ -1690,10 +2110,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L4_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L4_S9_Price)) {
                                     if (DefultValue_GUI_3.L4_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L4_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L4_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L4_S9_Message) {
                                             if (Main.PaPi) {
@@ -1710,10 +2136,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L4_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L4_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L4_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L4_S9_Message) {
                                         if (Main.PaPi) {
@@ -1737,10 +2169,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S1_Price)) {
                                     if (DefultValue_GUI_3.L5_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S1_Message) {
                                             if (Main.PaPi) {
@@ -1757,10 +2195,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S1_Message) {
                                         if (Main.PaPi) {
@@ -1783,10 +2227,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S2_Price)) {
                                     if (DefultValue_GUI_3.L5_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S2_Message) {
                                             if (Main.PaPi) {
@@ -1803,10 +2253,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S2_Message) {
                                         if (Main.PaPi) {
@@ -1829,10 +2285,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S3_Price)) {
                                     if (DefultValue_GUI_3.L5_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S3_Message) {
                                             if (Main.PaPi) {
@@ -1849,10 +2311,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S3_Message) {
                                         if (Main.PaPi) {
@@ -1875,10 +2343,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S4_Price)) {
                                     if (DefultValue_GUI_3.L5_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S4_Message) {
                                             if (Main.PaPi) {
@@ -1895,10 +2369,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S4_Message) {
                                         if (Main.PaPi) {
@@ -1921,10 +2401,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S5_Price)) {
                                     if (DefultValue_GUI_3.L5_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S5_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S5_Message) {
                                             if (Main.PaPi) {
@@ -1941,10 +2427,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S5_Message) {
                                         if (Main.PaPi) {
@@ -1967,10 +2459,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S6_Price)) {
                                     if (DefultValue_GUI_3.L5_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S6_Message) {
                                             if (Main.PaPi) {
@@ -1987,10 +2485,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S6_Message) {
                                         if (Main.PaPi) {
@@ -2013,10 +2517,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S7_Price)) {
                                     if (DefultValue_GUI_3.L5_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S7_Message) {
                                             if (Main.PaPi) {
@@ -2033,10 +2543,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S7_Message) {
                                         if (Main.PaPi) {
@@ -2059,10 +2575,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S8_Price)) {
                                     if (DefultValue_GUI_3.L5_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S8_Message) {
                                             if (Main.PaPi) {
@@ -2079,10 +2601,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S8_Message) {
                                         if (Main.PaPi) {
@@ -2105,10 +2633,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L5_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L5_S9_Price)) {
                                     if (DefultValue_GUI_3.L5_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L5_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L5_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L5_S9_Message) {
                                             if (Main.PaPi) {
@@ -2125,10 +2659,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L5_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L5_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L5_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L5_S9_Message) {
                                         if (Main.PaPi) {
@@ -2152,10 +2692,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S1_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S1_Price)) {
                                     if (DefultValue_GUI_3.L6_S1_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S1_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S1_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S1_Message) {
                                             if (Main.PaPi) {
@@ -2172,10 +2718,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S1_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S1_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S1_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S1_Message) {
                                         if (Main.PaPi) {
@@ -2198,10 +2750,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S2_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S2_Price)) {
                                     if (DefultValue_GUI_3.L6_S2_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S2_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S2_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S2_Message) {
                                             if (Main.PaPi) {
@@ -2218,10 +2776,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S2_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S2_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S2_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S2_Message) {
                                         if (Main.PaPi) {
@@ -2244,10 +2808,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S3_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S3_Price)) {
                                     if (DefultValue_GUI_3.L6_S3_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S3_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S3_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S3_Message) {
                                             if (Main.PaPi) {
@@ -2264,10 +2834,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S3_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S3_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S3_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S3_Message) {
                                         if (Main.PaPi) {
@@ -2290,10 +2866,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S4_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S4_Price)) {
                                     if (DefultValue_GUI_3.L6_S4_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S4_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S4_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S4_Message) {
                                             if (Main.PaPi) {
@@ -2310,10 +2892,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S4_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S4_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S4_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S4_Message) {
                                         if (Main.PaPi) {
@@ -2336,10 +2924,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S5_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S5_Price)) {
                                     if (DefultValue_GUI_3.L6_S5_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S5_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S5_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S5_Message) {
                                             if (Main.PaPi) {
@@ -2356,10 +2950,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S5_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S5_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S5_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S5_Message) {
                                         if (Main.PaPi) {
@@ -2382,10 +2982,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S6_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S6_Price)) {
                                     if (DefultValue_GUI_3.L6_S6_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S6_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S6_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S6_Message) {
                                             if (Main.PaPi) {
@@ -2402,10 +3008,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S6_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S6_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S6_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S6_Message) {
                                         if (Main.PaPi) {
@@ -2428,10 +3040,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S7_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S7_Price)) {
                                     if (DefultValue_GUI_3.L6_S7_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S7_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S7_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S7_Message) {
                                             if (Main.PaPi) {
@@ -2448,10 +3066,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S7_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S7_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S7_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S7_Message) {
                                         if (Main.PaPi) {
@@ -2474,10 +3098,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S8_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S8_Price)) {
                                     if (DefultValue_GUI_3.L6_S8_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S8_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S8_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S8_Message) {
                                             if (Main.PaPi) {
@@ -2494,10 +3124,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S8_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S8_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S8_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S8_Message) {
                                         if (Main.PaPi) {
@@ -2520,10 +3156,16 @@ public class GUI_3 implements Listener {
                             if (DefultValue_GUI_3.L6_S9_Cost_Enable) {
                                 if (de.jatitv.commandgui.commands.GUI_3.buy(player, DefultValue_GUI_3.L6_S9_Price)) {
                                     if (DefultValue_GUI_3.L6_S9_Command_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         player.chat("/" + DefultValue_GUI_3.L6_S9_Command);
                                     }
                                     if (DefultValue_GUI_3.L6_S9_Message_Enable) {
+                                        if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                            player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                        }
                                         player.closeInventory();
                                         for (String s : DefultValue_GUI_3.L6_S9_Message) {
                                             if (Main.PaPi) {
@@ -2540,10 +3182,16 @@ public class GUI_3 implements Listener {
                                 }
                             } else {
                                 if (DefultValue_GUI_3.L6_S9_Command_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     player.chat("/" + DefultValue_GUI_3.L6_S9_Command);
                                 }
                                 if (DefultValue_GUI_3.L6_S9_Message_Enable) {
+                                    if (DefultValue.Sound_Click_Enable && DefultValue.Sound_Enable){
+                                        player.playSound(player.getLocation(), DefultValue.Sound_Click, 3, 1);
+                                    }
                                     player.closeInventory();
                                     for (String s : DefultValue_GUI_3.L6_S9_Message) {
                                         if (Main.PaPi) {

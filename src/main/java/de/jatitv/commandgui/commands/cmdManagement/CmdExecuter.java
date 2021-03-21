@@ -132,6 +132,9 @@ public class CmdExecuter implements CommandExecutor {
                                 }
                             } else {
                                 sender.sendMessage(DefultValue.PlayerNotFound.replace("[player]", args[1]));
+                                if (DefultValue.Sound_PlayerNotFound_Enable && DefultValue.Sound_Enable){
+                                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_PlayerNotFound, 3, 1);
+                                }
                             }
                         } else {
                             Help.Help(sender);
@@ -181,6 +184,11 @@ public class CmdExecuter implements CommandExecutor {
                                 Give.giveCommand(sender, args[1], args[2]);
                             } else {
                                 sender.sendMessage(DefultValue.PlayerNotFound.replace("[player]", args[1]));
+                                if (sender instanceof Player){
+                                    if (DefultValue.Sound_PlayerNotFound_Enable && DefultValue.Sound_Enable){
+                                        ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_PlayerNotFound, 3, 1);
+                                    }
+                                }
                             }
                         } else {
                             Help.Help(sender);

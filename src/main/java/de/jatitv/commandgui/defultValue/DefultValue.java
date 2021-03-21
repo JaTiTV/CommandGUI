@@ -67,6 +67,14 @@ public class DefultValue {
     public static Sound Sound_NoInventorySpace;
     public static String Sound_NoInventorySpace_input;
 
+    public static Boolean Sound_Give_Enable = true;
+    public static Sound Sound_Give;
+    public static String Sound_Give_input;   // = "ENTITY_PLAYER_LEVELUP"
+
+    public static Boolean Sound_PlayerNotFound_Enable = true;
+    public static Sound Sound_PlayerNotFound;
+    public static String Sound_PlayerNotFound_input;  // = "BLOCK_NOTE_BLOCK_HARP";
+
 
 
 
