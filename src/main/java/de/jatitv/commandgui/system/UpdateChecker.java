@@ -11,6 +11,7 @@
 
 package de.jatitv.commandgui.system;
 
+import de.jatitv.commandgui.defultValue.DefaultValue;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -64,7 +65,7 @@ public class UpdateChecker {
                     inputStream.close();
                 }
             } catch (IOException var10) {
-                this.plugin.getLogger().severe("§8[§2W§6B§9S§8]§4 Cannot look for updates: " + var10.getMessage());
+                this.plugin.getLogger().severe(DefaultValue.PrefixHC + "§4 Cannot look for updates: " + var10.getMessage());
             }
         });
     }

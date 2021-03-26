@@ -3,10 +3,10 @@
 
 package de.jatitv.commandgui.commands;
 
-import de.jatitv.commandgui.defultValue.DefultValue;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_2;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_3;
+import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defultValue.DefultVaalue_GUI_2;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -28,67 +28,85 @@ public class Give {
         }
         if (empty) {
 
-            if (wb.equals(DefultValue_GUI_1.Command)) {
-                ItemStack item = new ItemStack(Material.valueOf(DefultValue_GUI_1.UseItem_Item));
+            if (wb.equals(DefaultValue_GUI_1.Command)) {
+                ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
-                itemMeta.setDisplayName(DefultValue_GUI_1.UseItem_Name.replace("[guiname]", DefultValue_GUI_1.GUIName));
-                itemMeta.setLore(DefultValue_GUI_1.UseItem_Lore);
+                itemMeta.setDisplayName(DefaultValue_GUI_1.UseItem_Name.replace("[guiname]", DefaultValue_GUI_1.GUIName));
+                itemMeta.setLore(DefaultValue_GUI_1.UseItem_Lore);
                 item.setItemMeta(itemMeta);
                 item.setAmount(1);
                 target.getInventory().addItem(item);
 
-                sender.sendMessage(DefultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[item]", DefultValue_GUI_1.UseItem_Name).replace("[guiname]", DefultValue_GUI_1.GUIName));
-                target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[wonderbag]", DefultValue_GUI_1.UseItem_Name).replace("[guiname]", DefultValue_GUI_1.GUIName));
-                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
-                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
-                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                if (sender != target){
+                    sender.sendMessage(DefaultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefaultValue_GUI_1.UseItem_Name).replace("[guiname]", DefaultValue_GUI_1.GUIName));
+                    target.sendMessage(DefaultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefaultValue_GUI_1.UseItem_Name).replace("[guiname]", DefaultValue_GUI_1.GUIName));
+
+                } else {
+                    if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable){
+                        target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
+                    }
                 }
-            } else if (wb.equals(DefultValue_GUI_2.Command)) {
-                ItemStack item = new ItemStack(Material.valueOf(DefultValue_GUI_2.UseItem_Item));
+
+            } else if (wb.equals(DefultVaalue_GUI_2.Command)) {
+                ItemStack item = new ItemStack(Material.valueOf(DefultVaalue_GUI_2.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
-                itemMeta.setDisplayName(DefultValue_GUI_2.UseItem_Name.replace("[guiname]", DefultValue_GUI_2.GUIName));
-                itemMeta.setLore(DefultValue_GUI_2.UseItem_Lore);
+                itemMeta.setDisplayName(DefultVaalue_GUI_2.UseItem_Name.replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                itemMeta.setLore(DefultVaalue_GUI_2.UseItem_Lore);
                 item.setItemMeta(itemMeta);
                 item.setAmount(1);
                 target.getInventory().addItem(item);
 
-                sender.sendMessage(DefultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[item]", DefultValue_GUI_2.UseItem_Name).replace("[guiname]", DefultValue_GUI_2.GUIName));
-                target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[wonderbag]", DefultValue_GUI_2.UseItem_Name).replace("[guiname]", DefultValue_GUI_2.GUIName));
-                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
-                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
-                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                if (sender != target) {
+                    sender.sendMessage(DefaultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefultVaalue_GUI_2.UseItem_Name).replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                    target.sendMessage(DefaultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefultVaalue_GUI_2.UseItem_Name).replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                    if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable) {
+                        ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_Give, 3, 1);
+                        target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
+                    }
+                } else{
+                    if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable) {
+                        target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
+                    }
                 }
-            } else if (wb.equals(DefultValue_GUI_3.Command)) {
-                ItemStack item = new ItemStack(Material.valueOf(DefultValue_GUI_3.UseItem_Item));
+
+            } else if (wb.equals(DefaultValue_GUI_3.Command)) {
+                ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_3.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
-                itemMeta.setDisplayName(DefultValue_GUI_3.UseItem_Name.replace("[guiname]", DefultValue_GUI_3.GUIName));
-                itemMeta.setLore(DefultValue_GUI_3.UseItem_Lore);
+                itemMeta.setDisplayName(DefaultValue_GUI_3.UseItem_Name.replace("[guiname]", DefaultValue_GUI_3.GUIName));
+                itemMeta.setLore(DefaultValue_GUI_3.UseItem_Lore);
                 item.setItemMeta(itemMeta);
                 item.setAmount(1);
                 target.getInventory().addItem(item);
 
-                sender.sendMessage(DefultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[item]", DefultValue_GUI_3.UseItem_Name).replace("[guiname]", DefultValue_GUI_3.GUIName));
-                target.sendMessage(DefultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                        .replace("[wonderbag]", DefultValue_GUI_3.UseItem_Name).replace("[guiname]", DefultValue_GUI_3.GUIName));
-                if (DefultValue.Sound_Give_Enable && DefultValue.Sound_Enable){
-                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_Give, 3, 1);
-                    target.playSound(target.getLocation(), DefultValue.Sound_Give, 3, 1);
+                if (sender != target) {
+                    sender.sendMessage(DefaultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefaultValue_GUI_3.UseItem_Name).replace("[guiname]", DefaultValue_GUI_3.GUIName));
+                    target.sendMessage(DefaultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
+                            .replace("[item]", DefaultValue_GUI_3.UseItem_Name).replace("[guiname]", DefaultValue_GUI_3.GUIName));
+                    if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable) {
+                        ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_Give, 3, 1);
+                        target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
+                    }
+                } else {
+                    if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable) {
+                        target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
+                    }
                 }
-            }
+
+            } else Help.Help(sender);
         } else {
             if (target == sender) {
-                sender.sendMessage(DefultValue.NoInventorySpace);
+                sender.sendMessage(DefaultValue.NoInventorySpace);
             } else {
-                sender.sendMessage(DefultValue.PlayerNoInventorySpace.replace("[player]", target.getName()));
+                sender.sendMessage(DefaultValue.PlayerNoInventorySpace.replace("[player]", target.getName()));
             }
             if (sender instanceof Player) {
-                if (DefultValue.Sound_NoInventorySpace_Enable && DefultValue.Sound_Enable) {
-                    ((Player) sender).playSound(((Player) sender).getLocation(), DefultValue.Sound_NoInventorySpace, 3, 1);
+                if (DefaultValue.Sound_NoInventorySpace_Enable && DefaultValue.Sound_Enable) {
+                    ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_NoInventorySpace, 3, 1);
                 }
             }
 

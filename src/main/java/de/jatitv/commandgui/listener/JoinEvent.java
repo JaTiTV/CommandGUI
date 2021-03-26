@@ -13,6 +13,7 @@
 
 package de.jatitv.commandgui.listener;
 
+import de.jatitv.commandgui.defultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,7 +23,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class JoinEvent implements Listener {
 
-    private de.jatitv.commandgui.defultValue.DefultValue DefultValue;
+    private DefaultValue DefultValue;
 
     @EventHandler
     public void onJoinEvent(PlayerJoinEvent event) {

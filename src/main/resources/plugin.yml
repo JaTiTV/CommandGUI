@@ -1,7 +1,7 @@
 name: CommandGUI
 version: ${project.version}
+api-version: 1.13
 main: de.jatitv.commandgui.system.Main
-api-version: 1.16
 authors: [ JaTiTV ]
 softdepend:
   - Vault
@@ -13,8 +13,8 @@ softdepend:
 commands:
   commandgui:
     description: Open the CGUI
-  cgui:
-    description: Open the CGUI
+    aliases: [cgui]
+
 
 permissions:
   # Haupt Permission

@@ -3,10 +3,10 @@
 
 package de.jatitv.commandgui.commands;
 
-import de.jatitv.commandgui.defultValue.DefultValue;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_2;
-import de.jatitv.commandgui.defultValue.DefultValue_GUI_3;
+import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defultValue.DefultVaalue_GUI_2;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
 import org.bukkit.command.CommandSender;
 
 public class Help {
@@ -16,43 +16,49 @@ public class Help {
                 || sender.hasPermission("commandgui.command.info")
                 || sender.hasPermission("commandgui.admin")
                 || sender.isOp()) {
-            sender.sendMessage(DefultValue.PrefixHC + " §8----- §6Command§9GUI §chelp §8-----");
-            sender.sendMessage(DefultValue.PrefixHC);
+            sender.sendMessage(DefaultValue.PrefixHC + " §8----- §6Command§9GUI §chelp §8-----");
+            sender.sendMessage(DefaultValue.PrefixHC);
             if (sender.hasPermission("commandgui.command") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpHelp);
-                if (DefultValue.DefaultGUI == 1) {
-                    sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpCgui.replace("[gui]", DefultValue_GUI_1.GUIName));
-                } else if (DefultValue.DefaultGUI == 2) {
-                    sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpCgui.replace("[gui]", DefultValue_GUI_2.GUIName));
-                } else if (DefultValue.DefaultGUI == 3) {
-                    sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpCgui.replace("[gui]", DefultValue_GUI_3.GUIName));
+                if (DefaultValue.DefaultGUI == 1) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpCgui.replace("[gui]", DefaultValue_GUI_1.GUIName));
+                } else if (DefaultValue.DefaultGUI == 2) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpCgui.replace("[gui]", DefultVaalue_GUI_2.GUIName));
+                } else if (DefaultValue.DefaultGUI == 3) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpCgui.replace("[gui]", DefaultValue_GUI_3.GUIName));
                 }
+                sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpHelp);
             }
             if (sender.hasPermission("commandgui.command.info") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpInfo);
+                sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpInfo);
             }
 
             if (sender.hasPermission("commandgui.command.give") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpGive);
+                sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpGive);
 
             }
-            if (sender.hasPermission("commandgui.command.1") || sender.hasPermission("commandgui.admin") || sender.isOp()){
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpGUI.replace("[gui]", " 1").replace("[guiname]", DefultValue_GUI_1.GUIName));
+            if (!DefaultValue_GUI_1.Command_Permission_Enable || sender.hasPermission("commandgui.command.gui1") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                if (DefaultValue_GUI_1.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpOpen.replace("[gui]", DefaultValue_GUI_1.Command).replace("[guiname]", DefaultValue_GUI_1.GUIName));
+                }
             }
-            if (sender.hasPermission("commandgui.command.2") || sender.hasPermission("commandgui.admin") || sender.isOp()){
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpGUI.replace("[gui]", " 2").replace("[guiname]", DefultValue_GUI_2.GUIName));
+            if (!DefultVaalue_GUI_2.Command_Permission_Enable || sender.hasPermission("commandgui.command.gui2") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                if (DefultVaalue_GUI_2.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpOpen.replace("[gui]", DefultVaalue_GUI_2.Command).replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                }
             }
-            if (sender.hasPermission("commandgui.command.3") || sender.hasPermission("commandgui.admin") || sender.isOp()){
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpGUI.replace("[gui]", " 3").replace("[guiname]", DefultValue_GUI_3.GUIName));
+            if (!DefaultValue_GUI_3.Command_Permission_Enable || sender.hasPermission("commandgui.command.gui3") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                if (DefaultValue_GUI_3.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                    sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpOpen.replace("[gui]", DefaultValue_GUI_3.Command).replace("[guiname]", DefaultValue_GUI_3.GUIName));
+                }
             }
 
             if (sender.hasPermission("wonderbagshop.admin") || sender.isOp()) {
-                sender.sendMessage(DefultValue.PrefixHC + " " + DefultValue.HelpReload);
+                sender.sendMessage(DefaultValue.PrefixHC + " " + DefaultValue.HelpReload);
             }
-            sender.sendMessage(DefultValue.PrefixHC);
-            sender.sendMessage(DefultValue.PrefixHC + " §8----------------------------");
+            sender.sendMessage(DefaultValue.PrefixHC);
+            sender.sendMessage(DefaultValue.PrefixHC + " §8----------------------------");
         } else {
-            sender.sendMessage(DefultValue.NoPermission);
+            sender.sendMessage(DefaultValue.NoPermission);
         }
     }
 }
