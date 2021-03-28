@@ -31,7 +31,7 @@ public final class Main extends JavaPlugin {
 
     public static Boolean Bstats = true;
 
-    public static Boolean Snapshot = true;
+    public static Boolean Snapshot = false;
 
     public static Boolean UpdateMSG = true;
     public static String UpdateInfo = DefaultValue.PrefixHC + "";
@@ -131,7 +131,7 @@ public final class Main extends JavaPlugin {
 
             public void run() {
 
-                (new UpdateChecker((JavaPlugin) Main.thisp(), 0000)).getVersion((version) -> {
+                (new UpdateChecker((JavaPlugin) Main.thisp(), 90671)).getVersion((version) -> {
                     String foundVersion = Main.thisp().getDescription().getVersion();
                     update_version = version;
                     if (!foundVersion.equalsIgnoreCase(version)) {
