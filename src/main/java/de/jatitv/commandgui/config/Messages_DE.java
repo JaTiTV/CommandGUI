@@ -17,7 +17,7 @@ public class Messages_DE {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4DE_Messages.yml load...");
 
-        File messagesDEYML = new File(Main.thisp().getDataFolder().getPath(), "languages/DE_Messages.yml");
+        File messagesDEYML = new File(Main.thisp().getDataFolder().getPath(), "languages/de_DE_Messages.yml");
         YamlConfiguration yamlConfiguration_DEmsg = YamlConfiguration.loadConfiguration(messagesDEYML);
 
         if (!yamlConfiguration_DEmsg.contains("Do_not_remove_or_change.Created")) yamlConfiguration_DEmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());
@@ -28,7 +28,7 @@ public class Messages_DE {
 
         if (!yamlConfiguration_DEmsg.contains("Plugin.NoPermission")) {
             yamlConfiguration_DEmsg.set("Plugin.NoPermission", DefaultValue.DE_NoPermission.replace(DefaultValue.Prefix, "[prefix]").replace("§", "&"));
-            if (messagesDEYML.isFile()) if (messagesDEYML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Message §6NoPermission §4was added to §9DE_Messages.yml§4!");
+            if (messagesDEYML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Message §6NoPermission §4was added to §9DE_Messages.yml§4!");
         }
         if (!yamlConfiguration_DEmsg.contains("Plugin.NoPermissionForCommand")) {
             yamlConfiguration_DEmsg.set("Plugin.NoPermissionForCommand", DefaultValue.DE_NoPermissionForCommand.replace(DefaultValue.Prefix, "[prefix]").replace("§", "&"));

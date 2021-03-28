@@ -848,11 +848,11 @@ public class GUI_1 {
                 DefaultValue_GUI_1.L1_S9_Command = replace(yamlConfiguration_GUI1.getString("Functions.Line_1.Slot_9.Command.Command"));
             } else {
                 if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12){
-                    DefaultValue_GUI_1.L1_S9_Command = "effect @p night_vision 300 1 true";
-                    yamlConfiguration_GUI1.set("Functions.Line_1.Slot_9.Command.Command", "effect @p night_vision 300 1 true");
+                    DefaultValue_GUI_1.L1_S9_Command = "effect [player] night_vision 300 1 true";
+                    yamlConfiguration_GUI1.set("Functions.Line_1.Slot_9.Command.Command", DefaultValue_GUI_1.L1_S9_Command);
                 } else {
-                    DefaultValue_GUI_1.L1_S9_Command = "effect give @p night_vision 300 1 true";
-                    yamlConfiguration_GUI1.set("Functions.Line_1.Slot_9.Command.Command", "effect give @p night_vision 300 1 true");
+                    DefaultValue_GUI_1.L1_S9_Command = "effect give [player] night_vision 300 1 true";
+                    yamlConfiguration_GUI1.set("Functions.Line_1.Slot_9.Command.Command", DefaultValue_GUI_1.L1_S9_Command);
                 }
 
                 if (GUI1YML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6Line_1 Slot_9 Command Command §4was added to §9GUI_1.yml§4!");

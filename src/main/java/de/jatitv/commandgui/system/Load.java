@@ -22,12 +22,12 @@ public class Load {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2-----------------------------------------------------------------------------------");
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2    _____ _____ _    _ _____");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2   / ____/ ____| |  | |_   _|");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  | |   | |  __| |  | | | |");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  | |   | | |_ | |  | | | |");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  | |___| |__| | |__| |_| |_");
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2   \\_____\\_____|\\____/|_____|");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4  _____ §9_____ _    _ _____");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4 / ____§9/ ____| |  | |_   _|");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4| |   §9| |  __| |  | | | |");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4| |   §9| | |_ | |  | | | |");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4| |___§9| |__| | |__| |_| |_");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2  §4 \\_____§9\\_____|\\____/|_____|");
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2");
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2Autor: §6JaTiTV");
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2Version: §6" + version);
@@ -85,6 +85,10 @@ public class Load {
         Messages_EN.messagesCreate();
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
         Messages_DE.messagesCreate();
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
+        Messages_FR.messagesCreate();
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
+        Messages_NO.messagesCreate();
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
         GUI_1.configCreate();
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");

@@ -31,13 +31,13 @@ public class JoinEvent implements Listener {
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
             if (Main.update_version != null) {
                 String foundVersion = Main.getPlugin().getDescription().getVersion();
-                String updateFound = (DefultValue.PrefixHC + "§6A new version of §8[§6Command§9GUI§8]§6 was found!");
+                String updateFound = (DefultValue.PrefixHC + "§6A new version of §8[§4Command§9GUI§8]§6 was found!");
                 String yourVersion = (DefultValue.PrefixHC + "§6Your version §c" + foundVersion);
                 String currentVersion = (DefultValue.PrefixHC + "§6Current version: §a" + Main.update_version);
                 String downloadVersion = (DefultValue.PrefixHC + "§6You can download it here: §e" + Main.Spigot);
-                String discord = (DefultValue.PrefixHC + "§6You can find more information about §8[§6Command§9GUI§8]§6 on Discord: §e" + Main.DiscordLink);
+                String discord = (DefultValue.PrefixHC + "§6You can find more information about §8[§4Command§9GUI§8]§6 on Discord: §e" + Main.DiscordLink);
                 String Snapshot = (DefultValue.PrefixHC + "§4Please note!" +
-                        "\n" + DefultValue.PrefixHC + "§cYou are using the §6" + foundVersion + " §cof §6Command§9GUI!" +
+                        "\n" + DefultValue.PrefixHC + "§cYou are using the §6" + foundVersion + " §cof §4Command§9GUI!" +
                         "\n" + DefultValue.PrefixHC + "§cThere may be errors and it is possible that not all functions work as they should!" +
                         "\n" + DefultValue.PrefixHC + "§2If there are any bugs, please report them to me via Discord so I can fix them." +
                         "\n" + DefultValue.PrefixHC + "§7" + Main.DiscordLink);

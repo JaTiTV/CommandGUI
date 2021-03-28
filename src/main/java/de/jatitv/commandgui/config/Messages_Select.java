@@ -12,47 +12,56 @@ import java.io.File;
 
 public class Messages_Select {
 
+    public static String selectMSG;
+    public static String sel;
+
     public static void selectCreate() {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Select language...");
 
-        String selectMSG;
-        String sel;
 
-        if (DefaultValue.language.equals("DE")) {
-            selectMSG = "German";
-            sel = "DE";
-        } else if (DefaultValue.language.equals("EN")) {
-            selectMSG = "English";
-            sel = "EN";
-        } else {
-            selectMSG = "English";
-            sel = "EN";
+        switch (DefaultValue.language) {
+            case "de_DE":
+                selectMSG = "German";
+                sel = "de_DE";
+                break;
+            case "fr_FR":
+                selectMSG = "French";
+                sel = "fr_FR";
+                break;
+            case "no_NO":
+                selectMSG = "Norwegian";
+                sel = "no_NO";
+                break;
+            default:
+                selectMSG = "English";
+                sel = "en_EN";
+                break;
         }
 
-        File messagesDEYML = new File(Main.thisp().getDataFolder().getPath(), "languages/" + sel + "_Messages.yml");
-        YamlConfiguration yamlConfiguration_DEmsg = YamlConfiguration.loadConfiguration(messagesDEYML);
-        DefaultValue.NoPermission = replace(yamlConfiguration_DEmsg.getString("Plugin.NoPermission"));
-        DefaultValue.NoPermissionForCommand = replace(yamlConfiguration_DEmsg.getString("Plugin.NoPermissionForCommand"));
-        DefaultValue.NoPermissionForItem = replace(yamlConfiguration_DEmsg.getString("Plugin.NoPermissionForItem"));
-        DefaultValue.VaultNotSetUp = replace(yamlConfiguration_DEmsg.getString("Plugin.VaultNotSetUp"));
-        DefaultValue.SoundNotFound = replace(yamlConfiguration_DEmsg.getString("Plugin.SoundNotFound"));
-        DefaultValue.ReloadStart = replace(yamlConfiguration_DEmsg.getString("Plugin.Reload.Start"));
-        DefaultValue.ReloadEnd = replace(yamlConfiguration_DEmsg.getString("Plugin.Reload.End"));
-        DefaultValue.HelpCgui = replace(yamlConfiguration_DEmsg.getString("Help.CGUI"));
-        DefaultValue.HelpHelp = replace(yamlConfiguration_DEmsg.getString("Help.Help"));
-        DefaultValue.HelpInfo = replace(yamlConfiguration_DEmsg.getString("Help.Info"));
-        DefaultValue.HelpOpen = replace(yamlConfiguration_DEmsg.getString("Help.Open"));
-        DefaultValue.HelpGive = replace(yamlConfiguration_DEmsg.getString("Help.Give"));
-        DefaultValue.HelpReload = replace(yamlConfiguration_DEmsg.getString("Help.Reload"));
-        DefaultValue.No_money = replace(yamlConfiguration_DEmsg.getString("Cost.No_money"));
-        DefaultValue.NoInventorySpace = replace(yamlConfiguration_DEmsg.getString("Cost.NoInventorySpace"));
-        DefaultValue.Buy_msg = replace(yamlConfiguration_DEmsg.getString("Cost.Buy_msg"));
-        DefaultValue.GUIisDisable = replace(yamlConfiguration_DEmsg.getString("GUI.IsDisabled"));
-        DefaultValue.give = replace(yamlConfiguration_DEmsg.getString("Give.Sender"));
-        DefaultValue.giveReceived = replace(yamlConfiguration_DEmsg.getString("Give.Receiver"));
-        DefaultValue.PlayerNotFound = replace(yamlConfiguration_DEmsg.getString("Give.PlayerNotFond"));
-        DefaultValue.PlayerNoInventorySpace = replace(yamlConfiguration_DEmsg.getString("Give.PlayerNoInventorySpace"));
+        File messagesYML = new File(Main.thisp().getDataFolder().getPath(), "languages/" + sel + "_Messages.yml");
+        YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(messagesYML);
+        DefaultValue.NoPermission = replace(yamlConfiguration_msg.getString("Plugin.NoPermission"));
+        DefaultValue.NoPermissionForCommand = replace(yamlConfiguration_msg.getString("Plugin.NoPermissionForCommand"));
+        DefaultValue.NoPermissionForItem = replace(yamlConfiguration_msg.getString("Plugin.NoPermissionForItem"));
+        DefaultValue.VaultNotSetUp = replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
+        DefaultValue.SoundNotFound = replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
+        DefaultValue.ReloadStart = replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
+        DefaultValue.ReloadEnd = replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
+        DefaultValue.HelpCgui = replace(yamlConfiguration_msg.getString("Help.CGUI"));
+        DefaultValue.HelpHelp = replace(yamlConfiguration_msg.getString("Help.Help"));
+        DefaultValue.HelpInfo = replace(yamlConfiguration_msg.getString("Help.Info"));
+        DefaultValue.HelpOpen = replace(yamlConfiguration_msg.getString("Help.Open"));
+        DefaultValue.HelpGive = replace(yamlConfiguration_msg.getString("Help.Give"));
+        DefaultValue.HelpReload = replace(yamlConfiguration_msg.getString("Help.Reload"));
+        DefaultValue.No_money = replace(yamlConfiguration_msg.getString("Cost.No_money"));
+        DefaultValue.NoInventorySpace = replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
+        DefaultValue.Buy_msg = replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
+        DefaultValue.GUIisDisable = replace(yamlConfiguration_msg.getString("GUI.IsDisabled"));
+        DefaultValue.give = replace(yamlConfiguration_msg.getString("Give.Sender"));
+        DefaultValue.giveReceived = replace(yamlConfiguration_msg.getString("Give.Receiver"));
+        DefaultValue.PlayerNotFound = replace(yamlConfiguration_msg.getString("Give.PlayerNotFond"));
+        DefaultValue.PlayerNoInventorySpace = replace(yamlConfiguration_msg.getString("Give.PlayerNoInventorySpace"));
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2Language successfully selected to: §6" + selectMSG);
     }

@@ -17,7 +17,7 @@ public class Messages_EN {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4EN_Messages.yml load...");
 
-        File messagesENYML = new File(Main.thisp().getDataFolder().getPath(), "languages/EN_Messages.yml");
+        File messagesENYML = new File(Main.thisp().getDataFolder().getPath(), "languages/en_EN_Messages.yml");
         YamlConfiguration yamlConfiguration_ENmsg = YamlConfiguration.loadConfiguration(messagesENYML);
 
         if (!yamlConfiguration_ENmsg.contains("Do_not_remove_or_change.Created")) yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());

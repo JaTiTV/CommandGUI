@@ -29,7 +29,7 @@ public final class Main extends JavaPlugin {
 
     // Debug Settings
 
-    public static Boolean Bstats = false;
+    public static Boolean Bstats = true;
 
     public static Boolean Snapshot = true;
 
@@ -40,7 +40,7 @@ public final class Main extends JavaPlugin {
     public static String Spigot = "Coming soon";
     public static String DiscordLink = "https://discord.gg/vRyXFFterJ";
     public static String DiscordMSG = "You want to discuss and decide about current bugs, planned updates, new features?\n" +
-            "Then come to our Discord. " + DiscordLink;
+            "Then come to our Discord ➙ " + DiscordLink;
     public static String DiscordLoad = "https://discord.gg/vRyXFFterJ";
 
     // ---------------------------------------------
@@ -89,12 +89,7 @@ public final class Main extends JavaPlugin {
             PaPi = true;
         }
 
-        if (minecraft1_13) {
-            onDisable();
-        }
-
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2Plugin loaded successfully.");
-
         try {
             Load.LoadSend(getDescription().getVersion());
         } catch (InterruptedException e) {
@@ -102,16 +97,14 @@ public final class Main extends JavaPlugin {
         }
 
         getCommand("commandgui").setExecutor(new CmdExecuter());
-
+        getCommand("commandgui").setTabCompleter(new TabComplete());
+        Permissions.addPermission();
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_1(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_2(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_3(), this);
 
-        getCommand("commandgui").setTabCompleter(new TabComplete());
-
-
         if (Main.Bstats) {
-            int pluginId = 0000; // <-- Replace with the id of your plugin!
+            int pluginId = 10840; // <-- Replace with the id of your plugin!
             Metrics metrics = new Metrics(this, pluginId);
             metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(DefaultValue.UpdateCheckOnJoin)));
         } else {
@@ -131,12 +124,10 @@ public final class Main extends JavaPlugin {
             }.runTaskLater(Main.getPlugin(), 200L);
         }
 
-
         // Optional: Add custom charts
         // metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
 
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-
 
             public void run() {
 
@@ -144,14 +135,14 @@ public final class Main extends JavaPlugin {
                     String foundVersion = Main.thisp().getDescription().getVersion();
                     update_version = version;
                     if (!foundVersion.equalsIgnoreCase(version)) {
-                        String updateFound = (DefaultValue.PrefixHC + "§6A new version of §8[§6Command§9GUI§8]§6 was found!");
+                        String updateFound = (DefaultValue.PrefixHC + "§6A new version of §8[§4Command§9GUI§8]§6 was found!");
                         String yourVersion = (DefaultValue.PrefixHC + "§6Your version §c" + foundVersion);
                         String currentVersion = (DefaultValue.PrefixHC + "§6Current version: §a" + version);
                         String downloadVersion = (DefaultValue.PrefixHC + "§6You can download it here: §e" + Spigot);
-                        String discord = (DefaultValue.PrefixHC + "§6You can find more information about §8[§6Command§9GUI§8]§6 on Discord: §e" + DiscordLink);
+                        String discord = (DefaultValue.PrefixHC + "§6You can find more information about §8[§4Command§9GUI§8]§6 on Discord: §e" + DiscordLink);
                         String SnapshotConsole = (DefaultValue.PrefixHC + "§6" +
                                 "\n" + DefaultValue.PrefixHC + "§4Please note!§6" +
-                                "\n" + DefaultValue.PrefixHC + "§4You are using the §6" + foundVersion + " §4of §6Command§9GUI!§6" +
+                                "\n" + DefaultValue.PrefixHC + "§4You are using the §6" + foundVersion + " §4of §4Command§9GUI!§6" +
                                 "\n" + DefaultValue.PrefixHC + "§4There may be errors and it is possible that not all functions work as they should!§6" +
                                 "\n" + DefaultValue.PrefixHC + "§2If there are any bugs, please report them to me via Discord so I can fix them!§6" +
                                 "\n" + DefaultValue.PrefixHC + "§7" + DiscordLink);
@@ -188,11 +179,11 @@ public final class Main extends JavaPlugin {
                         }.runTaskLater(Main.getPlugin(), 120L);
                     }
                 });
+
             }
         }, 0L, 20 * 60 * 60L);
 
     }
-
 
     @Override
     public void onDisable() {

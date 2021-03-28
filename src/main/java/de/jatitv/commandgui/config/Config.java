@@ -39,7 +39,7 @@ public class Config {
             if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6UpdateCheckOnJoin §4was added to §9Config.yml§4!");
         }
         if (yamlConfiguration_config.contains("Plugin.language")) {
-            DefaultValue.language = yamlConfiguration_config.getString("Plugin.language").toUpperCase();
+            DefaultValue.language = yamlConfiguration_config.getString("Plugin.language");
         } else {
             yamlConfiguration_config.set("Plugin.language", DefaultValue.language);
             if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6language §4was added to §9Config.yml§4!");
@@ -201,7 +201,7 @@ public class Config {
                 DefaultValue.Sound_Click = sound_Click;
             }
         } catch (Exception e) {
-            if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
                     .replace("[sound]", "§8Click: §6" + DefaultValue.Sound_Click_input) + "§4\n§4\n§4\n");
             DefaultValue.Sound_Click = Sound.valueOf(soundHAT);
         }
@@ -212,7 +212,7 @@ public class Config {
                 DefaultValue.Sound_NoMoney = sound_NoMoney;
             }
         } catch (Exception e) {
-            if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
                     .replace("[sound]", "§8NoMoney: §6" + DefaultValue.Sound_NoMoney_input) + "§4\n§4\n§4\n");
             DefaultValue.Sound_NoMoney = Sound.valueOf(soundBNBH);
         }
@@ -223,7 +223,7 @@ public class Config {
                 DefaultValue.Sound_Give = sound_Give;
             }
         } catch (Exception e) {
-            if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
                     .replace("[sound]", "§8Give: §6" + DefaultValue.Sound_Give_input) + "§4\n§4\n§4\n");
             DefaultValue.Sound_Give = Sound.valueOf(soundEPL);
         }
@@ -234,7 +234,7 @@ public class Config {
                 DefaultValue.Sound_NoInventorySpace = sound_NoInventorySpace;
             }
         } catch (Exception e) {
-            if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
                     .replace("[sound]", "§8sound_NoInventorySpace: §6" + DefaultValue.Sound_NoInventorySpace_input) + "§4\n§4\n§4\n");
             DefaultValue.Sound_NoInventorySpace = Sound.valueOf(soundBNBG);
         }
@@ -245,7 +245,7 @@ public class Config {
                 DefaultValue.Sound_PlayerNotFound = sound_PlayerNotFound;
             }
         } catch (Exception e) {
-            if (configYML.isFile()) Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
+            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + DefaultValue.SoundNotFound.replace("[prefix]", DefaultValue.Prefix)
                     .replace("[sound]", "§8PlayerNotFound: §6" + DefaultValue.Sound_PlayerNotFound_input) + "§4\n§4\n§4\n");
             DefaultValue.Sound_PlayerNotFound = Sound.valueOf(soundBNBH);
         }

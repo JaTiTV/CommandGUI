@@ -14,7 +14,7 @@ package de.jatitv.commandgui.defultValue;
 import java.util.Arrays;
 import java.util.List;
 
-public class DefultVaalue_GUI_2 {
+public class DefaultValue_GUI_2 {
 
     public static Boolean GiveUseItemOnFirstJoin = false;
     public static Boolean GiveUseItemOnFirstJoin_Permission_Enable = false;

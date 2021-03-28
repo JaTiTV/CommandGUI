@@ -4,7 +4,7 @@
 package de.jatitv.commandgui.commands.cmdManagement;
 
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefultVaalue_GUI_2;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -36,7 +36,7 @@ public class TabComplete implements TabCompleter {
                     if (sender.hasPermission("commandgui.command.give") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
                         list.add("give");
                     }
-                    if (!DefaultValue_GUI_1.Command_Permission_Enable || !DefultVaalue_GUI_2.Command_Permission_Enable || !DefultVaalue_GUI_2.Command_Permission_Enable
+                    if (!DefaultValue_GUI_1.Command_Permission_Enable || !DefaultValue_GUI_2.Command_Permission_Enable || !DefaultValue_GUI_2.Command_Permission_Enable
                             || sender.hasPermission("commandgui.command.gui1") || sender.hasPermission("commandgui.command.gui2") || sender.hasPermission("commandgui.command.gui3")
                             || sender.hasPermission("commandgui.admin") || sender.isOp()) {
                         list.add("open");
@@ -59,7 +59,7 @@ public class TabComplete implements TabCompleter {
                     }
 
                 } else if (args[0].charAt(0) == 'o') {
-                    if (!DefaultValue_GUI_1.Command_Permission_Enable || !DefultVaalue_GUI_2.Command_Permission_Enable || !DefaultValue_GUI_3.Command_Permission_Enable
+                    if (!DefaultValue_GUI_1.Command_Permission_Enable || !DefaultValue_GUI_2.Command_Permission_Enable || !DefaultValue_GUI_3.Command_Permission_Enable
                             || sender.hasPermission("commandgui.command.gui1") || sender.hasPermission("commandgui.command.gui2") || sender.hasPermission("commandgui.command.gui3")
                             || sender.hasPermission("commandgui.admin") || sender.isOp()) {
                         list.add("open");
@@ -83,9 +83,9 @@ public class TabComplete implements TabCompleter {
                         list.add(DefaultValue_GUI_1.Command);
                     }
                 }
-                if (DefultVaalue_GUI_2.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                    if (!DefultVaalue_GUI_2.Command_Permission_Enable || sender.hasPermission("commandgui.command.gui2") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                        list.add(DefultVaalue_GUI_2.Command);
+                if (DefaultValue_GUI_2.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                    if (!DefaultValue_GUI_2.Command_Permission_Enable || sender.hasPermission("commandgui.command.gui2") || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                        list.add(DefaultValue_GUI_2.Command);
                     }
                 }
                 if (DefaultValue_GUI_3.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
@@ -113,8 +113,8 @@ public class TabComplete implements TabCompleter {
                             if (DefaultValue_GUI_1.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
                                 list.add(DefaultValue_GUI_1.Command);
                             }
-                            if (DefultVaalue_GUI_2.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
-                                list.add(DefultVaalue_GUI_2.Command);
+                            if (DefaultValue_GUI_2.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
+                                list.add(DefaultValue_GUI_2.Command);
                             }
                             if (DefaultValue_GUI_3.GUI_Enable || sender.hasPermission("commandgui.admin") || sender.isOp()) {
                                 list.add(DefaultValue_GUI_3.Command);

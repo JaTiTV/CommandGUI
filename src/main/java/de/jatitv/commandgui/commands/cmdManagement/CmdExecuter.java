@@ -4,9 +4,10 @@
 package de.jatitv.commandgui.commands.cmdManagement;
 
 import de.jatitv.commandgui.commands.*;
+import de.jatitv.commandgui.config.Messages_Select;
 import de.jatitv.commandgui.defultValue.DefaultValue;
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefultVaalue_GUI_2;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
@@ -32,10 +33,10 @@ public class CmdExecuter implements CommandExecutor {
                         } else player.sendMessage(DefaultValue.GUIisDisable.replace("[gui]", DefaultValue_GUI_1.GUIName));
                     } else player.sendMessage(DefaultValue.NoPermission.replace("[cmd]", "/commandgui").replace("[perm]", "commandgui.command"));
                 } else if (DefaultValue.DefaultGUI == 2) {
-                    if (!DefultVaalue_GUI_2.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.admin") || player.isOp()) {
-                        if (DefultVaalue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
+                    if (!DefaultValue_GUI_2.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.admin") || player.isOp()) {
+                        if (DefaultValue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
                             GUI_2.openCGUI(player);
-                        } else player.sendMessage(DefaultValue.GUIisDisable.replace("[gui]", DefultVaalue_GUI_2.GUIName));
+                        } else player.sendMessage(DefaultValue.GUIisDisable.replace("[gui]", DefaultValue_GUI_2.GUIName));
                     } else player.sendMessage(DefaultValue.NoPermission.replace("[cmd]", "/commandgui").replace("[perm]", "commandgui.command"));
                 } else if (DefaultValue.DefaultGUI == 3) {
                     if (!DefaultValue_GUI_3.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.admin") || player.isOp()) {
@@ -48,6 +49,10 @@ public class CmdExecuter implements CommandExecutor {
 
             } else {
                 switch (args[0].toLowerCase()) {
+                    case "lang":
+                        sender.sendMessage(DefaultValue.language);
+                        sender.sendMessage(Messages_Select.sel);
+                        break;
                     case "test":
                         sender.sendMessage(DefaultValue_GUI_1.FillItem);
                         break;
@@ -67,12 +72,6 @@ public class CmdExecuter implements CommandExecutor {
                             sender.sendMessage(DefaultValue.PrefixHC + "§2Version: §6" + Main.getPlugin().getDescription().getVersion());
                             sender.sendMessage(DefaultValue.PrefixHC + "§8-----------------------------");
 
-                            if (Bukkit.getPluginManager().getPlugin("NBTAPI") == null) {
-                                Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4\n" + DefaultValue.PrefixHC + "§4NBTAPI could not be connected / found! " +
-                                        "§9Please download it here: §6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefaultValue.PrefixHC);
-                                player.sendMessage(DefaultValue.PrefixHC + "§4\n" + DefaultValue.PrefixHC + "§4NBTAPI could not be connected / found! §9Please download it here: " +
-                                        "§6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefaultValue.PrefixHC);
-                            }
                             if (Bukkit.getPluginManager().getPlugin("Vault") == null) {
                                 Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4\n" + DefaultValue.PrefixHC + "§4Vault could not be connected / found! " +
                                         "§9Please download it here: §6https://www.spigotmc.org/resources/vault.34315/§4\n" + DefaultValue.PrefixHC);
@@ -100,15 +99,15 @@ public class CmdExecuter implements CommandExecutor {
                                         .replace("[perm]", "commandgui.command.gui1"));
 
 
-                            } else if (args[1].equals(DefultVaalue_GUI_2.Command)) {
-                                if (!DefultVaalue_GUI_2.Command_Permission_Enable || player.hasPermission("commandgui.command.gui2") || player.hasPermission("commandgui.admin")
+                            } else if (args[1].equals(DefaultValue_GUI_2.Command)) {
+                                if (!DefaultValue_GUI_2.Command_Permission_Enable || player.hasPermission("commandgui.command.gui2") || player.hasPermission("commandgui.admin")
                                         || player.isOp()) {
-                                    if (DefultVaalue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
+                                    if (DefaultValue_GUI_2.GUI_Enable || player.hasPermission("commandgui.admin") || player.isOp()) {
                                         GUI_2.openCGUI(player);
                                     } else {
-                                        player.sendMessage(DefaultValue.GUIisDisable.replace("[gui]", DefultVaalue_GUI_2.GUIName));
+                                        player.sendMessage(DefaultValue.GUIisDisable.replace("[gui]", DefaultValue_GUI_2.GUIName));
                                     }
-                                } else player.sendMessage(DefaultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefultVaalue_GUI_2.Command)
+                                } else player.sendMessage(DefaultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui " + DefaultValue_GUI_2.Command)
                                         .replace("[perm]", "commandgui.command.gui2"));
 
 
@@ -186,10 +185,7 @@ public class CmdExecuter implements CommandExecutor {
                         sender.sendMessage(DefaultValue.PrefixHC + "§2");
                         sender.sendMessage(DefaultValue.PrefixHC + "§2Version: §6" + Main.getPlugin().getDescription().getVersion());
                         sender.sendMessage(DefaultValue.PrefixHC + "§8-----------------------------");
-                        if (Bukkit.getPluginManager().getPlugin("NBTAPI") == null) {
-                            Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4\n" + DefaultValue.PrefixHC + "§4NBTAPI could not be connected / found! " +
-                                    "§9Please download it here: §6https://www.spigotmc.org/resources/nbt-api.7939/§4\n" + DefaultValue.PrefixHC);
-                        }
+
                         if (Bukkit.getPluginManager().getPlugin("Vault") == null) {
                             Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4\n" + DefaultValue.PrefixHC + "§4Vault could not be connected / found! " +
                                     "§9Please download it here: §6https://www.spigotmc.org/resources/vault.34315/§4\n" + DefaultValue.PrefixHC);

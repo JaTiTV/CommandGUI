@@ -5,7 +5,7 @@ package de.jatitv.commandgui.commands;
 
 import de.jatitv.commandgui.defultValue.DefaultValue;
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefultVaalue_GUI_2;
+import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
 import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -49,20 +49,20 @@ public class Give {
                     }
                 }
 
-            } else if (wb.equals(DefultVaalue_GUI_2.Command)) {
-                ItemStack item = new ItemStack(Material.valueOf(DefultVaalue_GUI_2.UseItem_Item));
+            } else if (wb.equals(DefaultValue_GUI_2.Command)) {
+                ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_2.UseItem_Item));
                 ItemMeta itemMeta = item.getItemMeta();
-                itemMeta.setDisplayName(DefultVaalue_GUI_2.UseItem_Name.replace("[guiname]", DefultVaalue_GUI_2.GUIName));
-                itemMeta.setLore(DefultVaalue_GUI_2.UseItem_Lore);
+                itemMeta.setDisplayName(DefaultValue_GUI_2.UseItem_Name.replace("[guiname]", DefaultValue_GUI_2.GUIName));
+                itemMeta.setLore(DefaultValue_GUI_2.UseItem_Lore);
                 item.setItemMeta(itemMeta);
                 item.setAmount(1);
                 target.getInventory().addItem(item);
 
                 if (sender != target) {
                     sender.sendMessage(DefaultValue.give.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                            .replace("[item]", DefultVaalue_GUI_2.UseItem_Name).replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                            .replace("[item]", DefaultValue_GUI_2.UseItem_Name).replace("[guiname]", DefaultValue_GUI_2.GUIName));
                     target.sendMessage(DefaultValue.giveReceived.replace("[sender]", sender.getName()).replace("[player]", target.getName())
-                            .replace("[item]", DefultVaalue_GUI_2.UseItem_Name).replace("[guiname]", DefultVaalue_GUI_2.GUIName));
+                            .replace("[item]", DefaultValue_GUI_2.UseItem_Name).replace("[guiname]", DefaultValue_GUI_2.GUIName));
                     if (DefaultValue.Sound_Give_Enable && DefaultValue.Sound_Enable) {
                         ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_Give, 3, 1);
                         target.playSound(target.getLocation(), DefaultValue.Sound_Give, 3, 1);
