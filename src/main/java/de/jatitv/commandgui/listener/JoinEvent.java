@@ -28,9 +28,9 @@ public class JoinEvent implements Listener {
     @EventHandler
     public void onJoinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        String foundVersion = Main.getPlugin().getDescription().getVersion();
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
-            if (Main.update_version != null) {
-                String foundVersion = Main.getPlugin().getDescription().getVersion();
+            if (!foundVersion.equals(Main.update_version)) {
                 String updateFound = (DefultValue.PrefixHC + "§6A new version of §8[§4Command§9GUI§8]§6 was found!");
                 String yourVersion = (DefultValue.PrefixHC + "§6Your version §c" + foundVersion);
                 String currentVersion = (DefultValue.PrefixHC + "§6Current version: §a" + Main.update_version);
