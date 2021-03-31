@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -14,22 +14,17 @@ import java.io.IOException;
 
 public class Config {
 
-    public static void configCreate() {
+    public static void configCreate(String version) {
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Config.yml load...");
 
         File configYML = new File(Main.thisp().getDataFolder().getPath(), "Config.yml");
         YamlConfiguration yamlConfiguration_config = YamlConfiguration.loadConfiguration(configYML);
 
-        if (!yamlConfiguration_config.contains("Do_not_remove_or_change.Created")) {
-            yamlConfiguration_config.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());
-        }
-
-        yamlConfiguration_config.set("Do_not_remove_or_change.Version", Main.getPlugin().getDescription().getVersion());
-
+        if (!yamlConfiguration_config.contains("Do_not_remove_or_change.Created"))
+            yamlConfiguration_config.set("Do_not_remove_or_change.Created", "This file was created with version " + version);
+        yamlConfiguration_config.set("Do_not_remove_or_change.Version", version);
         yamlConfiguration_config.set("Do_not_remove_or_change.Autor", Main.Autor);
-
         yamlConfiguration_config.set("Do_not_remove_or_change.Spigot", Main.Spigot);
-
         yamlConfiguration_config.set("Do_not_remove_or_change.Discord", Main.DiscordMSG);
 
         if (yamlConfiguration_config.contains("Plugin.UpdateCheckOnJoin")) {

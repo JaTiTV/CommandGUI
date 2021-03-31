@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -13,15 +13,16 @@ import java.io.IOException;
 
 public class Messages_NO {
 
-    public static void messagesCreate() {
+    public static void messagesCreate(String version) {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4NO_Messages.yml load...");
 
         File messagesNOYML = new File(Main.thisp().getDataFolder().getPath(), "languages/no_NO_Messages.yml");
         YamlConfiguration yamlConfiguration_NOmsg = YamlConfiguration.loadConfiguration(messagesNOYML);
 
-        if (!yamlConfiguration_NOmsg.contains("Do_not_remove_or_change.Created")) yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());
-        yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Version", Main.getPlugin().getDescription().getVersion());
+        if (!yamlConfiguration_NOmsg.contains("Do_not_remove_or_change.Created"))
+            yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + version);
+        yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Version", version);
         yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Autor", Main.Autor);
         yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Spigot", Main.Spigot);
         yamlConfiguration_NOmsg.set("Do_not_remove_or_change.Discord", Main.DiscordMSG);

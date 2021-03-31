@@ -4,7 +4,7 @@
 package de.jatitv.commandgui.system;
 
 import de.jatitv.commandgui.config.*;
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -80,21 +80,21 @@ public class Load {
             }
         }
 
-        Config.configCreate();
+        Config.configCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        Messages_EN.messagesCreate();
+        Messages_EN.messagesCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        Messages_DE.messagesCreate();
+        Messages_DE.messagesCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        Messages_FR.messagesCreate();
+        Messages_FR.messagesCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        Messages_NO.messagesCreate();
+        Messages_NO.messagesCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        GUI_1.configCreate();
+        GUI_1.configCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        GUI_2.configCreate();
+        GUI_2.configCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
-        GUI_3.configCreate();
+        GUI_3.configCreate(version);
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
         Messages_Select.selectCreate();
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");

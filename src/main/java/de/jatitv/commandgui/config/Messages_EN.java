@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -13,15 +13,16 @@ import java.io.IOException;
 
 public class Messages_EN {
 
-    public static void messagesCreate() {
+    public static void messagesCreate(String version) {
 
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4EN_Messages.yml load...");
 
         File messagesENYML = new File(Main.thisp().getDataFolder().getPath(), "languages/en_EN_Messages.yml");
         YamlConfiguration yamlConfiguration_ENmsg = YamlConfiguration.loadConfiguration(messagesENYML);
 
-        if (!yamlConfiguration_ENmsg.contains("Do_not_remove_or_change.Created")) yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());
-        yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Version", Main.getPlugin().getDescription().getVersion());
+        if (!yamlConfiguration_ENmsg.contains("Do_not_remove_or_change.Created"))
+            yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Created", "This file was created with version " + version);
+        yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Version", version);
         yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Autor", Main.Autor);
         yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Spigot", Main.Spigot);
         yamlConfiguration_ENmsg.set("Do_not_remove_or_change.Discord", Main.DiscordMSG);
@@ -116,7 +117,7 @@ public class Messages_EN {
             e.printStackTrace();
         }
 
-        if (messagesENYML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2EN_Messages.yml loaded successfully.");
+        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2EN_Messages.yml loaded successfully.");
 
     }
 

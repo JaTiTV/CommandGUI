@@ -3,9 +3,9 @@
 
 package de.jatitv.commandgui.commands.cmdManagement;
 
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_3;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

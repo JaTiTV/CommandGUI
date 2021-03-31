@@ -2,8 +2,8 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -15,22 +15,17 @@ import java.util.List;
 
 public class GUI_2 {
 
-    public static void configCreate() throws InterruptedException {
+    public static void configCreate(String version) throws InterruptedException {
         Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4GUI_2.yml load...");
 
         File GUI2YML = new File(Main.thisp().getDataFolder().getPath(), "GUIs/" + "GUI_2.yml");
         YamlConfiguration yamlConfiguration_GUI2 = YamlConfiguration.loadConfiguration(GUI2YML);
 
-        if (!yamlConfiguration_GUI2.contains("Do_not_remove_or_change.Created")) {
-            yamlConfiguration_GUI2.set("Do_not_remove_or_change.Created", "This file was created with version " + Main.getPlugin().getDescription().getVersion());
-        }
-
-        yamlConfiguration_GUI2.set("Do_not_remove_or_change.Version", Main.getPlugin().getDescription().getVersion());
-
+        if (!yamlConfiguration_GUI2.contains("Do_not_remove_or_change.Created"))
+            yamlConfiguration_GUI2.set("Do_not_remove_or_change.Created", "This file was created with version " + version);
+        yamlConfiguration_GUI2.set("Do_not_remove_or_change.Version", version);
         yamlConfiguration_GUI2.set("Do_not_remove_or_change.Autor", Main.Autor);
-
         yamlConfiguration_GUI2.set("Do_not_remove_or_change.Spigot", Main.Spigot);
-
         yamlConfiguration_GUI2.set("Do_not_remove_or_change.Discord", Main.DiscordMSG);
 
 

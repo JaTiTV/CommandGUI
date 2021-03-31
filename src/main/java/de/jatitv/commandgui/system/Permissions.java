@@ -3,9 +3,9 @@
 
 package de.jatitv.commandgui.system;
 
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_3;
 import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;

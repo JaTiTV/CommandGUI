@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.system;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;

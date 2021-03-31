@@ -3,8 +3,8 @@
 
 package de.jatitv.commandgui.listener;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
 import de.jatitv.commandgui.system.Main;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;

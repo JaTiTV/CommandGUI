@@ -12,7 +12,7 @@
 package de.jatitv.commandgui.system;
 
 import de.jatitv.commandgui.commands.cmdManagement.TabComplete;
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.commands.cmdManagement.CmdExecuter;
 import de.jatitv.commandgui.listener.GUI_1;
 import de.jatitv.commandgui.listener.GUI_2;
@@ -37,7 +37,7 @@ public final class Main extends JavaPlugin {
     public static String UpdateInfo = DefaultValue.PrefixHC + "";
 
     public static String Autor = "JaTiTV";
-    public static String Spigot = "Coming soon";
+    public static String Spigot = "https://www.spigotmc.org/resources/commandgui-cgui.90671/";
     public static String DiscordLink = "https://discord.gg/vRyXFFterJ";
     public static String DiscordMSG = "You want to discuss and decide about current bugs, planned updates, new features?\n" +
             "Then come to our Discord ➙ " + DiscordLink;
@@ -63,7 +63,6 @@ public final class Main extends JavaPlugin {
     public static Main getPlugin() {
         return plugin;
     }
-
     public static Plugin thisp() {
         return plugin;
     }
@@ -89,7 +88,6 @@ public final class Main extends JavaPlugin {
             PaPi = true;
         }
 
-        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§2Plugin loaded successfully.");
         try {
             Load.LoadSend(getDescription().getVersion());
         } catch (InterruptedException e) {
@@ -128,9 +126,7 @@ public final class Main extends JavaPlugin {
         // metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
 
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-
             public void run() {
-
                 (new UpdateChecker((JavaPlugin) Main.thisp(), 90671)).getVersion((version) -> {
                     String foundVersion = Main.thisp().getDescription().getVersion();
                     update_version = version;

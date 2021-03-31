@@ -9,11 +9,10 @@
 //   \_____\_____|\____/|_____|
 // -----------------------------
 
-package de.jatitv.commandgui.defultValue;
+package de.jatitv.commandgui.defaultValue;
 
 import de.jatitv.commandgui.system.Main;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

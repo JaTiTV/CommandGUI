@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.system;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import org.bukkit.Bukkit;
 
 public class Disable {

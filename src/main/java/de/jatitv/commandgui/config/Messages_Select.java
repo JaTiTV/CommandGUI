@@ -3,7 +3,7 @@
 
 package de.jatitv.commandgui.config;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -5,10 +5,10 @@ package de.jatitv.commandgui.commands.cmdManagement;
 
 import de.jatitv.commandgui.commands.*;
 import de.jatitv.commandgui.config.Messages_Select;
-import de.jatitv.commandgui.defultValue.DefaultValue;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_1;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_2;
-import de.jatitv.commandgui.defultValue.DefaultValue_GUI_3;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_3;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -49,13 +49,6 @@ public class CmdExecuter implements CommandExecutor {
 
             } else {
                 switch (args[0].toLowerCase()) {
-                    case "lang":
-                        sender.sendMessage(DefaultValue.language);
-                        sender.sendMessage(Messages_Select.sel);
-                        break;
-                    case "test":
-                        sender.sendMessage(DefaultValue_GUI_1.FillItem);
-                        break;
                     case "info":
                     case "plugin":
                     case "pl":

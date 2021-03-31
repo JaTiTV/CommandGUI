@@ -9,7 +9,7 @@
 //   \_____\_____|\____/|_____|
 // -----------------------------
 
-package de.jatitv.commandgui.defultValue;
+package de.jatitv.commandgui.defaultValue;
 
 import org.bukkit.Sound;
 

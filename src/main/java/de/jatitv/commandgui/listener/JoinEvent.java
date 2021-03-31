@@ -13,7 +13,7 @@
 
 package de.jatitv.commandgui.listener;
 
-import de.jatitv.commandgui.defultValue.DefaultValue;
+import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +23,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class JoinEvent implements Listener {
 
-    private DefaultValue DefultValue;
+
 
     @EventHandler
     public void onJoinEvent(PlayerJoinEvent event) {
@@ -31,16 +31,16 @@ public class JoinEvent implements Listener {
         String foundVersion = Main.getPlugin().getDescription().getVersion();
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
             if (!foundVersion.equals(Main.update_version)) {
-                String updateFound = (DefultValue.PrefixHC + "§6A new version of §8[§4Command§9GUI§8]§6 was found!");
-                String yourVersion = (DefultValue.PrefixHC + "§6Your version §c" + foundVersion);
-                String currentVersion = (DefultValue.PrefixHC + "§6Current version: §a" + Main.update_version);
-                String downloadVersion = (DefultValue.PrefixHC + "§6You can download it here: §e" + Main.Spigot);
-                String discord = (DefultValue.PrefixHC + "§6You can find more information about §8[§4Command§9GUI§8]§6 on Discord: §e" + Main.DiscordLink);
-                String Snapshot = (DefultValue.PrefixHC + "§4Please note!" +
-                        "\n" + DefultValue.PrefixHC + "§cYou are using the §6" + foundVersion + " §cof §4Command§9GUI!" +
-                        "\n" + DefultValue.PrefixHC + "§cThere may be errors and it is possible that not all functions work as they should!" +
-                        "\n" + DefultValue.PrefixHC + "§2If there are any bugs, please report them to me via Discord so I can fix them." +
-                        "\n" + DefultValue.PrefixHC + "§7" + Main.DiscordLink);
+                String updateFound = (DefaultValue.PrefixHC + "§6A new version of §8[§4Command§9GUI§8]§6 was found!");
+                String yourVersion = (DefaultValue.PrefixHC + "§6Your version §c" + foundVersion);
+                String currentVersion = (DefaultValue.PrefixHC + "§6Current version: §a" + Main.update_version);
+                String downloadVersion = (DefaultValue.PrefixHC + "§6You can download it here: §e" + Main.Spigot);
+                String discord = (DefaultValue.PrefixHC + "§6You can find more information about §8[§4Command§9GUI§8]§6 on Discord: §e" + Main.DiscordLink);
+                String Snapshot = (DefaultValue.PrefixHC + "§4Please note!" +
+                        "\n" + DefaultValue.PrefixHC + "§cYou are using the §6" + foundVersion + " §cof §4Command§9GUI!" +
+                        "\n" + DefaultValue.PrefixHC + "§cThere may be errors and it is possible that not all functions work as they should!" +
+                        "\n" + DefaultValue.PrefixHC + "§2If there are any bugs, please report them to me via Discord so I can fix them." +
+                        "\n" + DefaultValue.PrefixHC + "§7" + Main.DiscordLink);
                 if (Main.Snapshot) {
                     new BukkitRunnable() {
                         @Override
@@ -61,7 +61,7 @@ public class JoinEvent implements Listener {
                         }
                     }.runTaskLater(Main.getPlugin(), 200L);
                 }
-                if (DefultValue.UpdateCheckOnJoin && !Main.Snapshot) {
+                if (DefaultValue.UpdateCheckOnJoin && !Main.Snapshot) {
                     new BukkitRunnable() {
                         @Override
                         public void run() {

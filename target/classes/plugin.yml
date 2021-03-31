@@ -1,5 +1,5 @@
 name: CommandGUI
-version: 0.1.0
+version: 1.0.1
 api-version: 1.13
 main: de.jatitv.commandgui.system.Main
 authors: [ JaTiTV ]
