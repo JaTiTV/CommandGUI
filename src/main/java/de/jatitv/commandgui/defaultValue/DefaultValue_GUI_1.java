@@ -47,6 +47,7 @@ public class DefaultValue_GUI_1 {
 
 
     public static Boolean L1_S1_Enable = true;
+    public static Boolean L1_S1_Playerhead = true;
     public static String L1_S1_Item = "PAPER";
     public static String L1_S1_Name = "§3Player Info";
     public static List L1_S1_Lore = Arrays.asList("§8-----------------", "§bPlayer: §6%player_name%", "", "§eGamemode: §6%player_gamemode%", "§eHealth: §6%player_health_scale%");

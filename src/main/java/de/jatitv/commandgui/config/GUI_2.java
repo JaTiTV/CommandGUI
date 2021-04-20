@@ -146,6 +146,15 @@ public class GUI_2 {
                 yamlConfiguration_GUI2.set("Functions.Line_1.Slot_1.Enable", DefaultValue_GUI_2.L1_S1_Enable);
                 if (GUI2YML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6Line_1 Slot_1 Enable §4was added to §9GUI_2.yml§4!");
             }
+            if (!Main.minecraft1_8 || !Main.minecraft1_9 || !Main.minecraft1_10 || !Main.minecraft1_11 || !Main.minecraft1_12) {
+                if (yamlConfiguration_GUI2.contains("Functions.Line_1.Slot_1.Playerhead")) {
+                    DefaultValue_GUI_2.L1_S1_Playerhead = yamlConfiguration_GUI2.getBoolean("Functions.Line_1.Slot_1.Playerhead");
+                } else {
+                    yamlConfiguration_GUI2.set("Functions.Line_1.Slot_1.Playerhead", DefaultValue_GUI_2.L1_S1_Playerhead);
+                    if (GUI2YML.isFile())
+                        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6Line_1 Slot_1 Playerhead §4was added to §9GUI_2.yml§4!");
+                }
+            }
             if (yamlConfiguration_GUI2.contains("Functions.Line_1.Slot_1.Item.Item")) {
                 DefaultValue_GUI_2.L1_S1_Item = replace(yamlConfiguration_GUI2.getString("Functions.Line_1.Slot_1.Item.Item").toUpperCase().replace(".", "_"));
             } else {

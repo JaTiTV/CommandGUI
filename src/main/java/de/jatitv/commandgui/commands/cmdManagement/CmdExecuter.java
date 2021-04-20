@@ -9,6 +9,7 @@ import de.jatitv.commandgui.defaultValue.DefaultValue;
 import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
 import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
 import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_3;
+import de.jatitv.commandgui.system.Load;
 import de.jatitv.commandgui.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -142,7 +143,11 @@ public class CmdExecuter implements CommandExecutor {
                             Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§6Plugin reload...");
                             Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");
 
-                            Bukkit.getServer().getPluginManager().getPlugin(Main.plugin.getName()).onEnable();
+                            try {
+                                Load.LoadSend(Main.getPlugin().getDescription().getVersion());
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
 
                             if (sender instanceof Player) sender.sendMessage(DefaultValue.PrefixHC + DefaultValue.ReloadEnd);
                             Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§8-------------------------------");

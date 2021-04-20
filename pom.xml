@@ -6,7 +6,7 @@
 
     <groupId>de.jatitv</groupId>
     <artifactId>commandgui</artifactId>
-    <version>1.0.2</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <name>CommandGUI</name>

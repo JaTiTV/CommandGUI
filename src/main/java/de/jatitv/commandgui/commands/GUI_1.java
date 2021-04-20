@@ -14,6 +14,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,9 @@ public class GUI_1 {
 
     public static void openCGUI(Player player) {
 
-        if(Main.PaPi) {
+        if (Main.PaPi) {
             Inventory inventory = Bukkit.createInventory((InventoryHolder) null, 9 * DefaultValue_GUI_1.GUILines,
                     (PlaceholderAPI.setPlaceholders(player, GUI_NAME)));
-
-
-
 
 
             if (DefaultValue_GUI_1.FillItem_Enable) {
@@ -53,25 +51,38 @@ public class GUI_1 {
                     for (int i = 0; i < 9 * DefaultValue_GUI_1.GUILines; i++) {
                         inventory.setItem(i, glass);
                     }
-                 }
+                }
             }
 
 
             if (DefaultValue_GUI_1.GUILines == 1 || DefaultValue_GUI_1.GUILines > 1) {
                 if (DefaultValue_GUI_1.L1_S1_Enable) {
-                    ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S1_Item));
-                    ItemMeta itemMeta = item.getItemMeta();
-                    itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S1_Lore,  DefaultValue_GUI_1.L1_S1_Price + " " + DefaultValue.Currency)));
-                    item.setItemMeta(itemMeta);
-                    item.setAmount(1);
-                    inventory.setItem(0, item);
+                    if (DefaultValue_GUI_1.L1_S1_Playerhead) {
+                        if (!Main.minecraft1_8 || !Main.minecraft1_9 || !Main.minecraft1_10 || !Main.minecraft1_11 || !Main.minecraft1_12) {
+                            ItemStack item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
+                            SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
+                            itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S1_Name));
+                            itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S1_Lore, DefaultValue_GUI_1.L1_S1_Price + " " + DefaultValue.Currency)));
+                            itemMeta.setOwner(player.getName());
+                            item.setItemMeta(itemMeta);
+                            item.setAmount(1);
+                            inventory.setItem(0, item);
+                        }
+                    } else {
+                        ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S1_Item));
+                        ItemMeta itemMeta = item.getItemMeta();
+                        itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S1_Name));
+                        itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S1_Lore, DefaultValue_GUI_1.L1_S1_Price + " " + DefaultValue.Currency)));
+                        item.setItemMeta(itemMeta);
+                        item.setAmount(1);
+                        inventory.setItem(0, item);
+                    }
                 }
                 if (DefaultValue_GUI_1.L1_S2_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S2_Lore,  DefaultValue_GUI_1.L1_S2_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S2_Lore, DefaultValue_GUI_1.L1_S2_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(1, item);
@@ -80,7 +91,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S3_Lore,  DefaultValue_GUI_1.L1_S3_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S3_Lore, DefaultValue_GUI_1.L1_S3_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(2, item);
@@ -89,7 +100,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S4_Lore,  DefaultValue_GUI_1.L1_S4_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S4_Lore, DefaultValue_GUI_1.L1_S4_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(3, item);
@@ -98,7 +109,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S5_Lore,  DefaultValue_GUI_1.L1_S5_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S5_Lore, DefaultValue_GUI_1.L1_S5_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(4, item);
@@ -107,7 +118,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S6_Lore,  DefaultValue_GUI_1.L1_S6_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S6_Lore, DefaultValue_GUI_1.L1_S6_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(5, item);
@@ -116,7 +127,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S7_Lore,  DefaultValue_GUI_1.L1_S7_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S7_Lore, DefaultValue_GUI_1.L1_S7_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(6, item);
@@ -125,7 +136,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S8_Lore,  DefaultValue_GUI_1.L1_S8_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S8_Lore, DefaultValue_GUI_1.L1_S8_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(7, item);
@@ -134,17 +145,18 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L1_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(8, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 2 || DefaultValue_GUI_1.GUILines > 2) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 2 || DefaultValue_GUI_1.GUILines > 2) {
                 if (DefaultValue_GUI_1.L2_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S1_Lore,  DefaultValue_GUI_1.L2_S1_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S1_Lore, DefaultValue_GUI_1.L2_S1_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(9, item);
@@ -153,7 +165,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S2_Lore,  DefaultValue_GUI_1.L2_S2_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S2_Lore, DefaultValue_GUI_1.L2_S2_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(10, item);
@@ -162,7 +174,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S3_Lore,  DefaultValue_GUI_1.L2_S3_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S3_Lore, DefaultValue_GUI_1.L2_S3_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(11, item);
@@ -171,7 +183,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S4_Lore,  DefaultValue_GUI_1.L2_S4_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S4_Lore, DefaultValue_GUI_1.L2_S4_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(12, item);
@@ -180,7 +192,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S5_Lore,  DefaultValue_GUI_1.L2_S5_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S5_Lore, DefaultValue_GUI_1.L2_S5_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(13, item);
@@ -189,7 +201,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S6_Lore,  DefaultValue_GUI_1.L2_S6_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S6_Lore, DefaultValue_GUI_1.L2_S6_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(14, item);
@@ -198,7 +210,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S7_Lore,  DefaultValue_GUI_1.L2_S7_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S7_Lore, DefaultValue_GUI_1.L2_S7_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(15, item);
@@ -207,7 +219,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S8_Lore,  DefaultValue_GUI_1.L2_S8_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S8_Lore, DefaultValue_GUI_1.L2_S8_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(16, item);
@@ -216,17 +228,19 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L2_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L2_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(17, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 3 || DefaultValue_GUI_1.GUILines > 3) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 3 || DefaultValue_GUI_1.GUILines > 3) {
+                Bukkit.getConsoleSender().sendMessage("§5-----------------------§6GUI---------------------------------");
                 if (DefaultValue_GUI_1.L3_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S1_Lore,  DefaultValue_GUI_1.L3_S1_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S1_Lore, DefaultValue_GUI_1.L3_S1_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(18, item);
@@ -235,7 +249,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S2_Lore,  DefaultValue_GUI_1.L3_S2_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S2_Lore, DefaultValue_GUI_1.L3_S2_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(19, item);
@@ -244,7 +258,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S3_Lore,  DefaultValue_GUI_1.L3_S3_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S3_Lore, DefaultValue_GUI_1.L3_S3_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(20, item);
@@ -253,7 +267,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S4_Lore,  DefaultValue_GUI_1.L3_S4_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S4_Lore, DefaultValue_GUI_1.L3_S4_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(21, item);
@@ -262,7 +276,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S5_Lore,  DefaultValue_GUI_1.L3_S5_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S5_Lore, DefaultValue_GUI_1.L3_S5_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(22, item);
@@ -271,7 +285,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S6_Lore,  DefaultValue_GUI_1.L3_S6_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S6_Lore, DefaultValue_GUI_1.L3_S6_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(23, item);
@@ -280,7 +294,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S7_Lore,  DefaultValue_GUI_1.L3_S7_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S7_Lore, DefaultValue_GUI_1.L3_S7_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(24, item);
@@ -289,7 +303,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S8_Lore,  DefaultValue_GUI_1.L3_S8_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S8_Lore, DefaultValue_GUI_1.L3_S8_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(25, item);
@@ -298,17 +312,18 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L3_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L3_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(26, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 4 || DefaultValue_GUI_1.GUILines > 4) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 4 || DefaultValue_GUI_1.GUILines > 4) {
                 if (DefaultValue_GUI_1.L4_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S1_Lore,  DefaultValue_GUI_1.L4_S1_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S1_Lore, DefaultValue_GUI_1.L4_S1_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(27, item);
@@ -317,7 +332,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S2_Lore,  DefaultValue_GUI_1.L4_S2_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S2_Lore, DefaultValue_GUI_1.L4_S2_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(28, item);
@@ -326,7 +341,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S3_Lore,  DefaultValue_GUI_1.L4_S3_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S3_Lore, DefaultValue_GUI_1.L4_S3_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(29, item);
@@ -335,7 +350,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S4_Lore,  DefaultValue_GUI_1.L4_S4_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S4_Lore, DefaultValue_GUI_1.L4_S4_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(30, item);
@@ -344,7 +359,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S5_Lore,  DefaultValue_GUI_1.L4_S5_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S5_Lore, DefaultValue_GUI_1.L4_S5_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(31, item);
@@ -353,7 +368,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S6_Lore,  DefaultValue_GUI_1.L4_S6_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S6_Lore, DefaultValue_GUI_1.L4_S6_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(32, item);
@@ -362,7 +377,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S7_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S7_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(33, item);
@@ -371,7 +386,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S8_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S8_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(34, item);
@@ -380,17 +395,18 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L4_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L4_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(35, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 5 || DefaultValue_GUI_1.GUILines > 5) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 5 || DefaultValue_GUI_1.GUILines > 5) {
                 if (DefaultValue_GUI_1.L5_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S1_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S1_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(36, item);
@@ -399,7 +415,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S2_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S2_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(37, item);
@@ -408,7 +424,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S3_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S3_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(38, item);
@@ -417,7 +433,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S4_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S4_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(39, item);
@@ -426,7 +442,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S5_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S5_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(40, item);
@@ -435,7 +451,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S6_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S6_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(41, item);
@@ -444,7 +460,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S7_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S7_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(42, item);
@@ -453,7 +469,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S8_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S8_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(43, item);
@@ -462,17 +478,18 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L5_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L5_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(44, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 6) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 6) {
                 if (DefaultValue_GUI_1.L6_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S1_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S1_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S1_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(45, item);
@@ -481,7 +498,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S2_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S2_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S2_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S2_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(46, item);
@@ -490,7 +507,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S3_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S3_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S3_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S3_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(47, item);
@@ -499,7 +516,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S4_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S4_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S4_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S4_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(48, item);
@@ -508,7 +525,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S5_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S5_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S5_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S5_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(49, item);
@@ -517,7 +534,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S6_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S6_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S6_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S6_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(50, item);
@@ -526,7 +543,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S7_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S7_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S7_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S7_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(51, item);
@@ -535,7 +552,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S8_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S8_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S8_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S8_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(52, item);
@@ -544,7 +561,7 @@ public class GUI_1 {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S9_Item));
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L6_S9_Name));
-                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S9_Lore,  DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
+                    itemMeta.setLore(PlaceholderAPI.setPlaceholders(player, replacePrice(DefaultValue_GUI_1.L6_S9_Lore, DefaultValue_GUI_1.L1_S9_Price + " " + DefaultValue.Currency)));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(53, item);
@@ -578,14 +595,27 @@ public class GUI_1 {
 
             }
             if (DefaultValue_GUI_1.GUILines == 1 || DefaultValue_GUI_1.GUILines > 1) {
-                if (DefaultValue_GUI_1.L1_S1_Enable) {
-                    ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S1_Item));
-                    ItemMeta itemMeta = item.getItemMeta();
-                    itemMeta.setDisplayName(DefaultValue_GUI_1.L1_S1_Name);
+                if (DefaultValue_GUI_1.L1_S1_Playerhead) {
+                    if (!Main.minecraft1_8 || !Main.minecraft1_9 || !Main.minecraft1_10 || !Main.minecraft1_11 || !Main.minecraft1_12) {
+                    ItemStack item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
+                    SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
+                    itemMeta.setDisplayName(PlaceholderAPI.setPlaceholders(player, DefaultValue_GUI_1.L1_S1_Name));
                     itemMeta.setLore(DefaultValue_GUI_1.L1_S1_Lore);
+                    itemMeta.setOwner(player.getName());
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     inventory.setItem(0, item);
+                    }
+                } else {
+                    if (DefaultValue_GUI_1.L1_S1_Enable) {
+                        ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S1_Item));
+                        ItemMeta itemMeta = item.getItemMeta();
+                        itemMeta.setDisplayName(DefaultValue_GUI_1.L1_S1_Name);
+                        itemMeta.setLore(DefaultValue_GUI_1.L1_S1_Lore);
+                        item.setItemMeta(itemMeta);
+                        item.setAmount(1);
+                        inventory.setItem(0, item);
+                    }
                 }
                 if (DefaultValue_GUI_1.L1_S2_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L1_S2_Item));
@@ -659,7 +689,8 @@ public class GUI_1 {
                     item.setAmount(1);
                     inventory.setItem(8, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 2 || DefaultValue_GUI_1.GUILines > 2) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 2 || DefaultValue_GUI_1.GUILines > 2) {
                 if (DefaultValue_GUI_1.L2_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L2_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
@@ -741,7 +772,8 @@ public class GUI_1 {
                     item.setAmount(1);
                     inventory.setItem(17, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 3 || DefaultValue_GUI_1.GUILines > 3) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 3 || DefaultValue_GUI_1.GUILines > 3) {
                 if (DefaultValue_GUI_1.L3_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L3_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
@@ -823,7 +855,8 @@ public class GUI_1 {
                     item.setAmount(1);
                     inventory.setItem(26, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 4 || DefaultValue_GUI_1.GUILines > 4) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 4 || DefaultValue_GUI_1.GUILines > 4) {
                 if (DefaultValue_GUI_1.L4_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L4_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
@@ -905,7 +938,8 @@ public class GUI_1 {
                     item.setAmount(1);
                     inventory.setItem(35, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 5 || DefaultValue_GUI_1.GUILines > 5) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 5 || DefaultValue_GUI_1.GUILines > 5) {
                 if (DefaultValue_GUI_1.L5_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L5_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
@@ -987,7 +1021,8 @@ public class GUI_1 {
                     item.setAmount(1);
                     inventory.setItem(44, item);
                 }
-            } else if (DefaultValue_GUI_1.GUILines == 6) {
+            }
+            if (DefaultValue_GUI_1.GUILines == 6) {
                 if (DefaultValue_GUI_1.L6_S1_Enable) {
                     ItemStack item = new ItemStack(Material.valueOf(DefaultValue_GUI_1.L6_S1_Item));
                     ItemMeta itemMeta = item.getItemMeta();
@@ -1095,7 +1130,7 @@ public class GUI_1 {
     private static List replacePrice(List<String> Text, String price) {
 
         List rp = new ArrayList();
-        for (String s : Text){
+        for (String s : Text) {
             rp.add(s.replace("[prefix]", DefaultValue.Prefix).replace("&", "§").replace("[ue]", "ü")
                     .replace("[UE]", "Ü").replace("[oe]", "Ö").replace("[OE]", "Ö")
                     .replace("[ae]", "ä").replace("[AE]", "Ä").replace("[price]", String.valueOf(price)));

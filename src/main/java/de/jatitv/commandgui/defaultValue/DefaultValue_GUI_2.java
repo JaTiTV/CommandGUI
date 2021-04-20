@@ -45,6 +45,7 @@ public class DefaultValue_GUI_2 {
 
 
     public static Boolean L1_S1_Enable = false;
+    public static Boolean L1_S1_Playerhead = true;
     public static String L1_S1_Item = "";
     public static String L1_S1_Name = "";
     public static List L1_S1_Lore = Arrays.asList();

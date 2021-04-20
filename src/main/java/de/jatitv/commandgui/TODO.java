@@ -13,4 +13,6 @@ public class TODO {
     // ToDo e.setCancelled(true); für jeden slot in config
     // ToDo Title
 
+    // ToDo NO_Messages -> no_NO_Messages alle Sprachen
+
 }

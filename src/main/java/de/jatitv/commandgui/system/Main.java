@@ -11,14 +11,18 @@
 
 package de.jatitv.commandgui.system;
 
-import de.jatitv.commandgui.commands.cmdManagement.TabComplete;
+import de.jatitv.commandgui.commands.cmdManagement.*;
 import de.jatitv.commandgui.defaultValue.DefaultValue;
-import de.jatitv.commandgui.commands.cmdManagement.CmdExecuter;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_1;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_2;
+import de.jatitv.commandgui.defaultValue.DefaultValue_GUI_3;
 import de.jatitv.commandgui.listener.GUI_1;
 import de.jatitv.commandgui.listener.GUI_2;
 import de.jatitv.commandgui.listener.GUI_3;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
+
+import org.bukkit.craftbukkit.v1_16_R3.CraftServer;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -33,7 +37,7 @@ public final class Main extends JavaPlugin {
 
     public static Boolean Snapshot = false;
 
-    public static Boolean UpdateMSG = true;
+    public static Boolean UpdateMSG = false;
     public static String UpdateInfo = DefaultValue.PrefixHC + "";
 
     public static String Autor = "JaTiTV";
@@ -63,6 +67,7 @@ public final class Main extends JavaPlugin {
     public static Main getPlugin() {
         return plugin;
     }
+
     public static Plugin thisp() {
         return plugin;
     }
@@ -96,6 +101,17 @@ public final class Main extends JavaPlugin {
 
         getCommand("commandgui").setExecutor(new CmdExecuter());
         getCommand("commandgui").setTabCompleter(new TabComplete());
+        if (minecraft1_13) {
+            CmdRegister_13.onregister();
+        } else if (minecraft1_14) {
+            CmdRegister_14.onregister();
+        } else if (minecraft1_15) {
+            CmdRegister_15.onregister();
+        } else if (minecraft1_16) {
+            CmdRegister_16.onregister();
+        }
+
+
         Permissions.addPermission();
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_1(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_2(), this);

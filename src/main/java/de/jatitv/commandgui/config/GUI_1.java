@@ -149,6 +149,15 @@ public class GUI_1 {
                 yamlConfiguration_GUI1.set("Functions.Line_1.Slot_1.Enable", DefaultValue_GUI_1.L1_S1_Enable);
                 if (GUI1YML.isFile()) Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6Line_1 Slot_1 Enable §4was added to §9GUI_1.yml§4!");
             }
+            if (!Main.minecraft1_8 || !Main.minecraft1_9 || !Main.minecraft1_10 || !Main.minecraft1_11 || !Main.minecraft1_12) {
+                if (yamlConfiguration_GUI1.contains("Functions.Line_1.Slot_1.Playerhead")) {
+                    DefaultValue_GUI_1.L1_S1_Playerhead = yamlConfiguration_GUI1.getBoolean("Functions.Line_1.Slot_1.Playerhead");
+                } else {
+                    yamlConfiguration_GUI1.set("Functions.Line_1.Slot_1.Playerhead", DefaultValue_GUI_1.L1_S1_Playerhead);
+                    if (GUI1YML.isFile())
+                        Bukkit.getConsoleSender().sendMessage(DefaultValue.PrefixHC + "§4Setting §6Line_1 Slot_1 Playerhead §4was added to §9GUI_1.yml§4!");
+                }
+            }
             if (yamlConfiguration_GUI1.contains("Functions.Line_1.Slot_1.Item.Item")) {
                 DefaultValue_GUI_1.L1_S1_Item = replace(yamlConfiguration_GUI1.getString("Functions.Line_1.Slot_1.Item.Item").toUpperCase().replace(".", "_"));
             } else {
@@ -1585,6 +1594,7 @@ public class GUI_1 {
 
 
         if (DefaultValue_GUI_1.GUILines == 3 || DefaultValue_GUI_1.GUILines > 3) {
+            Bukkit.getConsoleSender().sendMessage("§5----------------------------------------------------------");
             if (yamlConfiguration_GUI1.contains("Functions.Line_3.Slot_1.Enable")) {
                 DefaultValue_GUI_1.L3_S1_Enable = yamlConfiguration_GUI1.getBoolean("Functions.Line_3.Slot_1.Enable");
             } else {
