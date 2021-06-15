@@ -1,0 +1,51 @@
+GUI:
+  Enable: false
+  Lines: 5
+  Name: '&6Beispiel team'
+  FillItem:
+    Enable: true
+    Item: 'BLACK_STAINED_GLASS_PANE'
+
+
+Command:
+  Alias: false
+  Permission:
+    Necessary: true
+
+
+Slots:
+  designation:
+    Slot: 1
+    Enable: true
+    Item:
+      PlayerHead:
+        Enable: false
+        Base64:
+          Enable: false
+          Base64Value: ''
+        PlayerWhoHasOpenedTheGUI: false
+        PlayerName: ''
+      Item: 'stone'
+      Name: '&6beispiel'
+      Lore:
+        - '&2Zeile 1'
+        - '&3Zeile 2'
+    CustomSound:
+      Enable: false
+      Sound: ''
+    Cost:
+      Enable: false
+      Price: 0.0
+    Command:
+      Enable: true
+      CommandAsConsole: true
+      Command:
+        - 'say beispiel [player]'
+    OpenGui:
+      Enable: true
+      GUI: ''
+    Message:
+      Enable: false
+      Message: []
+    Permission:
+      Necessary: false

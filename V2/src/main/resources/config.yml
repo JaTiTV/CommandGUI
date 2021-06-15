@@ -1,0 +1,62 @@
+Plugin:
+  UpdateCheckOnJoin: true
+  language: en_EN
+
+Cost:
+  Currency: $
+
+GUI:
+  DefaultGUI: default
+
+
+UseItem:
+  Enable: true
+  AllowToggle: true
+  Join:
+    GiveOnEveryJoin: true
+    GiveOnFirstJoin: false
+    Cursor:
+      ToGUIItem:
+        OnLogin: true
+        OnFirstLogin: true
+        ServerChange: false
+  BlockMoveAndDrop: true
+  OpenGUI: default
+  Permission:
+    # Permission: bupa.useitem.gui
+    NeededToUse: true
+  InventorySlot:
+    FreeSlot: false
+    SlotEnforce: false
+    Slot: 1
+  Item:
+    Material: Paper
+    PlayerHead:
+      Enable: false
+      PlayerWhoHasOpenedTheGUI: false
+      PlayerName: ''
+  Name: '&bBuilders-Paradise &6GUI'
+  Lore:
+    - '&eOpen the GUI from &bBuilders-Paradise'
+
+
+Sound:
+  Enable: true
+  OpenInventory:
+    Enable: true
+    Sound: BLOCK_CHEST_OPEN
+  Click:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HAT
+  NoMoney:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HARP
+  NoInventorySpace:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_GUITAR
+  Give:
+    Enable: true
+    Sound: ENTITY_PLAYER_LEVELUP
+  PlayerNotFound:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HARP
