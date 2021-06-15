@@ -11,6 +11,12 @@ import java.util.List;
 public class Select_config {
 
     public static String language;
+    public static String Currency;
+
+    public static String Storage;
+
+    public static Boolean Bungee;
+    public static String thisServer;
 
     public static String DefaultGUI;
 
@@ -39,6 +45,12 @@ public class Select_config {
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
         language = yamlConfiguration.getString("Plugin.language");
+        Currency = yamlConfiguration.getString("Plugin.Currency");
+
+        Storage = yamlConfiguration.getString("Storage");
+
+        Bungee = yamlConfiguration.getBoolean("BungeeCord.Enable");
+        thisServer = yamlConfiguration.getString("BungeeCord.thisServer");
 
         DefaultGUI = yamlConfiguration.getString("GUI.DefaultGUI");
 

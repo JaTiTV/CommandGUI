@@ -1,0 +1,7 @@
+MySQL:
+  IP: localhost
+  Port: 3306
+  Database: commandgui
+  User: root
+  Password: passpord
+  SSL: false

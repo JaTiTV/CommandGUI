@@ -1,13 +1,17 @@
 Plugin:
   UpdateCheckOnJoin: true
   language: en_EN
-
-Cost:
   Currency: $
+
+# yml or MySQL
+Storage: yml
+
+BungeeCord:
+  Enable: false
+  thisServer: 'Server'
 
 GUI:
   DefaultGUI: default
-
 
 UseItem:
   Enable: true
@@ -23,7 +27,7 @@ UseItem:
   BlockMoveAndDrop: true
   OpenGUI: default
   Permission:
-    # Permission: bupa.useitem.gui
+    # Permission: commandgui.useitem.gui
     NeededToUse: true
   InventorySlot:
     FreeSlot: false
@@ -35,7 +39,7 @@ UseItem:
       Enable: false
       PlayerWhoHasOpenedTheGUI: false
       PlayerName: ''
-  Name: '&bBuilders-Paradise &6GUI'
+  Name: '&bDefault &6GUI'
   Lore:
     - '&eOpen the GUI from &bBuilders-Paradise'
 

@@ -1,5 +1,5 @@
 name: CommandGUI
-version: V2 Snapshot 1
+version: V2 Snapshot 3
 main: de.jatitv.commandguiv2.system.Main
 api-version: 1.13
 prefix: CommandGUI
@@ -11,13 +11,27 @@ commands:
   commandgui:
     description: Open the CGUI
     aliases: [cgui]
+  commandguiadmin:
+    aliases: [ cguiadmin ]
 
 permissions:
+  commandgui.admin:
+    default: op
+    children:
+
+
+
+
   commandgui.command:
+    default: op
+  commandgui.giveitem:
+    default: op
+  commandgui.useitem.toggle:
+    default: op
+  commandgui.bypass:
     default: op
   commandgui.command.info:
     default: op
   commandgui.command.give:
     default: op
-  commandgui.admin:
-    default: op
+
