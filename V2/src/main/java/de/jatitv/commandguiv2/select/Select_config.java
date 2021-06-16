@@ -1,8 +1,7 @@
 package de.jatitv.commandguiv2.select;
 
 import de.jatitv.commandguiv2.system.Main;
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
+import de.jatitv.commandguiv2.system.Replace;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -71,9 +70,7 @@ public class Select_config {
         UseItem_PlayerHead_Enable = yamlConfiguration.getBoolean("UseItem.Item.PlayerHead.Enable");
         UseItem_PlayerWhoHasOpenedTheGUI = yamlConfiguration.getBoolean("UseItem.Item.PlayerHead.PlayerWhoHasOpenedTheGUI");
         UseItem_PlayerName = yamlConfiguration.getString("UseItem.Item.PlayerHead.PlayerName");
-        UseItem_Name = Main.replace(yamlConfiguration.getString("UseItem.Name"));
+        UseItem_Name = Replace.replace(yamlConfiguration.getString("UseItem.Name"));
         UseItem_Lore = yamlConfiguration.getList("UseItem.Lore");
-
     }
-
 }

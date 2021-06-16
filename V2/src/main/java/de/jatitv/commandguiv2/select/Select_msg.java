@@ -1,6 +1,7 @@
 package de.jatitv.commandguiv2.select;
 
 import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.system.Replace;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -55,34 +56,34 @@ public class Select_msg {
         }
         YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(msg);
 
-        VaultNotSetUp = Main.replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
-        SoundNotFound = Main.replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
-        OnlyForPlayer = Main.replace(yamlConfiguration_msg.getString("Plugin.OnlyForPlayer"));
-        ReloadStart = Main.replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
-        ReloadEnd = Main.replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
+        VaultNotSetUp = Replace.replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
+        SoundNotFound = Replace.replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
+        OnlyForPlayer = Replace.replace(yamlConfiguration_msg.getString("Plugin.OnlyForPlayer"));
+        ReloadStart = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
+        ReloadEnd = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
 
-        NoPermissionForCommand = Main.replace(yamlConfiguration_msg.getString("NoPermission.ForCommand"));
-        NoPermissionForUseItem = Main.replace(yamlConfiguration_msg.getString("NoPermission.ForUseItem"));
-        NoPermissionForItem = Main.replace(yamlConfiguration_msg.getString("NoPermission.ForItem"));
+        NoPermissionForCommand = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommand"));
+        NoPermissionForUseItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForUseItem"));
+        NoPermissionForItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForItem"));
 
-        Buy_msg = Main.replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
-        No_money = Main.replace(yamlConfiguration_msg.getString("Cost.No_money"));
-        NoInventorySpace = Main.replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
+        Buy_msg = Replace.replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
+        No_money = Replace.replace(yamlConfiguration_msg.getString("Cost.No_money"));
+        NoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
 
-        GUInotFound = Main.replace(yamlConfiguration_msg.getString("GUI.GUInotFound"));
-        GUIIsDisabled = Main.replace(yamlConfiguration_msg.getString("GUI.GUIisDisabled"));
+        GUInotFound = Replace.replace(yamlConfiguration_msg.getString("GUI.GUInotFound"));
+        GUIIsDisabled = Replace.replace(yamlConfiguration_msg.getString("GUI.GUIisDisabled"));
 
-        Give_Sender = Main.replace(yamlConfiguration_msg.getString("Give.Sender"));
-        Give_Receiver = Main.replace(yamlConfiguration_msg.getString("Give.Receiver"));
+        Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
+        Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
 
-        PlayerNotFond = Main.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
-        PlayerNoInventorySpace = Main.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
+        PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
+        PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
 
-        HelpCgui = Main.replace(yamlConfiguration_msg.getString("Help.CGUI"));
-        HelpHelp = Main.replace(yamlConfiguration_msg.getString("Help.Help"));
-        HelpInfo = Main.replace(yamlConfiguration_msg.getString("Help.Info"));
-        HelpOpen = Main.replace(yamlConfiguration_msg.getString("Help.Open"));
-        HelpGive = Main.replace(yamlConfiguration_msg.getString("Help.Give"));
-        HelpReload = Main.replace(yamlConfiguration_msg.getString("Help.Reload"));
+        HelpCgui = Replace.replace(yamlConfiguration_msg.getString("Help.CGUI"));
+        HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
+        HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
+        HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
+        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+        HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
     }
 }

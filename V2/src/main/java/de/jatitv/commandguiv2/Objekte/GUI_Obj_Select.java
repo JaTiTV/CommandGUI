@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class GUI_Obj_Select {
     public static void onSelect() {
         Main.guiHashMap.clear();
-        Bukkit.getConsoleSender().sendMessage(Main.getPath() + "/GUIs/");
         File f = new File(Main.getPath() + "/GUIs/");
         File[] fileArray = f.listFiles();
 

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LanguagesCreate {
 
     public static void langCreate(String version) {
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4messages.yml(s) load...");
+        Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §4messages.yml(s) load...");
 
         File messagesDE = new File(Main.getPath(), "languages/de_DE_messages.yml");
         YamlConfiguration yamlConfigurationDE = YamlConfiguration.loadConfiguration(messagesDE);
@@ -97,7 +97,7 @@ public class LanguagesCreate {
             e.printStackTrace();
         }
 
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§2messages.yml(s) loaded successfully.");
+        Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §2messages.yml(s) loaded successfully.");
 
 
     }

@@ -25,8 +25,8 @@ public class GUI_Give_UseItem {
                     playerheadmeta.setOwner(p);
                     playerheadmeta.setDisplayName(Select_config.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Main.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Main.replace(Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(Select_config.UseItem_Lore));
                     playerhead.setItemMeta(playerheadmeta);
                     if (Select_config.UseItem_InventorySlot_FreeSlot) {
                         player.getInventory().addItem(playerhead);
@@ -36,8 +36,8 @@ public class GUI_Give_UseItem {
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(Select_config.UseItem_Name);
                     if (Main.PaPi) {
-                        itemMeta.setLore(Main.replace(player, Select_config.UseItem_Lore));
-                    } else itemMeta.setLore(Main.replace(Select_config.UseItem_Lore));
+                        itemMeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
+                    } else itemMeta.setLore(Replace.replace(Select_config.UseItem_Lore));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     if (Select_config.UseItem_InventorySlot_FreeSlot) {
@@ -63,8 +63,8 @@ public class GUI_Give_UseItem {
                     playerheadmeta.setOwner(p);
                     playerheadmeta.setDisplayName(Select_config.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Main.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Main.replace(player, Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
                     playerhead.setItemMeta(playerheadmeta);
                     player.getInventory().addItem(playerhead);
                 } else {
@@ -72,8 +72,8 @@ public class GUI_Give_UseItem {
                     ItemMeta itemMeta = item.getItemMeta();
                     itemMeta.setDisplayName(Select_config.UseItem_Name);
                     if (Main.PaPi) {
-                        itemMeta.setLore(Main.replace(player, Select_config.UseItem_Lore));
-                    } else itemMeta.setLore(Main.replace(Select_config.UseItem_Lore));
+                        itemMeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
+                    } else itemMeta.setLore(Replace.replace(Select_config.UseItem_Lore));
                     item.setItemMeta(itemMeta);
                     item.setAmount(1);
                     player.getInventory().addItem(item);

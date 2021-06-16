@@ -1,9 +1,12 @@
-package de.jatitv.commandguiv2.system;
+package de.jatitv.commandguiv2.Listener.UseItem_Listener;
 
 import de.jatitv.commandguiv2.gui.GUI_GUI;
 import de.jatitv.commandguiv2.select.Select_config;
 import de.jatitv.commandguiv2.select.Select_msg;
 import de.jatitv.commandguiv2.select.Select_sound;
+import de.jatitv.commandguiv2.system.Database;
+import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
+import de.jatitv.commandguiv2.system.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -23,7 +26,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GUI_UseItem_Listener implements Listener {
+public class UseItem_1_10bis1_15 implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
@@ -178,7 +181,6 @@ public class GUI_UseItem_Listener implements Listener {
                 if (e.getItem() != null && p.getItemInHand().getType() == Main.Head) {
                     if (e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
                         e.setCancelled(true);
-                        if (p.getOpenInventory().getTopInventory().getType() != null) return;
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
                             GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
                             if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
@@ -196,7 +198,6 @@ public class GUI_UseItem_Listener implements Listener {
                     if (e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
                         Bukkit.getConsoleSender().sendMessage("item 2");
                         e.setCancelled(true);
-                       //ToDo if (p.getOpenInventory().getTopInventory().getName().equals()) return;
                         Bukkit.getConsoleSender().sendMessage("item 3");
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
                             Bukkit.getConsoleSender().sendMessage("item 4");
@@ -263,20 +264,12 @@ public class GUI_UseItem_Listener implements Listener {
             Player p = (Player) e.getWhoClicked();
             if (e.getCursor() != null && e.getCursor().hasItemMeta() && e.getCursor().getItemMeta().hasDisplayName()
                     && e.getCursor().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                if (p.getOpenInventory().getTopInventory() != null) {
-                    e.setCancelled(true);
-                    return;
-                }
                 p.closeInventory();
                 e.setCancelled(true);
             }
 
             if (e.getCurrentItem() != null && e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().hasDisplayName()
                     && e.getCurrentItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                if (p.getOpenInventory().getTopInventory()!= null) {
-                    e.setCancelled(true);
-                    return;
-                }
                 p.closeInventory();
                 e.setCancelled(true);
             }
