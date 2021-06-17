@@ -36,7 +36,7 @@ public class GUI_CmdExecuter implements CommandExecutor, TabCompleter {
 
                         Select_config.onSelect();
                         GUI_Obj_Select.onSelect();
-                        Select_msg.onSelect();
+                        Select_msg.onSelect(Prefix);
 
                         if (sender instanceof Player) sender.sendMessage(Prefix + Select_msg.ReloadEnd);
                         Bukkit.getConsoleSender().sendMessage(Prefix + "§8-------------------------------");

@@ -10,7 +10,6 @@ import java.io.File;
 public class Select_msg {
 
     public static String selectMSG;
-    public static String sel;
 
     public static String VaultNotSetUp;
     public static String SoundNotFound;
@@ -42,18 +41,23 @@ public class Select_msg {
     public static String HelpGive;
     public static String HelpReload;
 
-    public static void onSelect() {
+    public static void onSelect(String Prefix) {
 
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4Select language...");
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §4Select language...");
 
         File msg;
 
         msg = new File(Main.getPath(), "languages/" + Select_config.language + "_messages.yml");
         if (!msg.isFile()) {
-            Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4The selected language §c" + Select_config.language + "§4 file was not found.");
-            Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§6The default language §eEnglish §6is used!");
-            msg = new File(Main.getPath(), "languages/" + "de_DE_messages.yml"); //ToDo
-        }
+            Bukkit.getConsoleSender().sendMessage(Prefix);
+            Bukkit.getConsoleSender().sendMessage(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Bukkit.getConsoleSender().sendMessage(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
+            Bukkit.getConsoleSender().sendMessage(Prefix + " §6The default language §eEnglish §6is used!");
+            Bukkit.getConsoleSender().sendMessage(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Bukkit.getConsoleSender().sendMessage(Prefix);
+            msg = new File(Main.getPath(), "languages/" + "german_messages.yml"); //ToDo
+            selectMSG = "english";
+        } else selectMSG = Select_config.language;
         YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(msg);
 
         VaultNotSetUp = Replace.replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
@@ -85,5 +89,7 @@ public class Select_msg {
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
         HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
+
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Language successfully selected to: §6" + selectMSG);
     }
 }

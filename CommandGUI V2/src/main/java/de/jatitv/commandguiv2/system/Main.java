@@ -14,6 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -26,9 +27,11 @@ public final class Main extends JavaPlugin {
     public static File getPath() {
         return getPlugin().getDataFolder();
     }
+
     public static Main getPlugin() {
         return plugin;
     }
+
     public static Plugin thisp() {
         return plugin;
     }
@@ -38,7 +41,9 @@ public final class Main extends JavaPlugin {
     public static String Version;
 
     public static List<String> Autor;
-    public static String Spigot = "https://www.spigotmc.org/resources/commandgui-cgui.90671/";
+    public static Integer SpigotID = 90671;
+    public static Integer BstatsID = 10840;
+    public static String Spigot = "https://www.spigotmc.org/resources/" + SpigotID;
     public static String Discord = "https://discord.gg/vRyXFFterJ";
 
     public static Main plugin;
@@ -85,34 +90,22 @@ public final class Main extends JavaPlugin {
             Head = Material.valueOf("SKULL");
         } else Head = Material.valueOf("PLAYER_HEAD");
 
-            if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            PaPi = true;
-        }
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) PaPi = true;
 
-            Load.onLoad(Prefix, Autor, Version, Spigot, Discord);
+        Load.onLoad(Prefix, Autor, Version, Spigot, Discord);
 
-        GUI_RegisterPermissions.onPermRegister();
-
-        plugin.getCommand("commandgui").setExecutor(new GUI_CmdExecuter_GUI());
-        plugin.getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter());
-
-        Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), getPlugin());
-
-        if (minecraft1_8 || minecraft1_9){
-            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), getPlugin());
-        } else if (minecraft1_10 || minecraft1_11 || minecraft1_12 || minecraft1_13 || minecraft1_14 || minecraft1_15){
-            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), getPlugin());
-        } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), getPlugin());
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4----------------------------- §8[§4Command§9GUI§8] §4-----------------------------");
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4Autor: §6JaTiTV");
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4Version: §6" + Version);
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4Plugin successfully disabled.");
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4------------------------------------------------------------------------");
+        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Version: §6" + Version);
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Spigot: §6" + Spigot);
+        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Discord: §6" + Discord);
+        Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §4Plugin successfully disabled.");
+        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========================================================================");
     }
 
 }

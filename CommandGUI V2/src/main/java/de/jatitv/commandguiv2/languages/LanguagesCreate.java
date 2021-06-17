@@ -12,7 +12,7 @@ public class LanguagesCreate {
     public static void langCreate(String version) {
         Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §4messages.yml(s) load...");
 
-        File messagesDE = new File(Main.getPath(), "languages/de_DE_messages.yml");
+        File messagesDE = new File(Main.getPath(), "languages/german_messages.yml");
         YamlConfiguration yamlConfigurationDE = YamlConfiguration.loadConfiguration(messagesDE);
 
         if (!yamlConfigurationDE.contains("Plugin.VaultNotSetUp")) {
