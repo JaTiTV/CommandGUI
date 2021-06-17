@@ -3,6 +3,7 @@
 
 package de.jatitv.commandguiv2.system;
 
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.select.Select_msg;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;

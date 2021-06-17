@@ -3,7 +3,7 @@ package de.jatitv.commandguiv2.cmdManagement;
 import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
 import de.jatitv.commandguiv2.select.Select_config;
 import de.jatitv.commandguiv2.select.Select_msg;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

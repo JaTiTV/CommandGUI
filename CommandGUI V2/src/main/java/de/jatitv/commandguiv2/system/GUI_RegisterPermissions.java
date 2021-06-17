@@ -1,5 +1,6 @@
 package de.jatitv.commandguiv2.system;
 
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.Objekte.GUI_Slot;
 import org.bukkit.Bukkit;

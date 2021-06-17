@@ -5,7 +5,7 @@ import de.jatitv.commandguiv2.gui.GUI_GUI;
 import de.jatitv.commandguiv2.select.Select_config;
 import de.jatitv.commandguiv2.select.Select_msg;
 import de.jatitv.commandguiv2.select.Select_sound;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

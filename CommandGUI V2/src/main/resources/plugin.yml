@@ -1,6 +1,6 @@
 name: CommandGUI
-version: V2 Snapshot 7
-main: de.jatitv.commandguiv2.system.Main
+version: V2 Snapshot 1.0
+main: de.jatitv.commandguiv2.Main
 api-version: 1.13
 prefix: CommandGUI
 authors: [ JaTiTV ]
@@ -18,8 +18,12 @@ permissions:
   commandgui.admin:
     default: op
     children:
-
-
+      commandgui.command: true
+      commandgui.giveitem: true
+      commandgui.useitem.toggle: true
+      commandgui.bypass: true
+      commandgui.command.info: true
+      commandgui.command.give: true
 
 
   commandgui.command:
@@ -34,4 +38,3 @@ permissions:
     default: op
   commandgui.command.give:
     default: op
-

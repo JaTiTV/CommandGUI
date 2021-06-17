@@ -1,8 +1,7 @@
 package de.jatitv.commandguiv2.Objekte;
 
 import de.jatitv.commandguiv2.cmdManagement.GUI_CmdExecuter_GUI;
-import de.jatitv.commandguiv2.system.Main;
-import org.bukkit.Bukkit;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;

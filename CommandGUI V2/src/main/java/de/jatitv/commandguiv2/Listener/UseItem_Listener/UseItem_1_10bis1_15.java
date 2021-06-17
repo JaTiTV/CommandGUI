@@ -6,7 +6,7 @@ import de.jatitv.commandguiv2.select.Select_msg;
 import de.jatitv.commandguiv2.select.Select_sound;
 import de.jatitv.commandguiv2.system.Database;
 import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -194,13 +194,9 @@ public class UseItem_1_10bis1_15 implements Listener {
                 }
             } else {
                 if (e.getItem() != null && p.getItemInHand().getType() == Material.valueOf(Select_config.UseItem_Material)) {
-                    Bukkit.getConsoleSender().sendMessage("item 1");
                     if (e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                        Bukkit.getConsoleSender().sendMessage("item 2");
                         e.setCancelled(true);
-                        Bukkit.getConsoleSender().sendMessage("item 3");
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
-                            Bukkit.getConsoleSender().sendMessage("item 4");
                             GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
                             if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
                                 p.playSound(p.getLocation(), Select_sound.Sound_OpenInventory, 3, 1);

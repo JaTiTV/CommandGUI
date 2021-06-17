@@ -3,6 +3,8 @@
 
 package de.jatitv.commandguiv2.system;
 
+import de.jatitv.commandguiv2.Main;
+import de.jatitv.commandguiv2.select.Select_config;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -27,6 +29,12 @@ import java.util.stream.Collectors;
 import java.util.zip.GZIPOutputStream;
 
 public class Metrics {
+
+    public static void Bstats() {
+        int pluginId = Main.BstatsID; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(Main.plugin, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(Select_config.UpdateCheckOnJoin)));
+    }
 
     private final Plugin plugin;
 

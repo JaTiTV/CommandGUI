@@ -1,24 +1,14 @@
-package de.jatitv.commandguiv2.system;
+package de.jatitv.commandguiv2;
 
-import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_1_10bis1_15;
-import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_1_8bis1_9;
-import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_ab1_16;
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
-import de.jatitv.commandguiv2.cmdManagement.GUI_CmdExecuter;
-import de.jatitv.commandguiv2.cmdManagement.GUI_CmdExecuter_GUI;
-import de.jatitv.commandguiv2.Listener.GUI_Listener;
-import me.clip.placeholderapi.PlaceholderAPI;
+import de.jatitv.commandguiv2.system.Load;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
@@ -93,7 +83,6 @@ public final class Main extends JavaPlugin {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) PaPi = true;
 
         Load.onLoad(Prefix, Autor, Version, Spigot, Discord);
-
     }
 
     @Override
@@ -107,5 +96,4 @@ public final class Main extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §4Plugin successfully disabled.");
         Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========================================================================");
     }
-
 }

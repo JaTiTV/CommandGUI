@@ -1,6 +1,6 @@
 package de.jatitv.commandguiv2.languages;
 
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 

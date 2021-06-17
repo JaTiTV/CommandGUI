@@ -1,6 +1,6 @@
 package de.jatitv.commandguiv2.select;
 
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Select_config {
 
+    public static Boolean UpdateCheckOnJoin;
     public static String language;
     public static String Currency;
 
@@ -43,6 +44,7 @@ public class Select_config {
         File config = new File(Main.getPath(), "config.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
+        UpdateCheckOnJoin = yamlConfiguration.getBoolean("Plugin.UpdateCheckOnJoin");
         language = yamlConfiguration.getString("Plugin.language");
         Currency = yamlConfiguration.getString("Plugin.Currency");
 

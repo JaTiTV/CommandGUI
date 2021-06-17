@@ -6,8 +6,7 @@ import de.jatitv.commandguiv2.gui.GUI_GUI;
 import de.jatitv.commandguiv2.select.Select_config;
 import de.jatitv.commandguiv2.select.Select_msg;
 import de.jatitv.commandguiv2.select.Select_sound;
-import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import de.jatitv.commandguiv2.system.Vault;
 import org.bukkit.Bukkit;
@@ -21,8 +20,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class GUI_Listener implements Listener {
 
-    Boolean minecraft1_8bis1_15;
-
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
@@ -30,9 +27,6 @@ public class GUI_Listener implements Listener {
             for (GUI_Objekt gui : Main.guiHashMap.values()) {
                 if (player.getOpenInventory().getTitle().equals(Replace.replace("§6§8§9§r" + gui.GUI_Name))
                         || player.getOpenInventory().getTitle().equals(Replace.replace(player, "§6§8§9§r" + gui.GUI_Name))) {
-                    if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15){
-                        minecraft1_8bis1_15 = true;
-                    } else minecraft1_8bis1_15 = false;
                     e.setCancelled(true);
                     for (GUI_Slot slot : gui.GUI_Slots) {
                         if (e.getSlot() == slot.Slot) {
@@ -47,16 +41,14 @@ public class GUI_Listener implements Listener {
                                                         player.sendMessage(Select_msg.Buy_msg.replace("[itemname]", slot.Name)
                                                                 .replace("[price]", slot.Price + " " + Select_config.Currency));
                                                         if (slot.Command_Enable) {
-                                                            if (minecraft1_8bis1_15){
+
                                                                 new BukkitRunnable() {
                                                                     @Override
                                                                     public void run() {
                                                                         player.closeInventory();
                                                                     }
                                                                 }.runTaskLater(Main.getPlugin(), 1L);
-                                                            } else{
-                                                                player.closeInventory();
-                                                            }
+
                                                             if (slot.CommandAsConsole) {
                                                                 for (String cmd : slot.Command){
                                                                     Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), cmd.replace("[player]", player.getName()));
@@ -73,16 +65,14 @@ public class GUI_Listener implements Listener {
                                                             }
                                                         }
                                                         if (slot.OpenGUI_Enable) {
-                                                            if (minecraft1_8bis1_15){
+
                                                                 new BukkitRunnable() {
                                                                     @Override
                                                                     public void run() {
                                                                         player.closeInventory();
                                                                     }
                                                                 }.runTaskLater(Main.getPlugin(), 1L);
-                                                            } else{
-                                                                player.closeInventory();
-                                                            }
+
                                                             GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
                                                             if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
                                                                 if (slot.CustomSound_Enable) {
@@ -91,16 +81,14 @@ public class GUI_Listener implements Listener {
                                                             }
                                                         }
                                                         if (slot.Message_Enable) {
-                                                            if (minecraft1_8bis1_15){
+
                                                                 new BukkitRunnable() {
                                                                     @Override
                                                                     public void run() {
                                                                         player.closeInventory();
                                                                     }
                                                                 }.runTaskLater(Main.getPlugin(), 1L);
-                                                            } else{
-                                                                player.closeInventory();
-                                                            }
+
                                                             for (String msg : slot.Message) {
                                                                 player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
                                                             }
@@ -112,16 +100,14 @@ public class GUI_Listener implements Listener {
                                                         }
                                                     }
                                                 } else {
-                                                    if (minecraft1_8bis1_15){
+
                                                         new BukkitRunnable() {
                                                             @Override
                                                             public void run() {
                                                                 player.closeInventory();
                                                             }
                                                         }.runTaskLater(Main.getPlugin(), 1L);
-                                                    } else{
-                                                        player.closeInventory();
-                                                    }
+
                                                     player.sendMessage(Select_msg.No_money);
                                                     if (Select_sound.Sound_NoMoney_Enable && Select_sound.Sound_Enable) {
                                                         player.playSound(player.getLocation(), Select_sound.Sound_NoMoney, 3, 1);
@@ -129,16 +115,14 @@ public class GUI_Listener implements Listener {
                                                 }
                                             } else {
                                                 if (slot.Command_Enable) {
-                                                    if (minecraft1_8bis1_15){
+
                                                         new BukkitRunnable() {
                                                             @Override
                                                             public void run() {
                                                                 player.closeInventory();
                                                             }
                                                         }.runTaskLater(Main.getPlugin(), 1L);
-                                                    } else{
-                                                        player.closeInventory();
-                                                    }
+
                                                     if (slot.CommandAsConsole) {
                                                         for (String cmd : slot.Command){
                                                             Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), cmd.replace("[player]", player.getName()));
@@ -155,16 +139,14 @@ public class GUI_Listener implements Listener {
                                                     }
                                                 }
                                                 if (slot.OpenGUI_Enable) {
-                                                    if (minecraft1_8bis1_15){
+
                                                         new BukkitRunnable() {
                                                             @Override
                                                             public void run() {
                                                                 player.closeInventory();
                                                             }
                                                         }.runTaskLater(Main.getPlugin(), 1L);
-                                                    } else{
-                                                        player.closeInventory();
-                                                    }
+
                                                     GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
                                                     if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
                                                         if (slot.CustomSound_Enable) {
@@ -173,16 +155,14 @@ public class GUI_Listener implements Listener {
                                                     }
                                                 }
                                                 if (slot.Message_Enable) {
-                                                    if (minecraft1_8bis1_15){
+
                                                         new BukkitRunnable() {
                                                             @Override
                                                             public void run() {
                                                                 player.closeInventory();
                                                             }
                                                         }.runTaskLater(Main.getPlugin(), 1L);
-                                                    } else{
-                                                        player.closeInventory();
-                                                    }
+
                                                     for (String msg : slot.Message) {
                                                         player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
                                                     }

@@ -1,7 +1,7 @@
 package de.jatitv.commandguiv2.select;
 
 import de.jatitv.commandguiv2.system.Database;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;

@@ -4,7 +4,7 @@ import de.jatitv.commandguiv2.select.Select_config;
 import de.jatitv.commandguiv2.select.Select_msg;
 import de.jatitv.commandguiv2.system.Database;
 import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

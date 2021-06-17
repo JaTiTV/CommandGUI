@@ -1,35 +1,41 @@
 GUI:
   Enable: false
-  Lines: 5
-  Name: '&6Beispiel team'
+  Lines: 1
+  Name: '&5default &9GUI'
   FillItem:
     Enable: true
     Item: 'BLACK_STAINED_GLASS_PANE'
 
 
 Command:
-  Alias: false
+  Alias: true
   Permission:
     Necessary: true
 
 
 Slots:
-  designation:
-    Slot: 1
+  Example:
+    Slot: 5
     Enable: true
     Item:
       PlayerHead:
-        Enable: false
+        Enable: true
         Base64:
-          Enable: false
-          Base64Value: ''
+          Enable: true
+          Base64Value: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19'
         PlayerWhoHasOpenedTheGUI: false
         PlayerName: ''
-      Item: 'stone'
-      Name: '&6beispiel'
+      Item: ''
+      Name: '&3Support Discord'
       Lore:
-        - '&2Zeile 1'
-        - '&3Zeile 2'
+        - '&8-----------------'
+        - '&bIf you need help setting up the plugin,'
+        - '&bfeel free to contact me on the Suport Discord.'
+        - '&8-----------------'
+        - '&eIf you find any errors or bugs,'
+        - '&eplease contact me so I can fix them.'
+        - '&8-----------------'
+        - '&5Discord: §7https://discord.gg/vRyXFFterJ'
     CustomSound:
       Enable: false
       Sound: ''
@@ -38,14 +44,14 @@ Slots:
       Price: 0.0
     Command:
       Enable: true
-      CommandAsConsole: true
-      Command:
-        - 'say beispiel [player]'
+      CommandAsConsole: false
+      Command: []
     OpenGui:
-      Enable: true
+      Enable: false
       GUI: ''
     Message:
-      Enable: false
-      Message: []
+      Enable: true
+      Message:
+        - '&6You can find more information on Discord: &ehttps://discord.gg/vRyXFFterJ'
     Permission:
       Necessary: false

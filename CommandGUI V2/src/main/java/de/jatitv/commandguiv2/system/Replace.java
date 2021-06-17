@@ -1,5 +1,6 @@
 package de.jatitv.commandguiv2.system;
 
+import de.jatitv.commandguiv2.Main;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Player;
 

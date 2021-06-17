@@ -1,6 +1,6 @@
 package de.jatitv.commandguiv2.select;
 
-import de.jatitv.commandguiv2.system.Main;
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

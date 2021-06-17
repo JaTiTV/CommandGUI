@@ -11,6 +11,7 @@
 
 package de.jatitv.commandguiv2.system;
 
+import de.jatitv.commandguiv2.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -23,42 +24,33 @@ import java.util.function.Consumer;
 
 public class UpdateChecker {
 
-    public static void onCheck(String Prefix, String Discord, String Spigot ,Integer SpigotID){
+    public static void onUpdateCheck() {
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
             public void run() {
-                (new UpdateChecker((JavaPlugin) Main.thisp(), SpigotID)).getVersion((version) -> {
+                (new UpdateChecker((JavaPlugin) Main.thisp(), Main.SpigotID)).getVersion((version) -> {
                     String foundVersion = Main.thisp().getDescription().getVersion();
                     Main.update_version = version;
                     if (!foundVersion.equalsIgnoreCase(version)) {
-                        String updateFound = (Prefix + " §6A new version of §8[§4Command§9GUI§8]§6 was found!");
-                        String yourVersion = (Prefix + " §6Your version §c" + foundVersion);
-                        String currentVersion = (Prefix + " §6Current version: §a" + version);
-                        String downloadVersion = (Prefix + " §6You can download it here: §e" + Spigot);
-                        String discord = (Prefix + " §6You can find more information about §8[§4Command§9GUI§8]§6 on Discord: §e" + Discord);
-
-
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                Bukkit.getConsoleSender().sendMessage(Prefix + " ");
-                                Bukkit.getConsoleSender().sendMessage(updateFound);
-                                Bukkit.getConsoleSender().sendMessage(yourVersion);
-                                Bukkit.getConsoleSender().sendMessage(currentVersion);
-                                Bukkit.getConsoleSender().sendMessage(downloadVersion);
-                                Bukkit.getConsoleSender().sendMessage(discord);
-                                Bukkit.getConsoleSender().sendMessage(Prefix + " ");
+                                Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
+                                Bukkit.getConsoleSender().sendMessage("§6A new version was found!");
+                                Bukkit.getConsoleSender().sendMessage("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version);
+                                Bukkit.getConsoleSender().sendMessage("§6You can download it here: §e" + Main.Spigot);
+                                Bukkit.getConsoleSender().sendMessage("§6You can find more information on Discord: §e" + Main.Discord);
+                                Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
                             }
                         }.runTaskLater(Main.getPlugin(), 600L);
                     } else {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                Bukkit.getConsoleSender().sendMessage(Prefix + " §2No update found");
+                                Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §2No update found");
                             }
                         }.runTaskLater(Main.getPlugin(), 120L);
                     }
                 });
-
             }
         }, 0L, 20 * 60 * 60L);
     }

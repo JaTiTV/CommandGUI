@@ -1,9 +1,11 @@
 package de.jatitv.commandguiv2.system;
 
 import de.jatitv.commandguiv2.Listener.GUI_Listener;
+import de.jatitv.commandguiv2.Listener.JoinEvent;
 import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_1_10bis1_15;
 import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_1_8bis1_9;
 import de.jatitv.commandguiv2.Listener.UseItem_Listener.UseItem_ab1_16;
+import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
 import de.jatitv.commandguiv2.cmdManagement.GUI_CmdExecuter;
 import de.jatitv.commandguiv2.cmdManagement.GUI_CmdExecuter_GUI;
@@ -93,6 +95,7 @@ public class Load {
         Main.getPlugin().getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter());
 
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), Main.getPlugin());
+        Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), Main.getPlugin());
 
         if (Main.minecraft1_8 || Main.minecraft1_9){
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), Main.getPlugin());
@@ -100,6 +103,8 @@ public class Load {
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), Main.getPlugin());
         } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), Main.getPlugin());
 
+        UpdateChecker.onUpdateCheck();
+        Metrics.Bstats();
         Bukkit.getConsoleSender().sendMessage(Prefix + " §8-------------------------------");
         Bukkit.getConsoleSender().sendMessage(Prefix + " §2Plugin loaded successfully.");
         Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========================================================================");    }
