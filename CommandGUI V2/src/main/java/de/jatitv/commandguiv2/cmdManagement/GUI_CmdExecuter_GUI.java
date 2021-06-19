@@ -2,9 +2,8 @@ package de.jatitv.commandguiv2.cmdManagement;
 
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.gui.GUI_GUI;
-import de.jatitv.commandguiv2.select.Select_config;
-import de.jatitv.commandguiv2.select.Select_msg;
-import de.jatitv.commandguiv2.select.Select_sound;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,32 +24,30 @@ public class GUI_CmdExecuter_GUI implements CommandExecutor, TabCompleter {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (args.length == 0) {
-                sender.sendMessage("1");
-                sender.sendMessage(Select_config.DefaultGUI);
-                sender.sendMessage(Main.guiHashMap.toString());
                 if (Main.guiHashMap.containsKey(Select_config.DefaultGUI)) {
-                    //ToDO Perm Abfrage & ob enable
-                    sender.sendMessage("2");
                     GUI_Objekt gui = Main.guiHashMap.get(Select_config.DefaultGUI);
-                    if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command")) {
-                        sender.sendMessage("3");
-                        GUI_GUI.openGUI(player, gui);
-                        if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
-                            player.playSound(player.getLocation(),Select_sound.Sound_OpenInventory, 3, 1);
-                        }
-                    } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui")
-                            .replace("[perm]", "commandgui.giveitem.command"));
+                    if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
+                        if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.bypass")) {
+                            GUI_GUI.openGUI(player, gui);
+                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                                player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                            }
+                        } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui")
+                                .replace("[perm]", "commandgui.giveitem.command"));
+                    } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
                 }
             } else {
                 if (Main.guiHashMap.containsKey(args[0])) {
                     GUI_Objekt gui = Main.guiHashMap.get(args[0]);
-                    if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui) || player.hasPermission("commandgui.admin")) {
-                        GUI_GUI.openGUI(player, gui);
-                        if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
-                            player.playSound(player.getLocation(), Select_sound.Sound_OpenInventory, 3, 1);
-                        }
-                    } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + args[0])
-                            .replace("[perm]", "commandgui.command." + gui));
+                    if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
+                        if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui) || player.hasPermission("commandgui.bypass")) {
+                            GUI_GUI.openGUI(player, gui);
+                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                                player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                            }
+                        } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + args[0])
+                                .replace("[perm]", "commandgui.command." + gui));
+                    } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
                 } else sender.sendMessage(Select_msg.GUInotFound);
             }
         } else sender.sendMessage(Select_msg.OnlyForPlayer);

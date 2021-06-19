@@ -1,7 +1,7 @@
 package de.jatitv.commandguiv2.system;
 
 import de.jatitv.commandguiv2.Main;
-import de.jatitv.commandguiv2.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

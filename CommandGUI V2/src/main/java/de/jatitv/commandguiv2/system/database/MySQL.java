@@ -1,12 +1,13 @@
-package de.jatitv.commandguiv2.system;
+package de.jatitv.commandguiv2.system.database;
 
 import de.jatitv.commandguiv2.Main;
+import de.jatitv.commandguiv2.system.send;
 import org.bukkit.Bukkit;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Database {
+public class MySQL {
     public static String ip = "localhost";
     public static Integer port = 3306;
     public static String database;
@@ -23,9 +24,9 @@ public class Database {
         try(Connection con = DriverManager.getConnection(url,user, password)){
             Statement stmt = con.createStatement();
             stmt.close();
-            Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§2MySQL erfolgreich verbunden.");
+            send.Console(Main.Prefix + "§2MySQL erfolgreich verbunden.");
         }catch(SQLException ex){
-            Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4MySQL nicht verbunden.");
+            send.Console(Main.Prefix + "§4MySQL nicht verbunden.");
             System.err.println(ex.getMessage());
         }
     }

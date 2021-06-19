@@ -4,8 +4,8 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.Objekte.GUI_Slot;
-import de.jatitv.commandguiv2.select.Select_config;
-import de.jatitv.commandguiv2.select.Select_msg;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import org.bukkit.Bukkit;
@@ -26,11 +26,13 @@ public class GUI_GUI {
             Inventory inventory;
             if (Main.PaPi){
                 inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(player, "§6§8§9§r" + gui.GUI_Name)));
-
             } else inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace("§6§8§9§r" + gui.GUI_Name)));
 
             if (gui.GUI_FillItem_Enable) {
-                ItemStack glass = new ItemStack(Material.valueOf(gui.GUI_FillItem_Item.toUpperCase().replace(".", "_")));
+                ItemStack glass;
+                if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+                    glass = new ItemStack(Material.valueOf("STAINED_GLASS_PANE"), 1, Short.valueOf(gui.GUI_FillItem_Item));
+                } else glass = new ItemStack(Material.valueOf(gui.GUI_FillItem_Item.toUpperCase().replace(".", "_")));
                 ItemMeta itemMetaglass = glass.getItemMeta();
                 itemMetaglass.setDisplayName(" ");
                 glass.setItemMeta(itemMetaglass);

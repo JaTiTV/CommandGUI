@@ -1,13 +1,12 @@
 package de.jatitv.commandguiv2.Listener.UseItem_Listener;
 
 import de.jatitv.commandguiv2.gui.GUI_GUI;
-import de.jatitv.commandguiv2.select.Select_config;
-import de.jatitv.commandguiv2.select.Select_msg;
-import de.jatitv.commandguiv2.select.Select_sound;
-import de.jatitv.commandguiv2.system.Database;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.system.database.MySQL;
 import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Main;
-import org.bukkit.Bukkit;
+import de.jatitv.commandguiv2.system.database.Select_Database;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -36,7 +35,7 @@ public class UseItem_1_8bis1_9 implements Listener {
     public static void itemChange(Player player){
         if (Select_config.UseItem_Enable) {
             if (Select_config.UseItem_GiveOnFirstJoin) {
-                if (!Select_config.UseItem_AllowToggle || !Database.select("SELECT `Status` FROM `gui-item` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("0")) {
+                if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
 
                     if (!player.hasPlayedBefore()) {
                         new BukkitRunnable() {
@@ -66,13 +65,13 @@ public class UseItem_1_8bis1_9 implements Listener {
                                 }
                             }
                         }
-                        if (!Select_config.UseItem_AllowToggle || !Database.select("SELECT `Status` FROM `gui-item` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("0")) {
+                        if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
                             if (Select_config.UseItem_InventorySlotEnforce || player.getInventory().getItem(Select_config.UseItem_InventorySlot - 1) == null) {
                                 GUI_Give_UseItem.onGive(player.getName());
                                 if (Select_config.Cursor_ToGUIItem_OnLogin) {
-                                    if (Select_config.UseItem_ServerChange) {
+                                    if (Select_config.Storage.equals("MySQL") && Select_config.Bungee && Select_config.UseItem_ServerChange) {
                                         player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
-                                    } else if (Database.select("SELECT `Status` FROM `gui-onlineplayer` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("Offline")) {
+                                    } else if (MySQL.select("SELECT `Status` FROM `gui-onlineplayer` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("Offline")) {
                                         player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
                                     }
                                 }
@@ -91,11 +90,11 @@ public class UseItem_1_8bis1_9 implements Listener {
                         }
                     }
                 }.runTaskLater(Main.getPlugin(), 20L * 1);
-                if (Select_config.Bungee) {
+                if (Select_config.Storage.equals("MySQL") && Select_config.Bungee) {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            Database.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
+                            MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
                                     + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '" + Select_config.thisServer + "';");
                         }
                     }.runTaskLater(Main.getPlugin(), 20L * 3);
@@ -108,11 +107,11 @@ public class UseItem_1_8bis1_9 implements Listener {
     @EventHandler
     public void onDisconect(PlayerQuitEvent e) {
         Player player = e.getPlayer();
-        if (Select_config.Bungee) {
+        if (Select_config.Storage.equals("MySQL") && Select_config.Bungee) {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    Database.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
+                    MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
                             + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = 'Offline';");
                 }
             }.runTaskLater(Main.getPlugin(), 20L * 2);
@@ -151,7 +150,7 @@ public class UseItem_1_8bis1_9 implements Listener {
     public void onRespawn(PlayerRespawnEvent e) {
         Player player = e.getPlayer();
         if (Select_config.UseItem_Enable) {
-            if (!Select_config.UseItem_AllowToggle || !Database.select("SELECT `Status` FROM `gui-item` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("0")) {
+            if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
                 if (Select_config.UseItem_GiveOnFirstJoin) {
                     if (!player.hasPlayedBefore()) {
                         new BukkitRunnable() {
@@ -183,8 +182,8 @@ public class UseItem_1_8bis1_9 implements Listener {
                         e.setCancelled(true);
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
                             GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
-                            if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
-                                p.playSound(p.getLocation(), Select_sound.Sound_OpenInventory, 3, 1);
+                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                                p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                             }
                         } else {
                             p.sendMessage(Select_msg.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")
@@ -198,8 +197,8 @@ public class UseItem_1_8bis1_9 implements Listener {
                         e.setCancelled(true);
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
                             GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
-                            if (Select_sound.Sound_Enable && Select_sound.Sound_OpenInventory_Enable) {
-                                p.playSound(p.getLocation(), Select_sound.Sound_OpenInventory, 3, 1);
+                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                                p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                             }
                         } else {
                             p.sendMessage(Select_msg.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")

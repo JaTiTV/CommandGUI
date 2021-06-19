@@ -1,5 +1,5 @@
 name: CommandGUI
-version: V2 Snapshot 1.0
+version: V2 Snapshot 0.5
 main: de.jatitv.commandguiv2.Main
 api-version: 1.13
 prefix: CommandGUI
@@ -10,9 +10,14 @@ softdepend: [Vault, Economy, EssentialsX, CMI, PlaceholderAPI]
 commands:
   commandgui:
     description: Open the CGUI
-    aliases: [cgui]
+    aliases: [cgui, gui]
+  commandguihelp:
+    description: CommandGUI Help
+    aliases: [cguihelp, guihelp]
   commandguiadmin:
     aliases: [ cguiadmin ]
+  commandgui-item:
+    aliases: [gui-item]
 
 permissions:
   commandgui.admin:

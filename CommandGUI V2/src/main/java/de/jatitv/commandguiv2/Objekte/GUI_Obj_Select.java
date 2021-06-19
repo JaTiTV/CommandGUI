@@ -22,7 +22,10 @@ public class GUI_Obj_Select {
                 Integer GUI_Lines = yamlConfiguration_gui.getInt("GUI.Lines");
                 String GUI_Name = yamlConfiguration_gui.getString("GUI.Name");
                 Boolean GUI_FillItem_Enable = yamlConfiguration_gui.getBoolean("GUI.FillItem.Enable");
-                String GUI_FillItem_Item = yamlConfiguration_gui.getString("GUI.FillItem.Item");
+                String GUI_FillItem_Item;
+                if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+                    GUI_FillItem_Item = yamlConfiguration_gui.getString("GUI.FillItem.GlassPaneCollor");
+                } else GUI_FillItem_Item = yamlConfiguration_gui.getString("GUI.FillItem.Item");
 
 
                 Boolean Command_Alias_Enable = yamlConfiguration_gui.getBoolean("Command.Alias");
@@ -53,6 +56,7 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Message.Message"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Necessary"));
                     slots.add(slot);
+                    Main.allAliases.add(config_gui.getName().replace(".yml", ""));
                 }
                 GUI_Objekt objekt = new GUI_Objekt(GUI_Enable, GUI_Lines, GUI_Name, GUI_FillItem_Enable, GUI_FillItem_Item,
                         config_gui.getName().replace(".yml", ""), Command_Alias_Enable, Command_Permission, slots);

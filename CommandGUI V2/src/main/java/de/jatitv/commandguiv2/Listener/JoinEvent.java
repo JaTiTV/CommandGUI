@@ -2,7 +2,7 @@
 
 package de.jatitv.commandguiv2.Listener;
 
-import de.jatitv.commandguiv2.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.TextComponentBuilder;
 import net.md_5.bungee.api.chat.ClickEvent;

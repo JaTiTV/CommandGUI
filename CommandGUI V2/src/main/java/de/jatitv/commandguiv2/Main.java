@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2;
 
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.system.Load;
+import de.jatitv.commandguiv2.system.send;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -9,8 +10,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
@@ -55,6 +58,7 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_16;
     public static boolean minecraft1_17;
     public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
+    public static ArrayList<String> allAliases = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -83,17 +87,25 @@ public final class Main extends JavaPlugin {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) PaPi = true;
 
         Load.onLoad(Prefix, Autor, Version, Spigot, Discord);
+
+        /*
+        plugin.getLogger().log(Level.WARNING, "§4Test1");
+        plugin.getLogger().log(Level.ALL, "Test2");
+        plugin.getLogger().log(Level.CONFIG, "Test3");
+        plugin.getLogger().log(Level.SEVERE, "Test4");
+
+         */
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Version: §6" + Version);
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Spigot: §6" + Spigot);
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Discord: §6" + Discord);
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §4Plugin successfully disabled.");
-        Bukkit.getConsoleSender().sendMessage(Main.Prefix + "§4========================================================================");
+        send.Console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
+        send.Console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
+        send.Console(Prefix + " §2Version: §6" + Version);
+        send.Console(Prefix + " §2Spigot: §6" + Spigot);
+        send.Console(Prefix + " §2Discord: §6" + Discord);
+        send.Console(Main.Prefix + " §4Plugin successfully disabled.");
+        send.Console(Main.Prefix + "§4========================================================================");
     }
 }

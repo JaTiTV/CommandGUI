@@ -4,13 +4,13 @@ GUI:
   Name: '&5default &9GUI'
   FillItem:
     Enable: true
-    Item: 'BLACK_STAINED_GLASS_PANE'
+    GlassPaneCollor: 15
 
 
 Command:
   Alias: true
   Permission:
-    Required: true
+    Necessary: true
 
 
 Slots:
@@ -54,4 +54,4 @@ Slots:
       Message:
         - '&6You can find more information on Discord: &ehttps://discord.gg/vRyXFFterJ'
     Permission:
-      Required: false
+      Necessary: false

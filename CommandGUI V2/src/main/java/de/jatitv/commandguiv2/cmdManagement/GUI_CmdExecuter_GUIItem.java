@@ -1,10 +1,10 @@
 package de.jatitv.commandguiv2.cmdManagement;
 
-import de.jatitv.commandguiv2.select.Select_config;
-import de.jatitv.commandguiv2.select.Select_msg;
-import de.jatitv.commandguiv2.system.Database;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Main;
+import de.jatitv.commandguiv2.system.database.Select_Database;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,10 +25,7 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
         Player player = (Player) sender;
         if (sender.hasPermission("commandgui.useitem.toggle")) {
             if (args.length == 0) { //ToDo
-                player.sendMessage("§7----§6GUI§2Item§7-§cHelp§7----");
-                player.sendMessage("§8'§9/gui on§8' §eActivate the GUIItem");
-                player.sendMessage("§8'§9/gui off§8' §eDeactivate the GUIItem");
-                player.sendMessage("§7------------------");
+                Help.sendGUIItemHelp(sender, Prefix);
             } else {
                 if (args.length == 1) {
                     if (sender instanceof Player) {
@@ -48,8 +45,7 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
                                         }
                                     }
                                     if (player.getInventory().getItem(Select_config.UseItem_InventorySlot - 1) == null) {
-                                        Database.query("INSERT INTO `gui-item` (`UUID`, `Name`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
-                                                + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '1';");
+                                        Select_Database.setItemStatusTrue(player);
                                         GUI_Give_UseItem.onGive(player.getName());
                                     } else {
                                         boolean empty = false;
@@ -60,15 +56,13 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
                                             }
                                         }
                                         if (empty) {
-                                            Database.query("INSERT INTO `gui-item` (`UUID`, `Name`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
-                                                    + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '1';");
+                                            Select_Database.setItemStatusTrue(player);
                                             GUI_Give_UseItem.onGiveADD(player.getName());
                                         } else sender.sendMessage(Select_msg.NoInventorySpace);
                                     }
                                     break;
                                 case "off":
-                                    Database.query("INSERT INTO `gui-item` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
-                                            + "', '0') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '0';");
+                                    Select_Database.setItemStatusFalse(player);
                                     for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
                                         ItemStack itm = player.getInventory().getItem(iam);
                                         if (itm != null) {

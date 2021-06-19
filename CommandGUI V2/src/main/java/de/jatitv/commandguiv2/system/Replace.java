@@ -15,20 +15,26 @@ public class Replace {
                 .replace("[UE]", "Ü").replace("[oe]", "Ö").replace("[OE]", "Ö")
                 .replace("[ae]", "ä").replace("[AE]", "Ä");
     }
+
+
     public static String replace(Player player, String Text) {
-        return  PlaceholderAPI.setPlaceholders(player, Text.replace("[prefix]", Main.Prefix).replace("&", "§")
+        return PlaceholderAPI.setPlaceholders(player, Text.replace("[prefix]", Main.Prefix).replace("&", "§")
                 .replace("[ue]", "ü").replace("[UE]", "Ü").replace("[oe]", "Ö")
                 .replace("[OE]", "Ö").replace("[ae]", "ä").replace("[AE]", "Ä"));
     }
+
+
     public static List<String> replace(List<String> Text) {
         List<String> output = new ArrayList<>();
-        for(String input : Text) {
+        for (String input : Text) {
             output.add(input.replace("[prefix]", Main.Prefix).replace("&", "§")
                     .replace("[ue]", "ü").replace("[UE]", "Ü").replace("[oe]", "Ö")
                     .replace("[OE]", "Ö").replace("[ae]", "ä").replace("[AE]", "Ä"));
         }
         return output;
     }
+
+
     public static List<String> replace(Player player, List<String> Text) {
         List<String> output = new ArrayList();
         if (player == null) {
@@ -37,13 +43,15 @@ public class Replace {
         if (Text == null) {
             return Arrays.asList("Text is null");
         }
-        for(String input : Text) {
+        for (String input : Text) {
             output.add(PlaceholderAPI.setPlaceholders(player, input.replace("[prefix]", Main.Prefix).replace("&", "§")
                     .replace("[ue]", "ü").replace("[UE]", "Ü").replace("[oe]", "Ö")
                     .replace("[OE]", "Ö").replace("[ae]", "ä").replace("[AE]", "Ä")));
         }
         return output;
     }
+
+
     public static List replacePrice(List<String> Text, String price) {
         List rp = new ArrayList();
         for (String s : Text) {
@@ -54,6 +62,8 @@ public class Replace {
         }
         return rp;
     }
+
+
     public static List replacePrice(Player player, List<String> Text, String price) {
         List rp = new ArrayList();
         for (String s : Text) {

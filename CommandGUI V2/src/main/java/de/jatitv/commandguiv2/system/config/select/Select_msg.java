@@ -1,7 +1,8 @@
-package de.jatitv.commandguiv2.select;
+package de.jatitv.commandguiv2.system.config.select;
 
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
+import de.jatitv.commandguiv2.system.send;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -17,6 +18,7 @@ public class Select_msg {
     public static String ReloadStart;
     public static String ReloadEnd;
 
+    public static String NoPermission;
     public static String NoPermissionForCommand;
     public static String NoPermissionForUseItem;
     public static String NoPermissionForItem;
@@ -39,22 +41,25 @@ public class Select_msg {
     public static String HelpInfo;
     public static String HelpOpen;
     public static String HelpGive;
+    public static String HelpCreateDefaultGUI;
     public static String HelpReload;
+    public static String GUIItemHelp_on;
+    public static String GUIItemHelp_off;
 
     public static void onSelect(String Prefix) {
 
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §4Select language...");
+        send.Console(Prefix + " §4Select language...");
 
         File msg;
 
         msg = new File(Main.getPath(), "languages/" + Select_config.language + "_messages.yml");
         if (!msg.isFile()) {
-            Bukkit.getConsoleSender().sendMessage(Prefix);
-            Bukkit.getConsoleSender().sendMessage(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Bukkit.getConsoleSender().sendMessage(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
-            Bukkit.getConsoleSender().sendMessage(Prefix + " §6The default language §eEnglish §6is used!");
-            Bukkit.getConsoleSender().sendMessage(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Bukkit.getConsoleSender().sendMessage(Prefix);
+            send.Console(Prefix);
+            send.Console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            send.Console(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
+            send.Console(Prefix + " §6The default language §eEnglish §6is used!");
+            send.Console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            send.Console(Prefix);
             msg = new File(Main.getPath(), "languages/" + "german_messages.yml"); //ToDo
             selectMSG = "english";
         } else selectMSG = Select_config.language;
@@ -66,6 +71,7 @@ public class Select_msg {
         ReloadStart = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
         ReloadEnd = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
 
+        NoPermission = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommandGUI"));
         NoPermissionForCommand = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommand"));
         NoPermissionForUseItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForUseItem"));
         NoPermissionForItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForItem"));
@@ -88,8 +94,11 @@ public class Select_msg {
         HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
         HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+        HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
+        GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.On"));
+        GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.Off"));
 
-        Bukkit.getConsoleSender().sendMessage(Prefix + " §2Language successfully selected to: §6" + selectMSG);
+        send.Console(Prefix + " §2Language successfully selected to: §6" + selectMSG);
     }
 }

@@ -3,9 +3,8 @@ package de.jatitv.commandguiv2.Listener;
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.Objekte.GUI_Slot;
 import de.jatitv.commandguiv2.gui.GUI_GUI;
-import de.jatitv.commandguiv2.select.Select_config;
-import de.jatitv.commandguiv2.select.Select_msg;
-import de.jatitv.commandguiv2.select.Select_sound;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
+import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import de.jatitv.commandguiv2.system.Vault;
@@ -58,10 +57,10 @@ public class GUI_Listener implements Listener {
                                                                     player.chat("/" + cmd.replace("[player]", player.getName()));
                                                                 }
                                                             }
-                                                            if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                            if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                                 if (slot.CustomSound_Enable) {
                                                                     player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                                } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                                } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                             }
                                                         }
                                                         if (slot.OpenGUI_Enable) {
@@ -74,10 +73,10 @@ public class GUI_Listener implements Listener {
                                                                 }.runTaskLater(Main.getPlugin(), 1L);
 
                                                             GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
-                                                            if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                            if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                                 if (slot.CustomSound_Enable) {
                                                                     player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                                } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                                } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                             }
                                                         }
                                                         if (slot.Message_Enable) {
@@ -92,10 +91,10 @@ public class GUI_Listener implements Listener {
                                                             for (String msg : slot.Message) {
                                                                 player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
                                                             }
-                                                            if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                            if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                                 if (slot.CustomSound_Enable) {
                                                                     player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                                } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                                } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                             }
                                                         }
                                                     }
@@ -109,8 +108,8 @@ public class GUI_Listener implements Listener {
                                                         }.runTaskLater(Main.getPlugin(), 1L);
 
                                                     player.sendMessage(Select_msg.No_money);
-                                                    if (Select_sound.Sound_NoMoney_Enable && Select_sound.Sound_Enable) {
-                                                        player.playSound(player.getLocation(), Select_sound.Sound_NoMoney, 3, 1);
+                                                    if (Select_config.Sound_NoMoney_Enable && Select_config.Sound_Enable) {
+                                                        player.playSound(player.getLocation(), Select_config.Sound_NoMoney, 3, 1);
                                                     }
                                                 }
                                             } else {
@@ -132,10 +131,10 @@ public class GUI_Listener implements Listener {
                                                             player.chat("/" + cmd.replace("[player]", player.getName()));
                                                         }
                                                     }
-                                                    if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                    if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                         if (slot.CustomSound_Enable) {
                                                             player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                        } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                        } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                     }
                                                 }
                                                 if (slot.OpenGUI_Enable) {
@@ -148,10 +147,10 @@ public class GUI_Listener implements Listener {
                                                         }.runTaskLater(Main.getPlugin(), 1L);
 
                                                     GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
-                                                    if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                    if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                         if (slot.CustomSound_Enable) {
                                                             player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                        } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                        } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                     }
                                                 }
                                                 if (slot.Message_Enable) {
@@ -166,10 +165,10 @@ public class GUI_Listener implements Listener {
                                                     for (String msg : slot.Message) {
                                                         player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
                                                     }
-                                                    if (Select_sound.Sound_Enable && Select_sound.Sound_Click_Enable) {
+                                                    if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                         if (slot.CustomSound_Enable) {
                                                             player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
-                                                        } else player.playSound(player.getLocation(), Select_sound.Sound_Click, 3, 1);
+                                                        } else player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
                                                     }
                                                 }
                                             }
