@@ -8,6 +8,7 @@ import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import de.jatitv.commandguiv2.system.Vault;
+import de.jatitv.commandguiv2.system.send;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -161,6 +162,7 @@ public class GUI_Listener implements Listener {
                                                                 player.closeInventory();
                                                             }
                                                         }.runTaskLater(Main.getPlugin(), 1L);
+
 
                                                     for (String msg : slot.Message) {
                                                         player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));

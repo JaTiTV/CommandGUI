@@ -3,7 +3,6 @@ package de.jatitv.commandguiv2.system.config.select;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
 import de.jatitv.commandguiv2.system.send;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -48,19 +47,20 @@ public class Select_msg {
 
     public static void onSelect(String Prefix) {
 
-        send.Console(Prefix + " §4Select language...");
+        send.debug(Prefix + " §4Select language...");
+        Long long_ = Long.valueOf(System.currentTimeMillis());
 
         File msg;
 
         msg = new File(Main.getPath(), "languages/" + Select_config.language + "_messages.yml");
         if (!msg.isFile()) {
-            send.Console(Prefix);
-            send.Console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            send.Console(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
-            send.Console(Prefix + " §6The default language §eEnglish §6is used!");
-            send.Console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            send.Console(Prefix);
-            msg = new File(Main.getPath(), "languages/" + "german_messages.yml"); //ToDo
+            send.console(Prefix);
+            send.console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            send.console(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
+            send.console(Prefix + " §6The default language §eEnglish §6is used!");
+            send.console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            send.console(Prefix);
+            msg = new File(Main.getPath(), "languages/" + "english_messages.yml");
             selectMSG = "english";
         } else selectMSG = Select_config.language;
         YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(msg);
@@ -93,12 +93,12 @@ public class Select_msg {
         HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
         HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
-        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+        //HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
         HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
         GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.On"));
         GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.Off"));
 
-        send.Console(Prefix + " §2Language successfully selected to: §6" + selectMSG);
+        send.console(Prefix + " §2Language successfully selected to: §6" + selectMSG  + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
     }
 }

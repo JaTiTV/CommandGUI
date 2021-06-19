@@ -34,19 +34,19 @@ public class UpdateChecker {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                send.Console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
-                                send.Console("§6A new version was found!");
-                                send.Console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version);
-                                send.Console("§6You can download it here: §e" + Main.Spigot);
-                                send.Console("§6You can find more information on Discord: §e" + Main.Discord);
-                                send.Console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
+                                send.console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
+                                send.console("§6A new version was found!");
+                                send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version);
+                                send.console("§6You can download it here: §e" + Main.Spigot);
+                                send.console("§6You can find more information on Discord: §e" + Main.Discord);
+                                send.console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
                             }
                         }.runTaskLater(Main.getPlugin(), 600L);
                     } else {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                send.Console(Main.Prefix + " §2No update found");
+                                send.console(Main.Prefix + " §2No update found");
                             }
                         }.runTaskLater(Main.getPlugin(), 120L);
                     }

@@ -13,7 +13,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
@@ -42,11 +41,13 @@ public final class Main extends JavaPlugin {
     public static Main plugin;
     public static Plugin a;
     public static Economy eco = null;
+
     public static String update_version = null;
     public static Boolean PaPi = false;
 
     public static Material Head;
 
+    public static String MCver;
     public static boolean minecraft1_8;
     public static boolean minecraft1_9;
     public static boolean minecraft1_10;
@@ -59,6 +60,7 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_17;
     public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
     public static ArrayList<String> allAliases = new ArrayList<>();
+
 
     @Override
     public void onEnable() {
@@ -79,6 +81,7 @@ public final class Main extends JavaPlugin {
         minecraft1_15 = Bukkit.getServer().getClass().getPackage().getName().contains("1_15");
         minecraft1_16 = Bukkit.getServer().getClass().getPackage().getName().contains("1_16");
         minecraft1_17 = Bukkit.getServer().getClass().getPackage().getName().contains("1_17");
+        MCver = Bukkit.getServer().getVersion();
 
         if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
             Head = Material.valueOf("SKULL");
@@ -100,12 +103,12 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        send.Console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
-        send.Console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
-        send.Console(Prefix + " §2Version: §6" + Version);
-        send.Console(Prefix + " §2Spigot: §6" + Spigot);
-        send.Console(Prefix + " §2Discord: §6" + Discord);
-        send.Console(Main.Prefix + " §4Plugin successfully disabled.");
-        send.Console(Main.Prefix + "§4========================================================================");
+        send.console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
+        send.console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
+        send.console(Prefix + " §2Version: §6" + Version);
+        send.console(Prefix + " §2Spigot: §6" + Spigot);
+        send.console(Prefix + " §2Discord: §6" + Discord);
+        send.console(Main.Prefix + " §4Plugin successfully disabled.");
+        send.console(Main.Prefix + "§4========================================================================");
     }
 }

@@ -24,7 +24,7 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
         Prefix = Main.Prefix;
         Player player = (Player) sender;
         if (sender.hasPermission("commandgui.useitem.toggle")) {
-            if (args.length == 0) { //ToDo
+            if (args.length == 0) {
                 Help.sendGUIItemHelp(sender, Prefix);
             } else {
                 if (args.length == 1) {

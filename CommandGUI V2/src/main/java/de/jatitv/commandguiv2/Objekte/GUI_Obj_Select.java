@@ -29,7 +29,7 @@ public class GUI_Obj_Select {
 
 
                 Boolean Command_Alias_Enable = yamlConfiguration_gui.getBoolean("Command.Alias");
-                Boolean Command_Permission = yamlConfiguration_gui.getBoolean("Command.Permission.Necessary");
+                Boolean Command_Permission = yamlConfiguration_gui.getBoolean("Command.Permission.Required");
 
                 ArrayList<GUI_Slot> slots = new ArrayList<>();
                 for (String key : yamlConfiguration_gui.getConfigurationSection("Slots").getKeys(false)) {
@@ -54,7 +54,7 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getString("Slots." + key + ".OpenGui.GUI"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Message.Enable"),
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Message.Message"),
-                            yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Necessary"));
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Required"));
                     slots.add(slot);
                     Main.allAliases.add(config_gui.getName().replace(".yml", ""));
                 }

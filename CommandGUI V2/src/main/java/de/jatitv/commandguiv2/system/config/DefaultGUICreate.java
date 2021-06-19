@@ -3,13 +3,11 @@ package de.jatitv.commandguiv2.system.config;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.send;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.List;
 
 
@@ -59,7 +57,8 @@ public class DefaultGUICreate {
 
 
     public static void configCreate() {
-        send.Console(Main.Prefix + " §4Default GUI file (GUIs/default.yml) is loaded...");
+        Long long_ = Long.valueOf(System.currentTimeMillis());
+        send.console(Main.Prefix + " §4Default GUI file (GUIs/default.yml) is loaded...");
 
         File config = new File(Main.getPath(), "GUIs/default.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
@@ -76,12 +75,16 @@ public class DefaultGUICreate {
         set("Command.Permission.Required", Command_Permission, yamlConfiguration);
         set("Slots.Example.Slot", slot, yamlConfiguration);
         set("Slots.Example.Enable", enable, yamlConfiguration);
-        set("Slots.Example.Item.PlayerHead.Enable", Playerhead_enable, yamlConfiguration);
-        set("Slots.Example.Item.PlayerHead.Base64.Enable", base64_Enable, yamlConfiguration);
-        set("Slots.Example.Item.PlayerHead.Base64.Base64Value", base64value, yamlConfiguration);
-        set("Slots.Example.Item.PlayerHead.PlayerWhoHasOpenedTheGUI", PlayerWhoHasOpenedTheGUI, yamlConfiguration);
-        set("Slots.Example.Item.PlayerHead.PlayerName", PlayerName, yamlConfiguration);
-        set("Slots.Example.Item.Item", Item, yamlConfiguration);
+        if (!(Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12)) {
+            set("Slots.Example.Item.PlayerHead.Enable", Playerhead_enable, yamlConfiguration);
+            set("Slots.Example.Item.PlayerHead.Base64.Enable", base64_Enable, yamlConfiguration);
+            set("Slots.Example.Item.PlayerHead.Base64.Base64Value", base64value, yamlConfiguration);
+            set("Slots.Example.Item.PlayerHead.PlayerWhoHasOpenedTheGUI", PlayerWhoHasOpenedTheGUI, yamlConfiguration);
+            set("Slots.Example.Item.PlayerHead.PlayerName", PlayerName, yamlConfiguration);
+        }
+        if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+            set("Slots.Example.Item.Item", "TNT", yamlConfiguration);
+        } else set("Slots.Example.Item.Item", Item, yamlConfiguration);
         set("Slots.Example.Item.Name", Itemname, yamlConfiguration);
         set("Slots.Example.Item.Lore", ItemLore, yamlConfiguration);
         set("Slots.Example.CustomSound.Enable", CustomSound, yamlConfiguration);
@@ -103,7 +106,7 @@ public class DefaultGUICreate {
             e.printStackTrace();
         }
 
-        send.Console(Main.Prefix + " §2Default GUI file (GUIs/default.yml) was loaded.");
+        send.console(Main.Prefix + " §2Default GUI file (GUIs/default.yml) was loaded." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
     }
 
     private static void set(String path, String value, YamlConfiguration config) {

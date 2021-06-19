@@ -1,12 +1,12 @@
 package de.jatitv.commandguiv2.cmdManagement;
 
 import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
+import de.jatitv.commandguiv2.system.Debug;
 import de.jatitv.commandguiv2.system.config.DefaultGUICreate;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.send;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,9 +31,9 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                     case "reload":
                     case "rl":
                         if (sender instanceof Player) sender.sendMessage(Prefix + Select_msg.ReloadStart);
-                        send.Console(Prefix + "§8-------------------------------");
-                        send.Console(Prefix + "§6Plugin reload...");
-                        send.Console(Prefix + "§8-------------------------------");
+                        send.console(Prefix + "§8-------------------------------");
+                        send.console(Prefix + "§6Plugin reload...");
+                        send.console(Prefix + "§8-------------------------------");
 
                         Select_config.onSelect();
                         GUI_Obj_Select.onSelect();
@@ -41,13 +41,25 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                         sender.sendMessage("§6To enable / disable alias commands, reload / restart the server!");
 
                         if (sender instanceof Player) sender.sendMessage(Prefix + Select_msg.ReloadEnd);
-                        send.Console(Prefix + "§8-------------------------------");
-                        send.Console(Prefix + "§2Plugin successfully reloaded.");
-                        send.Console(Prefix + "§8-------------------------------");
+                        send.console(Prefix + "§8-------------------------------");
+                        send.console(Prefix + "§2Plugin successfully reloaded.");
+                        send.console(Prefix + "§8-------------------------------");
                         break;
                     case "createdefaultgui":
                         DefaultGUICreate.configCreate();
                         sender.sendMessage(Prefix + "§2DefaultGUI was created. You can find it in the directory: §eplugins/CommandGUI/GUIs/default.yml");
+                        break;
+                    case "debug":
+                        if (args.length == 2) {
+                            if (args[1].equals("config")) {
+                                Debug.debugmsg();
+                            }
+                            if (args[1].equals("2")) {
+                                send.debug("2");
+                            }
+                            break;
+
+                        } else Debug.debugmsg();
                         break;
                     case "help":
                     default:
@@ -107,7 +119,8 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                     }
                 }
             }
-            /*if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
+            /*
+            if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
                 if (sender.hasPermission("commandgui.giveitem.other")) {
                     Iterator var6 = Bukkit.getOnlinePlayers().iterator();
 
@@ -118,8 +131,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 }
                 return list;
             }
-
-             */
+            */
         }
         return list;
     }
@@ -136,6 +148,5 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
         }
         return false;
     }
-
 }
 

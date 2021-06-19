@@ -25,20 +25,20 @@ import java.util.List;
 
 public class Load {
     public static void onLoad(String Prefix, List Autor, String Version, String Spigot, String Discord) {
-
-        send.Console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
-        send.Console(Prefix + "§4   _____ §9_____ _    _ _____ §e   ___  ");
-        send.Console(Prefix + "§4  / ____§9/ ____| |  | |_   _|§e  |__ \\ ");
-        send.Console(Prefix + "§4 | |   §9| |  __| |  | | | |§e_   __ ) |");
-        send.Console(Prefix + "§4 | |   §9| | |_ | |  | | | §e\\ \\ / // / ");
-        send.Console(Prefix + "§4 | |___§9| |__| | |__| |_| |§e\\ V // /_ ");
-        send.Console(Prefix + "§4  \\_____§9\\_____|\\____/|_____§e\\_/|____|");
-        send.Console(Prefix);
-        send.Console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
-        send.Console(Prefix + " §2Version: §6" + Version);
-        send.Console(Prefix + " §2Spigot: §6" + Spigot);
-        send.Console(Prefix + " §2Discord: §6" + Discord);
-        send.Console(Prefix + " §8-------------------------------");
+        Long long_ = Long.valueOf(System.currentTimeMillis());
+        send.console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
+        send.console(Prefix + "§4   _____ §9_____ _    _ _____ §e   ___  ");
+        send.console(Prefix + "§4  / ____§9/ ____| |  | |_   _|§e  |__ \\ ");
+        send.console(Prefix + "§4 | |   §9| |  __| |  | | | |§e_   __ ) |");
+        send.console(Prefix + "§4 | |   §9| | |_ | |  | | | §e\\ \\ / // / ");
+        send.console(Prefix + "§4 | |___§9| |__| | |__| |_| |§e\\ V // /_ ");
+        send.console(Prefix + "§4  \\_____§9\\_____|\\____/|_____§e\\_/|____|");
+        send.console(Prefix);
+        send.console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
+        send.console(Prefix + " §2Version: §6" + Version);
+        send.console(Prefix + " §2Spigot: §6" + Spigot);
+        send.console(Prefix + " §2Discord: §6" + Discord);
+        send.console(Prefix + " §8-------------------------------");
 
 
         if (!new File(Main.getPath(), "config.yml").exists()) {
@@ -46,13 +46,14 @@ public class Load {
         }
         ConfigCreate.configCreate();
         Select_config.onSelect();
+
         LanguagesCreate.langCreate();
 
         GUI_Obj_Select.onSelect();
         Select_msg.onSelect(Prefix);
         Select_config.sound(Main.Prefix);
 
-        send.Console(Prefix + " §8-------------------------------");
+        send.console(Prefix + " §8-------------------------------");
         if (Select_config.Storage.equals("MySQL")) {
             MySQL.main();
             MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
@@ -77,12 +78,12 @@ public class Load {
             }
 
         } else {
-            send.Console(Prefix + " §6Storage medium §2YML §6is used.");
+            if (Select_config.Debug) send.console(Prefix + " §6Storage medium §2YML §6is used.");
         }
         if (Main.PaPi) {
-            send.Console(Prefix + " §2PlaceholderAPI successfully connected!");
+            send.console(Prefix + " §2PlaceholderAPI successfully connected!");
         } else {
-            send.Console(Prefix + " §4PlaceholderAPI could not be connected / found!");
+            send.console(Prefix + " §4PlaceholderAPI could not be connected / found!");
         }
         try {
             Vault.loadVault();
@@ -93,11 +94,15 @@ public class Load {
         GUI_RegisterPermissions.onPermRegister();
 
         Main.getPlugin().getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter_Admin());
-        if (Select_config.HelpAlias){
+        send.debug("Commandregister: commandguiadmin");
+        if (Select_config.HelpAlias) {
             Main.getPlugin().getCommand("commandguihelp").setExecutor(new GUI_CmdExecuter_Help());
+            send.debug("Commandregister: commandguihelp");
         }
         Main.getPlugin().getCommand("commandgui").setExecutor(new GUI_CmdExecuter_GUI());
+        send.debug("Commandregister: commandgui");
         Main.getPlugin().getCommand("commandgui-item").setExecutor(new GUI_CmdExecuter_GUIItem());
+        send.debug("Commandregister: commandgui-item");
 
         AliasRegister.onregister();
 
@@ -105,7 +110,10 @@ public class Load {
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), Main.getPlugin());
         Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), Main.getPlugin());
 
+        send.debugmsg(String.valueOf(Main.minecraft1_8));
+        send.debugmsg(Bukkit.getServer().getClass().getPackage().getName());
         if (Main.minecraft1_8 || Main.minecraft1_9) {
+            send.debugmsg("1.8 - 1.9 ...");
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), Main.getPlugin());
         } else if (Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15) {
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), Main.getPlugin());
@@ -113,9 +121,11 @@ public class Load {
 
         UpdateChecker.onUpdateCheck();
         Metrics.Bstats();
-        send.Console(Prefix + " §8-------------------------------");
-        send.Console(Prefix + " §2Plugin loaded successfully.");
-        send.Console(Main.Prefix + "§4========================================================================");
+        send.console(Prefix + " §8-------------------------------");
+        send.console(Prefix + " §2Plugin loaded successfully." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
+        Debug.debugmsg();
+        send.console(Main.Prefix + "§4========================================================================");
 
     }
+
 }

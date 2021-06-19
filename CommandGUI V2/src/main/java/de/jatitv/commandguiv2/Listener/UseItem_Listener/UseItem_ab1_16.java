@@ -28,6 +28,7 @@ import java.util.Iterator;
 
 public class UseItem_ab1_16 implements Listener {
 
+
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         itemChange(e.getPlayer());
@@ -35,7 +36,7 @@ public class UseItem_ab1_16 implements Listener {
 
     public static void itemChange(Player player) {
         if (Select_config.UseItem_Enable) {
-            if (Select_config.UseItem_GiveOnFirstJoin) {
+            if (Select_config.UseItem_GiveOnlyOnFirstJoin) {
                 if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
 
                     if (!player.hasPlayedBefore()) {
@@ -45,7 +46,7 @@ public class UseItem_ab1_16 implements Listener {
                                 GUI_Give_UseItem.onGive(player.getName());
                             }
                         }.runTaskLater(Main.getPlugin(), 20L * 1);
-                        if (Select_config.Cursor_ToGUIItem_OnFirstLogin) {
+                        if (Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin||Select_config.Cursor_ToGUIItem_OnLogin) {
                             player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
                         }
                     }
@@ -70,10 +71,12 @@ public class UseItem_ab1_16 implements Listener {
                             if (Select_config.UseItem_InventorySlotEnforce || player.getInventory().getItem(Select_config.UseItem_InventorySlot - 1) == null) {
                                 GUI_Give_UseItem.onGive(player.getName());
                                 if (Select_config.Cursor_ToGUIItem_OnLogin) {
-                                    if (Select_config.Storage.equals("MySQL") && Select_config.Bungee && Select_config.UseItem_ServerChange && Select_config.Bungee) {
-                                        player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
-                                    } else if (MySQL.select("SELECT `Status` FROM `gui-onlineplayer` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("Offline")) {
-                                        player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
+                                    if (!Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin) {
+                                        if (Select_config.Storage.equals("MySQL") && Select_config.Bungee && Select_config.UseItem_ServerChange && Select_config.Bungee) {
+                                            player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
+                                        } else if (MySQL.select("SELECT `Status` FROM `gui-onlineplayer` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("Offline")) {
+                                            player.getInventory().setHeldItemSlot(Select_config.UseItem_InventorySlot - 1);
+                                        }
                                     }
                                 }
                             } else {
@@ -152,7 +155,7 @@ public class UseItem_ab1_16 implements Listener {
         Player player = e.getPlayer();
         if (Select_config.UseItem_Enable) {
             if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
-                if (Select_config.UseItem_GiveOnFirstJoin) {
+                if (Select_config.UseItem_GiveOnlyOnFirstJoin) {
                     if (!player.hasPlayedBefore()) {
                         new BukkitRunnable() {
                             @Override

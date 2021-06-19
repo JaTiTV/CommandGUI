@@ -27,7 +27,7 @@ public class RegisterCommand extends Command {
             GUI_Objekt gui = Main.guiHashMap.get(alias);
             if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
                 if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui) || player.hasPermission("commandgui.bypass")) {
-                    send.Console(String.valueOf(gui.Command_Permission_Enable));
+                    send.console(String.valueOf(gui.Command_Permission_Enable));
                     GUI_GUI.openGUI(player, gui);
                     if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                         player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);

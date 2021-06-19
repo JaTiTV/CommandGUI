@@ -1,11 +1,13 @@
 package de.jatitv.commandguiv2.system.database;
 
 import de.jatitv.commandguiv2.Main;
+import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.send;
-import org.bukkit.Bukkit;
 
 import java.sql.*;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MySQL {
     public static String ip = "localhost";
@@ -17,17 +19,23 @@ public class MySQL {
     public static Boolean SSL;
 
     public static void main(){
-        url = "jdbc:mysql://" + ip + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+        Long long_ = Long.valueOf(System.currentTimeMillis());
+        Calendar now = Calendar.getInstance();
+        ZoneId timeZone = now.getTimeZone().toZoneId();
+        send.debug("Server TimeZone is : " + timeZone);
+        url = "jdbc:mysql://" + ip + ":" + port + "/" + database + "?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone="+ timeZone;
+        // Europe/Berlin
         if(SSL){
             url = url + "&useSSL=true";
         }
+        send.debug(url);
         try(Connection con = DriverManager.getConnection(url,user, password)){
             Statement stmt = con.createStatement();
             stmt.close();
-            send.Console(Main.Prefix + "§2MySQL erfolgreich verbunden.");
+            send.console(Main.Prefix + " §2MySQL successfully connected." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
         }catch(SQLException ex){
-            send.Console(Main.Prefix + "§4MySQL nicht verbunden.");
-            System.err.println(ex.getMessage());
+            send.console(Main.Prefix + " §4MySQL not connected." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
+            System.err.println(ex.getMessage() + " --- " + (System.currentTimeMillis() - long_.longValue()) + "ms");
         }
     }
 

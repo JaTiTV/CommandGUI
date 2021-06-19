@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
 public class ConfigCreate {
 
     private static Boolean UpdateCheckOnJoin = true;
@@ -46,11 +45,11 @@ public class ConfigCreate {
     private static Boolean UseItem_PlayerWhoHasOpenedTheGUI = false;
     private static String UseItem_PlayerName = "";
     private static String UseItem_Name = "&bDefault &6GUI";
-    private static List UseItem_Lore = Arrays.asList("&eOpen the GUI from &bBuilders-Paradise");
+    private static List UseItem_Lore = Arrays.asList("&eThis is an example GUI");
     private static Boolean UseItem_GiveOnEveryJoin = true;
-    private static Boolean UseItem_GiveOnFirstJoin = true;
+    private static Boolean UseItem_GiveOnlyOnFirstJoin = false;
     private static Boolean Cursor_ToGUIItem_OnLogin = true;
-    private static Boolean Cursor_ToGUIItem_OnFirstLogin = true;
+    private static Boolean Cursor_ToGUIItem_OnlyOnFirstLogin = true;
     private static Boolean Cursor_ServerChange_EXPERIMENTELL = false;
 
     private static Boolean Sound_Enable = true;
@@ -70,10 +69,17 @@ public class ConfigCreate {
 
 
     public static void configCreate() {
-        send.Console(Main.Prefix + " §4config.yml are created / updated...");
+        Long long_ = Long.valueOf(System.currentTimeMillis());
+        if (new File(Main.getPath(), "config.yml").exists()){
+            if (Main.plugin.getConfig().getBoolean("Plugin.Debug")) send.console(Main.Prefix + " §5DEBUG: §6" +  " §4config.yml are created / updated...");
+        } else send.console(Main.Prefix + " §4config.yml are created...");
+
 
         File config = new File(Main.getPath(), "config.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
+
+
+
 
         set("Plugin.UpdateCheckOnJoin", UpdateCheckOnJoin, yamlConfiguration);
         set("Plugin.Debug", Debug, yamlConfiguration);
@@ -110,9 +116,9 @@ public class ConfigCreate {
         set("UseItem.Item.Name", UseItem_Name, yamlConfiguration);
         set("UseItem.Item.Lore", UseItem_Lore, yamlConfiguration);
         set("UseItem.Join.GiveOnEveryJoin", UseItem_GiveOnEveryJoin, yamlConfiguration);
-        set("UseItem.Join.GiveOnFirstJoin", UseItem_GiveOnFirstJoin, yamlConfiguration);
+        set("UseItem.Join.GiveOnlyOnFirstJoin", UseItem_GiveOnlyOnFirstJoin, yamlConfiguration);
         set("UseItem.Join.Cursor.ToGUIItem.OnEveryLogin", Cursor_ToGUIItem_OnLogin, yamlConfiguration);
-        set("UseItem.Join.Cursor.ToGUIItem.OnFirstLogin", Cursor_ToGUIItem_OnFirstLogin, yamlConfiguration);
+        set("UseItem.Join.Cursor.ToGUIItem.OnOnlyFirstLogin", Cursor_ToGUIItem_OnlyOnFirstLogin, yamlConfiguration);
         set("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChhange", Cursor_ServerChange_EXPERIMENTELL, yamlConfiguration);
 
         yamlConfiguration.options().pathSeparator();
@@ -120,23 +126,23 @@ public class ConfigCreate {
         set("Sound.", true, yamlConfiguration);
 
         set("Sound.OpenInventory.Enable", Sound_Enable, yamlConfiguration);
-        if (Main.minecraft1_8){
-            set("Sound.OpenInventory.Sound",  Sound_OpenInventory_1_8, yamlConfiguration);
-        } else  set("Sound.OpenInventory.Sound", Sound_OpenInventory_ab_1_9, yamlConfiguration);
+        if (Main.minecraft1_8) {
+            set("Sound.OpenInventory.Sound", Sound_OpenInventory_1_8, yamlConfiguration);
+        } else set("Sound.OpenInventory.Sound", Sound_OpenInventory_ab_1_9, yamlConfiguration);
 
         set("Sound.Click.Enable", Sound_Click_Enable, yamlConfiguration);
         if (Main.minecraft1_8) {
             set("Sound.Click.Sound", Sound_Click_1_8, yamlConfiguration);
-        }else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+        } else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
             set("Sound.Click.Sound", Sound_Click_1_9_bis_1_12, yamlConfiguration);
-        }else set("Sound.Click.Sound", Sound_Click_ab_1_13, yamlConfiguration);
+        } else set("Sound.Click.Sound", Sound_Click_ab_1_13, yamlConfiguration);
 
         set("Sound.NoMoney.Enable", Sound_NoMoney_Enable, yamlConfiguration);
         if (Main.minecraft1_8) {
             set("Sound.NoMoney.Sound", Sound_NoMoney_1_8, yamlConfiguration);
-        }else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+        } else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
             set("Sound.NoMoney.Sound", Sound_NoMoney_1_9_bis_1_12, yamlConfiguration);
-        }else set("Sound.NoMoney.Sound", Sound_NoMoney_ab_1_13, yamlConfiguration);
+        } else set("Sound.NoMoney.Sound", Sound_NoMoney_ab_1_13, yamlConfiguration);
 
         try {
             yamlConfiguration.save(config);
@@ -144,7 +150,8 @@ public class ConfigCreate {
             e.printStackTrace();
         }
 
-        send.Console(Main.Prefix + " §2config.yml were successfully created / updated.");
+        send.console(Main.Prefix + " §2config.yml were successfully created / updated." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
+
     }
 
     private static void set(String path, String value, YamlConfiguration config) {
