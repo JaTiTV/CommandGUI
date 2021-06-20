@@ -42,6 +42,8 @@ public class ConfigCreate {
     private static Boolean UseItem_InventorySlot_FreeSlot = false;
     private static String UseItem_Material = "paper";
     private static Boolean UseItem_PlayerHead_Enable = false;
+    private static Boolean base64_Enable = false;
+    private static String base64value= "";
     private static Boolean UseItem_PlayerWhoHasOpenedTheGUI = false;
     private static String UseItem_PlayerName = "";
     private static String UseItem_Name = "&bDefault &6GUI";
@@ -110,9 +112,13 @@ public class ConfigCreate {
         set("UseItem.InventorySlot.FreeSlot", UseItem_InventorySlot_FreeSlot, yamlConfiguration);
 
         set("UseItem.Item.Material", UseItem_Material, yamlConfiguration);
-        set("UseItem.Item.PlayerHead.Enable", UseItem_PlayerHead_Enable, yamlConfiguration);
-        set("UseItem.Item.PlayerHead.PlayerWhoHasOpenedTheGUI", UseItem_PlayerWhoHasOpenedTheGUI, yamlConfiguration);
-        set("UseItem.Item.PlayerHead.Playername", UseItem_PlayerName, yamlConfiguration);
+        if (!(Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12)) {
+            set("UseItem.Item.PlayerHead.Enable", UseItem_PlayerHead_Enable, yamlConfiguration);
+            set("UseItem.Item.PlayerHead.Base64.Enable", base64_Enable, yamlConfiguration);
+            set("UseItem.Item.PlayerHead.Base64.Base64Value", base64value, yamlConfiguration);
+            set("UseItem.Item.PlayerHead.PlayerWhoHasOpenedTheGUI", UseItem_PlayerWhoHasOpenedTheGUI, yamlConfiguration);
+            set("UseItem.Item.PlayerHead.Playername", UseItem_PlayerName, yamlConfiguration);
+        }
         set("UseItem.Item.Name", UseItem_Name, yamlConfiguration);
         set("UseItem.Item.Lore", UseItem_Lore, yamlConfiguration);
         set("UseItem.Join.GiveOnEveryJoin", UseItem_GiveOnEveryJoin, yamlConfiguration);

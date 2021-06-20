@@ -8,6 +8,8 @@ import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.system.send;
 import org.bukkit.command.CommandSender;
 
+import java.io.File;
+
 public class Help {
     public static void sendHelp(CommandSender sender, String Prefix) {
         send.sender(sender, Prefix + " §8----- §4Command§9GUI §chelp §8-----");
@@ -32,7 +34,7 @@ public class Help {
             send.sender(sender, Prefix + " " + Select_msg.HelpGive);
         }
         if (sender.hasPermission("commandgui.admin")) {
-            send.sender(sender, Prefix + " " + Select_msg.HelpCreateDefaultGUI);
+            send.sender(sender, Prefix + " " + Select_msg.HelpCreateDefaultGUI.replace("[directory]", Main.getPath()+ "\\GUIs\\default.yml"));
             send.sender(sender, Prefix + " " + Select_msg.HelpReload);
         }
         send.sender(sender, Prefix + " §8-------------------------");

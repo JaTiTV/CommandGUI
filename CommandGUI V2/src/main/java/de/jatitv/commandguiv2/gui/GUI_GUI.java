@@ -52,7 +52,7 @@ public class GUI_GUI {
                             send.error("Playerheads are only available from version 1.13!");
                             send.console(Main.Prefix + " §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
                         } else {
-                            send.console("hi");
+
                             if (slot.Base64Value_Enable) {
                                 ItemStack item = new ItemStack(Main.Head);
                                 SkullMeta itemMeta = (SkullMeta) item.getItemMeta();

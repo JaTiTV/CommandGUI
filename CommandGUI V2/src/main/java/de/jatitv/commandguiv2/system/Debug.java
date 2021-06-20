@@ -1,83 +1,96 @@
 package de.jatitv.commandguiv2.system;
 
 import de.jatitv.commandguiv2.Main;
-import de.jatitv.commandguiv2.system.config.select.Select_config;
-import de.jatitv.commandguiv2.system.database.MySQL;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
 
 public class Debug {
     public static void debugmsg() {
-        send.debug("§5----------------------------------");
-        send.debug("§3BukkitVersion: §e" + Bukkit.getBukkitVersion());
+
+        send.debug("§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        send.debug("§3Bukkit Version: §e" + Bukkit.getBukkitVersion());
+        send.debug("§3NMS Version: §e" + Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit.", ""));
         send.debug("§3Version: §e" + Bukkit.getVersion());
         send.debug("§3Java: §e" + System.getProperty("java.version"));
-        send.debug(String.valueOf(Bukkit.getServer().getWorlds()));
+        send.debug("§3Worlds: §e" +String.valueOf(Bukkit.getServer().getWorlds()));
+        send.debug(String.valueOf(Main.Plugins));
         send.debug("§5----------------------------------");
-        File f = new File(String.valueOf(Main.getPath()));
-        File f2 = new File(String.valueOf(Main.getPath() + "/GUIs/") );
-        File f3 = new File(String.valueOf(Main.getPath()+ "/languages/"));
-        File[] fileArray = f.listFiles();
-        File[] fileArray2 = f2.listFiles();
-        File[] fileArray3 = f3.listFiles();
-        for (File config : fileArray) {
-            send.debug(String.valueOf(config).replace("plugins/CommandGUI/", ""));
+        if (!new File(Main.getPath(), "config.yml").exists()) {
+            File f = new File(String.valueOf(Main.getPath()));
+            File f2 = new File(String.valueOf(Main.getPath() + "/GUIs/"));
+            File f3 = new File(String.valueOf(Main.getPath() + "/languages/"));
+            File[] fileArray = f.listFiles();
+            File[] fileArray2 = f2.listFiles();
+            File[] fileArray3 = f3.listFiles();
+            for (File config : fileArray) {
+                send.debug(String.valueOf(config).replace("plugins/CommandGUI/", ""));
+            }
+            for (File config2 : fileArray2) {
+                send.debug(String.valueOf(config2).replace("plugins/CommandGUI/", ""));
+            }
+            for (File config3 : fileArray3) {
+                send.debug(String.valueOf(config3).replace("plugins/CommandGUI/", ""));
+            }
         }
-        for (File config2: fileArray2) {
-            send.debug(String.valueOf(config2).replace("plugins/CommandGUI/", ""));
-        }
-        for (File config3 : fileArray3) {
-            send.debug(String.valueOf(config3).replace("plugins/CommandGUI/", ""));
-        }
-        send.debug("§5----------------------------------");
+
+        send.debug("§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
     }
 
-    public static void debugconfig() {
-        send.debug("§5-------- §9Config §5--------");
-        send.debug(String.valueOf(Select_config.UpdateCheckOnJoin));
-        send.debug(String.valueOf(Select_config.Debug));
-        send.debug(String.valueOf(Select_config.HelpAlias));
-        send.debug(String.valueOf(Select_config.language));
-        send.debug(String.valueOf(Select_config.Currency));
-        send.debug(String.valueOf(Select_config.DefaultGUI));
-        send.debug(String.valueOf(Select_config.Storage));
-        send.debug(String.valueOf(MySQL.ip));
-        send.debug(String.valueOf(MySQL.port));
-        send.debug(String.valueOf(MySQL.database));
-        send.debug(String.valueOf(MySQL.user));
-        send.debug(String.valueOf(MySQL.password));
-        send.debug(String.valueOf(MySQL.SSL));
-        send.debug(String.valueOf(Select_config.Bungee));
-        send.debug(String.valueOf(Select_config.thisServer));
-        send.debug(String.valueOf(Select_config.UseItem_Enable));
-        send.debug(String.valueOf(Select_config.UseItem_AllowToggle));
-        send.debug(String.valueOf(Select_config.UseItem_BlockMoveAndDrop));
-        send.debug(String.valueOf(Select_config.UseItem_OpenGUI));
-        send.debug(String.valueOf(Select_config.UseItem_Permission));
-        send.debug(String.valueOf(Select_config.UseItem_InventorySlot_FreeSlot));
-        send.debug(String.valueOf(Select_config.UseItem_InventorySlot));
-        send.debug(String.valueOf(Select_config.UseItem_InventorySlotEnforce));
-        send.debug(String.valueOf(Select_config.UseItem_Material));
-        send.debug(String.valueOf(Select_config.UseItem_PlayerHead_Enable));
-        send.debug(String.valueOf(Select_config.UseItem_PlayerWhoHasOpenedTheGUI));
-        send.debug(String.valueOf(Select_config.UseItem_PlayerName));
-        send.debug(String.valueOf(Select_config.UseItem_Name));
-        send.debug(String.valueOf(Select_config.UseItem_Lore));
-        send.debug(String.valueOf(Select_config.UseItem_GiveOnEveryJoin));
-        send.debug(String.valueOf(Select_config.UseItem_GiveOnlyOnFirstJoin));
-        send.debug(String.valueOf(Select_config.UseItem_ServerChange));
-        send.debug(String.valueOf(Select_config.Cursor_ToGUIItem_OnLogin));
-        send.debug(String.valueOf(Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin));
-        send.debug(String.valueOf(Select_config.Sound_Enable));
-        send.debug(String.valueOf(Select_config.Sound_OpenInventory_Enable));
-        send.debug(String.valueOf(Select_config.Sound_OpenInventory_input));
-        send.debug(String.valueOf(Select_config.Sound_Click_Enable));
-        send.debug(String.valueOf(Select_config.Sound_Click_input));
-        send.debug(String.valueOf(Select_config.Sound_NoMoney_Enable));
-        send.debug(String.valueOf(Select_config.Sound_NoMoney_input));
-        send.debug("§5----------------------------------");
+    public static void onDebugFile(CommandSender sender){
+        String timeStamp = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss").format(Calendar.getInstance().getTime());
+        String timeStampcfg = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        send.sender(sender, Main.Prefix + " §5Debug file was createt: §e" + Main.getPath() + "\\debug\\commandgui_debug_"+ timeStamp +".yml");
+        File debug = new File(Main.getPath(), "debug/commandgui_debug_"+ timeStamp +".yml");
+        YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(debug);
 
+
+
+
+        set("Time", timeStampcfg, yamlConfiguration);
+        set("CommandGUI.Version", String.valueOf( Main.getPlugin().getDescription().getVersion()), yamlConfiguration);
+
+        set("Server.Bukkit_Version", String.valueOf(Bukkit.getBukkitVersion()), yamlConfiguration);
+        set("Server.NMS_Version", String.valueOf(Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit.", "")), yamlConfiguration);
+        set("Server.Version", String.valueOf(Bukkit.getVersion()), yamlConfiguration);
+        set("Server.Java", String.valueOf(System.getProperty("java.version")), yamlConfiguration);
+        set("Server.Worlds",  String.valueOf(Bukkit.getServer().getWorlds()), yamlConfiguration);
+        set("Server.Plugins", String.valueOf(Main.Plugins) , yamlConfiguration);
+
+
+        try {
+            yamlConfiguration.save(debug);
+        } catch (IOException e) {
+            send.warning(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private static void set(String path, String value, YamlConfiguration config){
+        if (!config.contains(path)) {
+            config.set(path, value);
+        }
+    }
+    private static void set(String path, Integer value, YamlConfiguration config){
+        if (!config.contains(path)) {
+            config.set(path, value);
+        }
+    }
+    private static void set(String path, Boolean value, YamlConfiguration config){
+        if (!config.contains(path)) {
+            config.set(path, value);
+        }
+    }
+    private static void set(String path, List value, YamlConfiguration config){
+        if (!config.contains(path)) {
+            config.set(path, value);
+        }
     }
 }

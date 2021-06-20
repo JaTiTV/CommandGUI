@@ -2,7 +2,9 @@ package de.jatitv.commandguiv2.cmdManagement;
 
 import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
 import de.jatitv.commandguiv2.system.Debug;
+import de.jatitv.commandguiv2.system.config.ConfigCreate;
 import de.jatitv.commandguiv2.system.config.DefaultGUICreate;
+import de.jatitv.commandguiv2.system.config.languages.LanguagesCreate;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
@@ -30,27 +32,34 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 switch (args[0].toLowerCase()) {
                     case "reload":
                     case "rl":
-                        if (sender instanceof Player) sender.sendMessage(Prefix + Select_msg.ReloadStart);
+                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadStart);
                         send.console(Prefix + "§8-------------------------------");
-                        send.console(Prefix + "§6Plugin reload...");
+                        send.console(Prefix + " §6Plugin reload...");
                         send.console(Prefix + "§8-------------------------------");
 
+                        ConfigCreate.configCreate();
                         Select_config.onSelect();
+
+                        LanguagesCreate.langCreate();
+
                         GUI_Obj_Select.onSelect();
                         Select_msg.onSelect(Prefix);
-                        sender.sendMessage("§6To enable / disable alias commands, reload / restart the server!");
+                        Select_config.sound(Main.Prefix);
+                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadWarning);
+                        send.warning("To enable / disable alias commands, reload / restart the server!");
 
-                        if (sender instanceof Player) sender.sendMessage(Prefix + Select_msg.ReloadEnd);
+                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadEnd);
                         send.console(Prefix + "§8-------------------------------");
-                        send.console(Prefix + "§2Plugin successfully reloaded.");
+                        send.console(Prefix + " §2Plugin successfully reloaded.");
                         send.console(Prefix + "§8-------------------------------");
                         break;
                     case "createdefaultgui":
                         DefaultGUICreate.configCreate();
-                        sender.sendMessage(Prefix + "§2DefaultGUI was created. You can find it in the directory: §eplugins/CommandGUI/GUIs/default.yml");
+                        sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "\\GUIs\\default.yml"));
                         break;
                     case "debug":
-                        if (args.length == 2) {
+                        Debug.onDebugFile(sender);
+                        /*if (args.length == 2) {
                             if (args[1].equals("config")) {
                                 Debug.debugmsg();
                             }
@@ -60,6 +69,8 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                             break;
 
                         } else Debug.debugmsg();
+
+                         */
                         break;
                     case "help":
                     default:

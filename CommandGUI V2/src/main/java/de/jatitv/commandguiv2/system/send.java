@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.logging.Level;
 
 public class send {
@@ -14,7 +15,8 @@ public class send {
     }
 
     public static void debug(String msg) {
-        if (Select_config.Debug) Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §5DEBUG: §6" + msg);
+      //  if (!new File(Main.getPath(), "config.yml").exists()) return;
+        if (Main.plugin.getConfig().getBoolean("Plugin.Debug")) Bukkit.getConsoleSender().sendMessage(Main.Prefix + " §5DEBUG: §6" + msg);
     }
 
     public static void debugmsg(String msg) {

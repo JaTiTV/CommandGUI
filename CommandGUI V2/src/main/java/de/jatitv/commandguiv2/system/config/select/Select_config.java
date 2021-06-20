@@ -41,6 +41,8 @@ public class Select_config {
     public static Boolean UseItem_InventorySlotEnforce;
     public static String UseItem_Material;
     public static Boolean UseItem_PlayerHead_Enable;
+    public static Boolean UseItem_Base64_Enable;
+    public static String UseItem_Base64value;
     public static Boolean UseItem_PlayerWhoHasOpenedTheGUI;
     public static String UseItem_PlayerName;
     public static String UseItem_Name;
@@ -108,6 +110,8 @@ public class Select_config {
         UseItem_InventorySlotEnforce = yamlConfiguration.getBoolean("UseItem.InventorySlot.SlotEnforce");
         UseItem_Material = yamlConfiguration.getString("UseItem.Item.Material").toUpperCase();
         UseItem_PlayerHead_Enable = yamlConfiguration.getBoolean("UseItem.Item.PlayerHead.Enable");
+        UseItem_Base64_Enable = yamlConfiguration.getBoolean("UseItem.Item.PlayerHead.Base64.Enable");
+        UseItem_Base64value = yamlConfiguration.getString("UseItem.Item.PlayerHead.Base64.Base64Value");
         UseItem_PlayerWhoHasOpenedTheGUI = yamlConfiguration.getBoolean("UseItem.Item.PlayerHead.PlayerWhoHasOpenedTheGUI");
         UseItem_PlayerName = yamlConfiguration.getString("UseItem.Item.PlayerHead.PlayerName");
         UseItem_Name = Replace.replace(yamlConfiguration.getString("UseItem.Item.Name"));

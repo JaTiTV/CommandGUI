@@ -14,8 +14,10 @@ public class Select_msg {
     public static String VaultNotSetUp;
     public static String SoundNotFound;
     public static String OnlyForPlayer;
+    public static String DefaultGUIcreate;
     public static String ReloadStart;
     public static String ReloadEnd;
+    public static String ReloadWarning;
 
     public static String NoPermission;
     public static String NoPermissionForCommand;
@@ -47,7 +49,7 @@ public class Select_msg {
 
     public static void onSelect(String Prefix) {
 
-        send.debug(Prefix + " §4Select language...");
+        send.debug("§4Select language...");
         Long long_ = Long.valueOf(System.currentTimeMillis());
 
         File msg;
@@ -68,8 +70,10 @@ public class Select_msg {
         VaultNotSetUp = Replace.replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
         SoundNotFound = Replace.replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
         OnlyForPlayer = Replace.replace(yamlConfiguration_msg.getString("Plugin.OnlyForPlayer"));
+        DefaultGUIcreate = Replace.replace(yamlConfiguration_msg.getString("Plugin.DefaultGUI.create"));
         ReloadStart = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
         ReloadEnd = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
+        ReloadWarning = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Warning"));
 
         NoPermission = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommandGUI"));
         NoPermissionForCommand = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommand"));
@@ -93,11 +97,11 @@ public class Select_msg {
         HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
         HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
-        //HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
         HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
-        GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.On"));
-        GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem.Off"));
+        GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_On"));
+        GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_Off"));
 
         send.console(Prefix + " §2Language successfully selected to: §6" + selectMSG  + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
     }

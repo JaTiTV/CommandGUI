@@ -81,7 +81,6 @@ public class GUI_Listener implements Listener {
                                                             }
                                                         }
                                                         if (slot.Message_Enable) {
-
                                                                 new BukkitRunnable() {
                                                                     @Override
                                                                     public void run() {
@@ -90,7 +89,9 @@ public class GUI_Listener implements Listener {
                                                                 }.runTaskLater(Main.getPlugin(), 1L);
 
                                                             for (String msg : slot.Message) {
-                                                                player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
+                                                                if (Main.PaPi){
+                                                                    player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
+                                                                } else player.sendMessage(Replace.replace(msg.replace("[prefix]", Main.Prefix)));
                                                             }
                                                             if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                                 if (slot.CustomSound_Enable) {
@@ -165,7 +166,9 @@ public class GUI_Listener implements Listener {
 
 
                                                     for (String msg : slot.Message) {
-                                                        player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
+                                                        if (Main.PaPi){
+                                                            player.sendMessage(Replace.replace(player, msg.replace("[prefix]", Main.Prefix)));
+                                                        } else  player.sendMessage(Replace.replace(msg.replace("[prefix]", Main.Prefix)));
                                                     }
                                                     if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
                                                         if (slot.CustomSound_Enable) {

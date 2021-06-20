@@ -1,5 +1,5 @@
 name: CommandGUI
-version: V2 Snapshot 0.9
+version: V2 Snapshot 1.1
 main: de.jatitv.commandguiv2.Main
 api-version: 1.13
 prefix: CommandGUI

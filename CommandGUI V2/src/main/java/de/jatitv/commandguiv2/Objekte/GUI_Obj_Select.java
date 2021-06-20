@@ -5,6 +5,7 @@ import de.jatitv.commandguiv2.Main;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GUI_Obj_Select {
@@ -20,6 +21,12 @@ public class GUI_Obj_Select {
 
                 Boolean GUI_Enable = yamlConfiguration_gui.getBoolean("GUI.Enable");
                 Integer GUI_Lines = yamlConfiguration_gui.getInt("GUI.Lines");
+                if (yamlConfiguration_gui.getInt("GUI.Lines") > 6) {
+                    yamlConfiguration_gui.set("GUI.Lines", 6);
+                }
+                if (yamlConfiguration_gui.getInt("GUI.Lines") < 1) {
+                    yamlConfiguration_gui.set("GUI.Lines", 1);
+                }
                 String GUI_Name = yamlConfiguration_gui.getString("GUI.Name");
                 Boolean GUI_FillItem_Enable = yamlConfiguration_gui.getBoolean("GUI.FillItem.Enable");
                 String GUI_FillItem_Item;
@@ -62,7 +69,14 @@ public class GUI_Obj_Select {
                         config_gui.getName().replace(".yml", ""), Command_Alias_Enable, Command_Permission, slots);
                 Main.guiHashMap.put(config_gui.getName().replace(".yml", ""), objekt);
                 GUI_CmdExecuter_GUI.arg1.put(config_gui.getName().replace(".yml", ""), "commandgui.gui." + config_gui.getName().replace(".yml", ""));
+
+                try {
+                    yamlConfiguration_gui.save(config_gui);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
         }
     }
 }
