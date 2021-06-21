@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="https://i.imgur.com/QHOQIMm.png" width="300">
+    <img src="https://i.imgur.com/QHOQIMm.png" width="400">
 </p>
 
 ---
 
-<img src="https://i.imgur.com/mmnBjBG.pngg" width="300">
+<img src="https://i.imgur.com/mmnBjBG.pngg" width="600">
 
 CommandGUI | FunctionsGUI is a handy plugin that allows you to create as many and different GUIs (user interfaces) as you need for your server.
 
@@ -17,7 +17,7 @@ Features:
 - You can also just display information by setting a lore for the items in the GUIs, these also support placeholders.
 - There is an item that players can get in the inventory, with which they can open a specific GUI.
 
-<img src="https://i.imgur.com/2f9Ewnl.png" width="300">
+<img src="https://i.imgur.com/2f9Ewnl.png" width="600">
 
 Optional:
 - Permission Plugin
@@ -26,7 +26,7 @@ Optional:
 - Economy Plugin
   Recommendations: Economy, EssentialsX, CMI (Paid) (more possible)
   
-<img src="https://i.imgur.com/wNDEjg9.png" width="300">
+<img src="https://i.imgur.com/wNDEjg9.png" width="600">
 
 /commandgui - Open the default GUI (adjustable)
 /commandgui [gui] - Open the selected GUI
