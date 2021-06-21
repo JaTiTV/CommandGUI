@@ -45,36 +45,7 @@ Optional:
 /commandguiadmin reload - Reload the plugin.
 
 
-[code=YAML]permissions:
-  commandgui.admin:
-    description: All permissions from CommandGUI
-    default: op
-    children:
-      commandgui.command: true
-      commandgui.giveitem: true
-      commandgui.useitem.toggle: true
-      commandgui.bypass: true
-      commandgui.command.info: true
-      commandgui.command.give: true
-
-  commandgui.command:
-    description: Required permission to open GUIs via command
-    default: op
-  commandgui.giveitem:
-    description: Only players with this permission will receive the GUI item
-    default: op
-  commandgui.useitem.toggle:
-    description: Required permission to enable/disable the GUI item for itself (if the function UseItem/AllowToggle is set to true)
-    default: op
-  commandgui.bypass:
-    description: Bypass to open disabled GUIs
-    default: op
-  commandgui.command.info:
-    description: Permission to view CommandGUI info
-    default: not op
-  commandgui.command.give:
-    description: Kommend in V2.1.0
-    default: op[/code]
+* [Permissions](https://github.com/JaTiTV/CommandGUI/blob/main/CommandGUI%20V2/src/main/resources/plugin.yml)
 
 ---
 
