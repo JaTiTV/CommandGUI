@@ -29,13 +29,21 @@ Optional:
 <img src="https://i.imgur.com/wNDEjg9.png" width="600">
 
 /commandgui - Open the default GUI (adjustable)
+
 /commandgui [gui] - Open the selected GUI
+
 /gui-item on - Activate the GUIItem for you.
+
 /gui-item off - Disable the GUIItem for you.
+
 /commandguihelp - Open the help file.
+
 /commandguiadmin info - Open the CommandGUI info.
+
 /commandguiadmin createdefaultgui - create a default GUI
+
 /commandguiadmin reload - Reload the plugin.
+
 
 [code=YAML]permissions:
   commandgui.admin:
