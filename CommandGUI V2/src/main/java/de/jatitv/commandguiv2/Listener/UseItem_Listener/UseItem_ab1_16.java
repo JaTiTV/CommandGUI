@@ -31,7 +31,9 @@ public class UseItem_ab1_16 implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        itemChange(e.getPlayer());
+        if (e.getPlayer().hasPermission("commandgui.giveitem")){
+            itemChange(e.getPlayer());
+        }
     }
 
     public static void itemChange(Player player) {

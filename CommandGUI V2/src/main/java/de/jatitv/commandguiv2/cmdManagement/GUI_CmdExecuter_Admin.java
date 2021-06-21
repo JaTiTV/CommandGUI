@@ -9,6 +9,7 @@ import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.send;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -76,14 +77,14 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                     default:
                         Help.sendHelp(sender, Prefix);
                         break;
-                   /* case "give":
+                    /*case "give":
                         if (args.length == 3) {
                             if (sender.hasPermission("commandgui.giveitem.other")) {
                                 if (Bukkit.getPlayer(args[1]) != null) {
                                     Give.giveCommand(sender, args[1], args[2]);
                                 } else {
-                                    sender.sendMessage(DefaultValue.PlayerNotFound.replace("[player]", args[1]));
-                                    if (DefaultValue.Sound_PlayerNotFound_Enable && DefaultValue.Sound_Enable) {
+                                    sender.sendMessage(Select_msg.PlayerNotFond.replace("[player]", args[1]));
+                                    if (Select_config.Sound_PlayerNotFound_Enable && Select_config.Sound_Enable) {
                                         ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_PlayerNotFound, 3, 1);
                                     }
                                 }
@@ -92,7 +93,9 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                         } else Help.Help(sender);
                         break;
 
-                    */
+                     */
+
+
                 }
             }
         } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));

@@ -30,9 +30,9 @@ public class Help {
         if (sender.hasPermission("commandgui.command.info")) {
             send.sender(sender, Prefix + " " + Select_msg.HelpInfo);
         }
-        if (sender.hasPermission("commandgui.command.give")) {
-            send.sender(sender, Prefix + " " + Select_msg.HelpGive);
-        }
+        //  if (sender.hasPermission("commandgui.command.give")) {
+        //     send.sender(sender, Prefix + " " + Select_msg.HelpGive);
+        //  }
         if (sender.hasPermission("commandgui.admin")) {
             send.sender(sender, Prefix + " " + Select_msg.HelpCreateDefaultGUI.replace("[directory]", Main.getPath()+ "\\GUIs\\default.yml"));
             send.sender(sender, Prefix + " " + Select_msg.HelpReload);

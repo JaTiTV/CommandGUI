@@ -30,7 +30,10 @@ public class UseItem_1_8bis1_9 implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        itemChange(e.getPlayer());
+        if (e.getPlayer().hasPermission("commandgui.giveitem")){
+            itemChange(e.getPlayer());
+        }
+
     }
 
     public static void itemChange(Player player) {

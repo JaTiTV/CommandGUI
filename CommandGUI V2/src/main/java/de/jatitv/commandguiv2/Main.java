@@ -62,10 +62,7 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_17;
     public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
     public static ArrayList<String> allAliases = new ArrayList<>();
-
-
-
-
+    
     @Override
     public void onEnable() {
         Plugins = Arrays.asList(getServer().getPluginManager().getPlugins());

@@ -88,18 +88,22 @@ public class Load {
         send.console(Prefix + " §8-------------------------------");
         if (Select_config.Storage.equals("MySQL")) {
             MySQL.main();
-            MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
-                    "    `UUID` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
-                    "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
-                    "    `Status` INT(11) NOT NULL DEFAULT '1'," +
-                    "    UNIQUE INDEX `UUID` (`UUID`)" +
-                    ")" +
-                    "COLLATE='utf8mb4_general_ci'" +
-                    "ENGINE=InnoDB" +
-                    ";");
+            try {
+                MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
+                        "    `UUID` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `Status` INT(11) NOT NULL DEFAULT '1'," +
+                        "    UNIQUE INDEX `UUID` (`UUID`)" +
+                        ")" +
+                        "COLLATE='utf8mb4_general_ci'" +
+                        "ENGINE=InnoDB" +
+                        ";");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (Select_config.Bungee) {
                 MySQL.query("CREATE TABLE IF NOT EXISTS `gui-onlineplayer` (" +
-                        "    `UUID` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `UUID` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    `Status` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    UNIQUE INDEX `UUID` (`UUID`)" +
@@ -124,8 +128,8 @@ public class Load {
         }
 
         try {
-        GUI_RegisterPermissions.onPermRegister();
-        } catch (Exception e){
+            GUI_RegisterPermissions.onPermRegister();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Main.getPlugin().getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter_Admin());
@@ -140,8 +144,8 @@ public class Load {
         send.debug("Commandregister: commandgui-item");
 
         try {
-        AliasRegister.onRegister();
-        } catch (Exception e){
+            AliasRegister.onRegister();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

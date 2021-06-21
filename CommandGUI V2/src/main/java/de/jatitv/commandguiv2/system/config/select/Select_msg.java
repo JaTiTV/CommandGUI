@@ -87,17 +87,17 @@ public class Select_msg {
         GUInotFound = Replace.replace(yamlConfiguration_msg.getString("GUI.GUInotFound"));
         GUIIsDisabled = Replace.replace(yamlConfiguration_msg.getString("GUI.GUIisDisabled"));
 
-        Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
-        Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
+       // Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
+       // Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
 
-        PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
-        PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
+       // PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
+       // PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
 
         HelpCgui = Replace.replace(yamlConfiguration_msg.getString("Help.CGUI"));
         HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
         HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
-        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+       // HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
         HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
         GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_On"));

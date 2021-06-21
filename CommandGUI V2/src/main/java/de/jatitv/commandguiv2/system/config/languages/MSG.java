@@ -97,10 +97,10 @@ public class MSG {
     public static String NO_VaultNotSetUp = "[prefix] &4Vault / Økonomi har ikke blitt satt opp!";
     public static String NO_SoundNotFound = "[prefix] &4Lyden &6[sound] &4ble ikke bli funnet! Vennligst sjekk innstillingene.";
     public static String NO_OnlyForPlayer = "[prefix] &cDenne kommandoen er for spillere kun!";
-    public static String NO_DefaultGUI = "[prefix] &2DefaultGUI was created. You can find it in the directory:: &e[directory]&2!";
+    public static String NO_DefaultGUI = "[prefix] &2DefaultGUI har blitt laget. Du kan finne den i mappen: &e[directory]&2!";
     public static String NO_ReloadStart = "[prefix] &6Pluginet blir relastet...";
     public static String NO_ReloadEnd = "[prefix] &2Pluginet har blitt lastet inn på nytt.";
-    public static String NO_ReloadWarning = "[prefix] &6To enable / disable alias commands, reload / restart the server!";
+    public static String NO_ReloadWarning = "[prefix] &6For å skru på / skru av alias kommandoer, relast / restart serveren!";
 
     public static String NO_NoPermission = "[prefix] &cDu har ikke tilgang til &4Command&9GUI&c!";
     public static String NO_NoPermissionForCommand = "[prefix] &cFor &b[cmd] &cmangler du tillatelsen &6[perm]&c!";
@@ -124,7 +124,7 @@ public class MSG {
     public static String NO_Help_Open = "&8''&b/commandgui [gui]&8'' &eÅpne GUIen: &6[guiname]&e.";
     public static String NO_Help_Help = "&8''&b/commandguihelp&8'' &eSender denne hjelpe meldingen.";
     public static String NO_Help_Info = "&8''&b/commandguiadmin info&8'' &eKall informasjon fra &4Command&9GUI&e.";
-    public static String NO_Help_Give = "&8''&b/commandguiadmin give &7<player>&8'' &eGive a player the GUI item.";
+    public static String NO_Help_Give = "&8''&b/commandguiadmin give &7<player>&8'' &eGi en spiller GUI gjenstanden.";
     public static String NO_Help_CreateDefaultGUI = "&8''&b/commandguiadmin createdefaultgui&8'' &eLag en normalverdi GUI &7([directory])&e.";
     public static String NO_Help_Reload = "&8''&b/commandguiadmin reload&8'' &eLast inn pluginet på nytt.";
 

@@ -83,12 +83,12 @@ public class DefaultGUICreate {
             set("Slots.Example.Item.PlayerHead.PlayerName", PlayerName, yamlConfiguration);
         }
         if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
-            set("Slots.Example.Item.Item", "TNT", yamlConfiguration);
-        } else set("Slots.Example.Item.Item", Item, yamlConfiguration);
+            set("Slots.Example.Item.Material", "TNT", yamlConfiguration);
+        } else set("Slots.Example.Item.Material", Item, yamlConfiguration);
         set("Slots.Example.Item.Name", Itemname, yamlConfiguration);
         set("Slots.Example.Item.Lore", ItemLore, yamlConfiguration);
         set("Slots.Example.CustomSound.Enable", CustomSound, yamlConfiguration);
-        set("Slots.Example.CustomSound.Sound", CustomSound_Sound, yamlConfiguration);
+        set("Slots.Example.CustomSound.Sound", CustomSound_Sound, yamlConfiguration); //ToDo Deaktivierbar für einzelne Slots
         set("Slots.Example.Cost.Enable", Cost, yamlConfiguration);
         set("Slots.Example.Cost.Price", Cost_Price, yamlConfiguration);
         set("Slots.Example.Command.Enable", Command, yamlConfiguration);

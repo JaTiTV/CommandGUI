@@ -22,7 +22,7 @@ public class Debug {
         send.debug("§3Worlds: §e" +String.valueOf(Bukkit.getServer().getWorlds()));
         send.debug(String.valueOf(Main.Plugins));
         send.debug("§5----------------------------------");
-        if (!new File(Main.getPath(), "config.yml").exists()) {
+        if (new File(Main.getPath(), "config.yml").exists()) {
             File f = new File(String.valueOf(Main.getPath()));
             File f2 = new File(String.valueOf(Main.getPath() + "/GUIs/"));
             File f3 = new File(String.valueOf(Main.getPath() + "/languages/"));
@@ -39,7 +39,6 @@ public class Debug {
                 send.debug(String.valueOf(config3).replace("plugins/CommandGUI/", ""));
             }
         }
-
         send.debug("§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
     }
@@ -51,9 +50,6 @@ public class Debug {
         File debug = new File(Main.getPath(), "debug/commandgui_debug_"+ timeStamp +".yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(debug);
 
-
-
-
         set("Time", timeStampcfg, yamlConfiguration);
         set("CommandGUI.Version", String.valueOf( Main.getPlugin().getDescription().getVersion()), yamlConfiguration);
 
@@ -63,7 +59,6 @@ public class Debug {
         set("Server.Java", String.valueOf(System.getProperty("java.version")), yamlConfiguration);
         set("Server.Worlds",  String.valueOf(Bukkit.getServer().getWorlds()), yamlConfiguration);
         set("Server.Plugins", String.valueOf(Main.Plugins) , yamlConfiguration);
-
 
         try {
             yamlConfiguration.save(debug);
