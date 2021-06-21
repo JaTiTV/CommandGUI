@@ -4,36 +4,71 @@
 
 ---
 
-### English
+<img src="https://i.imgur.com/mmnBjBG.pngg" width="300">
 
-With CommandGUI you can create 3 different GUIs with which you can execute commands as player or from the console e.g. (effect give [player] night_vision 300 1 true) with which you can use commands without players needing permissions for these commands.
+CommandGUI | FunctionsGUI is a handy plugin that allows you to create as many and different GUIs (user interfaces) as you need for your server.
 
-You can also send a message to the player using the GUI.
-However, with CommandGUI you can also say that you don't want to use a command and message to display information, for example. You can use the PlaceholderAPI to display information in the lore or in messages.
-However, if you want everyone to be able to open the GUI but not use everything, you can set permission to true for individual slots.
+Features:
+- With CommandGUI you can send commands, messages to players.
+- You can also charge money for it via Economy (Vault and Economy plugin required).
+- You can decide per slot if the players need certain permissions or not.
+- You can play a custom sound for each slot.
+- You can also open another GUI directly via slots.
+- You can also just display information by setting a lore for the items in the GUIs, these also support placeholders.
+- There is an item that players can get in the inventory, with which they can open a specific GUI.
 
-You can also open the GUIs with items by clicking on them in your inventory.
-You can automatically give this item to all players who join the server for the first time.
+<img src="https://i.imgur.com/2f9Ewnl.png" width="300">
 
-Just come to the support Discord for further questions.
+Optional:
+- Permission Plugin
+  LuckPerms recommended
+- Vault
+- Economy Plugin
+  Recommendations: Economy, EssentialsX, CMI (Paid) (more possible)
+  
+<img src="https://i.imgur.com/wNDEjg9.png" width="300">
+
+/commandgui - Open the default GUI (adjustable)
+/commandgui [gui] - Open the selected GUI
+/gui-item on - Activate the GUIItem for you.
+/gui-item off - Disable the GUIItem for you.
+/commandguihelp - Open the help file.
+/commandguiadmin info - Open the CommandGUI info.
+/commandguiadmin createdefaultgui - create a default GUI
+/commandguiadmin reload - Reload the plugin.
+
+[code=YAML]permissions:
+  commandgui.admin:
+    description: All permissions from CommandGUI
+    default: op
+    children:
+      commandgui.command: true
+      commandgui.giveitem: true
+      commandgui.useitem.toggle: true
+      commandgui.bypass: true
+      commandgui.command.info: true
+      commandgui.command.give: true
+
+  commandgui.command:
+    description: Required permission to open GUIs via command
+    default: op
+  commandgui.giveitem:
+    description: Only players with this permission will receive the GUI item
+    default: op
+  commandgui.useitem.toggle:
+    description: Required permission to enable/disable the GUI item for itself (if the function UseItem/AllowToggle is set to true)
+    default: op
+  commandgui.bypass:
+    description: Bypass to open disabled GUIs
+    default: op
+  commandgui.command.info:
+    description: Permission to view CommandGUI info
+    default: not op
+  commandgui.command.give:
+    description: Kommend in V2.1.0
+    default: op[/code]
 
 ---
-
-### German
-
-Mit CommandGUI kannst du dir 3 verschiedene GUIs erstellen womit du Commands als Spieler oder von der Console ausführen lassen kannst z.B. (effect give [player] night_vision 300 1 true) womit du Commands verwenden kannst ohne, dass Spieler Permissions für diese Commands benötigen.
-
-Des Weiteren kannst du auch eine Message an den Spieler senden der die GUI verwendet.
-Bei CommandGUI kannst du allerdings auch sagen, dass du keinen Comand und keine Message verwenden möchtest um zum Beispiel Informationen anzuzeigen. Dazu kannst du die PlaceholderAPI nutzen um Informationen in der Lore oder in Messages anzuzeigen.
-Wenn du allerdings möchtest, dass jeder Die GUI öffnen kann aber nicht alles verwenden kann kannst du für einzelne Slots Permission auf true setzen.
-
-Du kannst die GUIs auch mit Items öffnen, wenn du auf diese in deinem Inventar klickst.
-Dieses Item kannst du automatisch allen Spielern geben die das erste Mal auf den Server Joinen.
-
-Komm für weitere Fragen einfach auf den Support Discord.
-
----
-
 
 # Links
 * [Download](https://www.spigotmc.org/resources/commandgui-cgui.90671/)
