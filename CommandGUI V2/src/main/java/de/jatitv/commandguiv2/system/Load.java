@@ -38,36 +38,72 @@ public class Load {
         send.console(Prefix + " §2Version: §6" + Version);
         send.console(Prefix + " §2Spigot: §6" + Spigot);
         send.console(Prefix + " §2Discord: §6" + Discord);
+        try {
+            Debug.debugmsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         send.console(Prefix + " §8-------------------------------");
 
 
         if (!new File(Main.getPath(), "config.yml").exists()) {
-            DefaultGUICreate.configCreate();
+            try {
+                DefaultGUICreate.configCreate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        ConfigCreate.configCreate();
-        Select_config.onSelect();
-
-        LanguagesCreate.langCreate();
-
-        GUI_Obj_Select.onSelect();
-        Select_msg.onSelect(Prefix);
-        Select_config.sound(Main.Prefix);
+        try {
+            ConfigCreate.configCreate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Select_config.onSelect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            LanguagesCreate.langCreate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            GUI_Obj_Select.onSelect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Select_msg.onSelect(Prefix);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Select_config.sound(Main.Prefix);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         send.console(Prefix + " §8-------------------------------");
         if (Select_config.Storage.equals("MySQL")) {
             MySQL.main();
-            MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
-                    "    `UUID` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
-                    "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
-                    "    `Status` INT(11) NOT NULL DEFAULT '1'," +
-                    "    UNIQUE INDEX `UUID` (`UUID`)" +
-                    ")" +
-                    "COLLATE='utf8mb4_general_ci'" +
-                    "ENGINE=InnoDB" +
-                    ";");
+            try {
+                MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
+                        "    `UUID` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `Status` INT(11) NOT NULL DEFAULT '1'," +
+                        "    UNIQUE INDEX `UUID` (`UUID`)" +
+                        ")" +
+                        "COLLATE='utf8mb4_general_ci'" +
+                        "ENGINE=InnoDB" +
+                        ";");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (Select_config.Bungee) {
                 MySQL.query("CREATE TABLE IF NOT EXISTS `gui-onlineplayer` (" +
-                        "    `UUID` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
+                        "    `UUID` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    `Status` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    UNIQUE INDEX `UUID` (`UUID`)" +
@@ -91,8 +127,11 @@ public class Load {
             e.printStackTrace();
         }
 
-        GUI_RegisterPermissions.onPermRegister();
-
+        try {
+            GUI_RegisterPermissions.onPermRegister();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Main.getPlugin().getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter_Admin());
         send.debug("Commandregister: commandguiadmin");
         if (Select_config.HelpAlias) {
@@ -104,26 +143,28 @@ public class Load {
         Main.getPlugin().getCommand("commandgui-item").setExecutor(new GUI_CmdExecuter_GUIItem());
         send.debug("Commandregister: commandgui-item");
 
-        AliasRegister.onregister();
+        try {
+            AliasRegister.onRegister();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), Main.getPlugin());
         Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), Main.getPlugin());
 
-        send.debugmsg(String.valueOf(Main.minecraft1_8));
-        send.debugmsg(Bukkit.getServer().getClass().getPackage().getName());
         if (Main.minecraft1_8 || Main.minecraft1_9) {
-            send.debugmsg("1.8 - 1.9 ...");
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), Main.getPlugin());
         } else if (Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15) {
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), Main.getPlugin());
         } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), Main.getPlugin());
 
+
         UpdateChecker.onUpdateCheck();
         Metrics.Bstats();
         send.console(Prefix + " §8-------------------------------");
         send.console(Prefix + " §2Plugin loaded successfully." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
-        Debug.debugmsg();
+
         send.console(Main.Prefix + "§4========================================================================");
 
     }

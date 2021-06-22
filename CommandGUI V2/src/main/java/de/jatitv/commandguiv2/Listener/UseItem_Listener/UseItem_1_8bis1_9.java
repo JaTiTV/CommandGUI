@@ -30,14 +30,14 @@ public class UseItem_1_8bis1_9 implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        send.debugmsg("1.8 - 1.9");
-        itemChange(e.getPlayer());
+        if (e.getPlayer().hasPermission("commandgui.giveitem")){
+            itemChange(e.getPlayer());
+        }
+
     }
 
     public static void itemChange(Player player) {
-        send.debugmsg("1");
         if (Select_config.UseItem_Enable) {
-            send.debugmsg("2");
             if (Select_config.UseItem_GiveOnlyOnFirstJoin) {
                 if (!Select_config.UseItem_AllowToggle || Select_Database.itemStatus(player)) {
 

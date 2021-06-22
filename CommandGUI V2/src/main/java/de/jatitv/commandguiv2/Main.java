@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
@@ -39,6 +40,7 @@ public final class Main extends JavaPlugin {
     public static String Discord = "https://discord.gg/vRyXFFterJ";
 
     public static Main plugin;
+    public static List Plugins;
     public static Plugin a;
     public static Economy eco = null;
 
@@ -60,10 +62,10 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_17;
     public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
     public static ArrayList<String> allAliases = new ArrayList<>();
-
-
+    
     @Override
     public void onEnable() {
+        Plugins = Arrays.asList(getServer().getPluginManager().getPlugins());
         // Plugin startup logic
         // Plugin startup logic
         Logger logger = this.getLogger();

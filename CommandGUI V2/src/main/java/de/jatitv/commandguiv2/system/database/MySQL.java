@@ -27,7 +27,7 @@ public class MySQL {
         // Europe/Berlin
         if(SSL){
             url = url + "&useSSL=true";
-        }
+        } else url = url + "&useSSL=false";
         send.debug(url);
         try(Connection con = DriverManager.getConnection(url,user, password)){
             Statement stmt = con.createStatement();

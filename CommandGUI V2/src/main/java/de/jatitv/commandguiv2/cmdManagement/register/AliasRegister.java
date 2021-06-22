@@ -3,51 +3,122 @@ package de.jatitv.commandguiv2.cmdManagement.register;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.send;
 
+import org.bukkit.Bukkit;
+
+
+
 public class AliasRegister {
 
-    public static void onregister() {
+
+
+    public static void onRegister() {
+        send.debug(Bukkit.getServer().getClass().getPackage().getName());
         for (String alias : Main.allAliases) {
             if (Main.guiHashMap.get(alias).Command_Alias_Enable) {
-                if (Main.minecraft1_8){
+
+
+
+
+
+
+
+
+
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_8_R1")){
+                    send.debug("Alias register 1.8_R1");
                     org.bukkit.craftbukkit.v1_8_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_8_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.8");
-                } else if (Main.minecraft1_9){
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_8_R2")){
+                    send.debug("Alias register 1.8_R2");
+                    org.bukkit.craftbukkit.v1_8_R2.CraftServer craftServer = (org.bukkit.craftbukkit.v1_8_R2.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_8_R3")){
+                    send.debug("Alias register 1.8_R3");
+                    org.bukkit.craftbukkit.v1_8_R3.CraftServer craftServer = (org.bukkit.craftbukkit.v1_8_R3.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_9_R1")){
+                    send.debug("Alias register 1.9_R1");
                     org.bukkit.craftbukkit.v1_9_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_9_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.9");
-                }else if (Main.minecraft1_10){
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_9_R2")){
+                    send.debug("Alias register 1.9_R2");
+                    org.bukkit.craftbukkit.v1_9_R2.CraftServer craftServer = (org.bukkit.craftbukkit.v1_9_R2.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_10_R1")){
+                    send.debug("Alias register 1.10_R1");
                     org.bukkit.craftbukkit.v1_10_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_10_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.10");
-                }else if (Main.minecraft1_11){
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_11_R1")){
+                    send.debug("Alias register 1.11_R1");
                     org.bukkit.craftbukkit.v1_11_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_11_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.11");
-                } else if (Main.minecraft1_12){
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_12_R1")){
+                    send.debug("Alias register 1.12_R1");
                     org.bukkit.craftbukkit.v1_12_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_12_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.12");
-                } else if (Main.minecraft1_13) {
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_13_R1")){
+                    send.debug("Alias register 1.13_R1");
                     org.bukkit.craftbukkit.v1_13_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_13_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.13");
-                } else if (Main.minecraft1_14) {
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_13_R2")){
+                    send.debug("Alias register 1.13_R2");
+                    org.bukkit.craftbukkit.v1_13_R2.CraftServer craftServer = (org.bukkit.craftbukkit.v1_13_R2.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_14_R1")){
+                    send.debug("Alias register 1.14_R1");
                     org.bukkit.craftbukkit.v1_14_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_14_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.14");
-                } else if (Main.minecraft1_15) {
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_15_R1")){
+                    send.debug("Alias register 1.15_R1");
                     org.bukkit.craftbukkit.v1_15_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_15_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.15");
-                } else if (Main.minecraft1_16) {
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_16_R1")){
+                    send.debug("Alias register 1.16_R1");
+                    org.bukkit.craftbukkit.v1_16_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_16_R1.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_16_R2")){
+                    send.debug("Alias register 1.16_R2");
+                    org.bukkit.craftbukkit.v1_16_R2.CraftServer craftServer = (org.bukkit.craftbukkit.v1_16_R2.CraftServer) Main.getPlugin().getServer();
+                    craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_16_R3")){
+                    send.debug("Alias register 1.16_R3");
                     org.bukkit.craftbukkit.v1_16_R3.CraftServer craftServer = (org.bukkit.craftbukkit.v1_16_R3.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.16");
-                } else if (Main.minecraft1_17) {
+                    return;
+                }
+                if (Bukkit.getServer().getClass().getPackage().getName().contains("1_17_R1")){
+                    send.debug("Alias register 1.17_R1");
                     org.bukkit.craftbukkit.v1_17_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_17_R1.CraftServer) Main.getPlugin().getServer();
                     craftServer.getCommandMap().register(alias, new RegisterCommand(alias));
-                    send.debug("Alias register 1.17");
+                    return;
                 }
             }
         }

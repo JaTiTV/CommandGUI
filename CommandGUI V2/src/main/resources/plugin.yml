@@ -1,5 +1,5 @@
 name: CommandGUI
-version: V2 Snapshot 0.9
+version: V2
 main: de.jatitv.commandguiv2.Main
 api-version: 1.13
 prefix: CommandGUI
@@ -22,6 +22,7 @@ commands:
 
 permissions:
   commandgui.admin:
+    description: All permissions from CommandGUI
     default: op
     children:
       commandgui.command: true
@@ -31,16 +32,21 @@ permissions:
       commandgui.command.info: true
       commandgui.command.give: true
 
-
   commandgui.command:
+    description: Required permission to open GUIs via command
     default: op
   commandgui.giveitem:
+    description: Only players with this permission will receive the GUI item
     default: op
   commandgui.useitem.toggle:
+    description: Required permission to enable/disable the GUI item for itself (if the function UseItem/AllowToggle is set to true)
     default: op
   commandgui.bypass:
+    description: Bypass to open disabled GUIs
     default: op
   commandgui.command.info:
-    default: op
+    description: Permission to view CommandGUI info
+    default: not op
   commandgui.command.give:
+    description: Kommend in V2.1.0
     default: op

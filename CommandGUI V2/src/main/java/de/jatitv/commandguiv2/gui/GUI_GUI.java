@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2.gui;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import de.jatitv.commandguiv2.Listener.GUI_Listener;
 import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.Objekte.GUI_Slot;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
@@ -24,11 +25,14 @@ import java.util.UUID;
 public class GUI_GUI {
     public static void openGUI(Player player, GUI_Objekt gui) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
+        if (Main.minecraft1_13){
+            GUI_Listener.GUICode = "";
+        } else GUI_Listener.GUICode = "§6§8§9§r";
         if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
             Inventory inventory;
             if (Main.PaPi) {
-                inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(player, "§6§8§9§r" + gui.GUI_Name)));
-            } else inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace("§6§8§9§r" + gui.GUI_Name)));
+                inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(player, GUI_Listener.GUICode + gui.GUI_Name)));
+            } else inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(GUI_Listener.GUICode + gui.GUI_Name)));
 
             if (gui.GUI_FillItem_Enable) {
                 ItemStack glass;
@@ -46,13 +50,12 @@ public class GUI_GUI {
             for (GUI_Slot slot : gui.GUI_Slots) {
                 if (slot.Enable) {
                     if (slot.PlayerHead_Enable) {
-                        send.console(Bukkit.getServer().getClass().getPackage().getName());
                         if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
                             send.player(player, Main.Prefix + "§c Playerheads are only available from version §61.13§c! §7- §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
                             send.error("Playerheads are only available from version 1.13!");
                             send.console(Main.Prefix + " §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
                         } else {
-                            send.console("hi");
+
                             if (slot.Base64Value_Enable) {
                                 ItemStack item = new ItemStack(Main.Head);
                                 SkullMeta itemMeta = (SkullMeta) item.getItemMeta();

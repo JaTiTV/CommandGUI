@@ -5,6 +5,7 @@ import de.jatitv.commandguiv2.Main;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GUI_Obj_Select {
@@ -20,6 +21,12 @@ public class GUI_Obj_Select {
 
                 Boolean GUI_Enable = yamlConfiguration_gui.getBoolean("GUI.Enable");
                 Integer GUI_Lines = yamlConfiguration_gui.getInt("GUI.Lines");
+                if (yamlConfiguration_gui.getInt("GUI.Lines") > 6) {
+                    yamlConfiguration_gui.set("GUI.Lines", 6);
+                }
+                if (yamlConfiguration_gui.getInt("GUI.Lines") < 1) {
+                    yamlConfiguration_gui.set("GUI.Lines", 1);
+                }
                 String GUI_Name = yamlConfiguration_gui.getString("GUI.Name");
                 Boolean GUI_FillItem_Enable = yamlConfiguration_gui.getBoolean("GUI.FillItem.Enable");
                 String GUI_FillItem_Item;
@@ -40,7 +47,7 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getString("Slots." + key + ".Item.PlayerHead.Base64.Base64Value"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.PlayerHead.PlayerWhoHasOpenedTheGUI"),
                             yamlConfiguration_gui.getString("Slots." + key + ".Item.PlayerHead.PlayerName"),
-                            yamlConfiguration_gui.getString("Slots." + key + ".Item.Item"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".Item.Material"),
                             yamlConfiguration_gui.getString("Slots." + key + ".Item.Name"),
                             yamlConfiguration_gui.getList("Slots." + key + ".Item.Lore"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".CustomSound.Enable"),
@@ -50,8 +57,8 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Command.Enable"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Command.CommandAsConsole"),
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Command.Command"),
-                            yamlConfiguration_gui.getBoolean("Slots." + key + ".OpenGui.Enable"),
-                            yamlConfiguration_gui.getString("Slots." + key + ".OpenGui.GUI"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".OpenGUI.Enable"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".OpenGUI.GUI"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Message.Enable"),
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Message.Message"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Required"));
@@ -62,7 +69,14 @@ public class GUI_Obj_Select {
                         config_gui.getName().replace(".yml", ""), Command_Alias_Enable, Command_Permission, slots);
                 Main.guiHashMap.put(config_gui.getName().replace(".yml", ""), objekt);
                 GUI_CmdExecuter_GUI.arg1.put(config_gui.getName().replace(".yml", ""), "commandgui.gui." + config_gui.getName().replace(".yml", ""));
+
+                try {
+                    yamlConfiguration_gui.save(config_gui);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
         }
     }
 }
