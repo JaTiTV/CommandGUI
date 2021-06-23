@@ -31,6 +31,13 @@ public class MSG {
     public static String EN_No_money = "[prefix] &cYou don't have enough money!";
     public static String EN_NoInventorySpace = "[prefix] &cYou have no room in your inventory!";
 
+    public static String EN_ItemON = "[prefix] &2You have activated the GUI item.";
+    public static String EN_ItemOFF = "[prefix] &2You have disabled the GUI item.";
+    public static String EN_ItemSlot = "[prefix] &2You have changed the GUI item to slot: &6[slot]&2.";
+    public static String EN_ItemSlotNotEmpty = "[prefix] &6The slot &e[slot] &6is currently occupied!";
+    public static String EN_ItemSlotAlreadySet = "[prefix] &6The slot §e[slot] §6is already set!";
+    public static String EN_ItemSlot_wrongValue = "[prefix] &cThe specified slot must be between 1 and 9!";
+
     public static String EN_GUInotFound = "[prefix] &cThe GUI chosen by the does not exist.";
     public static String EN_GUIisDisabled = "[prefix] &cThe GUI [gui] &cis currently Disabled!";
 
@@ -64,6 +71,13 @@ public class MSG {
     public static String DE_NoPermissionForCommand = "[prefix] &cF[ue]r &b[cmd] &cfehlt dir die Permission &6[perm]&c!";
     public static String DE_NoPermissionForUseItem = "[prefix] &cDir fehlt die Permission &6[perm] &cum das Item f[ue]r die GUI: &6[gui] &cnutzen zu k[oe]nnen.";
     public static String DE_NoPermissionForItem = "[prefix] &cF[ue]r &b[item] &cfehlt dir die Permission &6[perm]&c!";
+
+    public static String DE_ItemON = "[prefix] &2Du hast das GUI-Item aktiviert.";
+    public static String DE_ItemOFF = "[prefix] &2Du hast das GUI-Item deaktiviert.";
+    public static String DE_ItemSlot = "[prefix] &2Du hast das GUI-Item auf Slot &6[slot] &2umgestellt.";
+    public static String DE_ItemSlotNotEmpty = "[prefix] &6Der Slot §e[slot] §6ist derzeit belegt!.";
+    public static String DE_ItemSlotAlreadySet = "[prefix] &6Der Slot §e[slot] §6ist bereits eingestellt!";
+    public static String DE_ItemSlot_wrongValue = "[prefix] &cDer angegebene Slot muss sich zwischen 1 und 9 befinden!";
 
     public static String DE_Buy_msg = "[prefix] &2Du hast dir [itemname] &2f[ue]r &6[price] &2gekauft.";
     public static String DE_No_money = "[prefix] &cDu hast nicht gen[ue]gend Geld!";
@@ -106,6 +120,13 @@ public class MSG {
     public static String NO_NoPermissionForCommand = "[prefix] &cFor &b[cmd] &cmangler du tillatelsen &6[perm]&c!";
     public static String NO_NoPermissionForUseItem = "[prefix] &cDu mangler tillatelsen &6[perm] &cfor å bruke gjenstanden i GUI: &6[gui].";
     public static String NO_NoPermissionForItem = "[prefix] &cFor &b[item] &cmangler du tillatelsen &6[perm]&c!";
+
+    public static String NO_ItemON = "[prefix] &2You have activated the GUI item.";
+    public static String NO_ItemOFF = "[prefix] &2You have disabled the GUI item.";
+    public static String NO_ItemSlot = "[prefix] &2You have changed the GUI item to slot: &6[slot]&2.";
+    public static String NO_ItemSlotNotEmpty = "[prefix] &6Plassen &e[slot] &6er opptatt for øyeblikket!";
+    public static String NO_ItemSlotAlreadySet = "[prefix] &6Plassen §e[slot] §6er allerede satt!";
+    public static String NO_ItemSlot_wrongValue = "[prefix] &cDen spesifiserte plassen må være mellom 1 og 9!";
 
     public static String NO_Buy_msg = "[prefix] &2Du kjøpte [itemname] &2for &6[price]&2.";
     public static String NO_No_money = "[prefix] &cDu har ikke nok penger!";

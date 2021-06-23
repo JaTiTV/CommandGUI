@@ -40,14 +40,14 @@ public class GUI_CmdExecuter_GUI implements CommandExecutor, TabCompleter {
                 if (Main.guiHashMap.containsKey(args[0])) {
                     GUI_Objekt gui = Main.guiHashMap.get(args[0]);
                     if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
-                        if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui) || player.hasPermission("commandgui.bypass")) {
+                        if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui.Command_Command) || player.hasPermission("commandgui.bypass")) {
                             GUI_GUI.openGUI(player, gui);
                             if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                                 player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                             }
-                        } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + args[0])
-                                .replace("[perm]", "commandgui.command." + gui));
-                    } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
+                        } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + gui.Command_Command)
+                                .replace("[perm]", "commandgui.command." + args[0].toLowerCase()));
+                    } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.Command_Command));
                 } else sender.sendMessage(Select_msg.GUInotFound);
             }
         } else sender.sendMessage(Select_msg.OnlyForPlayer);
@@ -55,6 +55,7 @@ public class GUI_CmdExecuter_GUI implements CommandExecutor, TabCompleter {
     }
 
     //TabCompleter
+
     public static HashMap<String, String> arg1 = new HashMap<String, String>();
 
     @Override

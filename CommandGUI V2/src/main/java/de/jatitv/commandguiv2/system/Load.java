@@ -86,18 +86,20 @@ public class Load {
         }
 
         send.console(Prefix + " §8-------------------------------");
-        if (Select_config.Storage.equals("MySQL")) {
+        if (Select_config.Storage.equals("MYSQL")) {
             MySQL.main();
             try {
                 MySQL.query("CREATE TABLE IF NOT EXISTS `gui-item` (" +
                         "    `UUID` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_general_ci'," +
                         "    `Name` TINYTEXT NOT NULL COLLATE 'utf8mb4_general_ci'," +
-                        "    `Status` INT(11) NOT NULL DEFAULT '1'," +
+                        "    `Status` INT(1) NOT NULL DEFAULT '1'," +
+                        "    `Slot` INT(1) NULL DEFAULT NULL," +
                         "    UNIQUE INDEX `UUID` (`UUID`)" +
                         ")" +
                         "COLLATE='utf8mb4_general_ci'" +
                         "ENGINE=InnoDB" +
                         ";");
+                MySQL.query("ALTER TABLE `gui-item` ADD COLUMN IF NOT EXISTS `Slot` INT(1) NULL DEFAULT NULL AFTER `Status`;");
             } catch (Exception e) {
                 e.printStackTrace();
             }

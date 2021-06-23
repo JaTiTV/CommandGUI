@@ -34,6 +34,7 @@ public class ConfigCreate {
 
     private static Boolean UseItem_Enable = true;
     private static Boolean UseItem_AllowToggle = true;
+    private static Boolean UseItem_AllowSetSlot = true;
     private static Boolean UseItem_BlockMoveAndDrop = true;
     private static String UseItem_OpenGUI = "default";
     private static Boolean UseItem_Permission = true;
@@ -55,6 +56,7 @@ public class ConfigCreate {
     private static Boolean Cursor_ServerChange_EXPERIMENTELL = false;
 
     private static Boolean Sound_Enable = true;
+
     private static Boolean Sound_OpenInventory_Enable = true;
     public static String Sound_OpenInventory_1_8 = "CHEST_OPEN";
     public static String Sound_OpenInventory_ab_1_9 = "BLOCK_CHEST_OPEN";
@@ -68,6 +70,20 @@ public class ConfigCreate {
     public static String Sound_NoMoney_1_8 = "NOTE_PIANO";
     public static String Sound_NoMoney_1_9_bis_1_12 = "BLOCK_NOTE_HARP";
     public static String Sound_NoMoney_ab_1_13 = "BLOCK_NOTE_BLOCK_HARP";
+
+    private static Boolean Sound_NoInventorySpace_Enable = true;
+    public static String Sound_NoInventorySpace_1_8 = "NOTE_PIANO";
+    public static String Sound_NoInventorySpace_1_9_bis_1_12 = "BLOCK_NOTE_HARP";
+    public static String Sound_NoInventorySpace_ab_1_13 = "BLOCK_NOTE_BLOCK_HARP";
+
+    private static Boolean Sound_Give_Enable = true;
+    public static String Sound_Give_1_8 = "LEVEL_UP";
+    public static String Sound_Give_ab_1_9 = "ENTITY_PLAYER_LEVELUP";
+
+    private static Boolean Sound_PlayerNotFound_Enable = true;
+    public static String Sound_PlayerNotFound_1_8 = "NOTE_PIANO";
+    public static String Sound_PlayerNotFound_1_9_bis_1_12 = "BLOCK_NOTE_HARP";
+    public static String Sound_PlayerNotFound_ab_1_13 = "BLOCK_NOTE_BLOCK_HARP";
 
 
     public static void configCreate() {
@@ -103,6 +119,7 @@ public class ConfigCreate {
 
         set("UseItem.Enable", UseItem_Enable, yamlConfiguration);
         set("UseItem.AllowToggle", UseItem_AllowToggle, yamlConfiguration);
+        set("UseItem.AllowSetSlot", UseItem_AllowSetSlot, yamlConfiguration);
         set("UseItem.BlockMoveAndDrop", UseItem_BlockMoveAndDrop, yamlConfiguration);
         set("UseItem.OpenGUI", UseItem_OpenGUI, yamlConfiguration);
         set("UseItem.Permission.NeededToUse", UseItem_Permission, yamlConfiguration);
@@ -128,10 +145,9 @@ public class ConfigCreate {
         set("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChhange", Cursor_ServerChange_EXPERIMENTELL, yamlConfiguration);
 
         yamlConfiguration.options().pathSeparator();
-        set("Sound.Enable", true, yamlConfiguration);
-        set("Sound.", true, yamlConfiguration);
+        set("Sound.Enable", Sound_Enable, yamlConfiguration);
 
-        set("Sound.OpenInventory.Enable", Sound_Enable, yamlConfiguration);
+        set("Sound.OpenInventory.Enable", Sound_OpenInventory_Enable, yamlConfiguration);
         if (Main.minecraft1_8) {
             set("Sound.OpenInventory.Sound", Sound_OpenInventory_1_8, yamlConfiguration);
         } else set("Sound.OpenInventory.Sound", Sound_OpenInventory_ab_1_9, yamlConfiguration);
@@ -149,6 +165,25 @@ public class ConfigCreate {
         } else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
             set("Sound.NoMoney.Sound", Sound_NoMoney_1_9_bis_1_12, yamlConfiguration);
         } else set("Sound.NoMoney.Sound", Sound_NoMoney_ab_1_13, yamlConfiguration);
+
+        set("Sound.NoInventorySpace.Enable", Sound_NoInventorySpace_Enable, yamlConfiguration);
+        if (Main.minecraft1_8) {
+            set("Sound.NoInventorySpace.Sound", Sound_NoInventorySpace_1_8, yamlConfiguration);
+        } else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+            set("Sound.NoInventorySpace.Sound", Sound_NoInventorySpace_1_9_bis_1_12, yamlConfiguration);
+        } else set("Sound.NoInventorySpace.Sound", Sound_NoInventorySpace_ab_1_13, yamlConfiguration);
+
+        set("Sound.Give.Enable", Sound_Give_Enable, yamlConfiguration);
+        if (Main.minecraft1_8) {
+            set("Sound.Give.Sound", Sound_Give_1_8, yamlConfiguration);
+        } else set("Sound.Give.Sound", Sound_Give_ab_1_9, yamlConfiguration);
+
+        set("Sound.PlayerNotFound.Enable", Sound_PlayerNotFound_Enable, yamlConfiguration);
+        if (Main.minecraft1_8) {
+            set("Sound.PlayerNotFound.Sound", Sound_PlayerNotFound_1_8, yamlConfiguration);
+        } else if (Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
+            set("Sound.PlayerNotFound.Sound", Sound_PlayerNotFound_1_9_bis_1_12, yamlConfiguration);
+        } else set("Sound.PlayerNotFound.Sound", Sound_PlayerNotFound_ab_1_13, yamlConfiguration);
 
         try {
             yamlConfiguration.save(config);

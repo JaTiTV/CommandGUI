@@ -9,7 +9,9 @@ import org.bukkit.Sound;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 public class Select_config {
 
@@ -28,6 +30,7 @@ public class Select_config {
 
     public static Boolean UseItem_Enable;
     public static Boolean UseItem_AllowToggle;
+    public static Boolean UseItem_AllowSetSlot;
     public static Boolean UseItem_GiveOnEveryJoin;
     public static Boolean UseItem_GiveOnlyOnFirstJoin;
     public static Boolean UseItem_ServerChange;
@@ -62,7 +65,7 @@ public class Select_config {
     public static Sound Sound_NoMoney;
     public static String Sound_NoMoney_input;
 
-    /*
+
     public static Boolean Sound_NoInventorySpace_Enable = true;
     public static Sound Sound_NoInventorySpace;
     public static String Sound_NoInventorySpace_input;
@@ -74,7 +77,7 @@ public class Select_config {
     public static Boolean Sound_PlayerNotFound_Enable = true;
     public static Sound Sound_PlayerNotFound;
     public static String Sound_PlayerNotFound_input;
-    */
+
 
     public static void onSelect() {
         File config = new File(Main.getPath(), "config.yml");
@@ -87,7 +90,8 @@ public class Select_config {
         Currency = yamlConfiguration.getString("Plugin.Currency");
         DefaultGUI = yamlConfiguration.getString("Plugin.DefaultGUI");
 
-        Storage = yamlConfiguration.getString("Storage.Type");
+        Storage = yamlConfiguration.getString("Storage.Type").toUpperCase();
+
         MySQL.ip = yamlConfiguration.getString("Storage.MySQL.IP");
         MySQL.port = yamlConfiguration.getInt("Storage.MySQL.Port");
         MySQL.database = yamlConfiguration.getString("Storage.MySQL.Database");
@@ -102,6 +106,7 @@ public class Select_config {
 
         UseItem_Enable = yamlConfiguration.getBoolean("UseItem.Enable");
         UseItem_AllowToggle = yamlConfiguration.getBoolean("UseItem.AllowToggle");
+        UseItem_AllowSetSlot = yamlConfiguration.getBoolean("UseItem.AllowSetSlot");
         UseItem_BlockMoveAndDrop = yamlConfiguration.getBoolean("UseItem.BlockMoveAndDrop");
         UseItem_OpenGUI = yamlConfiguration.getString("UseItem.OpenGUI");
         UseItem_Permission = yamlConfiguration.getBoolean("UseItem.Permission.NeededToUse");
@@ -130,14 +135,14 @@ public class Select_config {
         Sound_Click_input = (yamlConfiguration.getString("Sound.Click.Sound").toUpperCase().replace(".", "_"));
         Sound_NoMoney_Enable = yamlConfiguration.getBoolean("Sound.NoMoney.Enable");
         Sound_NoMoney_input = (yamlConfiguration.getString("Sound.NoMoney.Sound").toUpperCase().replace(".", "_"));
-        /*
+
         Sound_NoInventorySpace_Enable = yamlConfiguration.getBoolean("Sound.NoInventorySpace.Enable");
         Sound_NoInventorySpace_input = (yamlConfiguration.getString("Sound.NoInventorySpace.Sound").toUpperCase().replace(".", "_"));
         Sound_Give_Enable = yamlConfiguration.getBoolean("Sound.Give.Enable");
         Sound_Give_input = (yamlConfiguration.getString("Sound.Give.Sound").toUpperCase().replace(".", "_"));
         Sound_PlayerNotFound_Enable = yamlConfiguration.getBoolean("Sound.PlayerNotFound.Enable");
         Sound_PlayerNotFound_input = (yamlConfiguration.getString("Sound.PlayerNotFound.Sound").toUpperCase().replace(".", "_"));
-         */
+
     }
 
     public static void sound(String Prefix){
@@ -224,14 +229,14 @@ public class Select_config {
             Sound_NoMoney = Sound.valueOf(soundNoMoney);
         }
 
-/*
+
         try {
             Sound sound_NoInventorySpace = Sound.valueOf(Sound_NoInventorySpace_input);
             if (sound_NoInventorySpace != null) {
                 Sound_NoInventorySpace = sound_NoInventorySpace;
             }
         } catch (Exception e) {
-            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8NoInventorySpace: §6" + Sound_NoInventorySpace_input) + "§4\n§4\n§4\n");
             Sound_NoInventorySpace = Sound.valueOf(soundNoInventorySpace);
         }
@@ -242,7 +247,7 @@ public class Select_config {
                 Sound_Give = sound_Give;
             }
         } catch (Exception e) {
-            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8Give: §6" + Sound_Give_input) + "§4\n§4\n§4\n");
             Sound_Give = Sound.valueOf(soundGive);
         }
@@ -253,10 +258,10 @@ public class Select_config {
                 Sound_PlayerNotFound = sound_PlayerNotFound;
             }
         } catch (Exception e) {
-            Bukkit.getConsoleSender().sendMessage("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8PlayerNotFound: §6" + Sound_PlayerNotFound_input) + "§4\n§4\n§4\n");
             Sound_PlayerNotFound = Sound.valueOf(soundPlayerNotFound);
         }
-        */
+
     }
 }

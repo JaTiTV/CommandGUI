@@ -35,7 +35,7 @@ public class MySQL {
             send.console(Main.Prefix + " §2MySQL successfully connected." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
         }catch(SQLException ex){
             send.console(Main.Prefix + " §4MySQL not connected." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
-            System.err.println(ex.getMessage() + " --- " + (System.currentTimeMillis() - long_.longValue()) + "ms");
+            send.error(ex.getMessage() + " --- " + (System.currentTimeMillis() - long_.longValue()) + "ms");
         }
     }
 

@@ -24,6 +24,13 @@ public class Select_msg {
     public static String NoPermissionForUseItem;
     public static String NoPermissionForItem;
 
+    public static String ItemON;
+    public static String ItemOFF;
+    public static String ItemSlot;
+    public static String ItemSlotNotEmpty;
+    public static String ItemSlotAlreadySet;
+    public static String ItemSlot_wrongValue;
+
     public static String Buy_msg;
     public static String No_money;
     public static String NoInventorySpace;
@@ -80,6 +87,13 @@ public class Select_msg {
         NoPermissionForUseItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForUseItem"));
         NoPermissionForItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForItem"));
 
+        ItemON = Replace.replace(yamlConfiguration_msg.getString("UseItem.UseItem_ON"));
+        ItemOFF = Replace.replace(yamlConfiguration_msg.getString("UseItem.UseItem_OFF"));
+        ItemSlot = Replace.replace(yamlConfiguration_msg.getString("UseItem.Change_Slot"));
+        ItemSlotNotEmpty = Replace.replace(yamlConfiguration_msg.getString("UseItem.SlotNotEmpty"));
+        ItemSlotAlreadySet = Replace.replace(yamlConfiguration_msg.getString("UseItem.SlotAlreadySet"));
+        ItemSlot_wrongValue = Replace.replace(yamlConfiguration_msg.getString("UseItem.ItemSlot_wrongValue"));
+
         Buy_msg = Replace.replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
         No_money = Replace.replace(yamlConfiguration_msg.getString("Cost.No_money"));
         NoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
@@ -87,17 +101,17 @@ public class Select_msg {
         GUInotFound = Replace.replace(yamlConfiguration_msg.getString("GUI.GUInotFound"));
         GUIIsDisabled = Replace.replace(yamlConfiguration_msg.getString("GUI.GUIisDisabled"));
 
-       // Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
-       // Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
+        Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
+        Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
 
-       // PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
-       // PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
+        PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
+        PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
 
         HelpCgui = Replace.replace(yamlConfiguration_msg.getString("Help.CGUI"));
         HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
         HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
         HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
-       // HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
+        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
         HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
         GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_On"));

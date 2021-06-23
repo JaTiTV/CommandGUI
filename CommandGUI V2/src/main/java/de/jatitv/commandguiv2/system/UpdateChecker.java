@@ -27,16 +27,16 @@ public class UpdateChecker {
     public static void onUpdateCheck() {
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
             public void run() {
-                (new UpdateChecker((JavaPlugin) Main.thisp(), Main.SpigotID)).getVersion((version) -> {
+                (new UpdateChecker((JavaPlugin) Main.thisp(), Main.SpigotID)).getVersion((update_version) -> {
                     String foundVersion = Main.thisp().getDescription().getVersion();
-                    Main.update_version = version;
-                    if (!foundVersion.equalsIgnoreCase(version)) {
+                    Main.update_version = update_version;
+                    if (!foundVersion.equalsIgnoreCase(update_version)) {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
                                 send.console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
                                 send.console("§6A new version was found!");
-                                send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version);
+                                send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + update_version);
                                 send.console("§6You can download it here: §e" + Main.Spigot);
                                 send.console("§6You can find more information on Discord: §e" + Main.Discord);
                                 send.console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");

@@ -47,6 +47,5 @@ public class Help {
             send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_off);
             send.sender(sender, Prefix + " §8------------------------------");
         }
-
     }
 }

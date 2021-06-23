@@ -1,14 +1,9 @@
 package de.jatitv.commandguiv2.cmdManagement;
 
-import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
 import de.jatitv.commandguiv2.system.Debug;
-import de.jatitv.commandguiv2.system.config.ConfigCreate;
 import de.jatitv.commandguiv2.system.config.DefaultGUICreate;
-import de.jatitv.commandguiv2.system.config.languages.LanguagesCreate;
-import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Main;
-import de.jatitv.commandguiv2.system.send;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,39 +21,34 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Prefix = Main.Prefix;
-        if (sender.hasPermission("commandgui.admin") || sender.isOp()) {
-            if (args.length == 0) {
-                Help.sendHelp(sender, Prefix);
-            } else {
-                switch (args[0].toLowerCase()) {
-                    case "reload":
-                    case "rl":
-                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadStart);
-                        send.console(Prefix + "§8-------------------------------");
-                        send.console(Prefix + " §6Plugin reload...");
-                        send.console(Prefix + "§8-------------------------------");
 
-                        ConfigCreate.configCreate();
-                        Select_config.onSelect();
+        if (args.length == 0) {
+            Help.sendHelp(sender, Prefix);
+        } else {
+            switch (args[0].toLowerCase()) {
+                case "info":
+                    if (sender.hasPermission("commandgui.command.info")) {
+                        Commands.info(sender);
+                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                            .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.command.info"));
 
-                        LanguagesCreate.langCreate();
-
-                        GUI_Obj_Select.onSelect();
-                        Select_msg.onSelect(Prefix);
-                        Select_config.sound(Main.Prefix);
-                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadWarning);
-                        send.warning("To enable / disable alias commands, reload / restart the server!");
-
-                        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadEnd);
-                        send.console(Prefix + "§8-------------------------------");
-                        send.console(Prefix + " §2Plugin successfully reloaded.");
-                        send.console(Prefix + "§8-------------------------------");
-                        break;
-                    case "createdefaultgui":
+                    break;
+                case "reload":
+                case "rl":
+                    if (sender.hasPermission("commandgui.admin")) {
+                        Commands.reload(sender);
+                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                            .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
+                    break;
+                case "createdefaultgui":
+                    if (sender.hasPermission("commandgui.admin")) {
                         DefaultGUICreate.configCreate();
                         sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "\\GUIs\\default.yml"));
-                        break;
-                    case "debug":
+                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                            .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
+                    break;
+                case "debug":
+                    if (sender.hasPermission("commandgui.admin")) {
                         Debug.onDebugFile(sender);
                         /*if (args.length == 2) {
                             if (args[1].equals("config")) {
@@ -72,33 +62,26 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                         } else Debug.debugmsg();
 
                          */
-                        break;
-                    case "help":
-                    default:
-                        Help.sendHelp(sender, Prefix);
-                        break;
-                    /*case "give":
-                        if (args.length == 3) {
-                            if (sender.hasPermission("commandgui.giveitem.other")) {
-                                if (Bukkit.getPlayer(args[1]) != null) {
-                                    Give.giveCommand(sender, args[1], args[2]);
-                                } else {
-                                    sender.sendMessage(Select_msg.PlayerNotFond.replace("[player]", args[1]));
-                                    if (Select_config.Sound_PlayerNotFound_Enable && Select_config.Sound_Enable) {
-                                        ((Player) sender).playSound(((Player) sender).getLocation(), DefaultValue.Sound_PlayerNotFound, 3, 1);
-                                    }
-                                }
-                            } else player.sendMessage(DefaultValue.NoPermissionForCommand.replace("[cmd]", "/commandgui give")
-                                    .replace("[perm]", "commandgui.command.give"));
-                        } else Help.Help(sender);
-                        break;
+                    } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
+                    break;
 
-                     */
+                case "give":
+                    if (args.length == 2) {
+                        if (sender.hasPermission("commandgui.giveitem.other")) {
+                            Player target = Bukkit.getPlayer(args[1]);
+                            Commands.give(sender, target);
+                        } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui give")
+                                .replace("[perm]", "commandgui.command.give"));
+                    } else Help.sendHelp(sender, Prefix);
+                    break;
+                case "help":
+                default:
+                    Help.sendHelp(sender, Prefix);
+                    break;
 
-
-                }
             }
-        } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
+        }
+
         return false;
     }
 
@@ -108,7 +91,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
         put("reload", "commandgui.admin");
         put("rl", "commandgui.admin");
         put("createdefaultgui", "commandgui.admin");
-        //  put("give", "commandgui.giveitem.other");
+        put("give", "commandgui.giveitem.other");
     }};
 
     @Override

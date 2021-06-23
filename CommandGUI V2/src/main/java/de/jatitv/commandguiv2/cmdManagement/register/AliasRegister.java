@@ -16,14 +16,6 @@ public class AliasRegister {
         for (String alias : Main.allAliases) {
             if (Main.guiHashMap.get(alias).Command_Alias_Enable) {
 
-
-
-
-
-
-
-
-
                 if (Bukkit.getServer().getClass().getPackage().getName().contains("1_8_R1")){
                     send.debug("Alias register 1.8_R1");
                     org.bukkit.craftbukkit.v1_8_R1.CraftServer craftServer = (org.bukkit.craftbukkit.v1_8_R1.CraftServer) Main.getPlugin().getServer();

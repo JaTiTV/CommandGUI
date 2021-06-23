@@ -2,16 +2,13 @@ package de.jatitv.commandguiv2.cmdManagement;
 
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
-import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Main;
-import de.jatitv.commandguiv2.system.database.Select_Database;
-import org.bukkit.Material;
+import de.jatitv.commandguiv2.system.send;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +16,7 @@ import java.util.List;
 
 public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
     String Prefix;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Prefix = Main.Prefix;
@@ -27,60 +25,36 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
             if (args.length == 0) {
                 Help.sendGUIItemHelp(sender, Prefix);
             } else {
-                if (args.length == 1) {
+                if (args.length == 1 || args.length == 2) {
                     if (sender instanceof Player) {
                         if (Select_config.UseItem_AllowToggle) {
                             switch (args[0].toLowerCase()) {
                                 case "on":
-                                    for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
-                                        ItemStack itm = player.getInventory().getItem(iam);
-                                        if (itm != null) {
-                                            if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                                                if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                                                    player.getInventory().remove(itm);
-                                                    player.updateInventory();
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    if (player.getInventory().getItem(Select_config.UseItem_InventorySlot - 1) == null) {
-                                        Select_Database.setItemStatusTrue(player);
-                                        GUI_Give_UseItem.onGive(player.getName());
-                                    } else {
-                                        boolean empty = false;
-                                        for (int i = 0; i < 9; i++) {
-                                            if (player.getInventory().getItem(i) == null) {
-                                                empty = true;
-                                                break;
-                                            }
-                                        }
-                                        if (empty) {
-                                            Select_Database.setItemStatusTrue(player);
-                                            GUI_Give_UseItem.onGiveADD(player.getName());
-                                        } else sender.sendMessage(Select_msg.NoInventorySpace);
-                                    }
+                                    Commands.itemOn(player);
                                     break;
                                 case "off":
-                                    Select_Database.setItemStatusFalse(player);
-                                    for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
-                                        ItemStack itm = player.getInventory().getItem(iam);
-                                        if (itm != null) {
-                                            if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                                                if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                                                    player.getInventory().remove(itm);
-                                                    player.updateInventory();
-                                                }
-                                            }
-                                        }
-                                    }
+                                    Commands.itemOff(player);
                                     break;
+                                case "slot":
+                                    if (args.length == 2) {
+                                        try {
+                                            Commands.onSetSlot(player, Integer.valueOf(args[1]));
+                                        } catch (Exception e5) {
+                                            send.player(player, Select_msg.ItemSlot_wrongValue);
+                                        }
+
+                                    } else send.player(player, "§4Use: §7/gui-item slot [slot]");
+
+                                    break;
+                                default:
+                                    Help.sendHelp(player, Prefix);
+
                             }
                         }
                     } else sender.sendMessage(Select_msg.OnlyForPlayer);
                 }
             }
-        }
+        } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui-item").replace("[perm]", "commandgui.useitem.toggle"));
         return false;
     }
 
@@ -89,6 +63,9 @@ public class GUI_CmdExecuter_GUIItem implements CommandExecutor, TabCompleter {
     private static HashMap<String, String> arg1 = new HashMap<String, String>() {{
         put("on", "commandgui.useitem.toggle");
         put("off", "commandgui.useitem.toggle");
+        if (Select_config.UseItem_AllowSetSlot) {
+            put("slot", "commandgui.useitem.toggle");
+        }
     }};
 
     @Override
