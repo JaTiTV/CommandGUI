@@ -57,6 +57,7 @@ public class MSG {
 
     public static String EN_GUIItemHelp_on = "&8''&b/gui-item on&8'' &eActivate the GUIItem for you.";
     public static String EN_GUIItemHelp_off = "&8''&b/gui-item off&8'' &eDisable the GUIItem for yourself.";
+    public static String EN_GUIItemHelp_Slot = "&8''&b/gui-item slot [slot]&8'' &eSet the slot for GUIItem for you.";
 
     // DE
     public static String DE_VaultNotSetUp = "[prefix] &4Vault / Economy nicht eingerichtet!";
@@ -102,6 +103,7 @@ public class MSG {
 
     public static String DE_GUIItemHelp_on = "&8''&b/gui-item on&8'' &eAktiviere f[ue]r dich das GUIItem.";
     public static String DE_GUIItemHelp_off = "&8''&b/gui-item off&8'' &eDeaktiviere f[ue]r dich das GUIItem.";
+    public static String DE_GUIItemHelp_Slot = "&8''&b/gui-item slot [slot]&8'' &eSetze den Slot für GUIItem für Sie einstellen.";
 
 
     // FR
@@ -151,4 +153,5 @@ public class MSG {
 
     public static String NO_GUIItemHelp_on = "&8''&b/gui-item on&8'' &eAktiverer en GUI gjenstand for deg.";
     public static String NO_GUIItemHelp_off = "&8''&b/gui-item off&8'' &eDeaktiverer en GUI gjenstand for deg.";
+    public static String NO_GUIItemHelp_Slot = "&8''&b/gui-item slot [slot]&8'' &eSett sporet for GUIItem for deg.";
 }

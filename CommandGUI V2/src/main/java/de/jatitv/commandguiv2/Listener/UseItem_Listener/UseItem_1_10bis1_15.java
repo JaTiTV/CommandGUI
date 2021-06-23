@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2.Listener.UseItem_Listener;
 
 import de.jatitv.commandguiv2.cmdManagement.Commands;
 import de.jatitv.commandguiv2.gui.GUI_GUI;
+import de.jatitv.commandguiv2.system.API;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.system.database.MySQL;
@@ -30,6 +31,7 @@ public class UseItem_1_10bis1_15 implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+        if  (API.JoinDisable) return;
         if (e.getPlayer().hasPermission("commandgui.get.guiitem.at.login")){
             itemChange(e.getPlayer());
         }

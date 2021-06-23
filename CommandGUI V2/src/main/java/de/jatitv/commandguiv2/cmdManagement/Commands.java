@@ -2,6 +2,8 @@ package de.jatitv.commandguiv2.cmdManagement;
 
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.Objekte.GUI_Obj_Select;
+import de.jatitv.commandguiv2.Objekte.GUI_Objekt;
+import de.jatitv.commandguiv2.gui.GUI_GUI;
 import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.system.TextBuilder;
 import de.jatitv.commandguiv2.system.UpdateChecker;
@@ -16,6 +18,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
+import org.bukkit.craftbukkit.libs.org.apache.http.util.Args;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -189,5 +192,34 @@ public class Commands {
             }
             send.player(player, Select_msg.ItemSlot.replace("[slot]", setSlot.toString()));
         } else player.sendMessage(Main.Prefix + " §4Function disabled");
+    }
+
+    public static void gui(Player player) {
+        if (Main.guiHashMap.containsKey(Select_config.DefaultGUI)) {
+            GUI_Objekt gui = Main.guiHashMap.get(Select_config.DefaultGUI);
+            if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
+                if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.bypass")) {
+                    GUI_GUI.openGUI(player, gui);
+                    if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                        player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                    }
+                } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui")
+                        .replace("[perm]", "commandgui.giveitem.command"));
+            } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
+        }
+    }
+    public static void gui(Player player, String arg){
+        if (Main.guiHashMap.containsKey(arg)) {
+            GUI_Objekt gui = Main.guiHashMap.get(arg);
+            if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
+                if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui.Command_Command) || player.hasPermission("commandgui.bypass")) {
+                    GUI_GUI.openGUI(player, gui);
+                    if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
+                        player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                    }
+                } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + gui.Command_Command)
+                        .replace("[perm]", "commandgui.command." + arg.toLowerCase()));
+            } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.Command_Command));
+        } else player.sendMessage(Select_msg.GUInotFound);
     }
 }

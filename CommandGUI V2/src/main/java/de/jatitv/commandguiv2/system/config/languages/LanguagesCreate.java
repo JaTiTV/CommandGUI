@@ -64,6 +64,7 @@ public class LanguagesCreate {
         set("Help.Reload", MSG.EN_Help_Reload, yamlConfigurationEN);
         set("Help.UseItem_On", MSG.EN_GUIItemHelp_on, yamlConfigurationEN);
         set("Help.UseItem_Off", MSG.EN_GUIItemHelp_off, yamlConfigurationEN);
+        set("Help.UseItem_Slot", MSG.EN_GUIItemHelp_Slot, yamlConfigurationEN);
 
         try {
             yamlConfigurationEN.save(messagesEN);
@@ -124,6 +125,7 @@ public class LanguagesCreate {
         set("Help.Reload", MSG.DE_Help_Reload, yamlConfigurationDE);
         set("Help.UseItem_On", MSG.DE_GUIItemHelp_on, yamlConfigurationDE);
         set("Help.UseItem_Off", MSG.DE_GUIItemHelp_off, yamlConfigurationDE);
+        set("Help.UseItem_Slot", MSG.DE_GUIItemHelp_Slot, yamlConfigurationDE);
 
         try {
             yamlConfigurationDE.save(messagesDE);
@@ -185,6 +187,7 @@ public class LanguagesCreate {
         set("Help.Reload", MSG.NO_Help_Reload, yamlConfigurationNO);
         set("Help.UseItem_On", MSG.NO_GUIItemHelp_on, yamlConfigurationNO);
         set("Help.UseItem_Off", MSG.NO_GUIItemHelp_off, yamlConfigurationNO);
+        set("Help.UseItem_Slot", MSG.NO_GUIItemHelp_Slot, yamlConfigurationNO);
 
         try {
             yamlConfigurationNO.save(messagesNO);

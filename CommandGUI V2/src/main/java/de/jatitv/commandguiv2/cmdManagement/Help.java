@@ -26,6 +26,7 @@ public class Help {
         if (sender.hasPermission("commandgui.useitem.toggle")) {
             send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_on);
             send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_off);
+            send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_Slot);
         }
         if (sender.hasPermission("commandgui.command.info")) {
             send.sender(sender, Prefix + " " + Select_msg.HelpInfo);
@@ -45,6 +46,7 @@ public class Help {
             send.sender(sender, Prefix + " §8------ §4Command§9GUI§2Item §chelp §8------");
             send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_on);
             send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_off);
+            send.sender(sender, Prefix + " " + Select_msg.GUIItemHelp_Slot);
             send.sender(sender, Prefix + " §8------------------------------");
         }
     }

@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2.Listener.UseItem_Listener;
 
 import de.jatitv.commandguiv2.cmdManagement.Commands;
 import de.jatitv.commandguiv2.gui.GUI_GUI;
+import de.jatitv.commandguiv2.system.API;
 import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.system.database.MySQL;
@@ -9,8 +10,6 @@ import de.jatitv.commandguiv2.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.database.Select_Database;
 import de.jatitv.commandguiv2.system.send;
-import net.builders.paradise.subplugins.BuPaPlayerDataSync.main.PlayerDataSync_config;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,16 +33,8 @@ public class UseItem_ab1_16 implements Listener {
 
 
     @EventHandler
-    public void onGameModeChange(PlayerGameModeChangeEvent e) {
-        if (!Bukkit.getPluginManager().isPluginEnabled("BuildersParadiseSystem")) return;
-        if (PlayerDataSync_config.SyncInv) {
-            itemChange(e.getPlayer());
-        }
-    }
-
-    @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        if (Bukkit.getPluginManager().isPluginEnabled("BuildersParadiseSystem")) return;
+        if  (API.JoinDisable) return;
         if (e.getPlayer().hasPermission("commandgui.get.guiitem.at.login")) {
             new BukkitRunnable() {
                 @Override
@@ -51,7 +42,6 @@ public class UseItem_ab1_16 implements Listener {
                     itemChange(e.getPlayer());
                 }
             }.runTaskLater(Main.getPlugin(), 20L * 1);
-
         }
     }
 

@@ -53,6 +53,7 @@ public class Select_msg {
     public static String HelpReload;
     public static String GUIItemHelp_on;
     public static String GUIItemHelp_off;
+    public static String GUIItemHelp_Slot;
 
     public static void onSelect(String Prefix) {
 
@@ -116,6 +117,8 @@ public class Select_msg {
         HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
         GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_On"));
         GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_Off"));
+        GUIItemHelp_Slot = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_Slot"));
+
 
         send.console(Prefix + " §2Language successfully selected to: §6" + selectMSG  + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
     }
