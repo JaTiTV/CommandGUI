@@ -20,6 +20,8 @@ public class GUI_Slot {
     public Double Price;
     public Boolean Command_Enable;
     public Boolean CommandAsConsole;
+    public Boolean ServerChange;
+    public String ServerChangeServer;
     public List<String> Command;
     public Boolean OpenGUI_Enable;
     public String OpenGUI;
@@ -29,8 +31,8 @@ public class GUI_Slot {
 
     public GUI_Slot(Integer Slot, Boolean Enable, Boolean PlayerHead_Enable,  Boolean Base64Value_Enable, String Base64Value,Boolean PlayerWhoHasOpenedTheGUI,
                     String PlayerName, String Item, String Name, List Lore, Boolean CustomSound_Enable, String CustomSound_Sound, Boolean Cost_Enable, Double Price,
-                    Boolean Command_Enable, Boolean CommandAsConsole, List<String> Command, Boolean OpenGUI_Enable, String OpenGUI, Boolean Message_Enable,
-                    List<String> Message, Boolean Perm) {
+                    Boolean Command_Enable, Boolean CommandAsConsole,  List<String> Command,Boolean ServerChange ,String ServerChangeServer, Boolean OpenGUI_Enable,
+                    String OpenGUI, Boolean Message_Enable, List<String> Message, Boolean Perm) {
         this.Slot = Slot;
         this.Enable = Enable;
         this.PlayerHead_Enable = PlayerHead_Enable;
@@ -48,6 +50,8 @@ public class GUI_Slot {
         this.Command_Enable = Command_Enable;
         this.CommandAsConsole = CommandAsConsole;
         this.Command = Command;
+        this.ServerChange = ServerChange;
+        this.ServerChangeServer = ServerChangeServer;
         this.OpenGUI_Enable = OpenGUI_Enable;
         this.OpenGUI = OpenGUI;
         this.Message_Enable = Message_Enable;

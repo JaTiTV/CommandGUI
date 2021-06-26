@@ -4,6 +4,7 @@ import de.jatitv.commandguiv2.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,16 +13,19 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Debug {
+
+    private static Plugin plugin = Main.plugin;
     public static void debugmsg() {
 
-        send.debug("§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        send.debug("§3Bukkit Version: §e" + Bukkit.getBukkitVersion());
-        send.debug("§3NMS Version: §e" + Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit.", ""));
-        send.debug("§3Version: §e" + Bukkit.getVersion());
-        send.debug("§3Java: §e" + System.getProperty("java.version"));
-        send.debug("§3Worlds: §e" +String.valueOf(Bukkit.getServer().getWorlds()));
-        send.debug(String.valueOf(Main.Plugins));
-        send.debug("§5----------------------------------");
+
+        send.debug(plugin,"§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        send.debug(plugin,"§3Bukkit Version: §e" + Bukkit.getBukkitVersion());
+        send.debug(plugin,"§3NMS Version: §e" + Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit.", ""));
+        send.debug(plugin,"§3Version: §e" + Bukkit.getVersion());
+        send.debug(plugin,"§3Java: §e" + System.getProperty("java.version"));
+        send.debug(plugin,"§3Worlds: §e" +String.valueOf(Bukkit.getServer().getWorlds()));
+        send.debug(plugin,String.valueOf(Main.Plugins));
+        send.debug(plugin,"§5----------------------------------");
         if (new File(Main.getPath(), "config.yml").exists()) {
             File f = new File(String.valueOf(Main.getPath()));
             File f2 = new File(String.valueOf(Main.getPath() + "/GUIs/"));
@@ -30,16 +34,16 @@ public class Debug {
             File[] fileArray2 = f2.listFiles();
             File[] fileArray3 = f3.listFiles();
             for (File config : fileArray) {
-                send.debug(String.valueOf(config).replace("plugins/CommandGUI/", ""));
+                send.debug(plugin,String.valueOf(config).replace("plugins/CommandGUI/", ""));
             }
             for (File config2 : fileArray2) {
-                send.debug(String.valueOf(config2).replace("plugins/CommandGUI/", ""));
+                send.debug(plugin,String.valueOf(config2).replace("plugins/CommandGUI/", ""));
             }
             for (File config3 : fileArray3) {
-                send.debug(String.valueOf(config3).replace("plugins/CommandGUI/", ""));
+                send.debug(plugin,String.valueOf(config3).replace("plugins/CommandGUI/", ""));
             }
         }
-        send.debug("§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        send.debug(plugin,"§5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
     }
 
@@ -51,7 +55,7 @@ public class Debug {
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(debug);
 
         set("Time", timeStampcfg, yamlConfiguration);
-        set("CommandGUI.Version", String.valueOf( Main.getPlugin().getDescription().getVersion()), yamlConfiguration);
+        set("CommandGUI.Version", String.valueOf(plugin.getDescription().getVersion()), yamlConfiguration);
 
         set("Server.Bukkit_Version", String.valueOf(Bukkit.getBukkitVersion()), yamlConfiguration);
         set("Server.NMS_Version", String.valueOf(Bukkit.getServer().getClass().getPackage().getName().replace("org.bukkit.craftbukkit.", "")), yamlConfiguration);
@@ -63,7 +67,7 @@ public class Debug {
         try {
             yamlConfiguration.save(debug);
         } catch (IOException e) {
-            send.warning(e.getMessage());
+            send.warning(plugin,e.getMessage());
             e.printStackTrace();
         }
     }

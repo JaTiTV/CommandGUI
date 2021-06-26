@@ -18,15 +18,7 @@ import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
     public static File getPath() {
-        return getPlugin().getDataFolder();
-    }
-
-    public static Main getPlugin() {
-        return plugin;
-    }
-
-    public static Plugin thisp() {
-        return plugin;
+        return plugin.getDataFolder();
     }
 
     public static String Prefix = "§8[§4C§9GUI§8]";
@@ -41,7 +33,6 @@ public final class Main extends JavaPlugin {
 
     public static Main plugin;
     public static List Plugins;
-    public static Plugin a;
     public static Economy eco = null;
 
     public static String update_version = null;
@@ -70,9 +61,9 @@ public final class Main extends JavaPlugin {
         // Plugin startup logic
         Logger logger = this.getLogger();
         plugin = this;
-        Autor = thisp().getDescription().getAuthors();
-        Version = thisp().getDescription().getVersion();
-        a = this;
+        Autor = plugin.getDescription().getAuthors();
+        Version = plugin.getDescription().getVersion();
+
         minecraft1_8 = Bukkit.getServer().getClass().getPackage().getName().contains("1_8");
         minecraft1_9 = Bukkit.getServer().getClass().getPackage().getName().contains("1_9");
         minecraft1_10 = Bukkit.getServer().getClass().getPackage().getName().contains("1_10");
@@ -89,6 +80,7 @@ public final class Main extends JavaPlugin {
             Head = Material.valueOf("SKULL");
         } else Head = Material.valueOf("PLAYER_HEAD");
 
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) PaPi = true;
 
         Load.onLoad(Prefix, Autor, Version, Spigot, Discord);

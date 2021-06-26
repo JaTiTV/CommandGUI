@@ -19,11 +19,14 @@ import de.jatitv.commandguiv2.system.config.select.Select_config;
 import de.jatitv.commandguiv2.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.system.database.MySQL;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 
 import java.io.*;
 import java.util.List;
 
 public class Load {
+    static Plugin plugin = Main.plugin;
+
     public static void onLoad(String Prefix, List Autor, String Version, String Spigot, String Discord) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
         send.console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
@@ -134,16 +137,17 @@ public class Load {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Main.getPlugin().getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter_Admin());
-        send.debug("Commandregister: commandguiadmin");
+
+        Main.plugin.getCommand("commandguiadmin").setExecutor(new GUI_CmdExecuter_Admin());
+        send.debug(plugin, "Commandregister: commandguiadmin");
         if (Select_config.HelpAlias) {
-            Main.getPlugin().getCommand("commandguihelp").setExecutor(new GUI_CmdExecuter_Help());
-            send.debug("Commandregister: commandguihelp");
+            Main.plugin.getCommand("commandguihelp").setExecutor(new GUI_CmdExecuter_Help());
+            send.debug(plugin, "Commandregister: commandguihelp");
         }
-        Main.getPlugin().getCommand("commandgui").setExecutor(new GUI_CmdExecuter_GUI());
-        send.debug("Commandregister: commandgui");
-        Main.getPlugin().getCommand("commandgui-item").setExecutor(new GUI_CmdExecuter_GUIItem());
-        send.debug("Commandregister: commandgui-item");
+        Main.plugin.getCommand("commandgui").setExecutor(new GUI_CmdExecuter_GUI());
+        send.debug(plugin, "Commandregister: commandgui");
+        Main.plugin.getCommand("commandgui-item").setExecutor(new GUI_CmdExecuter_GUIItem());
+        send.debug(plugin, "Commandregister: commandgui-item");
 
         try {
             AliasRegister.onRegister();
@@ -152,14 +156,14 @@ public class Load {
         }
 
 
-        Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), Main.getPlugin());
-        Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), Main.getPlugin());
+        Bukkit.getServer().getPluginManager().registerEvents(new GUI_Listener(), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), plugin);
 
         if (Main.minecraft1_8 || Main.minecraft1_9) {
-            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), Main.getPlugin());
+            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_8bis1_9(), Main.plugin);
         } else if (Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15) {
-            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), Main.getPlugin());
-        } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), Main.getPlugin());
+            Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), plugin);
+        } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), plugin);
 
 
         UpdateChecker.onUpdateCheck();

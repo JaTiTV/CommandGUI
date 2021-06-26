@@ -12,7 +12,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 
 public class Vault {
 
-    public static boolean buy(Player p, Double preis) {
+    public static boolean buy(Player p, Double price) {
         if (Main.eco == null) {
             if (Bukkit.getPluginManager().getPlugin("Vault") == null) {
                 send.console(Main.Prefix + " §4\n" + Main.Prefix + " §4Vault could not be found! §9Please download it here: " +
@@ -20,10 +20,10 @@ public class Vault {
             }
             p.sendMessage(Main.Prefix + "\n" + Select_msg.VaultNotSetUp + "\n" + Main.Prefix);
         } else {
-            if (Main.eco.getBalance(p) < preis) {
+            if (Main.eco.getBalance(p) < price) {
                 return false;
             } else {
-                Main.eco.withdrawPlayer(p, preis);
+                Main.eco.withdrawPlayer(p, price);
                 return true;
             }
         }
@@ -32,8 +32,8 @@ public class Vault {
 
     public static void loadVault() throws InterruptedException {
         Long long_ = Long.valueOf(System.currentTimeMillis());
-        if(Main.a.getServer().getPluginManager().getPlugin("Vault") != null){
-            RegisteredServiceProvider<Economy> rsp = Main.a.getServer().getServicesManager().getRegistration(Economy.class);
+        if(Main.plugin.getServer().getPluginManager().getPlugin("Vault") != null){
+            RegisteredServiceProvider<Economy> rsp = Main.plugin.getServer().getServicesManager().getRegistration(Economy.class);
             if(rsp != null){
                 Main.eco = rsp.getProvider();
                 if(Main.eco != null){

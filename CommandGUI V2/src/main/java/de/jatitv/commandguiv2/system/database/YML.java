@@ -4,11 +4,14 @@ import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.send;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
 
 public class YML {
+
+    private static Plugin plugin = Main.plugin;
 
     public static File storage = new File(Main.getPath(), "Storage/gui-item.yml");
     public static YamlConfiguration yamlConfigurationStorage = YamlConfiguration.loadConfiguration(storage);
@@ -53,11 +56,11 @@ public class YML {
 
 
     public static Integer selectSlot(Player player) {
-        send.debug("yml-1");
+        send.debug(plugin, "yml-1");
         if (!yamlConfigurationStorage.contains(String.valueOf(player.getUniqueId()))) return null;
         if (yamlConfigurationStorage.getString(player.getUniqueId() + ".Slot") == null) return null;
-        send.debug("yml-2");
-        send.debug(String.valueOf(yamlConfigurationStorage.getInt(player.getUniqueId() + ".Slot")));
+        send.debug(plugin, "yml-2");
+        send.debug(plugin, String.valueOf(yamlConfigurationStorage.getInt(player.getUniqueId() + ".Slot")));
         return yamlConfigurationStorage.getInt(player.getUniqueId() + ".Slot");
     }
 }

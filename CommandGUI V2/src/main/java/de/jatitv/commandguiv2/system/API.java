@@ -13,20 +13,22 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class API {
-    public static Boolean JoinDisable;
+    public static Boolean JoinDisable = false;
 
     public static void onItemChange(Player player) {
-            if (player.hasPermission("commandgui.get.guiitem.at.login")) {
-                if (Main.minecraft1_8 || Main.minecraft1_9) {
-                    UseItem_1_8bis1_9.itemChange(player);
-                } else if (Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15) {
-                    UseItem_1_10bis1_15.itemChange(player);
-                } else UseItem_ab1_16.itemChange(player);
-            }
+        if (player.hasPermission("commandgui.get.guiitem.at.login")) {
+            if (Main.minecraft1_8 || Main.minecraft1_9) {
+                UseItem_1_8bis1_9.itemChange(player);
+            } else if (Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12 || Main.minecraft1_13 || Main.minecraft1_14 || Main.minecraft1_15) {
+                UseItem_1_10bis1_15.itemChange(player);
+            } else UseItem_ab1_16.itemChange(player);
+        }
     }
 
     public static void disableItemGiveOnJoin(Boolean disableItemGiveOnJoin) {
+
         JoinDisable = disableItemGiveOnJoin;
+
     }
 
     public static Boolean selectPlayerItemEnable(Player player) {

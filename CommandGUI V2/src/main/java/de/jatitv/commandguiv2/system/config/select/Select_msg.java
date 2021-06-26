@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2.system.config.select;
 
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.Replace;
+import de.jatitv.commandguiv2.system.config.languages.MSG;
 import de.jatitv.commandguiv2.system.send;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -35,6 +36,8 @@ public class Select_msg {
     public static String No_money;
     public static String NoInventorySpace;
 
+    public static String onServerChange;
+
     public static String GUInotFound;
     public static String GUIIsDisabled;
 
@@ -57,7 +60,7 @@ public class Select_msg {
 
     public static void onSelect(String Prefix) {
 
-        send.debug("§4Select language...");
+        send.debug(Main.plugin, "§4Select language...");
         Long long_ = Long.valueOf(System.currentTimeMillis());
 
         File msg;
@@ -75,51 +78,57 @@ public class Select_msg {
         } else selectMSG = Select_config.language;
         YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(msg);
 
-        VaultNotSetUp = Replace.replace(yamlConfiguration_msg.getString("Plugin.VaultNotSetUp"));
-        SoundNotFound = Replace.replace(yamlConfiguration_msg.getString("Plugin.SoundNotFound"));
-        OnlyForPlayer = Replace.replace(yamlConfiguration_msg.getString("Plugin.OnlyForPlayer"));
-        DefaultGUIcreate = Replace.replace(yamlConfiguration_msg.getString("Plugin.DefaultGUI.create"));
-        ReloadStart = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Start"));
-        ReloadEnd = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.End"));
-        ReloadWarning = Replace.replace(yamlConfiguration_msg.getString("Plugin.Reload.Warning"));
+        VaultNotSetUp = select("Plugin.VaultNotSetUp", yamlConfiguration_msg);
+        SoundNotFound = select("Plugin.SoundNotFound", yamlConfiguration_msg);
+        OnlyForPlayer = select("Plugin.OnlyForPlayer", yamlConfiguration_msg);
+        DefaultGUIcreate = select("Plugin.DefaultGUI.create", yamlConfiguration_msg);
+        ReloadStart = select("Plugin.Reload.Start", yamlConfiguration_msg);
+        ReloadEnd = select("Plugin.Reload.End", yamlConfiguration_msg);
+        ReloadWarning = select("Plugin.Reload.Warning", yamlConfiguration_msg);
 
-        NoPermission = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommandGUI"));
-        NoPermissionForCommand = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForCommand"));
-        NoPermissionForUseItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForUseItem"));
-        NoPermissionForItem = Replace.replace(yamlConfiguration_msg.getString("NoPermission.ForItem"));
+        NoPermission = select("NoPermission.ForCommandGUI", yamlConfiguration_msg);
+        NoPermissionForCommand = select("NoPermission.ForCommand", yamlConfiguration_msg);
+        NoPermissionForUseItem = select("NoPermission.ForUseItem", yamlConfiguration_msg);
+        NoPermissionForItem = select("NoPermission.ForItem", yamlConfiguration_msg);
 
-        ItemON = Replace.replace(yamlConfiguration_msg.getString("UseItem.UseItem_ON"));
-        ItemOFF = Replace.replace(yamlConfiguration_msg.getString("UseItem.UseItem_OFF"));
-        ItemSlot = Replace.replace(yamlConfiguration_msg.getString("UseItem.Change_Slot"));
-        ItemSlotNotEmpty = Replace.replace(yamlConfiguration_msg.getString("UseItem.SlotNotEmpty"));
-        ItemSlotAlreadySet = Replace.replace(yamlConfiguration_msg.getString("UseItem.SlotAlreadySet"));
-        ItemSlot_wrongValue = Replace.replace(yamlConfiguration_msg.getString("UseItem.ItemSlot_wrongValue"));
+        ItemON = select("UseItem.UseItem_ON", yamlConfiguration_msg);
+        ItemOFF = select("UseItem.UseItem_OFF", yamlConfiguration_msg);
+        ItemSlot = select("UseItem.Change_Slot", yamlConfiguration_msg);
+        ItemSlotNotEmpty = select("UseItem.SlotNotEmpty", yamlConfiguration_msg);
+        ItemSlotAlreadySet = select("UseItem.SlotAlreadySet", yamlConfiguration_msg);
+        ItemSlot_wrongValue = select("UseItem.ItemSlot_wrongValue", yamlConfiguration_msg);
 
-        Buy_msg = Replace.replace(yamlConfiguration_msg.getString("Cost.Buy_msg"));
-        No_money = Replace.replace(yamlConfiguration_msg.getString("Cost.No_money"));
-        NoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Cost.NoInventorySpace"));
+        Buy_msg = select("Cost.Buy_msg", yamlConfiguration_msg);
+        No_money = select("Cost.No_money", yamlConfiguration_msg);
+        NoInventorySpace = select("Cost.NoInventorySpace", yamlConfiguration_msg);
 
-        GUInotFound = Replace.replace(yamlConfiguration_msg.getString("GUI.GUInotFound"));
-        GUIIsDisabled = Replace.replace(yamlConfiguration_msg.getString("GUI.GUIisDisabled"));
+        onServerChange = select("ServerChange.onServerChange", yamlConfiguration_msg);
 
-        Give_Sender = Replace.replace(yamlConfiguration_msg.getString("Give.Sender"));
-        Give_Receiver = Replace.replace(yamlConfiguration_msg.getString("Give.Receiver"));
+        GUInotFound = select("GUI.GUInotFound", yamlConfiguration_msg);
+        GUIIsDisabled = select("GUI.GUIisDisabled", yamlConfiguration_msg);
 
-        PlayerNotFond = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNotFond"));
-        PlayerNoInventorySpace = Replace.replace(yamlConfiguration_msg.getString("Player.PlayerNoInventorySpace"));
+        Give_Sender = select("Give.Sender", yamlConfiguration_msg);
+        Give_Receiver = select("Give.Receiver", yamlConfiguration_msg);
 
-        HelpCgui = Replace.replace(yamlConfiguration_msg.getString("Help.CGUI"));
-        HelpHelp = Replace.replace(yamlConfiguration_msg.getString("Help.Help"));
-        HelpInfo = Replace.replace(yamlConfiguration_msg.getString("Help.Info"));
-        HelpOpen = Replace.replace(yamlConfiguration_msg.getString("Help.Open"));
-        HelpGive = Replace.replace(yamlConfiguration_msg.getString("Help.Give"));
-        HelpCreateDefaultGUI = Replace.replace(yamlConfiguration_msg.getString("Help.CreateDefaultGUI"));
-        HelpReload = Replace.replace(yamlConfiguration_msg.getString("Help.Reload"));
-        GUIItemHelp_on = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_On"));
-        GUIItemHelp_off = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_Off"));
-        GUIItemHelp_Slot = Replace.replace(yamlConfiguration_msg.getString("Help.UseItem_Slot"));
+        PlayerNotFond = select("Player.PlayerNotFond", yamlConfiguration_msg);
+        PlayerNoInventorySpace = select("Player.PlayerNoInventorySpace", yamlConfiguration_msg);
+
+        HelpCgui = select("Help.CGUI", yamlConfiguration_msg);
+        HelpHelp = select("Help.Help", yamlConfiguration_msg);
+        HelpInfo = select("Help.Info", yamlConfiguration_msg);
+        HelpOpen = select("Help.Open", yamlConfiguration_msg);
+        HelpGive = select("Help.Give", yamlConfiguration_msg);
+        HelpCreateDefaultGUI = select("Help.CreateDefaultGUI", yamlConfiguration_msg);
+        HelpReload = select("Help.Reload", yamlConfiguration_msg);
+        GUIItemHelp_on = select("Help.UseItem_On", yamlConfiguration_msg);
+        GUIItemHelp_off = select("Help.UseItem_Off", yamlConfiguration_msg);
+        GUIItemHelp_Slot = select("Help.UseItem_Slot", yamlConfiguration_msg);
 
 
         send.console(Prefix + " §2Language successfully selected to: §6" + selectMSG  + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
+    }
+
+    private static String select(String path, YamlConfiguration yamlConfiguration){
+        return Replace.replace(yamlConfiguration.getString(path));
     }
 }

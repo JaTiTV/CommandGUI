@@ -31,6 +31,8 @@ public class MSG {
     public static String EN_No_money = "[prefix] &cYou don't have enough money!";
     public static String EN_NoInventorySpace = "[prefix] &cYou have no room in your inventory!";
 
+    public static String EN_onServerChange = "[prefix] &2You will be connected to the server &e[server]§2.";
+
     public static String EN_ItemON = "[prefix] &2You have activated the GUI item.";
     public static String EN_ItemOFF = "[prefix] &2You have disabled the GUI item.";
     public static String EN_ItemSlot = "[prefix] &2You have changed the GUI item to slot: &6[slot]&2.";
@@ -84,6 +86,8 @@ public class MSG {
     public static String DE_No_money = "[prefix] &cDu hast nicht gen[ue]gend Geld!";
     public static String DE_NoInventorySpace = "[prefix] &cDu hast keinen Platz in deinem Inventar!";
 
+    public static String DE_onServerChange = "[prefix] &2Du wirst auf den Server §e[server] §2verbunden.";
+
     public static String DE_GUInotFound = "[prefix] &cDie von die gew[ae]hlte GUI gibt es nicht.";
     public static String DE_GUIisDisabled = "[prefix] &cDie GUI [gui] &cist derzeit Deaktiviert!";
 
@@ -133,6 +137,8 @@ public class MSG {
     public static String NO_Buy_msg = "[prefix] &2Du kjøpte [itemname] &2for &6[price]&2.";
     public static String NO_No_money = "[prefix] &cDu har ikke nok penger!";
     public static String NO_NoInventorySpace = "[prefix] &cDu har ikke nok plass i inventaret ditt!";
+
+    public static String NO_onServerChange = "[prefix] &2Du vil bli tilkoblet serveren &e[server]&2.";
 
     public static String NO_GUInotFound = "[prefix] &cGUIen som ble spesifisert finnes ikke.";
     public static String NO_GUIisDisabled = "[prefix] &cGUIen [gui] &cer slått av for øyeblikket!";

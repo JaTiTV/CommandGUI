@@ -18,11 +18,12 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.libs.org.apache.http.util.Args;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 public class Commands {
+    private static Plugin plugin = Main.plugin;
     private static String Prefix = Main.Prefix;
     private static String Autor = String.valueOf(Main.Autor);
     private static String Version = Main.Version;
@@ -66,7 +67,7 @@ public class Commands {
         Select_msg.onSelect(Prefix);
         Select_config.sound(Main.Prefix);
         if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadWarning);
-        send.warning("To enable / disable alias commands, reload / restart the server!");
+        send.warning(plugin, "To enable / disable alias commands, reload / restart the server!");
 
         if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadEnd);
         send.console(Prefix + "§8-------------------------------");
@@ -77,8 +78,8 @@ public class Commands {
     public static void give(CommandSender sender, Player target) {
         if (Bukkit.getPlayer(target.getName()) != null) {
             GUI_Give_UseItem.onGive(target);
-            send.sender(sender, Select_msg.Give_Sender.replace("[player]", target.getName()));
-            send.player(target, Select_msg.Give_Receiver.replace("[sender]", sender.getName()));
+            send.sender(sender, Select_msg.Give_Sender.replace("[player]", target.getName()).replace("[item]", Select_config.UseItem_Name));
+            send.player(target, Select_msg.Give_Receiver.replace("[sender]", sender.getName()).replace("[item]", Select_config.UseItem_Name));
             if (Select_config.Sound_Give_Enable && Select_config.Sound_Enable) {
                 target.playSound(target.getLocation(), Select_config.Sound_Give, 3, 1);
             }
@@ -110,7 +111,7 @@ public class Commands {
         } else {
             slot = Select_Database.selectSlot(player);
         }
-        send.debug(String.valueOf(slot));
+        send.debug(plugin,String.valueOf(slot));
         if (player.getInventory().getItem(slot - 1) == null) {
             Select_Database.setItemStatusTrue(player);
             GUI_Give_UseItem.onGive(player);

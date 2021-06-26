@@ -27,8 +27,8 @@ public class UpdateChecker {
     public static void onUpdateCheck() {
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
             public void run() {
-                (new UpdateChecker((JavaPlugin) Main.thisp(), Main.SpigotID)).getVersion((update_version) -> {
-                    String foundVersion = Main.thisp().getDescription().getVersion();
+                (new UpdateChecker(Main.plugin, Main.SpigotID)).getVersion((update_version) -> {
+                    String foundVersion = Main.plugin.getDescription().getVersion();
                     Main.update_version = update_version;
                     if (!foundVersion.equalsIgnoreCase(update_version)) {
                         new BukkitRunnable() {
@@ -41,14 +41,14 @@ public class UpdateChecker {
                                 send.console("§6You can find more information on Discord: §e" + Main.Discord);
                                 send.console(Main.Prefix + "§4========= §8[§4Command§9GUI§8] §4=========");
                             }
-                        }.runTaskLater(Main.getPlugin(), 600L);
+                        }.runTaskLater(Main.plugin, 600L);
                     } else {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
                                 send.console(Main.Prefix + " §2No update found");
                             }
-                        }.runTaskLater(Main.getPlugin(), 120L);
+                        }.runTaskLater(Main.plugin, 120L);
                     }
                 });
             }

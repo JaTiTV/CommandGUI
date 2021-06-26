@@ -48,6 +48,8 @@ public class DefaultGUICreate {
     private static Boolean Command = false;
     private static Boolean CommandAsConsole = false;
     private static List Commands = Arrays.asList("");
+    private static Boolean Server_Change = false;
+    private static String Server_Change_Server = "";
     private static Boolean OpenGUI = false;
     private static String OpenGUI_GUI = "";
     private static Boolean Message = true;
@@ -94,6 +96,8 @@ public class DefaultGUICreate {
         set("Slots.Example.Command.Enable", Command, yamlConfiguration);
         set("Slots.Example.Command.CommandAsConsole", CommandAsConsole, yamlConfiguration);
         set("Slots.Example.Command.Command", Commands, yamlConfiguration);
+        set("Slots.Example.ServerChange.Enable", Server_Change, yamlConfiguration);
+        set("Slots.Example.ServerChange.Server", Server_Change_Server, yamlConfiguration);
         set("Slots.Example.OpenGUI.Enable", OpenGUI, yamlConfiguration);
         set("Slots.Example.OpenGUI.GUI", OpenGUI_GUI, yamlConfiguration);
         set("Slots.Example.Message.Enable", Message, yamlConfiguration);

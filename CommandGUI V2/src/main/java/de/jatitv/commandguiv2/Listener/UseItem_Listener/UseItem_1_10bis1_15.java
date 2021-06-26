@@ -54,7 +54,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                             public void run() {
                                 GUI_Give_UseItem.onGive(player);
                             }
-                        }.runTaskLater(Main.getPlugin(), 20L * 1);
+                        }.runTaskLater(Main.plugin, 20L * 1);
                         if (Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin ||Select_config.Cursor_ToGUIItem_OnLogin) {
                             player.getInventory().setHeldItemSlot(slot - 1);
                         }
@@ -102,7 +102,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                             }
                         }
                     }
-                }.runTaskLater(Main.getPlugin(), 20L * 1);
+                }.runTaskLater(Main.plugin, 20L * 1);
                 if (Select_config.Storage.equals("MYSQL") &&Select_config.Bungee) {
                     new BukkitRunnable() {
                         @Override
@@ -110,7 +110,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                             MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
                                     + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '" + Select_config.thisServer + "';");
                         }
-                    }.runTaskLater(Main.getPlugin(), 20L * 3);
+                    }.runTaskLater(Main.plugin, 20L * 3);
                 }
             }
 
@@ -127,7 +127,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                     MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
                             + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = 'Offline';");
                 }
-            }.runTaskLater(Main.getPlugin(), 20L * 2);
+            }.runTaskLater(Main.plugin, 20L * 2);
         }
     }
 
@@ -171,7 +171,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                             public void run() {
                                 GUI_Give_UseItem.onGive(player);
                             }
-                        }.runTaskLater(Main.getPlugin(), 20L * 1);
+                        }.runTaskLater(Main.plugin, 20L * 1);
                     }
                 } else {
                     new BukkitRunnable() {
@@ -179,7 +179,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                         public void run() {
                             GUI_Give_UseItem.onGive(player);
                         }
-                    }.runTaskLater(Main.getPlugin(), 20L * 1);
+                    }.runTaskLater(Main.plugin, 20L * 1);
                 }
             }
         }

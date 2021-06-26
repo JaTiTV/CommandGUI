@@ -18,11 +18,13 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.plugin.Plugin;
 
 import java.lang.reflect.Field;
 import java.util.UUID;
 
 public class GUI_GUI {
+    private static Plugin plugin = Main.plugin;
     public static void openGUI(Player player, GUI_Objekt gui) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
         if (Main.minecraft1_13){
@@ -52,7 +54,7 @@ public class GUI_GUI {
                     if (slot.PlayerHead_Enable) {
                         if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
                             send.player(player, Main.Prefix + "§c Playerheads are only available from version §61.13§c! §7- §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
-                            send.error("Playerheads are only available from version 1.13!");
+                            send.error(plugin,"Playerheads are only available from version 1.13!");
                             send.console(Main.Prefix + " §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
                         } else {
 
@@ -123,7 +125,7 @@ public class GUI_GUI {
                 }
             }
             player.openInventory(inventory);
-            send.debug("§6" + player.getName() + " §5Open §6" + Replace.replace(gui.GUI_Name) + " §5" + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
+            send.debug(plugin,"§6" + player.getName() + " §5Open §6" + Replace.replace(gui.GUI_Name) + " §5" + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
         } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", Replace.replace(gui.GUI_Name)));
     }
 }

@@ -19,7 +19,7 @@ public class JoinEvent implements Listener {
     @EventHandler
     public void onJoinEvent(PlayerLoginEvent event) {
         Player player = event.getPlayer();
-        String foundVersion = Main.getPlugin().getDescription().getVersion();
+        String foundVersion = Main.plugin.getDescription().getVersion();
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
             if (!foundVersion.equals(Main.update_version)) {
                 if (Select_config.UpdateCheckOnJoin) {
@@ -36,7 +36,7 @@ public class JoinEvent implements Listener {
                             player.spigot().sendMessage(comp2);
                             player.sendMessage("§4============ §8[§4Command§9GUI§8] §4============");
                         }
-                    }.runTaskLater(Main.getPlugin(), 200L);
+                    }.runTaskLater(Main.plugin, 200L);
                 }
             }
         }

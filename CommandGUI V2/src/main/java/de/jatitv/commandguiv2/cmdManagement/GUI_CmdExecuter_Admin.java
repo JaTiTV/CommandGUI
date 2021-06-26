@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
@@ -92,6 +93,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
         put("rl", "commandgui.admin");
         put("createdefaultgui", "commandgui.admin");
         put("give", "commandgui.giveitem.other");
+        put("info", "commandgui.command.info");
     }};
 
     @Override
@@ -116,7 +118,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                     }
                 }
             }
-            /*
+
             if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
                 if (sender.hasPermission("commandgui.giveitem.other")) {
                     Iterator var6 = Bukkit.getOnlinePlayers().iterator();
@@ -128,10 +130,10 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 }
                 return list;
             }
-            */
         }
         return list;
     }
+
 
     public static boolean hasPermission(Player player, String permission) {
         if (player.isOp()) {

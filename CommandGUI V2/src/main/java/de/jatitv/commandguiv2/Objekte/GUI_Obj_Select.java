@@ -57,6 +57,8 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Command.Enable"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Command.CommandAsConsole"),
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Command.Command"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".ServerChange.Enable"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".ServerChange.Server"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".OpenGUI.Enable"),
                             yamlConfiguration_gui.getString("Slots." + key + ".OpenGUI.GUI"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Message.Enable"),

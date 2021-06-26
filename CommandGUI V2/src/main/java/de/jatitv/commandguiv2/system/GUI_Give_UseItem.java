@@ -38,7 +38,7 @@ public class GUI_Give_UseItem {
         if (Select_config.UseItem_PlayerHead_Enable) {
             if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
                 send.player(player, Main.Prefix + "§c Playerheads for UseItem are only available from version §61.13§c!");
-                send.error("Playerheads for UseItem are only available from version 1.13!");
+                send.error(Main.plugin, "Playerheads for UseItem are only available from version 1.13!");
             } else {
 
                 if (Select_config.UseItem_Base64_Enable) {
@@ -129,6 +129,6 @@ public class GUI_Give_UseItem {
                     player.getInventory().addItem(item);
                 }
             }
-        }.runTaskLater(Main.getPlugin(), 20L * 1);
+        }.runTaskLater(Main.plugin, 20L * 1);
     }
 }

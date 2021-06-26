@@ -3,14 +3,16 @@ package de.jatitv.commandguiv2.system.config.languages;
 import de.jatitv.commandguiv2.Main;
 import de.jatitv.commandguiv2.system.send;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
 
 public class LanguagesCreate {
+    private static Plugin plugin = Main.plugin;
 
     public static void langCreate() {
-        send.debug("§4Language files are created / updated...");
+        send.debug(plugin,"§4Language files are created / updated...");
         Long long_ = Long.valueOf(System.currentTimeMillis());
 
         /**
@@ -46,6 +48,8 @@ public class LanguagesCreate {
         set("Cost.No_money", MSG.EN_No_money, yamlConfigurationEN);
         set("Cost.NoInventorySpace", MSG.EN_NoInventorySpace, yamlConfigurationEN);
 
+        set("ServerChange.onServerChange", MSG.EN_onServerChange, yamlConfigurationEN);
+
         set("GUI.GUInotFound", MSG.EN_GUInotFound, yamlConfigurationEN);
         set("GUI.GUIisDisabled", MSG.EN_GUIisDisabled, yamlConfigurationEN);
 
@@ -69,7 +73,7 @@ public class LanguagesCreate {
         try {
             yamlConfigurationEN.save(messagesEN);
         } catch (IOException e) {
-            send.warning(e.getMessage());
+            send.warning(plugin,e.getMessage());
             e.printStackTrace();
         }
 
@@ -107,6 +111,8 @@ public class LanguagesCreate {
         set("Cost.No_money", MSG.DE_No_money, yamlConfigurationDE);
         set("Cost.NoInventorySpace", MSG.DE_NoInventorySpace, yamlConfigurationDE);
 
+        set("ServerChange.onServerChange", MSG.DE_onServerChange, yamlConfigurationDE);
+
         set("GUI.GUInotFound", MSG.DE_GUInotFound, yamlConfigurationDE);
         set("GUI.GUIisDisabled", MSG.DE_GUIisDisabled, yamlConfigurationDE);
 
@@ -130,7 +136,7 @@ public class LanguagesCreate {
         try {
             yamlConfigurationDE.save(messagesDE);
         } catch (IOException e) {
-            send.warning(e.getMessage());
+            send.warning(plugin,e.getMessage());
             e.printStackTrace();
         }
 
@@ -169,6 +175,8 @@ public class LanguagesCreate {
         set("Cost.No_money", MSG.NO_No_money, yamlConfigurationNO);
         set("Cost.NoInventorySpace", MSG.NO_NoInventorySpace, yamlConfigurationNO);
 
+        set("ServerChange.onServerChange", MSG.NO_onServerChange, yamlConfigurationNO);
+
         set("GUI.GUInotFound", MSG.NO_GUInotFound, yamlConfigurationNO);
         set("GUI.GUIisDisabled", MSG.NO_GUIisDisabled, yamlConfigurationNO);
 
@@ -192,7 +200,7 @@ public class LanguagesCreate {
         try {
             yamlConfigurationNO.save(messagesNO);
         } catch (IOException e) {
-            send.warning(e.getMessage());
+            send.warning(plugin,e.getMessage());
             e.printStackTrace();
         }
 

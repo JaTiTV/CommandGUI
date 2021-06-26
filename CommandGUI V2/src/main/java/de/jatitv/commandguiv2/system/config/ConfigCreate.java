@@ -144,7 +144,6 @@ public class ConfigCreate {
         set("UseItem.Join.Cursor.ToGUIItem.OnOnlyFirstLogin", Cursor_ToGUIItem_OnlyOnFirstLogin, yamlConfiguration);
         set("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChhange", Cursor_ServerChange_EXPERIMENTELL, yamlConfiguration);
 
-        yamlConfiguration.options().pathSeparator();
         set("Sound.Enable", Sound_Enable, yamlConfiguration);
 
         set("Sound.OpenInventory.Enable", Sound_OpenInventory_Enable, yamlConfiguration);
