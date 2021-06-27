@@ -4,7 +4,11 @@
 
 ---
 
-<img src="https://i.imgur.com/mmnBjBG.pngg" width="600">
+# Links
+* [Download](https://www.spigotmc.org/resources/commandgui-cgui.90671/)
+* [Discord](https://discord.gg/vRyXFFterJ)
+
+<img src="https://i.imgur.com/mmnBjBG.png" width="600">
 
 CommandGUI | FunctionsGUI is a handy plugin that allows you to create as many and different GUIs (user interfaces) as you need for your server.
 
@@ -49,6 +53,4 @@ Optional:
 
 ---
 
-# Links
-* [Download](https://www.spigotmc.org/resources/commandgui-cgui.90671/)
-* [Discord](https://discord.gg/vRyXFFterJ)
+<img src="https://bstats.org/signatures/bukkit/CGUI.svg" width="600">
