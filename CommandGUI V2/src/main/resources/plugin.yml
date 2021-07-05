@@ -1,6 +1,6 @@
 name: CommandGUI
-version: V2.3
-main: de.jatitv.commandguiv2.Main
+version: V2.4
+main: de.jatitv.commandguiv2.Spigot.Main
 api-version: 1.13
 prefix: CommandGUI
 authors: [ JaTiTV ]

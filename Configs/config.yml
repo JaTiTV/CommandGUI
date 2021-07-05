@@ -1,0 +1,71 @@
+Plugin:
+  UpdateCheckOnJoin: true
+  Debug: false
+  HelpAlias: true
+  language: english
+  Currency: $
+  DefaultGUI: default
+Storage:
+  Type: YML
+  MySQL:
+    IP: localhost
+    Port: 3306
+    Database: database
+    User: root
+    Password: password
+    SSL: false
+BungeeCord:
+  Enable: false
+  ThisServer: server
+UseItem:
+  Enable: true
+  AllowToggle: true
+  AllowSetSlot: true
+  BlockMoveAndDrop: true
+  OpenGUI: default
+  Permission:
+    NeededToUse: true
+  InventorySlot:
+    Slot: 1
+    SlotEnforce: false
+    FreeSlot: false
+  Item:
+    Material: paper
+    PlayerHead:
+      Enable: false
+      Base64:
+        Enable: false
+        Base64Value: ''
+      PlayerWhoHasOpenedTheGUI: false
+      Playername: ''
+    Name: '&bDefault &6GUI'
+    Lore:
+    - '&eThis is an example GUI'
+  Join:
+    GiveOnEveryJoin: true
+    GiveOnlyOnFirstJoin: false
+    Cursor:
+      ToGUIItem:
+        OnEveryLogin: true
+        OnOnlyFirstLogin: true
+        EXPERIMENTELL_ServerChhange: false
+Sound:
+  Enable: true
+  OpenInventory:
+    Enable: true
+    Sound: BLOCK_CHEST_OPEN
+  Click:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HAT
+  NoMoney:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HARP
+  NoInventorySpace:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HARP
+  Give:
+    Enable: true
+    Sound: ENTITY_PLAYER_LEVELUP
+  PlayerNotFound:
+    Enable: true
+    Sound: BLOCK_NOTE_BLOCK_HARP

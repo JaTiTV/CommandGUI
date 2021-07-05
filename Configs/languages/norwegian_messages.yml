@@ -1,0 +1,54 @@
+Plugin:
+  VaultNotSetUp: '[prefix] &4Vault / Økonomi har ikke blitt satt opp!'
+  SoundNotFound: '[prefix] &4Lyden &6[sound] &4ble ikke bli funnet! Vennligst sjekk
+    innstillingene.'
+  OnlyForPlayer: '[prefix] &cDenne kommandoen er for spillere kun!'
+  DefaultGUI:
+    create: '[prefix] &2DefaultGUI har blitt laget. Du kan finne den i mappen: &e[directory]&2!'
+  Reload:
+    Start: '[prefix] &6Pluginet blir relastet...'
+    End: '[prefix] &2Pluginet har blitt lastet inn på nytt.'
+    Warning: '[prefix] &6For å skru på / skru av alias kommandoer, relast / restart
+      serveren!'
+NoPermission:
+  ForCommandGUI: '[prefix] &cDu har ikke tilgang til &4Command&9GUI&c!'
+  ForCommand: '[prefix] &cFor &b[cmd] &cmangler du tillatelsen &6[perm]&c!'
+  ForUseItem: '[prefix] &cDu mangler tillatelsen &6[perm] &cfor å bruke gjenstanden
+    i GUI: &6[gui].'
+  ForItem: '[prefix] &cFor &b[item] &cmangler du tillatelsen &6[perm]&c!'
+UseItem:
+  UseItem_ON: '[prefix] &2You have activated the GUI item.'
+  UseItem_OFF: '[prefix] &2You have disabled the GUI item.'
+  Change_Slot: '[prefix] &2You have changed the GUI item to slot: &6[slot]&2.'
+  SlotNotEmpty: '[prefix] &6Plassen &e[slot] &6er opptatt for øyeblikket!'
+  SlotAlreadySet: '[prefix] &6Plassen §e[slot] §6er allerede satt!'
+  ItemSlot_wrongValue: '[prefix] &cDen spesifiserte plassen må være mellom 1 og 9!'
+Cost:
+  Buy_msg: '[prefix] &2Du kjøpte [itemname] &2for &6[price]&2.'
+  No_money: '[prefix] &cDu har ikke nok penger!'
+  NoInventorySpace: '[prefix] &cDu har ikke nok plass i inventaret ditt!'
+ServerChange:
+  onServerChange: '[prefix] &2Du vil bli tilkoblet serveren &e[server]&2.'
+GUI:
+  GUInotFound: '[prefix] &cGUIen som ble spesifisert finnes ikke.'
+  GUIisDisabled: '[prefix] &cGUIen [gui] &cer slått av for øyeblikket!'
+Give:
+  Sender: '[prefix] &2Du har gitt &6[player] &2en [item]&2!'
+  Receiver: '[prefix] &2Du fikk &2, [item] &2fra &6[sender]!'
+Player:
+  PlayerNotFond: '[prefix] &cSpilleren &6[player] &cble ikke funnet eller er ikke
+    pålogget!'
+  PlayerNoInventorySpace: '[prefix] &6[player] &char ikke nok plass i inventaret sitt!'
+Help:
+  CGUI: '&8''''&b/commandgui &8| &b/cgui&8'''' &eÅpne default GUIen &7(&r[gui]&7)&e.'
+  Help: '&8''''&b/commandguihelp&8'''' &eSender denne hjelpe meldingen.'
+  Info: '&8''''&b/commandguiadmin info&8'''' &eKall informasjon fra &4Command&9GUI&e.'
+  Open: '&8''''&b/commandgui [gui]&8'''' &eÅpne GUIen: &6[guiname]&e.'
+  Give: '&8''''&b/commandguiadmin give &7<player>&8'''' &eGi en spiller GUI gjenstanden.'
+  CreateDefaultGUI: '&8''''&b/commandguiadmin createdefaultgui&8'''' &eLag en normalverdi
+    GUI &7([directory])&e.'
+  Reload: '&8''''&b/commandguiadmin reload&8'''' &eLast inn pluginet på nytt.'
+  UseItem_On: '&8''''&b/gui-item on&8'''' &eAktiverer en GUI gjenstand for deg.'
+  UseItem_Off: '&8''''&b/gui-item off&8'''' &eDeaktiverer en GUI gjenstand for deg.'
+  UseItem_Slot: '&8''''&b/gui-item slot [slot]&8'''' &eSett sporet for GUIItem for
+    deg.'
