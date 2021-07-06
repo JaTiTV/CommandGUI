@@ -97,7 +97,7 @@ public class UseItem_1_10bis1_15 implements Listener {
                                     }
                                 }
                                 if (empty) {
-                                    GUI_Give_UseItem.onGiveADD(player.getName());
+                                    GUI_Give_UseItem.onGiveADD(player);
                                 }
                             }
                         }

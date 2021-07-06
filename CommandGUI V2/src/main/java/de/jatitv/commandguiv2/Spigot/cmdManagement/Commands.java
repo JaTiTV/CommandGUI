@@ -128,7 +128,7 @@ public class Commands {
             }
             if (empty) {
                 Select_Database.setItemStatusTrue(player);
-                GUI_Give_UseItem.onGiveADD(player.getName());
+                GUI_Give_UseItem.onGiveADD(player);
                 send.player(player, Select_msg.ItemON);
             } else {
                 player.sendMessage(Select_msg.NoInventorySpace);
