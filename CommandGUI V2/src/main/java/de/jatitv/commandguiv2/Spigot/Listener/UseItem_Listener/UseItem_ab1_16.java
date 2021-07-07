@@ -9,6 +9,7 @@ import de.jatitv.commandguiv2.Spigot.system.database.MySQL;
 import de.jatitv.commandguiv2.Spigot.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
+import de.jatitv.commandguiv2.Spigot.system.send;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -209,7 +210,6 @@ public class UseItem_ab1_16 implements Listener {
                             return;
                         }
                         if (!p.getOpenInventory().getTopInventory().isEmpty()) return;
-                        if (p.getOpenInventory().getTitle() != null) return;
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
                             GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
                             if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
