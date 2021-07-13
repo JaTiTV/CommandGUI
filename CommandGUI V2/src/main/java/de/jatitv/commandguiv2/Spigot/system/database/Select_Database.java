@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 public class Select_Database {
 
-    public static void nameChack(Player player) {
+    public static void nameCheck(Player player) {
         if (Select_config.Storage.equals("MYSQL")) {
 
             MySQL.query("UPDATE `gui-item` SET Name='" + player.getName() + "' WHERE  UUID='" + player.getUniqueId() + "';");
