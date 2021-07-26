@@ -85,10 +85,13 @@ public class GUI_GUI {
                                 if (slot.PlayerWhoHasOpenedTheGUI) {
                                     ItemStack item = new ItemStack(Main.Head);
                                     SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
-                                    itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
                                     if (Main.PaPi) {
+                                        itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
                                         itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
-                                    } else itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + Select_config.Currency));
+                                    } else {
+                                        itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
+                                        itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + Select_config.Currency));
+                                    }
                                     itemMeta.setOwner(player.getName());
                                     item.setItemMeta(itemMeta);
                                     item.setAmount(1);
@@ -96,10 +99,13 @@ public class GUI_GUI {
                                 } else {
                                     ItemStack item = new ItemStack(Main.Head);
                                     SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
-                                    itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
                                     if (Main.PaPi) {
+                                        itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
                                         itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
-                                    } else itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                    } else {
+                                        itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
+                                        itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                    }
                                     itemMeta.setOwner(slot.PlayerName);
                                     item.setItemMeta(itemMeta);
                                     item.setAmount(1);
