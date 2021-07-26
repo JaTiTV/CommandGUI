@@ -44,7 +44,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 case "createdefaultgui":
                     if (sender.hasPermission("commandgui.admin")) {
                         DefaultGUICreate.configCreate();
-                        sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "\\GUIs\\default.yml"));
+                        sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "/GUIs/default.yml"));
                     } else sender.sendMessage(Select_msg.NoPermissionForCommand
                             .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
                     break;

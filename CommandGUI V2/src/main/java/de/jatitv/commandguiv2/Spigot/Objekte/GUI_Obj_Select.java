@@ -42,6 +42,9 @@ public class GUI_Obj_Select {
                 for (String key : yamlConfiguration_gui.getConfigurationSection("Slots").getKeys(false)) {
                     GUI_Slot slot = new GUI_Slot(yamlConfiguration_gui.getInt("Slots." + key + ".Slot") - 1,
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Enable"),
+                         //   yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.Removable"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.Empty"),
+                            yamlConfiguration_gui.getInt("Slots." + key + ".Item.Amount"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.PlayerHead.Enable"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.PlayerHead.Base64.Enable"),
                             yamlConfiguration_gui.getString("Slots." + key + ".Item.PlayerHead.Base64.Base64Value"),
@@ -51,6 +54,7 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getString("Slots." + key + ".Item.Name"),
                             yamlConfiguration_gui.getList("Slots." + key + ".Item.Lore"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".CustomSound.Enable"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".CustomSound.NoSound"),
                             yamlConfiguration_gui.getString("Slots." + key + ".CustomSound.Sound"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Cost.Enable"),
                             yamlConfiguration_gui.getDouble("Slots." + key + ".Cost.Price"),
@@ -64,7 +68,27 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getString("Slots." + key + ".OpenGUI.GUI"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Message.Enable"),
                             yamlConfiguration_gui.getStringList("Slots." + key + ".Message.Message"),
-                            yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Required"));
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".Permission.Required"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.Enable"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.File.Path"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.Option.Path"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.Option.Premat"),
+                           // yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.Value.ChatInput"),
+
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.Value.LeftClick.String"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.Value.LeftClick.Boolean"),
+                            yamlConfiguration_gui.getInt("Slots." + key + ".SetConfig.Value.LeftClick.Integer"),
+                            yamlConfiguration_gui.getDouble("Slots." + key + ".SetConfig.Value.LeftClick.Double"),
+                            yamlConfiguration_gui.getStringList("Slots." + key + ".SetConfig.Value.LeftClick.List"),
+
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.Value.RightClick.String"),
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.Value.RightClick.Boolean"),
+                            yamlConfiguration_gui.getInt("Slots." + key + ".SetConfig.Value.RightClick.Integer"),
+                            yamlConfiguration_gui.getDouble("Slots." + key + ".SetConfig.Value.RightClick.Double"),
+                            yamlConfiguration_gui.getStringList("Slots." + key + ".SetConfig.RightClick.Value.List"),
+
+                            yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.PluginReload.Enable"),
+                            yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.PluginReload.Command"));
                     slots.add(slot);
                     Main.allAliases.add(config_gui.getName().replace(".yml", ""));
                 }

@@ -3,6 +3,7 @@ package de.jatitv.commandguiv2.Spigot.cmdManagement;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Obj_Select;
 import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
+import de.jatitv.commandguiv2.Spigot.cmdManagement.register.AliasRegister;
 import de.jatitv.commandguiv2.Spigot.gui.GUI_GUI;
 import de.jatitv.commandguiv2.Spigot.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Spigot.system.TextBuilder;
@@ -65,6 +66,11 @@ public class Commands {
         GUI_Obj_Select.onSelect();
         Select_msg.onSelect(Prefix);
         Select_config.sound(Main.Prefix);
+        try {
+            AliasRegister.onRegister();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (Select_config.Bungee){
             Bukkit.getMessenger().registerOutgoingPluginChannel(Main.plugin, "commandgui:bungee");
 

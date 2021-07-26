@@ -16,17 +16,19 @@ public class DefaultGUICreate {
     private static Integer GUI_Lines = 1;
     private static String GUI_Name = "&5default &9GUI";
     private static Boolean GUI_FillItem_Enable = true;
-    private static Integer  GUI_FillItem_Item_1_8 = 15;
-    private static String  GUI_FillItem_Item = "BLACK_STAINED_GLASS_PANE";
+    private static Integer GUI_FillItem_Item_1_8 = 15;
+    private static String GUI_FillItem_Item = "BLACK_STAINED_GLASS_PANE";
 
     private static Boolean Command_Alias = true;
     private static Boolean Command_Permission = true;
 
     private static Integer slot = 5;
-    private static Boolean enable= true;
+    private static Boolean enable = true;
+    private static Boolean ItemEmty = false;
+    private static Integer ItemAmout = 1;
     private static Boolean Playerhead_enable = true;
     private static Boolean base64_Enable = true;
-    private static String  base64value = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19";
+    private static String base64value = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19";
     private static Boolean PlayerWhoHasOpenedTheGUI = false;
     private static String PlayerName = "";
     private static String Item = "";
@@ -40,14 +42,15 @@ public class DefaultGUICreate {
             "&eplease contact me so I can fix them.",
             "&8-----------------",
             "&5Discord: §7https://discord.gg/vRyXFFterJ");
-    private static Boolean CustomSound =false;
-    private static String CustomSound_Sound ="";
+    private static Boolean CustomSound = false;
+    private static Boolean CustomSound_NoSound = false;
+    private static String CustomSound_Sound = "";
     private static Boolean Cost = false;
     private static Double Cost_Price = 0.0;
     private static Boolean Command = false;
     private static Boolean BungeeCommand = false;
     private static Boolean CommandAsConsole = false;
-    private static List Commands = Arrays.asList("");
+    private static List Commands = Arrays.asList();
     private static Boolean Server_Change = false;
     private static String Server_Change_Server = "";
     private static Boolean OpenGUI = false;
@@ -56,12 +59,31 @@ public class DefaultGUICreate {
     private static List Messages = Arrays.asList("&6You can find more information on Discord: &ehttps://discord.gg/vRyXFFterJ");
     private static Boolean Permission = false;
 
+    private static Boolean SetConfig_Enable = false;
+    private static String SetConfig_FilePath = "";
+    private static String SetConfig_OptionPath = "";
+    private static String SetConfig_OptionPremat = "String";
+
+    private static String SetConfig_ValueLeftString = "";
+    private static Boolean SetConfig_ValueLeftBoolean = false;
+    private static Integer SetConfig_ValueLeftInteger = 0;
+    private static Double SetConfig_ValueLeftDouble = 0.0;
+    private static List SetConfig_ValueLeftList = Arrays.asList();
+
+    private static String SetConfig_ValueRightString = "";
+    private static Boolean SetConfig_ValueRightBoolean = false;
+    private static Integer SetConfig_ValueRightInteger = 0;
+    private static Double SetConfig_ValueRightDouble = 0.0;
+    private static List SetConfig_ValueRightList = Arrays.asList();
+
+    private static Boolean SetConfig_PluginReloadEnable = false;
+    private static String SetConfig_PluginReloadCommand = "";
+
 
 
     public static void configCreate() {
         Long long_ = Long.valueOf(System.currentTimeMillis());
         send.console(Main.Prefix + " §4Default GUI file (GUIs/default.yml) is loaded...");
-
         File config = new File(Main.getPath(), "GUIs/default.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
@@ -77,6 +99,8 @@ public class DefaultGUICreate {
         set("Command.Permission.Required", Command_Permission, yamlConfiguration);
         set("Slots.Example.Slot", slot, yamlConfiguration);
         set("Slots.Example.Enable", enable, yamlConfiguration);
+        set("Slots.Example.Item.Empty", ItemEmty, yamlConfiguration);
+        set("Slots.Example.Item.Amout", ItemAmout, yamlConfiguration);
         if (!(Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12)) {
             set("Slots.Example.Item.PlayerHead.Enable", Playerhead_enable, yamlConfiguration);
             set("Slots.Example.Item.PlayerHead.Base64.Enable", base64_Enable, yamlConfiguration);
@@ -90,7 +114,8 @@ public class DefaultGUICreate {
         set("Slots.Example.Item.Name", Itemname, yamlConfiguration);
         set("Slots.Example.Item.Lore", ItemLore, yamlConfiguration);
         set("Slots.Example.CustomSound.Enable", CustomSound, yamlConfiguration);
-        set("Slots.Example.CustomSound.Sound", CustomSound_Sound, yamlConfiguration); //ToDo Deaktivierbar für einzelne Slots
+        set("Slots.Example.CustomSound.NoSound", CustomSound_NoSound, yamlConfiguration);
+        set("Slots.Example.CustomSound.Sound", CustomSound_Sound, yamlConfiguration);
         set("Slots.Example.Cost.Enable", Cost, yamlConfiguration);
         set("Slots.Example.Cost.Price", Cost_Price, yamlConfiguration);
         set("Slots.Example.Command.Enable", Command, yamlConfiguration);
@@ -105,11 +130,30 @@ public class DefaultGUICreate {
         set("Slots.Example.Message.Message", Messages, yamlConfiguration);
         set("Slots.Example.Permission.Required", Permission, yamlConfiguration);
 
+        set("Slots.Example.SetConfig.Enable", SetConfig_Enable, yamlConfiguration);
+        set("Slots.Example.SetConfig.File.Path", SetConfig_FilePath, yamlConfiguration);
+        set("Slots.Example.SetConfig.Option.Path", SetConfig_OptionPath, yamlConfiguration);
+        set("Slots.Example.SetConfig.Option.Premat", SetConfig_OptionPremat, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.LeftClick.String", SetConfig_ValueLeftString, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.LeftClick.Boolean", SetConfig_ValueLeftBoolean, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.LeftClick.Integer", SetConfig_ValueLeftInteger, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.LeftClick.Double", SetConfig_ValueLeftDouble, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.LeftClick.List", SetConfig_ValueLeftList, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.RightClick.String", SetConfig_ValueRightString, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.RightClick.Boolean", SetConfig_ValueRightBoolean, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.RightClick.Integer", SetConfig_ValueRightInteger, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.RightClick.Double", SetConfig_ValueRightDouble, yamlConfiguration);
+        set("Slots.Example.SetConfig.Value.RightClick.List", SetConfig_ValueRightList, yamlConfiguration);
+        set("Slots.Example.SetConfig.PluginReload.Enable", SetConfig_PluginReloadEnable, yamlConfiguration);
+        set("Slots.Example.SetConfig.PluginReload.Command", SetConfig_PluginReloadCommand, yamlConfiguration);
+
+
         try {
             yamlConfiguration.save(config);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         send.console(Main.Prefix + " §2Default GUI file (GUIs/default.yml) was loaded." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
     }
@@ -137,6 +181,7 @@ public class DefaultGUICreate {
             config.set(path, value);
         }
     }
+
     private static void set(String path, Double value, YamlConfiguration config) {
         if (!config.contains(path)) {
             config.set(path, value);
