@@ -15,7 +15,6 @@ Slots:
     Enable: true
     Item:
       Empty: false
-      Removable: false
       Amount: 1
       PlayerHead:
         Enable: true
