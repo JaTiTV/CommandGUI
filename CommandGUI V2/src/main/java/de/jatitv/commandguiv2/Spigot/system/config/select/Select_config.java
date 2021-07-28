@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Select_config {
 
+    public static Boolean DisableUpdateChecker;
     public static Boolean UpdateCheckOnJoin;
     public static Boolean Debug;
     public static Boolean HelpAlias;
@@ -81,6 +82,9 @@ public class Select_config {
         File config = new File(Main.getPath(), "config.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
+        if (yamlConfiguration.get("Plugin.DisableUpdateChecker") == null){
+            DisableUpdateChecker = false;
+        } else DisableUpdateChecker = yamlConfiguration.getBoolean("Plugin.DisableUpdateChecker");
         UpdateCheckOnJoin = yamlConfiguration.getBoolean("Plugin.UpdateCheckOnJoin");
         Debug = yamlConfiguration.getBoolean("Plugin.Debug");
         HelpAlias = yamlConfiguration.getBoolean("Plugin.HelpAlias");

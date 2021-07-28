@@ -12,6 +12,7 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Main;
+import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -30,25 +31,27 @@ public class UpdateChecker {
                 (new UpdateChecker(Main.plugin, Main.SpigotID)).getVersion((update_version) -> {
                     String foundVersion = Main.plugin.getDescription().getVersion();
                     Main.update_version = update_version;
-                    if (!foundVersion.equalsIgnoreCase(update_version)) {
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
-                                send.console("§6A new version was found!");
-                                send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + update_version);
-                                send.console("§6You can download it here: §e" + Main.Spigot);
-                                send.console("§6You can find more information on Discord: §e" + Main.Discord);
-                                send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
-                            }
-                        }.runTaskLater(Main.plugin, 600L);
-                    } else {
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                send.console(Main.Prefix + " §2No update found");
-                            }
-                        }.runTaskLater(Main.plugin, 120L);
+                    if (!Select_config.DisableUpdateChecker) {
+                        if (!foundVersion.equalsIgnoreCase(update_version)) {
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
+                                    send.console("§6A new version was found!");
+                                    send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + update_version);
+                                    send.console("§6You can download it here: §e" + Main.Spigot);
+                                    send.console("§6You can find more information on Discord: §e" + Main.Discord);
+                                    send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
+                                }
+                            }.runTaskLater(Main.plugin, 600L);
+                        } else {
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    send.console(Main.Prefix + " §2No update found");
+                                }
+                            }.runTaskLater(Main.plugin, 120L);
+                        }
                     }
                 });
             }

@@ -2,6 +2,7 @@ package de.jatitv.commandguiv2.Spigot.Objekte;
 
 import de.jatitv.commandguiv2.Spigot.cmdManagement.GUI_CmdExecuter_GUI;
 import de.jatitv.commandguiv2.Spigot.Main;
+import de.jatitv.commandguiv2.Spigot.system.send;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -13,8 +14,10 @@ public class GUI_Obj_Select {
         Main.guiHashMap.clear();
         File f = new File(Main.getPath() + "/GUIs/");
         File[] fileArray = f.listFiles();
+        Main.allAliases.clear();
 
         for (File config_gui : fileArray) {
+            Main.allAliases.add(config_gui.getName().replace(".yml", ""));
             String sub = config_gui.getName().substring(config_gui.getName().length() - 4);
             if (sub.equals(".yml")) {
                 YamlConfiguration yamlConfiguration_gui = YamlConfiguration.loadConfiguration(config_gui);
@@ -90,7 +93,7 @@ public class GUI_Obj_Select {
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".SetConfig.PluginReload.Enable"),
                             yamlConfiguration_gui.getString("Slots." + key + ".SetConfig.PluginReload.Command"));
                     slots.add(slot);
-                    Main.allAliases.add(config_gui.getName().replace(".yml", ""));
+
                 }
                 GUI_Objekt objekt = new GUI_Objekt(GUI_Enable, GUI_Lines, GUI_Name, GUI_FillItem_Enable, GUI_FillItem_Item,
                         config_gui.getName().replace(".yml", ""), Command_Alias_Enable, Command_Permission, slots);
