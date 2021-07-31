@@ -142,7 +142,7 @@ public class ConfigCreate {
         set("UseItem.Join.GiveOnlyOnFirstJoin", UseItem_GiveOnlyOnFirstJoin, yamlConfiguration);
         set("UseItem.Join.Cursor.ToGUIItem.OnEveryLogin", Cursor_ToGUIItem_OnLogin, yamlConfiguration);
         set("UseItem.Join.Cursor.ToGUIItem.OnOnlyFirstLogin", Cursor_ToGUIItem_OnlyOnFirstLogin, yamlConfiguration);
-        set("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChhange", Cursor_ServerChange_EXPERIMENTELL, yamlConfiguration);
+        set("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChange", Cursor_ServerChange_EXPERIMENTELL, yamlConfiguration);
 
         set("Sound.Enable", Sound_Enable, yamlConfiguration);
 

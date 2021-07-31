@@ -82,7 +82,7 @@ public class Select_config {
         File config = new File(Main.getPath(), "config.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
-        if (yamlConfiguration.get("Plugin.DisableUpdateChecker") == null){
+        if (yamlConfiguration.get("Plugin.DisableUpdateChecker") == null) {
             DisableUpdateChecker = false;
         } else DisableUpdateChecker = yamlConfiguration.getBoolean("Plugin.DisableUpdateChecker");
         UpdateCheckOnJoin = yamlConfiguration.getBoolean("Plugin.UpdateCheckOnJoin");
@@ -105,7 +105,6 @@ public class Select_config {
         thisServer = yamlConfiguration.getString("BungeeCord.ThisServer");
 
 
-
         UseItem_Enable = yamlConfiguration.getBoolean("UseItem.Enable");
         UseItem_AllowToggle = yamlConfiguration.getBoolean("UseItem.AllowToggle");
         UseItem_AllowSetSlot = yamlConfiguration.getBoolean("UseItem.AllowSetSlot");
@@ -125,7 +124,7 @@ public class Select_config {
         UseItem_Lore = yamlConfiguration.getList("UseItem.Item.Lore");
         UseItem_GiveOnEveryJoin = yamlConfiguration.getBoolean("UseItem.Join.GiveOnEveryJoin");
         UseItem_GiveOnlyOnFirstJoin = yamlConfiguration.getBoolean("UseItem.Join.GiveOnlyOnFirstJoin");
-        UseItem_ServerChange = yamlConfiguration.getBoolean("UseItem.Join.Cursor.ToGUIItem.ServerChange");
+        UseItem_ServerChange = yamlConfiguration.getBoolean("UseItem.Join.Cursor.ToGUIItem.EXPERIMENTELL_ServerChange");
         Cursor_ToGUIItem_OnLogin = yamlConfiguration.getBoolean("UseItem.Join.Cursor.ToGUIItem.OnLogin");
         Cursor_ToGUIItem_OnlyOnFirstLogin = yamlConfiguration.getBoolean("UseItem.Join.Cursor.ToGUIItem.OnlyOnFirstLogin");
 
@@ -147,10 +146,10 @@ public class Select_config {
 
     }
 
-    public static void sound(String Prefix){
+    public static void sound(String Prefix) {
         String soundOpenInventory;
         if (Main.minecraft1_8) {
-            soundOpenInventory = ConfigCreate.Sound_OpenInventory_1_8 ;
+            soundOpenInventory = ConfigCreate.Sound_OpenInventory_1_8;
         } else {
             soundOpenInventory = ConfigCreate.Sound_OpenInventory_ab_1_9;
         }

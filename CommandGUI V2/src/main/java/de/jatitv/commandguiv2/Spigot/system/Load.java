@@ -68,7 +68,7 @@ public class Load {
             e.printStackTrace();
         }
 
-        if (Select_config.Bungee){
+        if (Select_config.Bungee) {
             Bukkit.getMessenger().registerOutgoingPluginChannel(Main.plugin, "commandgui:bungee");
         }
 
@@ -170,8 +170,9 @@ public class Load {
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), plugin);
         } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), plugin);
 
-
-        UpdateChecker.onUpdateCheck();
+        if (!Select_config.DisableUpdateChecker) {
+            UpdateChecker.onUpdateCheck();
+        } else send.console(Main.Prefix + " §4UpdateCheck is disabled!");
         Metrics.Bstats();
         send.console(Prefix + " §8-------------------------------");
         send.console(Prefix + " §2Plugin loaded successfully." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");

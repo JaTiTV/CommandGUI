@@ -23,21 +23,23 @@ public class JoinEvent implements Listener {
         Select_Database.nameCheck(player);
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
             if (!foundVersion.equals(Main.update_version)) {
-                if (Select_config.UpdateCheckOnJoin) {
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            player.sendMessage("§4============ §8[§4Command§9GUI§8] §4============");
-                            player.sendMessage("§6A new version was found!");
-                            TextComponent comp = new TextBuilder("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version)
-                                    .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
-                            player.spigot().sendMessage(comp);
-                            TextComponent comp2 = new TextBuilder("§6You can find more information on Discord.")
-                                    .addHover("§e" + Main.Discord).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Discord).build();
-                            player.spigot().sendMessage(comp2);
-                            player.sendMessage("§4============ §8[§4Command§9GUI§8] §4============");
-                        }
-                    }.runTaskLater(Main.plugin, 200L);
+                if (!Select_config.DisableUpdateChecker) {
+                    if (Select_config.UpdateCheckOnJoin) {
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                player.sendMessage("§4============ §8[§4Command§9GUI§8] §4============");
+                                player.sendMessage("§6A new version was found!");
+                                TextComponent comp = new TextBuilder("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + Main.update_version)
+                                        .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
+                                player.spigot().sendMessage(comp);
+                                TextComponent comp2 = new TextBuilder("§6You can find more information on Discord.")
+                                        .addHover("§e" + Main.Discord).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Discord).build();
+                                player.spigot().sendMessage(comp2);
+                                player.sendMessage("§4============ §8[§4Command§9GUI§8] §4============");
+                            }
+                        }.runTaskLater(Main.plugin, 200L);
+                    }
                 }
             }
         }
