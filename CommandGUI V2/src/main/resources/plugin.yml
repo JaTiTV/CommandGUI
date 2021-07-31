@@ -1,5 +1,5 @@
 name: CommandGUI
-version: V2.5
+version: V2.5.1
 main: de.jatitv.commandguiv2.Spigot.Main
 api-version: 1.13
 prefix: CommandGUI
