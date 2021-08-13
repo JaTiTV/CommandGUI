@@ -211,7 +211,7 @@ public class UseItem_ab1_16 implements Listener {
                         }
                         if (!p.getOpenInventory().getTopInventory().isEmpty()) return;
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
-                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
+                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI), Select_config.UseItem_OpenGUI);
                             if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                                 p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                             }
@@ -231,7 +231,7 @@ public class UseItem_ab1_16 implements Listener {
                         }
                         if (!p.getOpenInventory().getTopInventory().isEmpty()) return;
                         if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
-                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI));
+                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI), Select_config.UseItem_OpenGUI);
                             if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                                 p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                             }

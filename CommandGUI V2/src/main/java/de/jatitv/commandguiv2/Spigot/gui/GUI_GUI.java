@@ -10,6 +10,8 @@ import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.Replace;
 import de.jatitv.commandguiv2.Spigot.system.send;
+import de.jatitv.plotsquaredgui.gui.guis.GUI_Menu;
+import io.github.solyze.plugmangui.inventories.PluginListGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,8 +28,31 @@ import java.util.UUID;
 public class GUI_GUI {
     private static Plugin plugin = Main.plugin;
 
-    public static void openGUI(Player player, GUI_Objekt gui) {
+    public static void openGUI(Player player, GUI_Objekt gui, String guiString) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
+        switch (guiString) {
+            case "plugin.PlotSquaredGUI":
+                if (Main.PlotSquaredGUI) {
+                    GUI_Menu.openGUI(player);
+                } else {
+                    if (player.hasPermission("commandgui.admin")) {
+                        send.player(player, Main.Prefix + " §4PlotSquaredGUI could not be found! §9Please download it here: " +
+                                "§6https://spigotmc.org/resources/plotsquaredgui.77506/");
+                    }
+                }
+                return;
+            case "plugin.PlugManGUI":
+                if (Main.PlugManGUI){
+                    player.openInventory((new PluginListGUI(54,1)).getInventory());
+                } else {
+                    if (player.hasPermission("commandgui.admin")) {
+                        send.player(player, Main.Prefix + " §4PlugManGUI could not be found! §9Please download it here: " +
+                                "§6https://spigotmc.org/resources/plugmangui.87599/");
+                    }
+                }
+                return;
+        }
+
         if (Main.minecraft1_13) {
             GUI_Listener.GUICode = "";
         } else GUI_Listener.GUICode = "§6§8§9§r";

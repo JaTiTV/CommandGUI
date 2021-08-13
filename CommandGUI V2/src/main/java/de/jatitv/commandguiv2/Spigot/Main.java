@@ -6,6 +6,7 @@ import de.jatitv.commandguiv2.Spigot.system.send;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
+
+
     public static File getPath() {
         return plugin.getDataFolder();
     }
@@ -36,6 +39,8 @@ public final class Main extends JavaPlugin {
 
     public static String update_version = null;
     public static Boolean PaPi = false;
+    public static Boolean PlotSquaredGUI = false;
+    public static Boolean PlugManGUI = false;
 
     public static Material Head;
 
@@ -52,7 +57,7 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_17;
     public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
     public static ArrayList<String> allAliases = new ArrayList<>();
-    
+
     @Override
     public void onEnable() {
         Plugins = Arrays.asList(getServer().getPluginManager().getPlugins());
@@ -80,7 +85,9 @@ public final class Main extends JavaPlugin {
         } else Head = Material.valueOf("PLAYER_HEAD");
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) PaPi = true;
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI").isEnabled()) {
+            PaPi = true;
+        }
 
         Load.onLoad(Prefix, Autor, Version, Spigot, Discord);
 
@@ -93,11 +100,30 @@ public final class Main extends JavaPlugin {
          */
     }
 
+    public static void addonLoad(){
+        if (Bukkit.getPluginManager().getPlugin("PlotSquaredGUI").isEnabled()) {
+            PlotSquaredGUI = true;
+            addonEnable(Bukkit.getPluginManager().getPlugin("PlotSquaredGUI"));
+        }
+        if (Bukkit.getPluginManager().getPlugin("PlugManGUI").isEnabled()) {
+            PlugManGUI = true;
+            addonEnable(Bukkit.getPluginManager().getPlugin("PlugManGUI"));
+        }
+    }
+
+    public static void addonEnable(Plugin plugin) {
+        send.console(Prefix + " §aAddon for: §e" + plugin.getName() + "§7 - Version: " + plugin.getDescription().getVersion() + " §aloaded successfully!");
+    }
+
+    public static void addonNotFound() {
+
+    }
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
         send.console(Main.Prefix + "§4============================= §8[§4Command§9GUI§8] §4=============================");
-        send.console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", "") );
+        send.console(Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
         send.console(Prefix + " §2Version: §6" + Version);
         send.console(Prefix + " §2Spigot: §6" + Spigot);
         send.console(Prefix + " §2Discord: §6" + Discord);

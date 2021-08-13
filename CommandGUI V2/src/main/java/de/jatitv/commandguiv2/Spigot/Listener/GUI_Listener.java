@@ -97,7 +97,7 @@ public class GUI_Listener implements Listener {
                                                             new BukkitRunnable() {
                                                                 @Override
                                                                 public void run() {
-                                                                    GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
+                                                                    GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
                                                                 }
                                                             }.runTaskLater(plugin, 2L);
                                                         }
@@ -266,7 +266,7 @@ public class GUI_Listener implements Listener {
                                                         @Override
                                                         public void run() {
 
-                                                            GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI));
+                                                            GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
                                                         }
                                                     }.runTaskLater(plugin, 2L);
                                                 }

@@ -174,6 +174,7 @@ public class Load {
             UpdateChecker.onUpdateCheck();
         } else send.console(Main.Prefix + " §4UpdateCheck is disabled!");
         Metrics.Bstats();
+        Main.addonLoad();
         send.console(Prefix + " §8-------------------------------");
         send.console(Prefix + " §2Plugin loaded successfully." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
 

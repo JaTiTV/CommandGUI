@@ -1,11 +1,11 @@
 name: CommandGUI
-version: V2.5.2
-main: de.jatitv.commandguiv2.Spigot.Main
+version: V2.5.3
+main: de.jatitv.comandguiv2.Spigot.Main
 api-version: 1.13
 prefix: CommandGUI
 authors: [ JaTiTV ]
 
-softdepend: [Vault, PlaceholderAPI]
+softdepend: [Vault, PlaceholderAPI, PlotSquaredGUI, PlugManGUI]
 
 commands:
   commandgui:
@@ -15,7 +15,7 @@ commands:
     description: CommandGUI Help
     aliases: [cguihelp, guihelp]
   commandguiadmin:
-    aliases: [ cguiadmin ]
+    aliases: [cguiadmin, cguia]
   commandgui-item:
     aliases: [gui-item]
 

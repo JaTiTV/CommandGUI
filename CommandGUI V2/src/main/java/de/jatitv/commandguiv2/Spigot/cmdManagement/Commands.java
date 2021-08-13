@@ -209,7 +209,7 @@ public class Commands {
             GUI_Objekt gui = Main.guiHashMap.get(Select_config.DefaultGUI);
             if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
                 if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.bypass")) {
-                    GUI_GUI.openGUI(player, gui);
+                    GUI_GUI.openGUI(player, gui, Select_config.DefaultGUI);
                     if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                         player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                     }
@@ -223,7 +223,7 @@ public class Commands {
             GUI_Objekt gui = Main.guiHashMap.get(arg);
             if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
                 if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui.Command_Command) || player.hasPermission("commandgui.bypass")) {
-                    GUI_GUI.openGUI(player, gui);
+                    GUI_GUI.openGUI(player, gui, arg);
                     if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
                         player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
                     }
