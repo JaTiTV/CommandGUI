@@ -30,7 +30,6 @@ public class LanguagesCreate {
         set("Plugin.DefaultGUI.create", MSG.EN_DefaultGUI, yamlConfigurationEN);
         set("Plugin.Reload.Start", MSG.EN_ReloadStart, yamlConfigurationEN);
         set("Plugin.Reload.End", MSG.EN_ReloadEnd, yamlConfigurationEN);
-        set("Plugin.Reload.Warning", MSG.EN_ReloadWarning, yamlConfigurationEN);
 
         set("NoPermission.ForCommandGUI", MSG.EN_NoPermission, yamlConfigurationEN);
         set("NoPermission.ForCommand", MSG.EN_NoPermissionForCommand, yamlConfigurationEN);
@@ -93,7 +92,6 @@ public class LanguagesCreate {
         set("Plugin.DefaultGUI.create", MSG.DE_DefaultGUI, yamlConfigurationDE);
         set("Plugin.Reload.Start", MSG.DE_ReloadStart, yamlConfigurationDE);
         set("Plugin.Reload.End", MSG.DE_ReloadEnd, yamlConfigurationDE);
-        set("Plugin.Reload.Warning", MSG.DE_ReloadWarning, yamlConfigurationDE);
 
         set("NoPermission.ForCommandGUI", MSG.DE_NoPermission, yamlConfigurationDE);
         set("NoPermission.ForCommand", MSG.DE_NoPermissionForCommand, yamlConfigurationDE);
@@ -157,7 +155,6 @@ public class LanguagesCreate {
         set("Plugin.DefaultGUI.create", MSG.NO_DefaultGUI, yamlConfigurationNO);
         set("Plugin.Reload.Start", MSG.NO_ReloadStart, yamlConfigurationNO);
         set("Plugin.Reload.End", MSG.NO_ReloadEnd, yamlConfigurationNO);
-        set("Plugin.Reload.Warning", MSG.NO_ReloadWarning, yamlConfigurationNO);
 
         set("NoPermission.ForCommandGUI", MSG.NO_NoPermission, yamlConfigurationNO);
         set("NoPermission.ForCommand", MSG.NO_NoPermissionForCommand, yamlConfigurationNO);

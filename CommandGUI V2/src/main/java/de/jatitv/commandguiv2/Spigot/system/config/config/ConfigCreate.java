@@ -1,4 +1,4 @@
-package de.jatitv.commandguiv2.Spigot.system.config;
+package de.jatitv.commandguiv2.Spigot.system.config.config;
 
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.send;

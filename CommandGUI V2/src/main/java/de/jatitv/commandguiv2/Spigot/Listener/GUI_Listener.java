@@ -1,11 +1,11 @@
 package de.jatitv.commandguiv2.Spigot.Listener;
 
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Slot;
-import de.jatitv.commandguiv2.Spigot.gui.GUI_GUI;
+import de.jatitv.commandguiv2.Spigot.Objekte.Slot;
 import de.jatitv.commandguiv2.Spigot.system.BCommand_Sender_Reciver;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
+import de.jatitv.commandguiv2.Spigot.Objekte.Objekt;
+import de.jatitv.commandguiv2.Spigot.gui.OpenGUI;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.Replace;
 import de.jatitv.commandguiv2.Spigot.system.Vault;
@@ -33,11 +33,11 @@ public class GUI_Listener implements Listener {
     public void onInventoryClick(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
         if (e.getInventory() != null && e.getCurrentItem() != null) {
-            for (GUI_Objekt gui : Main.guiHashMap.values()) {
+            for (Objekt gui : Main.guiHashMap.values()) {
                 if (player.getOpenInventory().getTitle().equals(Replace.replace(GUICode + gui.GUI_Name))
                         || (Main.PaPi && player.getOpenInventory().getTitle().equals(Replace.replace(player, GUICode + gui.GUI_Name)))) {
                     e.setCancelled(true);
-                    for (GUI_Slot slot : gui.GUI_Slots) {
+                    for (Slot slot : gui.GUI_Slots) {
                        /* if (!slot.ItemsRemovable) {
                             e.setCancelled(true);
                         }
@@ -54,8 +54,8 @@ public class GUI_Listener implements Listener {
                                             if (slot.Cost_Enable) {
                                                 if (slot.Command_Enable || slot.Message_Enable || slot.OpenGUI_Enable || slot.ServerChange) {
                                                     if (Vault.buy(player, slot.Price)) {
-                                                        player.sendMessage(Select_msg.Buy_msg.replace("[itemname]", Replace.replace(slot.Name))
-                                                                .replace("[price]", slot.Price + " " + Select_config.Currency));
+                                                        player.sendMessage(SelectMessages.Buy_msg.replace("[itemname]", Replace.replace(slot.Name))
+                                                                .replace("[price]", slot.Price + " " + SelectConfig.Currency));
                                                         if (slot.Command_Enable) {
 
                                                             new BukkitRunnable() {
@@ -68,7 +68,7 @@ public class GUI_Listener implements Listener {
                                                             new BukkitRunnable() {
                                                                 @Override
                                                                 public void run() {
-                                                                    if (slot.Command_BungeeCommand && Select_config.Bungee) {
+                                                                    if (slot.Command_BungeeCommand && SelectConfig.Bungee) {
                                                                         for (String cmd : slot.Command) {
                                                                             BCommand_Sender_Reciver.sendToBungee(player.getName(), cmd.replace("[player]", player.getName()));
                                                                         }
@@ -97,7 +97,7 @@ public class GUI_Listener implements Listener {
                                                             new BukkitRunnable() {
                                                                 @Override
                                                                 public void run() {
-                                                                    GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
+                                                                    OpenGUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
                                                                 }
                                                             }.runTaskLater(plugin, 2L);
                                                         }
@@ -124,7 +124,7 @@ public class GUI_Listener implements Listener {
                                                                 }
                                                             }.runTaskLater(plugin, 1L);
 
-                                                            send.player(player, Select_msg.onServerChange.replace("[server]", slot.ServerChangeServer));
+                                                            send.player(player, SelectMessages.onServerChange.replace("[server]", slot.ServerChangeServer));
                                                             new BukkitRunnable() {
                                                                 @Override
                                                                 public void run() {
@@ -188,20 +188,20 @@ public class GUI_Listener implements Listener {
                                                             }.runTaskLater(plugin, 1L);
                                                         }
 
-                                                        if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
+                                                        if (SelectConfig.Sound_Enable && SelectConfig.Sound_Click_Enable) {
                                                             if (slot.CustomSound_Enable) {
                                                                 if (!slot.CustomSound_NoSound) {
                                                                     try {
                                                                         player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
 
                                                                     } catch (Exception e1) {
-                                                                        send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Main.Prefix)
+                                                                        send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Main.Prefix)
                                                                                 .replace("[sound]", "§6GUI: §e" + Replace.replace(gui.GUI_Name) + "§r §6Slot: §e" + slot.Slot + " §6CustomSound: §9" + slot.CustomSound_Sound));
-                                                                        player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
+                                                                        player.playSound(player.getLocation(), SelectConfig.Sound_Click, 3, 1);
                                                                     }
                                                                 }
                                                             } else
-                                                                player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
+                                                                player.playSound(player.getLocation(), SelectConfig.Sound_Click, 3, 1);
                                                         }
 
                                                     } else {
@@ -213,9 +213,9 @@ public class GUI_Listener implements Listener {
                                                             }
                                                         }.runTaskLater(plugin, 1L);
 
-                                                        player.sendMessage(Select_msg.No_money);
-                                                        if (Select_config.Sound_NoMoney_Enable && Select_config.Sound_Enable) {
-                                                            player.playSound(player.getLocation(), Select_config.Sound_NoMoney, 3, 1);
+                                                        player.sendMessage(SelectMessages.No_money);
+                                                        if (SelectConfig.Sound_NoMoney_Enable && SelectConfig.Sound_Enable) {
+                                                            player.playSound(player.getLocation(), SelectConfig.Sound_NoMoney, 3, 1);
                                                         }
                                                     }
                                                 }
@@ -232,7 +232,7 @@ public class GUI_Listener implements Listener {
                                                         @Override
                                                         public void run() {
                                                             if (slot.Command_BungeeCommand) {
-                                                                if (Select_config.Bungee) {
+                                                                if (SelectConfig.Bungee) {
                                                                     for (String cmd : slot.Command) {
                                                                         BCommand_Sender_Reciver.sendToBungee(player.getName(), cmd.replace("[player]", player.getName()));
                                                                     }
@@ -266,7 +266,7 @@ public class GUI_Listener implements Listener {
                                                         @Override
                                                         public void run() {
 
-                                                            GUI_GUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
+                                                            OpenGUI.openGUI(player, Main.guiHashMap.get(slot.OpenGUI), slot.OpenGUI);
                                                         }
                                                     }.runTaskLater(plugin, 2L);
                                                 }
@@ -294,7 +294,7 @@ public class GUI_Listener implements Listener {
                                                         }
                                                     }.runTaskLater(plugin, 1L);
 
-                                                    send.player(player, Select_msg.onServerChange.replace("[server]", slot.ServerChangeServer));
+                                                    send.player(player, SelectMessages.onServerChange.replace("[server]", slot.ServerChangeServer));
 
 
                                                     new BukkitRunnable() {
@@ -359,27 +359,27 @@ public class GUI_Listener implements Listener {
                                                         }
                                                     }.runTaskLater(plugin, 1L);
                                                 }
-                                                if (Select_config.Sound_Enable && Select_config.Sound_Click_Enable) {
+                                                if (SelectConfig.Sound_Enable && SelectConfig.Sound_Click_Enable) {
                                                     if (slot.CustomSound_Enable) {
                                                         if (!slot.CustomSound_NoSound) {
                                                             try {
                                                                 player.playSound(player.getLocation(), Sound.valueOf(slot.CustomSound_Sound.toUpperCase().replace(".", "_")), 3, 1);
 
                                                             } catch (Exception e1) {
-                                                                send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Main.Prefix)
+                                                                send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Main.Prefix)
                                                                         .replace("[sound]", "§6GUI: §e" + Replace.replace(gui.GUI_Name) + "§r §6Slot: §e" + slot.Slot + " §6CustomSound: §9" + slot.CustomSound_Sound));
-                                                                player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
+                                                                player.playSound(player.getLocation(), SelectConfig.Sound_Click, 3, 1);
                                                             }
                                                         }
                                                     } else
-                                                        player.playSound(player.getLocation(), Select_config.Sound_Click, 3, 1);
+                                                        player.playSound(player.getLocation(), SelectConfig.Sound_Click, 3, 1);
                                                 }
                                             }
                                         }
                                     }
                                 }
                             } else {
-                                player.sendMessage(Select_msg.NoPermissionForItem.replace("[item]", Replace.replace(slot.Name))
+                                player.sendMessage(SelectMessages.NoPermissionForItem.replace("[item]", Replace.replace(slot.Name))
                                         .replace("[perm]", "commandgui.gui." + gui.Command_Command + ".slot." + (slot.Slot + 1)));
                             }
                         }

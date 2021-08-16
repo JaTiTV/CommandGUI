@@ -2,7 +2,7 @@ package de.jatitv.commandguiv2.Spigot.cmdManagement;
 
 import de.jatitv.commandguiv2.Spigot.system.Debug;
 import de.jatitv.commandguiv2.Spigot.system.config.DefaultGUICreate;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import de.jatitv.commandguiv2.Spigot.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
+public class CmdExecuter_Admin implements CommandExecutor, TabCompleter {
     String Prefix;
 
     @Override
@@ -30,7 +30,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 case "info":
                     if (sender.hasPermission("commandgui.command.info")) {
                         Commands.info(sender);
-                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                    } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                             .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.command.info"));
 
                     break;
@@ -38,14 +38,14 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                 case "rl":
                     if (sender.hasPermission("commandgui.admin")) {
                         Commands.reload(sender);
-                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                    } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                             .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
                     break;
                 case "createdefaultgui":
                     if (sender.hasPermission("commandgui.admin")) {
                         DefaultGUICreate.configCreate();
-                        sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "/GUIs/default.yml"));
-                    } else sender.sendMessage(Select_msg.NoPermissionForCommand
+                        sender.sendMessage(SelectMessages.DefaultGUIcreate.replace("[directory]", Main.getPath() + "/GUIs/default.yml"));
+                    } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                             .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
                     break;
                 case "debug":
@@ -63,7 +63,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                         } else Debug.debugmsg();
 
                          */
-                    } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
+                    } else sender.sendMessage(SelectMessages.NoPermissionForCommand.replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
                     break;
 
                 case "give":
@@ -71,7 +71,7 @@ public class GUI_CmdExecuter_Admin implements CommandExecutor, TabCompleter {
                         if (sender.hasPermission("commandgui.giveitem.other")) {
                             Player target = Bukkit.getPlayer(args[1]);
                             Commands.give(sender, target);
-                        } else sender.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui give")
+                        } else sender.sendMessage(SelectMessages.NoPermissionForCommand.replace("[cmd]", "/commandgui give")
                                 .replace("[perm]", "commandgui.command.give"));
                     } else Help.sendHelp(sender, Prefix);
                     break;

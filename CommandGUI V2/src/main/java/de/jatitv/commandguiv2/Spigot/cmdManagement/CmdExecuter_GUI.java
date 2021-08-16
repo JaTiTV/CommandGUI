@@ -1,6 +1,6 @@
 package de.jatitv.commandguiv2.Spigot.cmdManagement;
 
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import de.jatitv.commandguiv2.Spigot.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GUI_CmdExecuter_GUI implements CommandExecutor, TabCompleter {
+public class CmdExecuter_GUI implements CommandExecutor, TabCompleter {
     String Prefix;
 
     @Override
@@ -25,7 +25,7 @@ public class GUI_CmdExecuter_GUI implements CommandExecutor, TabCompleter {
             } else {
                 Commands.gui(player, args[0]);
             }
-        } else sender.sendMessage(Select_msg.OnlyForPlayer);
+        } else sender.sendMessage(SelectMessages.OnlyForPlayer);
         return false;
     }
 

@@ -1,14 +1,14 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Listener.UseItem_Listener.UseItem_1_10bis1_15;
-import de.jatitv.commandguiv2.Spigot.Listener.UseItem_Listener.UseItem_1_8bis1_9;
 import de.jatitv.commandguiv2.Spigot.Listener.UseItem_Listener.UseItem_ab1_16;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.cmdManagement.Commands;
 import de.jatitv.commandguiv2.Spigot.cmdManagement.Help;
 import de.jatitv.commandguiv2.Spigot.system.config.DefaultGUICreate;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
+import de.jatitv.commandguiv2.Spigot.Listener.UseItem_Listener.UseItem_1_8bis1_9;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -64,22 +64,22 @@ public class API {
     public static void sendPluginInfo(CommandSender sender) {
         if (sender.hasPermission("commandgui.command.info")) {
             Commands.info(sender);
-        } else sender.sendMessage(Select_msg.NoPermissionForCommand
+        } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                 .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.command.info"));
     }
 
     public static void createDefaultGUI(CommandSender sender) {
         if (sender.hasPermission("commandgui.admin")) {
             DefaultGUICreate.configCreate();
-            sender.sendMessage(Select_msg.DefaultGUIcreate.replace("[directory]", Main.getPath() + "\\GUIs\\default.yml"));
-        } else sender.sendMessage(Select_msg.NoPermissionForCommand
+            sender.sendMessage(SelectMessages.DefaultGUIcreate.replace("[directory]", Main.getPath() + "\\GUIs\\default.yml"));
+        } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                 .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
     }
 
     public static void reload(CommandSender sender) {
         if (sender.hasPermission("commandgui.admin")) {
             Commands.reload(sender);
-        } else sender.sendMessage(Select_msg.NoPermissionForCommand
+        } else sender.sendMessage(SelectMessages.NoPermissionForCommand
                 .replace("[cmd]", "/commandguiadmin").replace("[perm]", "commandgui.admin"));
     }
 

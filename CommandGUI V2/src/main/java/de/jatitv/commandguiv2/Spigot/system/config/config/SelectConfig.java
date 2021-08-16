@@ -1,8 +1,8 @@
-package de.jatitv.commandguiv2.Spigot.system.config.select;
+package de.jatitv.commandguiv2.Spigot.system.config.config;
 
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.Replace;
-import de.jatitv.commandguiv2.Spigot.system.config.ConfigCreate;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import de.jatitv.commandguiv2.Spigot.system.database.MySQL;
 import de.jatitv.commandguiv2.Spigot.system.send;
 import org.bukkit.Sound;
@@ -11,7 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.util.List;
 
-public class Select_config {
+public class SelectConfig {
 
     public static Boolean DisableUpdateChecker;
     public static Boolean UpdateCheckOnJoin;
@@ -203,7 +203,7 @@ public class Select_config {
                 Sound_OpenInventory = sound_OpenInventory;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8OpenInventory: §6" + Sound_OpenInventory_input) + "§4\n§4\n§4\n");
             Sound_OpenInventory = Sound.valueOf(soundOpenInventory);
         }
@@ -214,7 +214,7 @@ public class Select_config {
                 Sound_Click = sound_Click;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8Click: §6" + Sound_Click_input) + "§4\n§4\n§4\n");
             Sound_Click = Sound.valueOf(soundClick);
         }
@@ -225,7 +225,7 @@ public class Select_config {
                 Sound_Click = sound_NoMoney;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8NoMoney: §6" + Sound_NoMoney_input) + "§4\n§4\n§4\n");
             Sound_NoMoney = Sound.valueOf(soundNoMoney);
         }
@@ -237,7 +237,7 @@ public class Select_config {
                 Sound_NoInventorySpace = sound_NoInventorySpace;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8NoInventorySpace: §6" + Sound_NoInventorySpace_input) + "§4\n§4\n§4\n");
             Sound_NoInventorySpace = Sound.valueOf(soundNoInventorySpace);
         }
@@ -248,7 +248,7 @@ public class Select_config {
                 Sound_Give = sound_Give;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8Give: §6" + Sound_Give_input) + "§4\n§4\n§4\n");
             Sound_Give = Sound.valueOf(soundGive);
         }
@@ -259,7 +259,7 @@ public class Select_config {
                 Sound_PlayerNotFound = sound_PlayerNotFound;
             }
         } catch (Exception e) {
-            send.console("§4\n§4\n§4\n" + Select_msg.SoundNotFound.replace("[prefix]", Prefix)
+            send.console("§4\n§4\n§4\n" + SelectMessages.SoundNotFound.replace("[prefix]", Prefix)
                     .replace("[sound]", "§8PlayerNotFound: §6" + Sound_PlayerNotFound_input) + "§4\n§4\n§4\n");
             Sound_PlayerNotFound = Sound.valueOf(soundPlayerNotFound);
         }

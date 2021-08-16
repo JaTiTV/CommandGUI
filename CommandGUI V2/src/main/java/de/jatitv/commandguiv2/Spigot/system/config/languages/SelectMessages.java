@@ -1,13 +1,14 @@
-package de.jatitv.commandguiv2.Spigot.system.config.select;
+package de.jatitv.commandguiv2.Spigot.system.config.languages;
 
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.Replace;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import de.jatitv.commandguiv2.Spigot.system.send;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
-public class Select_msg {
+public class SelectMessages {
 
     public static String selectMSG;
 
@@ -17,7 +18,6 @@ public class Select_msg {
     public static String DefaultGUIcreate;
     public static String ReloadStart;
     public static String ReloadEnd;
-    public static String ReloadWarning;
 
     public static String NoPermission;
     public static String NoPermissionForCommand;
@@ -64,17 +64,17 @@ public class Select_msg {
 
         File msg;
 
-        msg = new File(Main.getPath(), "languages/" + Select_config.language + "_messages.yml");
+        msg = new File(Main.getPath(), "languages/" + SelectConfig.language + "_messages.yml");
         if (!msg.isFile()) {
             send.console(Prefix);
             send.console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            send.console(Prefix + " §4The selected §c" + Select_config.language + " §4language file was not found.");
+            send.console(Prefix + " §4The selected §c" + SelectConfig.language + " §4language file was not found.");
             send.console(Prefix + " §6The default language §eEnglish §6is used!");
             send.console(Prefix + " §4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             send.console(Prefix);
             msg = new File(Main.getPath(), "languages/" + "english_messages.yml");
             selectMSG = "english";
-        } else selectMSG = Select_config.language;
+        } else selectMSG = SelectConfig.language;
         YamlConfiguration yamlConfiguration_msg = YamlConfiguration.loadConfiguration(msg);
 
         VaultNotSetUp = select("Plugin.VaultNotSetUp", yamlConfiguration_msg);
@@ -83,7 +83,6 @@ public class Select_msg {
         DefaultGUIcreate = select("Plugin.DefaultGUI.create", yamlConfiguration_msg);
         ReloadStart = select("Plugin.Reload.Start", yamlConfiguration_msg);
         ReloadEnd = select("Plugin.Reload.End", yamlConfiguration_msg);
-        ReloadWarning = select("Plugin.Reload.Warning", yamlConfiguration_msg);
 
         NoPermission = select("NoPermission.ForCommandGUI", yamlConfiguration_msg);
         NoPermissionForCommand = select("NoPermission.ForCommand", yamlConfiguration_msg);

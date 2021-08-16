@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class GUI_CmdExecuter_Help implements CommandExecutor {
+public class CmdExecuter_Help implements CommandExecutor {
     String Prefix;
 
     @Override

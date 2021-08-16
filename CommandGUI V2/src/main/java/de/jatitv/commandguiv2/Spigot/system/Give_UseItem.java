@@ -3,46 +3,44 @@ package de.jatitv.commandguiv2.Spigot.system;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.lang.reflect.Field;
 import java.util.UUID;
 
-public class GUI_Give_UseItem {
+public class Give_UseItem {
 
 
 
     public static void onGive(Player player) {
         Integer slot;
         if (Select_Database.selectSlot(player) == null) {
-            slot = Select_config.UseItem_InventorySlot;
+            slot = SelectConfig.UseItem_InventorySlot;
         } else {
             slot = Select_Database.selectSlot(player);
         }
 
-        if (Select_config.UseItem_PlayerHead_Enable) {
+        if (SelectConfig.UseItem_PlayerHead_Enable) {
             if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
                 send.player(player, Main.Prefix + "§c Playerheads for UseItem are only available from version §61.13§c!");
                 send.error(Main.plugin, "Playerheads for UseItem are only available from version 1.13!");
             } else {
 
-                if (Select_config.UseItem_Base64_Enable) {
+                if (SelectConfig.UseItem_Base64_Enable) {
                     ItemStack playerhead = new ItemStack(Main.Head);
                     SkullMeta playerheadmeta = (SkullMeta) playerhead.getItemMeta();
-                    playerheadmeta.setDisplayName(Select_config.UseItem_Name);
+                    playerheadmeta.setDisplayName(SelectConfig.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
                     GameProfile profile = new GameProfile(UUID.randomUUID(), "");
-                    profile.getProperties().put("textures", new Property("textures", Select_config.UseItem_Base64value));
+                    profile.getProperties().put("textures", new Property("textures", SelectConfig.UseItem_Base64value));
                     Field profileField = null;
                     try {
                         profileField = playerheadmeta.getClass().getDeclaredField("profile");
@@ -52,38 +50,38 @@ public class GUI_Give_UseItem {
                         e.printStackTrace();
                     }
                     playerhead.setItemMeta(playerheadmeta);
-                    if (Select_config.UseItem_InventorySlot_FreeSlot) {
+                    if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                         player.getInventory().addItem(playerhead);
                     } else player.getInventory().setItem(slot - 1, playerhead);
 
                 } else {
                     String p;
-                    if (Select_config.UseItem_PlayerWhoHasOpenedTheGUI) {
+                    if (SelectConfig.UseItem_PlayerWhoHasOpenedTheGUI) {
                         p = player.getName();
-                    } else p = Select_config.UseItem_PlayerName;
+                    } else p = SelectConfig.UseItem_PlayerName;
                     ItemStack playerhead = new ItemStack(Main.Head);
                     SkullMeta playerheadmeta = (SkullMeta) playerhead.getItemMeta();
                     playerheadmeta.setOwner(p);
-                    playerheadmeta.setDisplayName(Select_config.UseItem_Name);
+                    playerheadmeta.setDisplayName(SelectConfig.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
                     playerhead.setItemMeta(playerheadmeta);
-                    if (Select_config.UseItem_InventorySlot_FreeSlot) {
+                    if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                         player.getInventory().addItem(playerhead);
                     } else player.getInventory().setItem(slot - 1, playerhead);
                 }
             }
         } else {
-            ItemStack item = new ItemStack(Material.valueOf(Select_config.UseItem_Material));
+            ItemStack item = new ItemStack(Material.valueOf(SelectConfig.UseItem_Material));
             ItemMeta itemMeta = item.getItemMeta();
-            itemMeta.setDisplayName(Select_config.UseItem_Name);
+            itemMeta.setDisplayName(SelectConfig.UseItem_Name);
             if (Main.PaPi) {
-                itemMeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-            } else itemMeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                itemMeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+            } else itemMeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
             item.setItemMeta(itemMeta);
             item.setAmount(1);
-            if (Select_config.UseItem_InventorySlot_FreeSlot) {
+            if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                 player.getInventory().addItem(item);
             } else player.getInventory().setItem(slot - 1, item);
         }
@@ -92,26 +90,26 @@ public class GUI_Give_UseItem {
     public static void onGiveADD(Player player) {
         Integer slot;
         if (Select_Database.selectSlot(player) == null) {
-            slot = Select_config.UseItem_InventorySlot;
+            slot = SelectConfig.UseItem_InventorySlot;
         } else {
             slot = Select_Database.selectSlot(player);
         }
 
-        if (Select_config.UseItem_PlayerHead_Enable) {
+        if (SelectConfig.UseItem_PlayerHead_Enable) {
             if (Main.minecraft1_8 || Main.minecraft1_9 || Main.minecraft1_10 || Main.minecraft1_11 || Main.minecraft1_12) {
                 send.player(player, Main.Prefix + "§c Playerheads for UseItem are only available from version §61.13§c!");
                 send.error(Main.plugin, "Playerheads for UseItem are only available from version 1.13!");
             } else {
 
-                if (Select_config.UseItem_Base64_Enable) {
+                if (SelectConfig.UseItem_Base64_Enable) {
                     ItemStack playerhead = new ItemStack(Main.Head);
                     SkullMeta playerheadmeta = (SkullMeta) playerhead.getItemMeta();
-                    playerheadmeta.setDisplayName(Select_config.UseItem_Name);
+                    playerheadmeta.setDisplayName(SelectConfig.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
                     GameProfile profile = new GameProfile(UUID.randomUUID(), "");
-                    profile.getProperties().put("textures", new Property("textures", Select_config.UseItem_Base64value));
+                    profile.getProperties().put("textures", new Property("textures", SelectConfig.UseItem_Base64value));
                     Field profileField = null;
                     try {
                         profileField = playerheadmeta.getClass().getDeclaredField("profile");
@@ -121,38 +119,38 @@ public class GUI_Give_UseItem {
                         e.printStackTrace();
                     }
                     playerhead.setItemMeta(playerheadmeta);
-                    if (Select_config.UseItem_InventorySlot_FreeSlot) {
+                    if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                         player.getInventory().addItem(playerhead);
                     } else player.getInventory().addItem(playerhead);
 
                 } else {
                     String p;
-                    if (Select_config.UseItem_PlayerWhoHasOpenedTheGUI) {
+                    if (SelectConfig.UseItem_PlayerWhoHasOpenedTheGUI) {
                         p = player.getName();
-                    } else p = Select_config.UseItem_PlayerName;
+                    } else p = SelectConfig.UseItem_PlayerName;
                     ItemStack playerhead = new ItemStack(Main.Head);
                     SkullMeta playerheadmeta = (SkullMeta) playerhead.getItemMeta();
                     playerheadmeta.setOwner(p);
-                    playerheadmeta.setDisplayName(Select_config.UseItem_Name);
+                    playerheadmeta.setDisplayName(SelectConfig.UseItem_Name);
                     if (Main.PaPi) {
-                        playerheadmeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-                    } else playerheadmeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                        playerheadmeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+                    } else playerheadmeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
                     playerhead.setItemMeta(playerheadmeta);
-                    if (Select_config.UseItem_InventorySlot_FreeSlot) {
+                    if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                         player.getInventory().addItem(playerhead);
                     } else player.getInventory().addItem(playerhead);
                 }
             }
         } else {
-            ItemStack item = new ItemStack(Material.valueOf(Select_config.UseItem_Material));
+            ItemStack item = new ItemStack(Material.valueOf(SelectConfig.UseItem_Material));
             ItemMeta itemMeta = item.getItemMeta();
-            itemMeta.setDisplayName(Select_config.UseItem_Name);
+            itemMeta.setDisplayName(SelectConfig.UseItem_Name);
             if (Main.PaPi) {
-                itemMeta.setLore(Replace.replace(player, Select_config.UseItem_Lore));
-            } else itemMeta.setLore(Replace.replace(Select_config.UseItem_Lore));
+                itemMeta.setLore(Replace.replace(player, SelectConfig.UseItem_Lore));
+            } else itemMeta.setLore(Replace.replace(SelectConfig.UseItem_Lore));
             item.setItemMeta(itemMeta);
             item.setAmount(1);
-            if (Select_config.UseItem_InventorySlot_FreeSlot) {
+            if (SelectConfig.UseItem_InventorySlot_FreeSlot) {
                 player.getInventory().addItem(item);
             } else player.getInventory().addItem(item);
         }

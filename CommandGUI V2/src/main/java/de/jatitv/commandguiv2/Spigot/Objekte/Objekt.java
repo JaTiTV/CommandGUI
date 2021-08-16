@@ -2,7 +2,7 @@ package de.jatitv.commandguiv2.Spigot.Objekte;
 
 import java.util.ArrayList;
 
-public class GUI_Objekt {
+public class Objekt {
     public Boolean GUI_Enable;
     public Integer GUI_Lines;
     public String GUI_Name;
@@ -13,10 +13,10 @@ public class GUI_Objekt {
     public String Command_Command;
     public Boolean Command_Alias_Enable;
     public Boolean Command_Permission_Enable;
-    public ArrayList<GUI_Slot> GUI_Slots;
+    public ArrayList<Slot> GUI_Slots;
 
-    public GUI_Objekt(Boolean GUI_Enable, Integer GUI_Lines, String GUI_Name, Boolean GUI_FillItem_Enable, String GUI_FillItem_Item,
-                      String Command_Command, Boolean Command_Alias_Enable, Boolean Command_Permission_Enable, ArrayList<GUI_Slot> GUI_Slots){
+    public Objekt(Boolean GUI_Enable, Integer GUI_Lines, String GUI_Name, Boolean GUI_FillItem_Enable, String GUI_FillItem_Item,
+                  String Command_Command, Boolean Command_Alias_Enable, Boolean Command_Permission_Enable, ArrayList<Slot> GUI_Slots){
         this.GUI_Enable = GUI_Enable;
         this.GUI_Lines = GUI_Lines;
         this.GUI_Name = GUI_Name;

@@ -2,7 +2,7 @@ package de.jatitv.commandguiv2.Spigot.Objekte;
 
 import java.util.List;
 
-public class GUI_Slot {
+public class Slot {
 
     public Integer Slot;
     public Boolean Enable;
@@ -10,7 +10,7 @@ public class GUI_Slot {
     public Boolean Empty;
     public Integer ItemAmount;
     public Boolean PlayerHead_Enable;
-    public Boolean Base64Value_Enable;
+    public Boolean Base64_Enable;
     public String Base64Value;
     public Boolean PlayerWhoHasOpenedTheGUI;
     public String PlayerName;
@@ -55,62 +55,62 @@ public class GUI_Slot {
     public Boolean PluginReloadEnable;
     public String PluginReloadCommand;
 
-    public GUI_Slot(Integer Slot,
-                    Boolean Enable,
-                   // Boolean ItemsRemovable,
-                    Boolean Empty,
-                    Integer ItemAmount,
-                    Boolean PlayerHead_Enable,
-                    Boolean Base64Value_Enable,
-                    String Base64Value,
-                    Boolean PlayerWhoHasOpenedTheGUI,
-                    String PlayerName,
-                    String Item,
-                    String Name,
-                    List Lore,
-                    Boolean CustomSound_Enable,
-                    Boolean CustomSound_NoSound,
-                    String CustomSound_Sound,
-                    Boolean Cost_Enable,
-                    Double Price,
-                    Boolean Command_Enable,
-                    Boolean Command_BungeeCommand,
-                    Boolean CommandAsConsole,
-                    List<String> Command,
-                    Boolean ServerChange,
-                    String ServerChangeServer,
-                    Boolean OpenGUI_Enable,
-                    String OpenGUI,
-                    Boolean Message_Enable,
-                    List<String> Message,
-                    Boolean Perm,
-                    Boolean SetConfigEnable,
-                    String ConfigFilePath,
-                    String ConfigOptionPath,
-                    String ConfigOptionPremat,
+    public Slot(Integer Slot,
+                Boolean Enable,
+                // Boolean ItemsRemovable,
+                Boolean Empty,
+                Integer ItemAmount,
+                Boolean PlayerHead_Enable,
+                Boolean Base64Value_Enable,
+                String Base64Value,
+                Boolean PlayerWhoHasOpenedTheGUI,
+                String PlayerName,
+                String Item,
+                String Name,
+                List Lore,
+                Boolean CustomSound_Enable,
+                Boolean CustomSound_NoSound,
+                String CustomSound_Sound,
+                Boolean Cost_Enable,
+                Double Price,
+                Boolean Command_Enable,
+                Boolean Command_BungeeCommand,
+                Boolean CommandAsConsole,
+                List<String> Command,
+                Boolean ServerChange,
+                String ServerChangeServer,
+                Boolean OpenGUI_Enable,
+                String OpenGUI,
+                Boolean Message_Enable,
+                List<String> Message,
+                Boolean Perm,
+                Boolean SetConfigEnable,
+                String ConfigFilePath,
+                String ConfigOptionPath,
+                String ConfigOptionPremat,
                 //    Boolean ConfigChatInput,
 
-                    String ConfigStringValueLeft,
-                    Boolean ConfigBooleanValueLeft,
-                    Integer ConfigIntegerValueLeft,
-                    Double ConfigDoubleValueLeft,
-                    List<String> ConfigListValueLeft,
+                String ConfigStringValueLeft,
+                Boolean ConfigBooleanValueLeft,
+                Integer ConfigIntegerValueLeft,
+                Double ConfigDoubleValueLeft,
+                List<String> ConfigListValueLeft,
 
-                    String ConfigStringValueRight,
-                    Boolean ConfigBooleanValueRight,
-                    Integer ConfigIntegerValueRight,
-                    Double ConfigDoubleValueRight,
-                    List<String> ConfigListValueRight,
+                String ConfigStringValueRight,
+                Boolean ConfigBooleanValueRight,
+                Integer ConfigIntegerValueRight,
+                Double ConfigDoubleValueRight,
+                List<String> ConfigListValueRight,
 
-                    Boolean PluginReloadEnable,
-                    String PluginReloadCommand) {
+                Boolean PluginReloadEnable,
+                String PluginReloadCommand) {
         this.Slot = Slot;
         this.Enable = Enable;
        // this.ItemsRemovable = ItemsRemovable;
         this.Empty = Empty;
         this.ItemAmount = ItemAmount;
         this.PlayerHead_Enable = PlayerHead_Enable;
-        this.Base64Value_Enable = Base64Value_Enable;
+        this.Base64_Enable = Base64Value_Enable;
         this.Base64Value = Base64Value;
         this.PlayerWhoHasOpenedTheGUI = PlayerWhoHasOpenedTheGUI;
         this.PlayerName = PlayerName;

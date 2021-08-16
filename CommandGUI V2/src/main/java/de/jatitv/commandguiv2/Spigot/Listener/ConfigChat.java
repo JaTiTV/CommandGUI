@@ -1,16 +1,13 @@
 package de.jatitv.commandguiv2.Spigot.Listener;
 
+import de.jatitv.commandguiv2.Spigot.Objekte.Slot;
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Slot;
-import org.bukkit.Sound;
+import de.jatitv.commandguiv2.Spigot.Objekte.Objekt;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 public class ConfigChat implements Listener {
@@ -23,8 +20,8 @@ public class ConfigChat implements Listener {
             if (playerChatEvent.getMessage().equals("cancel")) {
                 //player.sendMessage(DefaultValue.SettingsGUIchatIsCanceled.replace("[setting]", EditChat.get(player)));
             } else {
-                for (GUI_Objekt gui : Main.guiHashMap.values()) {
-                    for (GUI_Slot slot : gui.GUI_Slots) {
+                for (Objekt gui : Main.guiHashMap.values()) {
+                    for (Slot slot : gui.GUI_Slots) {
                         if (slot.ConfigOptionPath.equals(EditChat.get(player))) {
 
 

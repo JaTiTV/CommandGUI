@@ -1,6 +1,5 @@
 package de.jatitv.commandguiv2.Bungee;
 
-import de.jatitv.commandguiv2.Spigot.Main;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public final class BMain extends Plugin {

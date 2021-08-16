@@ -4,7 +4,7 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -33,7 +33,7 @@ public class Metrics {
     public static void Bstats() {
         int pluginId = Main.BstatsID; // <-- Replace with the id of your plugin!
         Metrics metrics = new Metrics(Main.plugin, pluginId);
-        metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(Select_config.UpdateCheckOnJoin)));
+        metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(SelectConfig.UpdateCheckOnJoin)));
     }
 
     private final Plugin plugin;

@@ -4,7 +4,7 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -18,7 +18,7 @@ public class Vault {
                 send.console(Main.Prefix + " §4\n" + Main.Prefix + " §4Vault could not be found! §9Please download it here: " +
                         "§6https://www.spigotmc.org/resources/vault.34315/§4\n" + Main.Prefix);
             }
-            p.sendMessage(Main.Prefix + "\n" + Select_msg.VaultNotSetUp + "\n" + Main.Prefix);
+            p.sendMessage(Main.Prefix + "\n" + SelectMessages.VaultNotSetUp + "\n" + Main.Prefix);
         } else {
             if (Main.eco.getBalance(p) < price) {
                 return false;

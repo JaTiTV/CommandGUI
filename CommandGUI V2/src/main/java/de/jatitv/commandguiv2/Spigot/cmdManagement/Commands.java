@@ -1,16 +1,16 @@
 package de.jatitv.commandguiv2.Spigot.cmdManagement;
 
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Obj_Select;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
+import de.jatitv.commandguiv2.Spigot.Objekte.Obj_Select;
+import de.jatitv.commandguiv2.Spigot.Objekte.Objekt;
 import de.jatitv.commandguiv2.Spigot.cmdManagement.register.AliasRegister;
-import de.jatitv.commandguiv2.Spigot.gui.GUI_GUI;
-import de.jatitv.commandguiv2.Spigot.system.GUI_Give_UseItem;
+import de.jatitv.commandguiv2.Spigot.gui.OpenGUI;
+import de.jatitv.commandguiv2.Spigot.system.Give_UseItem;
 import de.jatitv.commandguiv2.Spigot.system.TextBuilder;
-import de.jatitv.commandguiv2.Spigot.system.config.ConfigCreate;
+import de.jatitv.commandguiv2.Spigot.system.config.config.ConfigCreate;
 import de.jatitv.commandguiv2.Spigot.system.config.languages.LanguagesCreate;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
 import de.jatitv.commandguiv2.Spigot.system.send;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -53,32 +53,30 @@ public class Commands {
     }
 
     public static void reload(CommandSender sender) {
-        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadStart);
+        if (sender instanceof Player) sender.sendMessage(SelectMessages.ReloadStart);
         send.console(Prefix + "§8-------------------------------");
         send.console(Prefix + " §6Plugin reload...");
         send.console(Prefix + "§8-------------------------------");
 
         ConfigCreate.configCreate();
-        Select_config.onSelect();
+        SelectConfig.onSelect();
 
         LanguagesCreate.langCreate();
 
-        GUI_Obj_Select.onSelect();
-        Select_msg.onSelect(Prefix);
-        Select_config.sound(Main.Prefix);
+        Obj_Select.onSelect();
+        SelectMessages.onSelect(Prefix);
+        SelectConfig.sound(Main.Prefix);
         try {
             AliasRegister.onRegister();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (Select_config.Bungee){
+        if (SelectConfig.Bungee){
             Bukkit.getMessenger().registerOutgoingPluginChannel(Main.plugin, "commandgui:bungee");
 
         }
-        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadWarning);
-        send.warning(plugin, "To enable / disable alias commands, reload / restart the server!");
 
-        if (sender instanceof Player) sender.sendMessage(Select_msg.ReloadEnd);
+        if (sender instanceof Player) sender.sendMessage(SelectMessages.ReloadEnd);
         send.console(Prefix + "§8-------------------------------");
         send.console(Prefix + " §2Plugin successfully reloaded.");
         send.console(Prefix + "§8-------------------------------");
@@ -86,17 +84,17 @@ public class Commands {
 
     public static void give(CommandSender sender, Player target) {
         if (Bukkit.getPlayer(target.getName()) != null) {
-            GUI_Give_UseItem.onGive(target);
-            send.sender(sender, Select_msg.Give_Sender.replace("[player]", target.getName()).replace("[item]", Select_config.UseItem_Name));
-            send.player(target, Select_msg.Give_Receiver.replace("[sender]", sender.getName()).replace("[item]", Select_config.UseItem_Name));
-            if (Select_config.Sound_Give_Enable && Select_config.Sound_Enable) {
-                target.playSound(target.getLocation(), Select_config.Sound_Give, 3, 1);
+            Give_UseItem.onGive(target);
+            send.sender(sender, SelectMessages.Give_Sender.replace("[player]", target.getName()).replace("[item]", SelectConfig.UseItem_Name));
+            send.player(target, SelectMessages.Give_Receiver.replace("[sender]", sender.getName()).replace("[item]", SelectConfig.UseItem_Name));
+            if (SelectConfig.Sound_Give_Enable && SelectConfig.Sound_Enable) {
+                target.playSound(target.getLocation(), SelectConfig.Sound_Give, 3, 1);
             }
         } else {
-            sender.sendMessage(Select_msg.PlayerNotFond.replace("[player]", target.getName()));
-            if (Select_config.Sound_PlayerNotFound_Enable && Select_config.Sound_Enable) {
+            sender.sendMessage(SelectMessages.PlayerNotFond.replace("[player]", target.getName()));
+            if (SelectConfig.Sound_PlayerNotFound_Enable && SelectConfig.Sound_Enable) {
                 if (sender instanceof Player)
-                    ((Player) sender).playSound(((Player) sender).getLocation(), Select_config.Sound_PlayerNotFound, 3, 1);
+                    ((Player) sender).playSound(((Player) sender).getLocation(), SelectConfig.Sound_PlayerNotFound, 3, 1);
             }
         }
     }
@@ -105,8 +103,8 @@ public class Commands {
         for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
             ItemStack itm = player.getInventory().getItem(iam);
             if (itm != null) {
-                if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                    if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                if (itm.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm.getType() == Main.Head) {
+                    if (itm.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                         player.getInventory().remove(itm);
                         player.updateInventory();
                         break;
@@ -116,14 +114,14 @@ public class Commands {
         }
         Integer slot = null;
         if (Select_Database.selectSlot(player) == null) {
-            slot = Select_config.UseItem_InventorySlot;
+            slot = SelectConfig.UseItem_InventorySlot;
         } else {
             slot = Select_Database.selectSlot(player);
         }
         send.debug(plugin,String.valueOf(slot));
         if (player.getInventory().getItem(slot - 1) == null) {
             Select_Database.setItemStatusTrue(player);
-            GUI_Give_UseItem.onGive(player);
+            Give_UseItem.onGive(player);
         } else {
             boolean empty = false;
             for (int i = 0; i < 9; i++) {
@@ -134,12 +132,12 @@ public class Commands {
             }
             if (empty) {
                 Select_Database.setItemStatusTrue(player);
-                GUI_Give_UseItem.onGiveADD(player);
-                send.player(player, Select_msg.ItemON);
+                Give_UseItem.onGiveADD(player);
+                send.player(player, SelectMessages.ItemON);
             } else {
-                player.sendMessage(Select_msg.NoInventorySpace);
-                if (Select_config.Sound_NoInventorySpace_Enable && Select_config.Sound_Enable) {
-                    player.playSound(player.getLocation(), Select_config.Sound_NoInventorySpace, 3, 1);
+                player.sendMessage(SelectMessages.NoInventorySpace);
+                if (SelectConfig.Sound_NoInventorySpace_Enable && SelectConfig.Sound_Enable) {
+                    player.playSound(player.getLocation(), SelectConfig.Sound_NoInventorySpace, 3, 1);
                 }
             }
         }
@@ -150,11 +148,11 @@ public class Commands {
         for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
             ItemStack itm = player.getInventory().getItem(iam);
             if (itm != null) {
-                if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                    if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                if (itm.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm.getType() == Main.Head) {
+                    if (itm.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                         player.getInventory().remove(itm);
                         player.updateInventory();
-                        send.player(player, Select_msg.ItemOFF);
+                        send.player(player, SelectMessages.ItemOFF);
                     }
                 }
             }
@@ -162,33 +160,33 @@ public class Commands {
     }
 
     public static void onSetSlot(Player player, Integer setSlot) {
-        if (Select_config.UseItem_AllowSetSlot) {
+        if (SelectConfig.UseItem_AllowSetSlot) {
             if (setSlot < 1) {
-                send.player(player, Select_msg.ItemSlot_wrongValue);
+                send.player(player, SelectMessages.ItemSlot_wrongValue);
                 return;
             }
             if (setSlot > 9) {
-                send.player(player, Select_msg.ItemSlot_wrongValue);
+                send.player(player, SelectMessages.ItemSlot_wrongValue);
                 return;
             }
             ItemStack itm1 = player.getInventory().getItem(setSlot - 1);
             if (itm1 != null) {
-                if (itm1.getType() == Material.valueOf(Select_config.UseItem_Material) || itm1.getType() == Main.Head) {
-                    if (itm1.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
-                        player.sendMessage(Select_msg.ItemSlotAlreadySet.replace("[slot]", setSlot.toString()));
+                if (itm1.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm1.getType() == Main.Head) {
+                    if (itm1.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
+                        player.sendMessage(SelectMessages.ItemSlotAlreadySet.replace("[slot]", setSlot.toString()));
                         return;
                     }
                 }
             }
-            if (Select_config.UseItem_InventorySlotEnforce || player.getInventory().getItem(setSlot - 1) != null) {
-                send.player(player, Select_msg.ItemSlotNotEmpty.replace("[slot]", setSlot.toString()));
+            if (SelectConfig.UseItem_InventorySlotEnforce || player.getInventory().getItem(setSlot - 1) != null) {
+                send.player(player, SelectMessages.ItemSlotNotEmpty.replace("[slot]", setSlot.toString()));
                 return;
             }
             for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
                 ItemStack itm = player.getInventory().getItem(iam);
                 if (itm != null) {
-                    if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                        if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    if (itm.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm.getType() == Main.Head) {
+                        if (itm.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                             player.getInventory().remove(itm);
                             player.updateInventory();
                             break;
@@ -198,38 +196,38 @@ public class Commands {
             }
             Select_Database.setSlot(player, setSlot);
             if (Select_Database.selectItemStatus(player)) {
-                GUI_Give_UseItem.onGive(player);
+                Give_UseItem.onGive(player);
             }
-            send.player(player, Select_msg.ItemSlot.replace("[slot]", setSlot.toString()));
+            send.player(player, SelectMessages.ItemSlot.replace("[slot]", setSlot.toString()));
         } else player.sendMessage(Main.Prefix + " §4Function disabled");
     }
 
     public static void gui(Player player) {
-        if (Main.guiHashMap.containsKey(Select_config.DefaultGUI)) {
-            GUI_Objekt gui = Main.guiHashMap.get(Select_config.DefaultGUI);
+        if (Main.guiHashMap.containsKey(SelectConfig.DefaultGUI)) {
+            Objekt gui = Main.guiHashMap.get(SelectConfig.DefaultGUI);
             if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
                 if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command") || player.hasPermission("commandgui.bypass")) {
-                    GUI_GUI.openGUI(player, gui, Select_config.DefaultGUI);
-                    if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
-                        player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                    OpenGUI.openGUI(player, gui, SelectConfig.DefaultGUI);
+                    if (SelectConfig.Sound_Enable && SelectConfig.Sound_OpenInventory_Enable) {
+                        player.playSound(player.getLocation(), SelectConfig.Sound_OpenInventory, 3, 1);
                     }
-                } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui")
+                } else player.sendMessage(SelectMessages.NoPermissionForCommand.replace("[cmd]", "/commandgui")
                         .replace("[perm]", "commandgui.giveitem.command"));
-            } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
+            } else player.sendMessage(SelectMessages.GUIIsDisabled.replace("[gui]", gui.GUI_Name));
         }
     }
     public static void gui(Player player, String arg){
         if (Main.guiHashMap.containsKey(arg)) {
-            GUI_Objekt gui = Main.guiHashMap.get(arg);
+            Objekt gui = Main.guiHashMap.get(arg);
             if (gui.GUI_Enable || player.hasPermission("commandgui.bypass")) {
                 if (!gui.Command_Permission_Enable || player.hasPermission("commandgui.command." + gui.Command_Command) || player.hasPermission("commandgui.bypass")) {
-                    GUI_GUI.openGUI(player, gui, arg);
-                    if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
-                        player.playSound(player.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                    OpenGUI.openGUI(player, gui, arg);
+                    if (SelectConfig.Sound_Enable && SelectConfig.Sound_OpenInventory_Enable) {
+                        player.playSound(player.getLocation(), SelectConfig.Sound_OpenInventory, 3, 1);
                     }
-                } else player.sendMessage(Select_msg.NoPermissionForCommand.replace("[cmd]", "/commandgui " + gui.Command_Command)
+                } else player.sendMessage(SelectMessages.NoPermissionForCommand.replace("[cmd]", "/commandgui " + gui.Command_Command)
                         .replace("[perm]", "commandgui.command." + arg.toLowerCase()));
-            } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", gui.Command_Command));
-        } else player.sendMessage(Select_msg.GUInotFound);
+            } else player.sendMessage(SelectMessages.GUIIsDisabled.replace("[gui]", gui.Command_Command));
+        } else player.sendMessage(SelectMessages.GUInotFound);
     }
 }

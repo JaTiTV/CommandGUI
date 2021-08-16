@@ -20,7 +20,6 @@ public class MSG {
     public static String EN_DefaultGUI = "[prefix] &2DefaultGUI was created. You can find it in the directory:: &e[directory]&2!";
     public static String EN_ReloadStart = "[prefix] &6Plugin is reloaded...";
     public static String EN_ReloadEnd = "[prefix] &2Plugin was successfully reloaded.";
-    public static String EN_ReloadWarning = "[prefix] &6To enable / disable alias commands, reload / restart the server!";
 
     public static String EN_NoPermission = "[prefix] &cYou do not have permission for &4Command&9GUI&c!";
     public static String EN_NoPermissionForCommand = "[prefix] &cFor &b[cmd] &cyou lack the permission &6[perm]&c!";
@@ -68,7 +67,6 @@ public class MSG {
     public static String DE_DefaultGUI = "[prefix] &2DefaultGUI wurde erstellt. Du findst sie im Verzeichnis: &e[directory]&2!";
     public static String DE_ReloadStart = "[prefix] &6Plugin wird neu geladen...";
     public static String DE_ReloadEnd = "[prefix] &2Plugin wurde erfolgreich neu geladen.";
-    public static String DE_ReloadWarning = "[prefix] &6Um Alias-Befehle zu aktivieren / deaktivieren, lade / starte den Server neu!!";
 
     public static String DE_NoPermission = "[prefix] &cDu hast keine Permission f[ue]r &4Command&9GUI&c!";
     public static String DE_NoPermissionForCommand = "[prefix] &cF[ue]r &b[cmd] &cfehlt dir die Permission &6[perm]&c!";
@@ -120,7 +118,6 @@ public class MSG {
     public static String NO_DefaultGUI = "[prefix] &2DefaultGUI har blitt laget. Du kan finne den i mappen: &e[directory]&2!";
     public static String NO_ReloadStart = "[prefix] &6Pluginet blir relastet...";
     public static String NO_ReloadEnd = "[prefix] &2Pluginet har blitt lastet inn på nytt.";
-    public static String NO_ReloadWarning = "[prefix] &6For å skru på / skru av alias kommandoer, relast / restart serveren!";
 
     public static String NO_NoPermission = "[prefix] &cDu har ikke tilgang til &4Command&9GUI&c!";
     public static String NO_NoPermissionForCommand = "[prefix] &cFor &b[cmd] &cmangler du tillatelsen &6[perm]&c!";

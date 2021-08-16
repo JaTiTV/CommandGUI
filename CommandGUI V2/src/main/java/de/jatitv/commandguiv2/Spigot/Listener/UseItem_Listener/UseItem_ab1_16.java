@@ -1,15 +1,14 @@
 package de.jatitv.commandguiv2.Spigot.Listener.UseItem_Listener;
 
-import de.jatitv.commandguiv2.Spigot.cmdManagement.Commands;
-import de.jatitv.commandguiv2.Spigot.gui.GUI_GUI;
-import de.jatitv.commandguiv2.Spigot.system.API;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
-import de.jatitv.commandguiv2.Spigot.system.database.MySQL;
-import de.jatitv.commandguiv2.Spigot.system.GUI_Give_UseItem;
 import de.jatitv.commandguiv2.Spigot.Main;
+import de.jatitv.commandguiv2.Spigot.cmdManagement.Commands;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
+import de.jatitv.commandguiv2.Spigot.system.database.MySQL;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
-import de.jatitv.commandguiv2.Spigot.system.send;
+import de.jatitv.commandguiv2.Spigot.gui.OpenGUI;
+import de.jatitv.commandguiv2.Spigot.system.API;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
+import de.jatitv.commandguiv2.Spigot.system.Give_UseItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -50,35 +49,35 @@ public class UseItem_ab1_16 implements Listener {
     public static void itemChange(Player player) {
         Integer slot;
         if (Select_Database.selectSlot(player) == null) {
-            slot = Select_config.UseItem_InventorySlot;
+            slot = SelectConfig.UseItem_InventorySlot;
         } else {
             slot = Select_Database.selectSlot(player);
         }
 
-        if (Select_config.UseItem_Enable) {
-            if (Select_config.UseItem_GiveOnlyOnFirstJoin) {
-                if (!Select_config.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
+        if (SelectConfig.UseItem_Enable) {
+            if (SelectConfig.UseItem_GiveOnlyOnFirstJoin) {
+                if (!SelectConfig.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
                     if (!player.hasPlayedBefore()) {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                GUI_Give_UseItem.onGive(player);
+                                Give_UseItem.onGive(player);
                             }
                         }.runTaskLater(Main.plugin, 20L * 1);
-                        if (Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin || Select_config.Cursor_ToGUIItem_OnLogin) {
+                        if (SelectConfig.Cursor_ToGUIItem_OnlyOnFirstLogin || SelectConfig.Cursor_ToGUIItem_OnLogin) {
                             player.getInventory().setHeldItemSlot(slot - 1);
                         }
                     }
                 }
-            } else if (Select_config.UseItem_GiveOnEveryJoin) {
+            } else if (SelectConfig.UseItem_GiveOnEveryJoin) {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
                         for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
                             ItemStack itm = player.getInventory().getItem(iam);
                             if (itm != null) {
-                                if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                                    if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                                if (itm.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm.getType() == Main.Head) {
+                                    if (itm.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                                         player.getInventory().remove(itm);
                                         player.updateInventory();
                                         break;
@@ -86,14 +85,14 @@ public class UseItem_ab1_16 implements Listener {
                                 }
                             }
                         }
-                        if (!Select_config.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
+                        if (!SelectConfig.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
 
 
-                            if (Select_config.UseItem_InventorySlotEnforce || player.getInventory().getItem(slot - 1) == null) {
-                                GUI_Give_UseItem.onGive(player);
-                                if (Select_config.Cursor_ToGUIItem_OnLogin) {
-                                    if (!Select_config.Cursor_ToGUIItem_OnlyOnFirstLogin) {
-                                        if (Select_config.Storage.equals("MYSQL") && Select_config.Bungee && Select_config.UseItem_ServerChange && Select_config.Bungee) {
+                            if (SelectConfig.UseItem_InventorySlotEnforce || player.getInventory().getItem(slot - 1) == null) {
+                                Give_UseItem.onGive(player);
+                                if (SelectConfig.Cursor_ToGUIItem_OnLogin) {
+                                    if (!SelectConfig.Cursor_ToGUIItem_OnlyOnFirstLogin) {
+                                        if (SelectConfig.Storage.equals("MYSQL") && SelectConfig.Bungee && SelectConfig.UseItem_ServerChange && SelectConfig.Bungee) {
                                             player.getInventory().setHeldItemSlot(slot - 1);
                                         } else if (MySQL.select("SELECT `Status` FROM `gui-onlineplayer` WHERE  `UUID`='" + player.getUniqueId() + "';").equals("Offline")) {
                                             player.getInventory().setHeldItemSlot(slot - 1);
@@ -109,18 +108,18 @@ public class UseItem_ab1_16 implements Listener {
                                     }
                                 }
                                 if (empty) {
-                                    GUI_Give_UseItem.onGiveADD(player);
+                                    Give_UseItem.onGiveADD(player);
                                 }
                             }
                         }
                     }
                 }.runTaskLater(Main.plugin, 20L * 1);
-                if (Select_config.Storage.equals("MYSQL") && Select_config.Bungee) {
+                if (SelectConfig.Storage.equals("MYSQL") && SelectConfig.Bungee) {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
                             MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
-                                    + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '" + Select_config.thisServer + "';");
+                                    + "', '" + SelectConfig.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = '" + SelectConfig.thisServer + "';");
                         }
                     }.runTaskLater(Main.plugin, 20L * 3);
                 }
@@ -132,12 +131,12 @@ public class UseItem_ab1_16 implements Listener {
     @EventHandler
     public void onDisconect(PlayerQuitEvent e) {
         Player player = e.getPlayer();
-        if (Select_config.Storage.equals("MYSQL") && Select_config.Bungee) {
+        if (SelectConfig.Storage.equals("MYSQL") && SelectConfig.Bungee) {
             new BukkitRunnable() {
                 @Override
                 public void run() {
                     MySQL.query("INSERT INTO `gui-onlineplayer` (`UUID`, `Name`, `Status`) VALUES ('" + player.getUniqueId() + "', '" + player.getName()
-                            + "', '" + Select_config.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = 'Offline';");
+                            + "', '" + SelectConfig.thisServer + "') ON DUPLICATE KEY UPDATE `Name` = '" + player.getName() + "', `Status` = 'Offline';");
                 }
             }.runTaskLater(Main.plugin, 20L * 2);
         }
@@ -149,8 +148,8 @@ public class UseItem_ab1_16 implements Listener {
         for (int iam = 0; iam < player.getInventory().getSize() - 5; iam++) {
             ItemStack itm = player.getInventory().getItem(iam);
             if (itm != null) {
-                if (itm.getType() == Material.valueOf(Select_config.UseItem_Material) || itm.getType() == Main.Head) {
-                    if (itm.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                if (itm.getType() == Material.valueOf(SelectConfig.UseItem_Material) || itm.getType() == Main.Head) {
+                    if (itm.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                         player.getInventory().remove(itm);
                         player.updateInventory();
                         break;
@@ -164,7 +163,7 @@ public class UseItem_ab1_16 implements Listener {
             while (var3.hasNext()) {
                 ItemStack items = (ItemStack) var3.next();
                 if (items != null && items.hasItemMeta() && items.getItemMeta().hasDisplayName()
-                        && items.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                        && items.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                     e.getDrops().remove(items);
                 }
             }
@@ -174,14 +173,14 @@ public class UseItem_ab1_16 implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onRespawn(PlayerRespawnEvent e) {
         Player player = e.getPlayer();
-        if (Select_config.UseItem_Enable) {
-            if (!Select_config.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
-                if (Select_config.UseItem_GiveOnlyOnFirstJoin) {
+        if (SelectConfig.UseItem_Enable) {
+            if (!SelectConfig.UseItem_AllowToggle || Select_Database.selectItemStatus(player)) {
+                if (SelectConfig.UseItem_GiveOnlyOnFirstJoin) {
                     if (!player.hasPlayedBefore()) {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                GUI_Give_UseItem.onGive(player);
+                                Give_UseItem.onGive(player);
                             }
                         }.runTaskLater(Main.plugin, 20L * 1);
                     }
@@ -189,7 +188,7 @@ public class UseItem_ab1_16 implements Listener {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            GUI_Give_UseItem.onGive(player);
+                            Give_UseItem.onGive(player);
                         }
                     }.runTaskLater(Main.plugin, 20L * 1);
                 }
@@ -200,44 +199,44 @@ public class UseItem_ab1_16 implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
-        if (Select_config.UseItem_Enable) {
-            if (Select_config.UseItem_PlayerHead_Enable) {
+        if (SelectConfig.UseItem_Enable) {
+            if (SelectConfig.UseItem_PlayerHead_Enable) {
                 if (e.getItem() != null && p.getItemInHand().getType() == Main.Head) {
-                    if (e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    if (e.getItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                         e.setCancelled(true);
                         if (p.isSneaking()) {
                             Commands.info(p);
                             return;
                         }
                         if (!p.getOpenInventory().getTopInventory().isEmpty()) return;
-                        if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
-                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI), Select_config.UseItem_OpenGUI);
-                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
-                                p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                        if (!SelectConfig.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
+                            OpenGUI.openGUI(p, Main.guiHashMap.get(SelectConfig.UseItem_OpenGUI), SelectConfig.UseItem_OpenGUI);
+                            if (SelectConfig.Sound_Enable && SelectConfig.Sound_OpenInventory_Enable) {
+                                p.playSound(p.getLocation(), SelectConfig.Sound_OpenInventory, 3, 1);
                             }
                         } else {
-                            p.sendMessage(Select_msg.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")
-                                    .replace("[gui]", Select_config.UseItem_OpenGUI));
+                            p.sendMessage(SelectMessages.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")
+                                    .replace("[gui]", SelectConfig.UseItem_OpenGUI));
                         }
                     }
                 }
             } else {
-                if (e.getItem() != null && p.getItemInHand().getType() == Material.valueOf(Select_config.UseItem_Material)) {
-                    if (e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                if (e.getItem() != null && p.getItemInHand().getType() == Material.valueOf(SelectConfig.UseItem_Material)) {
+                    if (e.getItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                         e.setCancelled(true);
                         if (p.isSneaking()) {
                             Commands.info(p);
                             return;
                         }
                         if (!p.getOpenInventory().getTopInventory().isEmpty()) return;
-                        if (!Select_config.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
-                            GUI_GUI.openGUI(p, Main.guiHashMap.get(Select_config.UseItem_OpenGUI), Select_config.UseItem_OpenGUI);
-                            if (Select_config.Sound_Enable && Select_config.Sound_OpenInventory_Enable) {
-                                p.playSound(p.getLocation(), Select_config.Sound_OpenInventory, 3, 1);
+                        if (!SelectConfig.UseItem_Permission || p.hasPermission("commandgui.useitem")) {
+                            OpenGUI.openGUI(p, Main.guiHashMap.get(SelectConfig.UseItem_OpenGUI), SelectConfig.UseItem_OpenGUI);
+                            if (SelectConfig.Sound_Enable && SelectConfig.Sound_OpenInventory_Enable) {
+                                p.playSound(p.getLocation(), SelectConfig.Sound_OpenInventory, 3, 1);
                             }
                         } else {
-                            p.sendMessage(Select_msg.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")
-                                    .replace("[gui]", Select_config.UseItem_OpenGUI));
+                            p.sendMessage(SelectMessages.NoPermissionForUseItem.replace("[perm]", "commandgui.useitem")
+                                    .replace("[gui]", SelectConfig.UseItem_OpenGUI));
                         }
                     }
                 }
@@ -248,21 +247,21 @@ public class UseItem_ab1_16 implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onHandSwap(PlayerSwapHandItemsEvent e) {
         if (Main.minecraft1_8 || Main.minecraft1_9) return;
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getMainHandItem() != null && e.getMainHandItem().hasItemMeta() && e.getMainHandItem().getItemMeta().hasDisplayName()
-                && e.getMainHandItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getMainHandItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
         }
         if (e.getOffHandItem() != null && e.getOffHandItem().hasItemMeta() && e.getOffHandItem().getItemMeta().hasDisplayName()
-                && e.getOffHandItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getOffHandItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
             e.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onItemMoveEvent(InventoryMoveItemEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getItem() != null && e.getItem().hasItemMeta() && e.getItem().getItemMeta().hasDisplayName()
-                && e.getItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
 
             e.setCancelled(true);
         }
@@ -271,17 +270,17 @@ public class UseItem_ab1_16 implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onItemMove(InventoryDragEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getWhoClicked() instanceof Player) {
             Player p = (Player) e.getWhoClicked();
             if (e.getCursor() != null && e.getCursor().hasItemMeta() && e.getCursor().getItemMeta().hasDisplayName()
-                    && e.getCursor().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && e.getCursor().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 p.closeInventory();
                 e.setCancelled(true);
             }
 
             if (e.getOldCursor() != null && e.getOldCursor().hasItemMeta() && e.getOldCursor().getItemMeta().hasDisplayName()
-                    && e.getOldCursor().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && e.getOldCursor().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 p.closeInventory();
                 e.setCancelled(true);
             }
@@ -290,18 +289,18 @@ public class UseItem_ab1_16 implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onItemMove(InventoryClickEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getWhoClicked() instanceof Player) {
             Player p = (Player) e.getWhoClicked();
             if (e.getCursor() != null && e.getCursor().hasItemMeta() && e.getCursor().getItemMeta().hasDisplayName()
-                    && e.getCursor().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && e.getCursor().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 e.setCancelled(true);
                 p.closeInventory();
                 e.setCancelled(true);
 
             }
             if (e.getCurrentItem() != null && e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().hasDisplayName()
-                    && e.getCurrentItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && e.getCurrentItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 e.setCancelled(true);
                 p.closeInventory();
                 e.setCancelled(true);
@@ -312,16 +311,16 @@ public class UseItem_ab1_16 implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onItemMove(PlayerSwapHandItemsEvent e) {
         if (Main.minecraft1_8 || Main.minecraft1_9) return;
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         Player p = e.getPlayer();
         if (e.getOffHandItem() != null && e.getOffHandItem().hasItemMeta() && e.getOffHandItem().getItemMeta().hasDisplayName()
-                && e.getOffHandItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getOffHandItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
             p.closeInventory();
             e.setCancelled(true);
         }
 
         if (e.getMainHandItem() != null && e.getMainHandItem().hasItemMeta() && e.getMainHandItem().getItemMeta().hasDisplayName()
-                && e.getMainHandItem().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getMainHandItem().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
             p.closeInventory();
             e.setCancelled(true);
         }
@@ -329,11 +328,11 @@ public class UseItem_ab1_16 implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onItemMove(InventoryPickupItemEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getItem() != null && e.getItem().getItemStack() != null) {
             ItemStack item = e.getItem().getItemStack();
             if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()
-                    && item.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && item.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 e.setCancelled(true);
             }
         }
@@ -341,20 +340,20 @@ public class UseItem_ab1_16 implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlace(BlockPlaceEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getItemInHand() != null && e.getItemInHand().hasItemMeta() && e.getItemInHand().getItemMeta().hasDisplayName()
-                && e.getItemInHand().getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                && e.getItemInHand().getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
             e.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onDrop(PlayerDropItemEvent e) {
-        if (!Select_config.UseItem_BlockMoveAndDrop || !Select_config.UseItem_Enable) return;
+        if (!SelectConfig.UseItem_BlockMoveAndDrop || !SelectConfig.UseItem_Enable) return;
         if (e.getItemDrop() != null && e.getItemDrop().getItemStack() != null) {
             ItemStack item = e.getItemDrop().getItemStack();
             if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()
-                    && item.getItemMeta().getDisplayName().equals(Select_config.UseItem_Name)) {
+                    && item.getItemMeta().getDisplayName().equals(SelectConfig.UseItem_Name)) {
                 e.setCancelled(true);
             }
         }

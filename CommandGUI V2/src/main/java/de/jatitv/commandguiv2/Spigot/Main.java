@@ -1,7 +1,8 @@
 package de.jatitv.commandguiv2.Spigot;
+//s<ds
 
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
 import de.jatitv.commandguiv2.Spigot.system.Load;
+import de.jatitv.commandguiv2.Spigot.Objekte.Objekt;
 import de.jatitv.commandguiv2.Spigot.system.send;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -55,7 +56,7 @@ public final class Main extends JavaPlugin {
     public static boolean minecraft1_15;
     public static boolean minecraft1_16;
     public static boolean minecraft1_17;
-    public static HashMap<String, GUI_Objekt> guiHashMap = new HashMap<>();
+    public static HashMap<String, Objekt> guiHashMap = new HashMap<>();
     public static ArrayList<String> allAliases = new ArrayList<>();
 
     @Override

@@ -1,20 +1,19 @@
 package de.jatitv.commandguiv2.Spigot.Objekte;
 
-import de.jatitv.commandguiv2.Spigot.cmdManagement.GUI_CmdExecuter_GUI;
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.system.send;
+import de.jatitv.commandguiv2.Spigot.cmdManagement.CmdExecuter_GUI;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GUI_Obj_Select {
+public class Obj_Select {
     public static void onSelect() {
         Main.guiHashMap.clear();
+        Main.allAliases.clear();
         File f = new File(Main.getPath() + "/GUIs/");
         File[] fileArray = f.listFiles();
-        Main.allAliases.clear();
 
         for (File config_gui : fileArray) {
             Main.allAliases.add(config_gui.getName().replace(".yml", ""));
@@ -41,9 +40,9 @@ public class GUI_Obj_Select {
                 Boolean Command_Alias_Enable = yamlConfiguration_gui.getBoolean("Command.Alias");
                 Boolean Command_Permission = yamlConfiguration_gui.getBoolean("Command.Permission.Required");
 
-                ArrayList<GUI_Slot> slots = new ArrayList<>();
+                ArrayList<Slot> slots = new ArrayList<>();
                 for (String key : yamlConfiguration_gui.getConfigurationSection("Slots").getKeys(false)) {
-                    GUI_Slot slot = new GUI_Slot(yamlConfiguration_gui.getInt("Slots." + key + ".Slot") - 1,
+                    Slot slot = new Slot(yamlConfiguration_gui.getInt("Slots." + key + ".Slot") - 1,
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Enable"),
                          //   yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.Removable"),
                             yamlConfiguration_gui.getBoolean("Slots." + key + ".Item.Empty"),
@@ -95,10 +94,11 @@ public class GUI_Obj_Select {
                     slots.add(slot);
 
                 }
-                GUI_Objekt objekt = new GUI_Objekt(GUI_Enable, GUI_Lines, GUI_Name, GUI_FillItem_Enable, GUI_FillItem_Item,
+                Objekt objekt = new Objekt(GUI_Enable, GUI_Lines, GUI_Name, GUI_FillItem_Enable, GUI_FillItem_Item,
                         config_gui.getName().replace(".yml", ""), Command_Alias_Enable, Command_Permission, slots);
+
                 Main.guiHashMap.put(config_gui.getName().replace(".yml", ""), objekt);
-                GUI_CmdExecuter_GUI.arg1.put(config_gui.getName().replace(".yml", ""), "commandgui.gui." + config_gui.getName().replace(".yml", ""));
+                CmdExecuter_GUI.arg1.put(config_gui.getName().replace(".yml", ""), "commandgui.gui." + config_gui.getName().replace(".yml", ""));
 
                 try {
                     yamlConfiguration_gui.save(config_gui);

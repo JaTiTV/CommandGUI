@@ -12,7 +12,6 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Main;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;

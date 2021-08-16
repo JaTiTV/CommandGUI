@@ -2,10 +2,10 @@
 
 package de.jatitv.commandguiv2.Spigot.Listener;
 
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
 import de.jatitv.commandguiv2.Spigot.Main;
 import de.jatitv.commandguiv2.Spigot.system.TextBuilder;
 import de.jatitv.commandguiv2.Spigot.system.database.Select_Database;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
@@ -23,8 +23,8 @@ public class JoinEvent implements Listener {
         Select_Database.nameCheck(player);
         if (player.hasPermission("commandgui.admin") || player.isOp()) {
             if (!foundVersion.equals(Main.update_version)) {
-                if (!Select_config.DisableUpdateChecker) {
-                    if (Select_config.UpdateCheckOnJoin) {
+                if (!SelectConfig.DisableUpdateChecker) {
+                    if (SelectConfig.UpdateCheckOnJoin) {
                         new BukkitRunnable() {
                             @Override
                             public void run() {

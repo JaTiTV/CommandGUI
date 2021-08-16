@@ -3,14 +3,14 @@ package de.jatitv.commandguiv2.Spigot.gui;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import de.jatitv.commandguiv2.Spigot.Listener.GUI_Listener;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Objekt;
-import de.jatitv.commandguiv2.Spigot.Objekte.GUI_Slot;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_config;
-import de.jatitv.commandguiv2.Spigot.system.config.select.Select_msg;
 import de.jatitv.commandguiv2.Spigot.Main;
+import de.jatitv.commandguiv2.Spigot.Objekte.Slot;
 import de.jatitv.commandguiv2.Spigot.system.Replace;
+import de.jatitv.commandguiv2.Spigot.system.config.languages.SelectMessages;
+import de.jatitv.commandguiv2.Spigot.Objekte.Objekt;
+import de.jatitv.commandguiv2.Spigot.system.config.config.SelectConfig;
 import de.jatitv.commandguiv2.Spigot.system.send;
-import de.jatitv.plotsquaredgui.gui.guis.GUI_Menu;
+import de.jatitv.plotsquaredgui.api.PlotSquaredGUIapi;
 import io.github.solyze.plugmangui.inventories.PluginListGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -25,15 +25,15 @@ import org.bukkit.plugin.Plugin;
 import java.lang.reflect.Field;
 import java.util.UUID;
 
-public class GUI_GUI {
+public class OpenGUI {
     private static Plugin plugin = Main.plugin;
 
-    public static void openGUI(Player player, GUI_Objekt gui, String guiString) {
+    public static void openGUI(Player player, Objekt gui, String guiString) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
         switch (guiString) {
             case "plugin.PlotSquaredGUI":
                 if (Main.PlotSquaredGUI) {
-                    GUI_Menu.openGUI(player);
+                    PlotSquaredGUIapi.openMainGUI(player);
                 } else {
                     if (player.hasPermission("commandgui.admin")) {
                         send.player(player, Main.Prefix + " §4PlotSquaredGUI could not be found! §9Please download it here: " +
@@ -60,8 +60,7 @@ public class GUI_GUI {
             Inventory inventory;
             if (Main.PaPi) {
                 inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(player, GUI_Listener.GUICode + gui.GUI_Name)));
-            } else
-                inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(GUI_Listener.GUICode + gui.GUI_Name)));
+            } else inventory = Bukkit.createInventory((InventoryHolder) null, 9 * gui.GUI_Lines, (Replace.replace(GUI_Listener.GUICode + gui.GUI_Name)));
 
             if (gui.GUI_FillItem_Enable) {
                 ItemStack glass;
@@ -76,7 +75,7 @@ public class GUI_GUI {
                     inventory.setItem(i, glass);
                 }
             }
-            for (GUI_Slot slot : gui.GUI_Slots) {
+            for (Slot slot : gui.GUI_Slots) {
                 if (slot.Enable) {
                     if (slot.Empty) {
                         ItemStack air = new ItemStack(Material.AIR);
@@ -89,15 +88,15 @@ public class GUI_GUI {
                                 send.console(Main.Prefix + " §bGUI: §6" + Replace.replace(gui.GUI_Name).toString() + " §bSlot: §6" + (slot.Slot + 1) + " §7- " + Replace.replace(slot.Name));
                             } else {
 
-                                if (slot.Base64Value_Enable) {
+                                if (slot.Base64_Enable) {
                                     ItemStack item = new ItemStack(Main.Head);
                                     SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
                                     if (Main.PaPi) {
                                         itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
-                                        itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                        itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                     } else {
                                         itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
-                                        itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + Select_config.Currency));
+                                        itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                     }
                                     GameProfile profile = new GameProfile(UUID.randomUUID(), "");
                                     profile.getProperties().put("textures", new Property("textures", slot.Base64Value));
@@ -122,10 +121,10 @@ public class GUI_GUI {
                                         SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
                                         if (Main.PaPi) {
                                             itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
-                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                         } else {
                                             itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
-                                            itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + Select_config.Currency));
+                                            itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                         }
                                         itemMeta.setOwner(player.getName());
                                         item.setItemMeta(itemMeta);
@@ -140,10 +139,10 @@ public class GUI_GUI {
                                         SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
                                         if (Main.PaPi) {
                                             itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
-                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                         } else {
                                             itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
-                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                            itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + SelectConfig.Currency));
                                         }
                                         itemMeta.setOwner(slot.PlayerName);
                                         item.setItemMeta(itemMeta);
@@ -161,12 +160,11 @@ public class GUI_GUI {
                             ItemMeta itemMeta = item.getItemMeta();
                             if (Main.PaPi) {
                                 itemMeta.setDisplayName(Replace.replace(player, slot.Name.replace("[player]", player.getName())));
-                                itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + Select_config.Currency));
+                                itemMeta.setLore(Replace.replacePrice(player, slot.Lore, slot.Price + " " + SelectConfig.Currency));
                             } else {
                                 itemMeta.setDisplayName(Replace.replace(slot.Name.replace("[player]", player.getName())));
-                                itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + Select_config.Currency));
+                                itemMeta.setLore(Replace.replacePrice(slot.Lore, slot.Price + " " + SelectConfig.Currency));
                             }
-
                             item.setItemMeta(itemMeta);
                             Integer am;
                             if (slot.ItemAmount == 0) {
@@ -181,6 +179,6 @@ public class GUI_GUI {
 
             player.openInventory(inventory);
             send.debug(plugin, "§6" + player.getName() + " §5Open §6" + Replace.replace(gui.GUI_Name) + " §5" + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
-        } else player.sendMessage(Select_msg.GUIIsDisabled.replace("[gui]", Replace.replace(gui.GUI_Name)));
+        } else player.sendMessage(SelectMessages.GUIIsDisabled.replace("[gui]", Replace.replace(gui.GUI_Name)));
     }
 }

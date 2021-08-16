@@ -1,6 +1,5 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
-import net.md_5.bungee.BungeeCord;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
