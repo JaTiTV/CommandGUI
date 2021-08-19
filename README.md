@@ -6,7 +6,7 @@
 
 # Links
 * [Download](https://www.spigotmc.org/resources/commandgui-cgui.90671/)
-* [Discord](https://discord.gg/vRyXFFterJ)
+* [Discord](dc.T2Code.net)
 
 <img src="https://i.imgur.com/mmnBjBG.png" width="600">
 
