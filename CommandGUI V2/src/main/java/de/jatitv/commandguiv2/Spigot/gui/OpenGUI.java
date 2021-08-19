@@ -30,28 +30,28 @@ public class OpenGUI {
 
     public static void openGUI(Player player, Objekt gui, String guiString) {
         Long long_ = Long.valueOf(System.currentTimeMillis());
-        switch (guiString) {
-            case "plugin.PlotSquaredGUI":
-                if (Main.PlotSquaredGUI) {
-                    PlotSquaredGUIapi.openMainGUI(player);
-                } else {
-                    if (player.hasPermission("commandgui.admin")) {
-                        send.player(player, Main.Prefix + " §4PlotSquaredGUI could not be found! §9Please download it here: " +
-                                "§6https://spigotmc.org/resources/plotsquaredgui.77506/");
-                    }
-                }
-                return;
-            case "plugin.PlugManGUI":
-                if (Main.PlugManGUI){
-                    player.openInventory((new PluginListGUI(54,1)).getInventory());
-                } else {
-                    if (player.hasPermission("commandgui.admin")) {
-                        send.player(player, Main.Prefix + " §4PlugManGUI could not be found! §9Please download it here: " +
-                                "§6https://spigotmc.org/resources/plugmangui.87599/");
-                    }
-                }
-                return;
-        }
+        // ToDo 2.5.4 switch (guiString) {
+        // ToDo 2.5.4     case "plugin.PlotSquaredGUI":
+        // ToDo 2.5.4         if (Main.PlotSquaredGUI) {
+        // ToDo 2.5.4             PlotSquaredGUIapi.openMainGUI(player);
+        // ToDo 2.5.4         } else {
+        // ToDo 2.5.4             if (player.hasPermission("commandgui.admin")) {
+        // ToDo 2.5.4                 send.player(player, Main.Prefix + " §4PlotSquaredGUI could not be found! §9Please download it here: " +
+        // ToDo 2.5.4                         "§6https://spigotmc.org/resources/plotsquaredgui.77506/");
+        // ToDo 2.5.4             }
+        // ToDo 2.5.4         }
+        // ToDo 2.5.4         return;
+        // ToDo 2.5.4     case "plugin.PlugManGUI":
+        // ToDo 2.5.4         if (Main.PlugManGUI){
+        // ToDo 2.5.4             player.openInventory((new PluginListGUI(54,1)).getInventory());
+        // ToDo 2.5.4         } else {
+        // ToDo 2.5.4             if (player.hasPermission("commandgui.admin")) {
+        // ToDo 2.5.4                 send.player(player, Main.Prefix + " §4PlugManGUI could not be found! §9Please download it here: " +
+        // ToDo 2.5.4                         "§6https://spigotmc.org/resources/plugmangui.87599/");
+        // ToDo 2.5.4             }
+        // ToDo 2.5.4         }
+        // ToDo 2.5.4         return;
+        // ToDo 2.5.4 }
 
         if (Main.minecraft1_13) {
             GUI_Listener.GUICode = "";

@@ -12,6 +12,8 @@ import java.util.List;
 
 public class ConfigCreate {
 
+    public static Integer ConfigVersion = 2;
+
     private static Boolean UpdateCheckOnJoin = true;
     private static Boolean Debug = false;
     private static Boolean HelpAlias = true;
@@ -96,8 +98,7 @@ public class ConfigCreate {
         File config = new File(Main.getPath(), "config.yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(config);
 
-
-
+        yamlConfiguration.set("ConfigVersion", ConfigVersion);
 
         set("Plugin.UpdateCheckOnJoin", UpdateCheckOnJoin, yamlConfiguration);
         set("Plugin.Debug", Debug, yamlConfiguration);

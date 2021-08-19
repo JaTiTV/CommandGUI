@@ -170,9 +170,9 @@ public class Load {
             Bukkit.getServer().getPluginManager().registerEvents(new UseItem_1_10bis1_15(), plugin);
         } else Bukkit.getServer().getPluginManager().registerEvents(new UseItem_ab1_16(), plugin);
 
-        if (!SelectConfig.DisableUpdateChecker) {
-            UpdateChecker.onUpdateCheck();
-        } else send.console(Main.Prefix + " §4UpdateCheck is disabled!");
+
+        UpdateChecker.onUpdateCheck();
+        UpdateChecker.onUpdateCheckTimer();
         Metrics.Bstats();
         Main.addonLoad();
         send.console(Prefix + " §8-------------------------------");

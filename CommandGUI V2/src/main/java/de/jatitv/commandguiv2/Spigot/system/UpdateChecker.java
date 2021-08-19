@@ -12,7 +12,10 @@
 package de.jatitv.commandguiv2.Spigot.system;
 
 import de.jatitv.commandguiv2.Spigot.Main;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -24,37 +27,59 @@ import java.util.function.Consumer;
 
 public class UpdateChecker {
 
-    public static void onUpdateCheck() {
+    public static void sendUpdateMsg(String Prefix, String foundVersion, String update_version) {
+        send.console("§4=========== " + Prefix + " §4===========");
+        send.console("§6A new version was found!");
+        send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + update_version);
+        send.console("§6You can download it here: §e" + Main.Spigot);
+        send.console("§6You can find more information on Discord: §e" + Main.Discord);
+        send.console("§4=========== " + Prefix + " §4===========");
+    }
+
+    public static void sendUpdateMsg(String Prefix, String foundVersion, String update_version, Player player) {
+        TextComponent comp = new TextBuilder(Prefix + " §6A new version was found!")
+                .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
+        player.spigot().sendMessage(comp);
+        TextComponent comp1 = new TextBuilder(Prefix + " §c" + foundVersion + " §7-> §a" + update_version)
+                .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
+        player.spigot().sendMessage(comp1);
+        TextComponent comp2 = new TextBuilder(Prefix + " §6You can find more information on Discord.")
+                .addHover("§e" + Main.Discord).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Discord).build();
+        player.spigot().sendMessage(comp2);
+    }
+
+    public static void onUpdateCheckTimer() {
         int taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
             public void run() {
                 (new UpdateChecker(Main.plugin, Main.SpigotID)).getVersion((update_version) -> {
                     String foundVersion = Main.plugin.getDescription().getVersion();
                     Main.update_version = update_version;
-
                     if (!foundVersion.equalsIgnoreCase(update_version)) {
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
-                                send.console("§6A new version was found!");
-                                send.console("§6Your version: §c" + foundVersion + " §7- §6Current version: §a" + update_version);
-                                send.console("§6You can download it here: §e" + Main.Spigot);
-                                send.console("§6You can find more information on Discord: §e" + Main.Discord);
-                                send.console("§4=========== §8[§4Command§9GUI§8] §4===========");
+                                sendUpdateMsg(Main.Prefix, foundVersion, update_version);
                             }
                         }.runTaskLater(Main.plugin, 600L);
-                    } else {
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                send.console(Main.Prefix + " §2No update found");
-                            }
-                        }.runTaskLater(Main.plugin, 120L);
                     }
-
                 });
             }
         }, 0L, 20 * 60 * 60L);
+    }
+
+    public static void onUpdateCheck() {
+        (new UpdateChecker(Main.plugin, Main.SpigotID)).getVersion((update_version) -> {
+            String foundVersion = Main.plugin.getDescription().getVersion();
+            Main.update_version = update_version;
+            if (foundVersion.equalsIgnoreCase(update_version)) {
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        send.console(Main.Prefix + " §2No update found.");
+                    }
+                }.runTaskLater(Main.plugin, 120L);
+            }
+        });
     }
 
     private JavaPlugin plugin;

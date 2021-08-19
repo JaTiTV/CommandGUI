@@ -25,6 +25,7 @@ permissions:
     description: All permissions from CommandGUI
     default: op
     children:
+      commandgui.updatemsg: true
       commandgui.command: true
       commandgui.get.guiitem.at.login: true
       commandgui.useitem: true
@@ -42,6 +43,9 @@ permissions:
       commandgui.useitem: true
       commandgui.useitem.toggle: true
 
+  commandgui.updatemsg:
+    description: Players with this permission get the update message when joining if an update is available
+    default: op
   commandgui.command:
     description: Required permission to open GUIs via command
     default: op
