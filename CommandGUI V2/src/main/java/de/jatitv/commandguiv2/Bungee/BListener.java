@@ -11,12 +11,8 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 public class BListener implements Listener {
-    public static void hi(){
-        Bsend.console("§5hi");
-    }
     @EventHandler
     public void onPluginmessage(PluginMessageEvent event) {
-        Bsend.console(event.getTag());
         if (event.getTag().equalsIgnoreCase("commandgui:bungee")) {
 
             DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
