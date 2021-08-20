@@ -31,25 +31,45 @@ public class Commands {
     private static String Discord = Main.Discord;
 
     public static void info(CommandSender sender) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            send.player(player, Main.Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
+            send.player(player, Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
 
-        send.sender(sender, Main.Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
-        send.sender(sender, Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
 
-        if (Main.update_version.equalsIgnoreCase(Version)) {
-            send.sender(sender, Prefix + " §2Version: §6" + Version);
+            if (Main.update_version.equalsIgnoreCase(Version)) {
+                send.player(player, Prefix + " §2Version: §6" + Version);
+            } else {
+                player.sendMessage(Prefix + " §6A new version was found!");
+                TextComponent comp = new TextBuilder(Prefix + " §6Your version: §c" + Version + " §7- §6Current version: §a" + Main.update_version)
+                        .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
+                player.spigot().sendMessage(comp);
+                TextComponent comp2 = new TextBuilder(Prefix + " §6You can find more information on Discord.")
+                        .addHover("§e" + Main.Discord).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Discord).build();
+                player.spigot().sendMessage(comp2);
+            }
+
+
+            send.player(player, Prefix + " §2Spigot: §6" + Spigot);
+            send.player(player, Prefix + " §2Discord: §6" + Discord);
+            send.player(player, Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
         } else {
-            sender.sendMessage(Prefix + " §6A new version was found!");
-            TextComponent comp = new TextBuilder(Prefix + " §6Your version: §c" + Version + " §7- §6Current version: §a" + Main.update_version)
-                    .addHover("§6You can download it here: §e" + Main.Spigot).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Spigot).build();
-            sender.spigot().sendMessage(comp);
-            TextComponent comp2 = new TextBuilder(Prefix + " §6You can find more information on Discord.")
-                    .addHover("§e" + Main.Discord).addClickEvent(ClickEvent.Action.OPEN_URL, Main.Discord).build();
-            sender.spigot().sendMessage(comp2);
-        }
+            send.sender(sender, Main.Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
+            send.sender(sender, Prefix + " §2Autor: §6" + String.valueOf(Autor).replace("[", "").replace("]", ""));
 
-        send.sender(sender, Prefix + " §2Spigot: §6" + Spigot);
-        send.sender(sender, Prefix + " §2Discord: §6" + Discord);
-        send.sender(sender, Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
+            if (Main.update_version.equalsIgnoreCase(Version)) {
+                send.sender(sender, Prefix + " §2Version: §6" + Version);
+            } else {
+                send.console("§6A new version was found!");
+                send.console("§6Your version: §c" + Version + " §7- §6Current version: §a" + Main.update_version);
+                send.console("§6You can download it here: §e" + Main.Spigot);
+                send.console("§6You can find more information on Discord: §e" + Main.Discord);
+            }
+
+            send.sender(sender, Prefix + " §2Spigot: §6" + Spigot);
+            send.sender(sender, Prefix + " §2Discord: §6" + Discord);
+            send.sender(sender, Prefix + "§4======= §8[§4Command§9GUI§8] §4=======");
+        }
     }
 
     public static void reload(CommandSender sender) {
