@@ -34,6 +34,7 @@ public class Metrics {
         int pluginId = Main.BstatsID; // <-- Replace with the id of your plugin!
         Metrics metrics = new Metrics(Main.plugin, pluginId);
         metrics.addCustomChart(new Metrics.SimplePie("updatecheckonjoin", () -> String.valueOf(SelectConfig.UpdateCheckOnJoin)));
+        metrics.addCustomChart(new Metrics.SimplePie("storage_type_mysql", () -> SelectConfig.Storage));
     }
 
     private final Plugin plugin;
