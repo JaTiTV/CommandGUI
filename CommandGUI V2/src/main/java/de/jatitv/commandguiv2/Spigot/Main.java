@@ -86,7 +86,7 @@ public final class Main extends JavaPlugin {
         } else Head = Material.valueOf("PLAYER_HEAD");
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI").isEnabled()) {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             PaPi = true;
         }
 
@@ -102,11 +102,11 @@ public final class Main extends JavaPlugin {
     }
 
     public static void addonLoad(){
-        if (Bukkit.getPluginManager().getPlugin("PlotSquaredGUI").isEnabled()) {
+        if (Bukkit.getPluginManager().getPlugin("PlotSquaredGUI") != null) {
             PlotSquaredGUI = true;
             addonEnable(Bukkit.getPluginManager().getPlugin("PlotSquaredGUI"));
         }
-        if (Bukkit.getPluginManager().getPlugin("PlugManGUI").isEnabled()) {
+        if (Bukkit.getPluginManager().getPlugin("PlugManGUI") != null) {
             PlugManGUI = true;
             addonEnable(Bukkit.getPluginManager().getPlugin("PlugManGUI"));
         }
@@ -114,10 +114,6 @@ public final class Main extends JavaPlugin {
 
     public static void addonEnable(Plugin plugin) {
         send.console(Prefix + " §aAddon for: §e" + plugin.getName() + "§7 - Version: " + plugin.getDescription().getVersion() + " §aloaded successfully!");
-    }
-
-    public static void addonNotFound() {
-
     }
 
     @Override
