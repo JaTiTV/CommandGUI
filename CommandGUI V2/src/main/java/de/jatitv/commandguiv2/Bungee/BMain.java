@@ -3,7 +3,8 @@ package de.jatitv.commandguiv2.Bungee;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public final class BMain extends Plugin {
-    private static Plugin plugin;
+    public static Plugin plugin;
+    public static String update_version = null;
 
     public static String Prefix = "§8[§4C§9GUI§8]";
 
@@ -12,7 +13,7 @@ public final class BMain extends Plugin {
     public static Integer SpigotID = 90671;
     public static Integer BstatsID = 10840;
     public static String Spigot = "https://www.spigotmc.org/resources/" + SpigotID;
-    public static String Discord = "https://discord.gg/vRyXFFterJ";
+    public static String Discord = "http://dc.t2code.net";
 
     @Override
     public void onEnable() {
@@ -42,6 +43,8 @@ public final class BMain extends Plugin {
 
         Bsend.console(Prefix + " §2Plugin loaded successfully." + " §7- §e" + (System.currentTimeMillis() - long_.longValue()) + "ms");
         Bsend.console(Prefix + "§4==============================================================================");
+        BUpdateChecker.onUpdateCheck();
+        BUpdateChecker.onUpdateCheckTimer();
     }
 
     @Override
